@@ -6630,8 +6630,7 @@ Transform:
   m_LocalPosition: {x: 0.34608158, y: 0.43063557, z: -0.006135093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7339753473110492459}
+  m_Children: []
   m_Father: {fileID: 5418884511408451371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9196987336573309532
@@ -7116,7 +7115,7 @@ MonoBehaviour:
         _maskValue: 0
         selectedTypes: 
       locationPrefabList: []
-  _tileProvider: {fileID: 265565014636921591}
+  _tileProvider: {fileID: 0}
   _previewOptions:
     isPreviewEnabled: 0
 --- !u!114 &2654978998385147197
@@ -8305,50 +8304,6 @@ MonoBehaviour:
   characterPortraits:
   - {fileID: 21300000, guid: dc359a51ef5d87843ad6fa5857b030e5, type: 3}
   facingDirection: 0
---- !u!1 &4748117748584331602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7339753473110492459}
-  - component: {fileID: 265565014636921591}
-  m_Layer: 0
-  m_Name: TileProvider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7339753473110492459
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4748117748584331602}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3659957821006464733}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &265565014636921591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4748117748584331602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7ff8ed3b76a4ee5a451d64a5393e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4756595090506870967
 GameObject:
   m_ObjectHideFlags: 0
@@ -15244,7 +15199,6 @@ GameObject:
   - component: {fileID: 5716373193295711492}
   - component: {fileID: 7776012543760205945}
   - component: {fileID: 8496318919213552222}
-  - component: {fileID: 214946783255652371}
   - component: {fileID: 6278678716252783838}
   - component: {fileID: 1301062582169038756}
   - component: {fileID: 3824509208093080532}
@@ -15257,7 +15211,6 @@ GameObject:
   - component: {fileID: 2865636931048948386}
   - component: {fileID: 7523637999648785003}
   - component: {fileID: 1313882960988698016}
-  - component: {fileID: 7440281270723557003}
   m_Layer: 0
   m_Name: Flow Engine
   m_TagString: Untagged
@@ -15529,9 +15482,9 @@ MonoBehaviour:
   itemId: 2
   orderList:
   - {fileID: 9015466352094451558}
-  - {fileID: 7440281270723557003}
+  - {fileID: 0}
   - {fileID: 2939813518309417787}
-  eventHandler: {fileID: 214946783255652371}
+  eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
@@ -15577,20 +15530,6 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
---- !u!114 &214946783255652371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8861555758513075961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentNode: {fileID: 7776012543760205945}
-  waitForFrames: 1
 --- !u!114 &6278678716252783838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15824,26 +15763,6 @@ MonoBehaviour:
   customButtonIcon: {fileID: 21300000, guid: 0958bf3dd415e974e90f978b50a845ee, type: 3}
   setIconButton: {fileID: 0}
   showIcon: 1
---- !u!114 &7440281270723557003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8861555758513075961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: AR
-  description: 
-  targetNode: {fileID: 0}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
 --- !u!1 &8950306360483522942
 GameObject:
   m_ObjectHideFlags: 0

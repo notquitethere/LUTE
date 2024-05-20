@@ -38,3 +38,15 @@ MonoBehaviour:
     UnlockedSound: {fileID: 0}
     ProgressTarget: 5
     ProgressCurrent: 0
+  - AchievementID: Finish
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 0
+    Title: First Experience
+    Description: Complete the simple experience
+    Points: 50
+    LockedImage: {fileID: 0}
+    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 1
+    ProgressCurrent: 0

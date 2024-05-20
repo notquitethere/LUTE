@@ -106,7 +106,6 @@ public class MapboxControls : EventWindow
 
     private void OnEnable()
     {
-        //ensure that quad tree, spawn on map, abstract map are passed in or set here without trying to find objects too much
         map = GameObject.FindObjectOfType<QuadTreeCameraMovement>();
         spawnOnMap = map.GetComponent<SpawnOnMap>();
         cameraBillboard = spawnOnMap.tracker.GetComponent<CameraBillboard>(); //ensure that tracker is set elsewhere
@@ -124,21 +123,23 @@ public class MapboxControls : EventWindow
         _locationShowNames.Clear();
 
         //get all location variables from the flow engine
-        var locations = engine.GetComponents<LocationVariable>();
-        foreach (var loc in locations)
-        {
-            //ensure we can access the location value
-            if (loc.Scope == VariableScope.Global)
+if(engine != null)
+{        var locations = engine.GetComponents<LocationVariable>();
+            foreach (var loc in locations)
             {
-                var locVal = Conversions.StringToLatLon(loc.Value);
-                if (locVal != null)
+                //ensure we can access the location value
+                if (loc.Scope == VariableScope.Global)
                 {
-                    var locString = string.Format("{0}, {1}", locVal.x, locVal.y);
-                    _locationStrings.Add(locString);
-                    _locationNames.Add(loc.Key);
-                    _locationSprites.Add(loc.locationSprite);
-                    _locationColors.Add(loc.locationColor);
-                    _locationShowNames.Add(loc.showLocationName);
+                    var locVal = Conversions.StringToLatLon(loc.Value);
+                    if (locVal != null)
+                    {
+                        var locString = string.Format("{0}, {1}", locVal.x, locVal.y);
+                        _locationStrings.Add(locString);
+                        _locationNames.Add(loc.Key);
+                        _locationSprites.Add(loc.locationSprite);
+                        _locationColors.Add(loc.locationColor);
+                        _locationShowNames.Add(loc.showLocationName);
+                    }
                 }
             }
         }
