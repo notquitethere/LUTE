@@ -3,3 +3,4 @@ Changelog {#changelog}
 v1.0.0(alpha)
 =========
 - Initital upload of LUTE in alpha stage (see the discussion and release page for more info)
+- Ensured that icons are correct
