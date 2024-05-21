@@ -125,6 +125,43 @@ public class SaveManager : MonoBehaviour
     // a saved game has been loaded. We delay taking action until the next 
     // frame (via a delegate) so that we know for sure which case we're dealing with.
 
+    protected System.Action loadAction;
+
+    protected virtual void OnEnable()
+    {
+        SaveManagerSignals.OnSavePointLoaded += OnSavePointLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    protected virtual void OnDisable()
+    {
+        SaveManagerSignals.OnSavePointLoaded -= OnSavePointLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    protected virtual void OnSavePointLoaded(string savePointKey)
+    {
+        var key = savePointKey;
+        loadAction = () => ExecuteNodes(key);
+    }
+
+    protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(mode == LoadSceneMode.Additive)
+        {
+            return;
+        }
+
+        // We first assume that this is a 'normal' scene load rather than a saved game being loaded.
+        // If we subsequently receive a notification that a saved game was loaded then the load action 
+        // set here will be overridden by the OnSavePointLoaded callback above.
+
+        if (loadAction == null)
+        {
+            loadAction = ExecuteStartNode;
+        }
+    }
+
     public virtual void AddSavePoint(string savePointKey, string savePointDescription)
     { }
 }
