@@ -4,6 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(CameraManager))]
 [RequireComponent(typeof(StateManager))]
 [RequireComponent(typeof(GlobalVariables))]
+#if UNITY_5_3_OR_NEWER
+[RequireComponent(typeof(SaveManager))]
+[RequireComponent(typeof(SaveLog))]
+
+#endif
 public class LogaManager : MonoBehaviour
 {
     // Singleton pattern that uses volatile to ensure that assignment to the instance variable completes before the instance variable can be accessed.
@@ -16,6 +21,11 @@ public class LogaManager : MonoBehaviour
     public CameraManager CameraManager { get; private set; }
     public StateManager StateManager { get; private set; }
     public GlobalVariables GlobalVariables { get; private set; }
+#if UNITY_5_3_OR_NEWER
+    public SaveManager SaveManager { get; private set; }
+    public SaveLog SaveLog { get; private set; }
+
+#endif
 
     private void Awake()
     {
@@ -23,6 +33,10 @@ public class LogaManager : MonoBehaviour
         CameraManager = GetComponent<CameraManager>();
         StateManager = GetComponent<StateManager>();
         GlobalVariables = GetComponent<GlobalVariables>();
+#if UNITY_5_3_OR_NEWER
+        SaveManager = GetComponent<SaveManager>();
+        SaveLog = GetComponent<SaveLog>();
+#endif
     }
 
     /// <summary>
