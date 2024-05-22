@@ -22,6 +22,7 @@ public class SaveHistory
 
         string sceneName = SceneManager.GetActiveScene().name;
         var savePointData = SavePointData.Encode(savePointKey, savePointDesc, sceneName);
+
         savePoints.Add(savePointData);
     }
 

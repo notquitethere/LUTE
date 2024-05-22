@@ -27,7 +27,7 @@ public class EngineData
         var engineData = new EngineData();
         engineData.EngineName = engine.name;
 
-        for(int i = 0; i <engine.Variables.Count; i++)
+        for(int i = 0; i < engine.Variables.Count; i++)
         {
             var v = engine.Variables[i];
 
@@ -46,21 +46,19 @@ public class EngineData
 
     public static void Decode(EngineData engineData)
     {
-
         var go = GameObject.Find(engineData.EngineName);
         if (go == null)
         {
-            Debug.LogError("Failed to find engine with name: " + engineData.EngineName);
+            Debug.Log("Failed to find engine with name: " + engineData.EngineName);
             return;
         }
 
         var engine = go.GetComponent<BasicFlowEngine>();
         if (engine == null)
         {
-            Debug.LogError("Failed to find engine component in game object: " + engineData.EngineName);
+            Debug.Log("Failed to find engine component in game object: " + engineData.EngineName);
             return;
         }
-
         for (int i = 0; i < engineData.IntVars.Count; i++)
         {
             var intVar = engineData.IntVars[i];

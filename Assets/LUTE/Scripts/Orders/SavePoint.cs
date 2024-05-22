@@ -1,4 +1,3 @@
-using MoreMountains.Feedbacks;
 using UnityEngine;
 
 #if UNITY_5_3_OR_NEWER
@@ -43,6 +42,7 @@ public class SavePoint : Order
     [SerializeField] protected bool fireEvent = true;
     [Tooltip("Resume the game from this save point when the save is loaded")]
     [SerializeField] protected bool resumeOnLoad = true;
+    [SerializeField] protected bool autoSave = true;
 
     /// Mark this save point as the starting point - there should only be ONE of these PER scene
     public bool IsStartingPoint { get { return isStartingPoint; } }
@@ -84,14 +84,17 @@ public class SavePoint : Order
 
     public override void OnEnter()
     {
-        var saveManager = LogaManager.Instance.SaveManager;
+        if(autoSave)
+        {        
+            var saveManager = LogaManager.Instance.SaveManager;
+            
+            saveManager.AddSavePoint(SavePointKey, SavePointDescription);
 
-        saveManager.AddSavePoint(SavePointKey, SavePointDescription);
-
-        if (fireEvent)
-        {
-            SavePointLoaded.NotifyEventHandlers(SavePointKey);
-        }
+            if (fireEvent)
+            {
+                SavePointLoaded.NotifyEventHandlers(SavePointKey);
+            }
+        }   
 
         Continue();
     }

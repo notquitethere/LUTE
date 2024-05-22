@@ -80,7 +80,7 @@ public class SaveMenu : MonoBehaviour
     {
         var saveManager = LogaManager.Instance.SaveManager;
 
-        bool showSaveLoadButtons = !autoSave;
+        bool showSaveLoadButtons = true; //!autoSave; - could only allow if auto save is off?
         if(saveButton.IsActive() != showSaveLoadButtons)
         {
             saveButton.gameObject.SetActive(showSaveLoadButtons);
