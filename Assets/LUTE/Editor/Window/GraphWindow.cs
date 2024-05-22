@@ -1731,6 +1731,16 @@ public class GraphWindow : EventWindow
         return result;
     }
 
+    /// Displays a temporary text alert in the center of the window (uses ShowNotification from EditorWindow)
+    public static void ShowNotification(string text)
+    {
+        EditorWindow window = EditorWindow.GetWindow(typeof(GraphWindow), false, "Flow Engine");
+        if(window != null)
+        {
+            window.ShowNotification(new GUIContent(text));
+        }
+    }
+
     protected static void ShowNodeInspector(Node node)
     {
         if (nodeInspector == null)

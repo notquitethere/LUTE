@@ -8,7 +8,7 @@ public class SaveData : MonoBehaviour
     protected const string EngineDataKey = "EngineData";
     protected const string LogKey = "LogData";
 
-    [Tooltip("List of engine objects in which its variables will be encoded and saved")]
+    [Tooltip("List of engine objects in which its variables will be encoded and saved - only integer is currently supported")]
     [SerializeField] protected List<BasicFlowEngine> engines = new List<BasicFlowEngine>();
 
     public virtual void Encode(List<SaveDataItem> saveDataItems)

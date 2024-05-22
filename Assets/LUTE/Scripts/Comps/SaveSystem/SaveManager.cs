@@ -162,7 +162,98 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    protected virtual void Start()
+    {
+        // on scene load may not be called so we call it here when the manager starts up
+        if (loadAction == null)
+            loadAction = ExecuteStartNode;
+    }
+
+    protected virtual void Update()
+    {
+        if (loadAction != null)
+        {
+            loadAction();
+            loadAction = null;
+        }
+    }
+
+    public string StartScene { get; set; }
+
+    public virtual int TotalSavePoints{ get { return saveHistory.TotalSavePoints; } }
+
+    public virtual int TotalRewoundSavePoints { get { return saveHistory.TotalRewoundSavePoints; } }
+
+    public virtual void SaveGame(string saveDataKey)
+    {
+        WriteSaveHistory(saveDataKey);
+    }
+
+    public void Load(string saveDataKey)
+    {
+        var key = saveDataKey;
+        loadAction = () => LoadSaveGame(key);
+    }
+
+    public static void DeleteSave(string saveDataKey)
+    {
+#if UNITY_WEBPLAYER || UNITY_WEBGL
+        PlayerPrefs.DeleteKey(saveDataKey);
+        PlayPrefs.Save();
+#else
+        var fullPath = GetFullFilePath(saveDataKey);
+        if (System.IO.File.Exists(fullPath))
+        {
+            System.IO.File.Delete(fullPath);
+
+        }
+#endif // UNITY_WEBPLAYER || UNITY_WEBGL
+    }
+    public bool HasSaveData(string saveDataKey)
+    {
+#if UNITY_WEBPLAYER || UNITY_WEBGL
+        return PlayerPrefs.HasKey(saveDataKey);
+#else
+        var fullPath = GetFullFilePath(saveDataKey);
+        return System.IO.File.Exists(fullPath);
+#endif // UNITY_WEBPLAYER || UNITY_WEBGL
+    }
     public virtual void AddSavePoint(string savePointKey, string savePointDescription)
-    { }
+    {
+        saveHistory.AddSavePoint(savePointKey, savePointDescription);
+        SaveManagerSignals.DoSavePointAdded(savePointKey, savePointDescription);
+    }
+
+    public virtual void RewindSavePoint()
+    {
+        if(saveHistory.TotalSavePoints > 0)
+        {
+            //Cannot rewind as we are at the first save point
+            if (saveHistory.TotalSavePoints > 1)
+            {
+                saveHistory.Rewind();
+            }
+            saveHistory.LoadLastSavePoint();
+        }
+    }
+
+    public virtual void FastForwardSavePoint()
+    {
+        if (saveHistory.TotalRewoundSavePoints > 0)
+        {
+            saveHistory.FastForward();
+            saveHistory.LoadLastSavePoint();
+        }
+    }
+
+    public virtual void ClearHistory()
+    {
+        saveHistory.Clear();
+    }
+
+    public virtual string GetDebugInfo()
+    {
+        return saveHistory.GetDebugInfo();
+    }
 }
 #endif // UNITY_5_3_OR_NEWER

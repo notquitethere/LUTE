@@ -38,7 +38,7 @@ public class SaveHistory
 
     /// Fast forwards to the next Save Point in the Save History.
     /// The most recently rewound Save Point is moved back to the main list of save points.
-    public void FastFoward()
+    public void FastForward()
     {
         if(rewoundSavePoints.Count > 0)
         {
