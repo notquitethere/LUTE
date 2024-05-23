@@ -111,12 +111,16 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    protected virtual void LoadSaveGame(string saveDataKey)
+    protected virtual void LoadSaveGame(string saveDataKey, bool customPoint, string customPointID)
     {
         if(ReadSaveHistory(saveDataKey))
         {
             saveHistory.ClearRewoundSavePoints();
-            saveHistory.LoadLastSavePoint();
+
+            if (!customPoint)
+                saveHistory.LoadLastSavePoint();
+            else
+                saveHistory.LoadSavePoint(customPointID);
         }
     }
 
@@ -189,10 +193,10 @@ public class SaveManager : MonoBehaviour
         WriteSaveHistory(saveDataKey);
     }
 
-    public void Load(string saveDataKey)
+    public void Load(string saveDataKey, bool customPoint = false, string customPointID = "")
     {
         var key = saveDataKey;
-        loadAction = () => LoadSaveGame(key);
+        loadAction = () => LoadSaveGame(key, customPoint, customPointID);
     }
 
     public static void DeleteSave(string saveDataKey)

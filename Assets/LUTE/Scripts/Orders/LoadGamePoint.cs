@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static SavePoint;
@@ -12,17 +13,29 @@ public class LoadGamePoint : Order
     [SerializeField] protected string saveKey = LogaConstants.DefaultSaveDataKey;
     [Tooltip("If true, load the game from this specific point when using the save data file provided")]
     [SerializeField] protected bool loadCustomPoint = false;
-    [Tooltip("If loading from specific point, provide the key that you wish to load")]
+    [Tooltip("If loading from specific point, provide the key that you wish to load; this should match the save point ID exactly.")]
     [SerializeField] protected string customKey = string.Empty;
+    [Tooltip("If true, return to the previous node if we do not have a save to load. Useful for when using menus that have a load function without a current saved game.")]
+    [SerializeField] protected bool returnToPreviousNode;
 
     public override void OnEnter()
     {
         var saveManager = LogaManager.Instance.SaveManager;
 
-        if (loadCustomPoint)
+        if (loadCustomPoint && !string.IsNullOrEmpty(customKey))
         {
-            //Get the latest save data and find the custom point
-            //If the custom point is found, load the game from that point
+            if (string.IsNullOrEmpty(saveManager.StartScene))
+            {
+                saveManager.StartScene = SceneManager.GetActiveScene().name;
+            }
+            if (saveManager.HasSaveData(saveKey))
+            {
+                saveManager.Load(saveKey, true, customKey);
+            }
+            else if (returnToPreviousNode)
+            {
+                ReturnToPriorNode();
+            }
         }
         else
         {
@@ -33,6 +46,38 @@ public class LoadGamePoint : Order
             if (saveManager.HasSaveData(saveKey))
             {
                 saveManager.Load(saveKey);
+            }
+            else if(returnToPreviousNode)
+            {
+                ReturnToPriorNode();
+            }
+        }
+    }
+
+    protected void ReturnToPriorNode()
+    {
+        //If we have been called by another node (such as when using a menu) and we do not have a save to load then we should return to this previous node
+        //Otherwise we will be left with a blank node and no way to progress
+        var engine = GetEngine();
+        var nodes = engine.GetComponents<Node>();
+        for (int i = 0; i < nodes.Length; i++)
+        {
+            var node = nodes[i];
+            var orders = node.OrderList;
+            foreach (var order in orders)
+            {
+                var nodesWithConnections = new List<Node>();
+                order.GetConnectedNodes(ref nodesWithConnections);
+                foreach (var connectedNode in nodesWithConnections)
+                {
+                    if (connectedNode == this.ParentNode)
+                    {
+                        engine.ExecuteNode(node);
+                        Continue();
+                        return;
+                    }
+
+                }
             }
         }
     }

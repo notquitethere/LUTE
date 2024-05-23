@@ -57,6 +57,20 @@ public class SaveHistory
         }
     }
 
+    public void LoadSavePoint(string savePointKey)
+    {
+        if(savePoints.Count > 0)
+        {
+            var savePointData = savePoints.Find(x => x.Contains(savePointKey));
+            if(savePointData == null)
+            {
+                Debug.LogError("Save point with key " + savePointKey + " not found.");
+                return;
+            }
+            SavePointData.Decode(savePointData);
+        }
+    }
+
     public void Clear()
     {
         savePoints.Clear();
