@@ -12,8 +12,10 @@ public class SaveMenu : MonoBehaviour
     [SerializeField] protected string saveKey = LogaConstants.DefaultSaveDataKey;
     [Tooltip("Auto load the most recent save when entering play")]
     [SerializeField] protected bool loadOnStart = false;
-    [Tooltip("Auto save the game after each Save Point Order is executed - will disable the usage of player saving (used for checkpoints)")]
+    [Tooltip("Auto save the game after each Save Point Order is executed")]
     [SerializeField] protected bool autoSave = true;
+    [Tooltip("Show all options in the save menu - if false, disables to use of player saving")]
+    [SerializeField] protected bool showAllOptions = true;
     [Tooltip("Delete save game data from disk when game is restarted - useful for debugging")]
     [SerializeField] protected bool deleteOnRestart = false;
     [SerializeField] protected CanvasGroup saveMenuGroup;
@@ -80,7 +82,7 @@ public class SaveMenu : MonoBehaviour
     {
         var saveManager = LogaManager.Instance.SaveManager;
 
-        bool showSaveLoadButtons = true; //!autoSave; - could only allow if auto save is off?
+        bool showSaveLoadButtons = showAllOptions; 
         if(saveButton.IsActive() != showSaveLoadButtons)
         {
             saveButton.gameObject.SetActive(showSaveLoadButtons);

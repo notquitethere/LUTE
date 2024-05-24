@@ -539,6 +539,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1574141152356793713, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_Name
+      value: SaveGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1679069515693664931, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -70
@@ -583,9 +587,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2113876764431934214, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113876764431934214, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113876764431934214, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2204481689014620952, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: m_text
       value: Demo Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224328490105860654, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_text
+      value: Example showcasing how the saving system works.
       objectReference: {fileID: 0}
     - target: {fileID: 2793266319110632298, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: m_text
@@ -691,6 +711,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4801827999338562974, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: levelName
+      value: SaveSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 5005454172811556574, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -717,6 +741,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5146470014015933038, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323958886632654052, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1659eff3d8dfb44e8fb47b7142587ea, type: 3}
+    - target: {fileID: 5323958886632654052, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5691202659968284460, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
@@ -783,6 +815,10 @@ PrefabInstance:
       propertyPath: m_text
       value: A game which will load the demo scene! You can customise this if you
         wish!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567813219211966056, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
+      propertyPath: m_text
+      value: Save System
       objectReference: {fileID: 0}
     - target: {fileID: 8844593644988335322, guid: e1ba173be15759c4b834a47d0a0f5072, type: 3}
       propertyPath: levelName
