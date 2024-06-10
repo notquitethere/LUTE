@@ -114,6 +114,7 @@ public class EngineEditor : Editor
             {
                 if (engine.Variables[i] == null)
                 {
+                    //If location variable then we should remove this from the map window also
                     engine.Variables.RemoveAt(i);
                 }
             }

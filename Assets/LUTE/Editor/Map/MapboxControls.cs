@@ -123,8 +123,9 @@ public class MapboxControls : EventWindow
         _locationShowNames.Clear();
 
         //get all location variables from the flow engine
-if(engine != null)
-{        var locations = engine.GetComponents<LocationVariable>();
+        if(engine != null)
+        {        
+            var locations = engine.GetComponents<LocationVariable>();
             foreach (var loc in locations)
             {
                 //ensure we can access the location value
