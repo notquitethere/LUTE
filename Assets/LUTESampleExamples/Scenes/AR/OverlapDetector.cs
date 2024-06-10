@@ -15,8 +15,13 @@ public class OverlapDetector : MonoBehaviour
         // Check if the other collider is the puzzle piece
         if (other.CompareTag("DragPiece"))
         {
+
+
             // Calculate the overlap area as a percentage of the puzzle piece's total area
             float overlapPercentage = CalculateOverlapPercentage(this.GetComponent<Collider>(), other);
+
+
+            Debug.Log("Overlap Detected with percentage: " + overlapPercentage);
 
             // If the overlap is sufficient, consider the puzzle solved
             if (overlapPercentage >= minimumOverlapPercentage)

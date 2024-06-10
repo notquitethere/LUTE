@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [OrderInfo("XR",
               "XRDragInteraction",
@@ -16,9 +17,15 @@ public class XRDragInteraction : Order
     public Material transparentMaterial;
 
 
-    public Vector3 scaleOfObject;
+    private Vector3 scaleOfObject;
+
+    [Tooltip("The offset to spawn the transparent object at")]
     public Vector3 dragOffset;
 
+    //int variable for overlap percentage, make it so it can't go lower than 0 and can't go higher than 100
+    
+    [Range(0, 100)]
+    public float minimumOverlapPercentage = 75;
 
 
 
@@ -28,6 +35,11 @@ public class XRDragInteraction : Order
 
         //Destroy the transparent object
         Destroy(transparentObject);
+
+        //get the grabInteractable component of the object to drag and disable it
+        XRGrabInteractable grabInteractable = gameObjectToDrag.GetComponent<XRGrabInteractable>();
+        grabInteractable.enabled = false;
+
 
         Continue();
     }
@@ -42,14 +54,14 @@ public class XRDragInteraction : Order
         //instantiate a transparent version of the object to drag
         transparentObject = Instantiate(gameObjectToDrag, gameObjectToDrag.transform.position + dragOffset, gameObjectToDrag.transform.rotation);
 
-        transparentObject.transform.localScale = scaleOfObject;
+        //transparentObject.transform.localScale = Vector3.Scale(transparentObject.transform.localScale, scaleOfObject);
 
         //set tag to Piece so that the overlap detector can detect it
         gameObjectToDrag.tag = "DragPiece";
 
         //attach the overlap detector script to the transparent object
         var overlapDetector = transparentObject.AddComponent<OverlapDetector>();
-        overlapDetector.minimumOverlapPercentage = 0.75f;
+        overlapDetector.minimumOverlapPercentage = minimumOverlapPercentage;
         //set the callback function to be the OnPuzzleSolved function
         overlapDetector.PuzzleSolved += OnPuzzleSolved;
 
@@ -57,7 +69,8 @@ public class XRDragInteraction : Order
         transparentObject.GetComponent<BoxCollider>().isTrigger = true;
 
         //add rigidbody to the transparent object
-        var rigidbody = transparentObject.AddComponent<Rigidbody>();
+        transparentObject.AddComponent<Rigidbody>();
+        Rigidbody rigidbody = transparentObject.GetComponent<Rigidbody>();
         rigidbody.useGravity = false;
         rigidbody.isKinematic = true;
 
