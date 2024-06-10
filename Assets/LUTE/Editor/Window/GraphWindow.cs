@@ -488,20 +488,20 @@ public class GraphWindow : EventWindow
 
         if (storyEngine.ShowAnnotations)
         {
-            if (labels.Length > 0)
+            if (labels != null && labels.Length > 0)
                 for (int i = 0; i < labels.Length; i++)
                 {
                     DrawLabel(i);
                 }
 
-            if (annotationLines.Length > 0)
+            if (annotationLines != null && annotationLines.Length > 0)
                 for (int i = 0; i < annotationLines.Length; i++)
                 {
                     if (annotationLines[i].Start.position != Vector2.zero && annotationLines[i].End.position != Vector2.zero)
                         DrawLine(i);
                 }
 
-            if (annotationBoxes.Length > 0)
+            if (annotationBoxes != null && annotationBoxes.Length > 0)
                 for (int i = 0; i < annotationBoxes.Length; i++)
                 {
                     DrawAnnotationBox(i);
