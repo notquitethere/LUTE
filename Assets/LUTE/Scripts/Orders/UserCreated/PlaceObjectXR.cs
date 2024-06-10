@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARFoundation.Samples;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 [OrderInfo("XR",
@@ -75,6 +76,14 @@ public class PlaceObjectXR : Order
         //get the objectspawner from teh XR game object and remove the object from the object manager
         ObjectSpawner objectSpawner = GameObject.Find("XR").GetComponentInChildren<ObjectSpawner>();
         objectSpawner.objectSpawned -= OnObjectSpawned;
+
+        //get the XRGrabInteractable component of the object
+        XRGrabInteractable grabInteractable = obj.GetComponentInChildren<XRGrabInteractable>();
+
+        //set the track position, track rotation and track scale to the rotateable , moveable and scaleable variables
+        grabInteractable.trackPosition = moveable;
+        grabInteractable.trackRotation = rotateable;
+        grabInteractable.trackScale = scaleable;
 
        //remove the object from the object spawner objectPrefabs list
        objectSpawner.objectPrefabs.Remove(m_PrefabToPlace);

@@ -252,9 +252,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
 
 
-            objectSpawned?.Invoke(newObject);
-
-
             //if object doesn't have XRGrabInteractable component
             if (newObject.GetComponent<XRGrabInteractable>() == null)
             {
@@ -289,6 +286,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             //add one to the index for spawning 
             m_SpawnOptionIndex++;
+
+
+
+            objectSpawned?.Invoke(newObject);
 
 
             return true;
