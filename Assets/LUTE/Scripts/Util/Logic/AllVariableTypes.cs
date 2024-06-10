@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Mapbox.Examples;
 using Mapbox.Utils;
 using UnityEngine;
+using static BooleanVariable;
+using static FloatVariable;
 
 public static class AllVariableTypes
 {
@@ -21,6 +23,10 @@ public static class AllVariableTypes
         typeof(NodeVariable),
         typeof(InventoryVariable),
         typeof(DiceVariable),
+        typeof(BooleanVariable),
+        typeof(FloatVariable),
+        typeof(StringVariable),
+
     };
 }
 
@@ -41,11 +47,17 @@ public partial struct AnyVariableData
     public NodeData nodeData;
     public InventoryData inventoryData;
     public DiceData diceData;
+    public BooleanData booleanData;
+    public FloatData floatData;
+    public StringData stringData;
 
     public bool HasReference(Variable variable)
     {
         return integerData.integerRef == variable ||
-                locationData.locationRef == variable;
+                locationData.locationRef == variable ||
+                booleanData.booleanRef == variable ||
+                   floatData.floatRef == variable ||
+                   stringData.stringRef == variable;
     }
 }
 
@@ -123,7 +135,30 @@ public class AnyVariableAndDataPair
                 new TypeActions( "diceData",
                     (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.diceData.Value); },
                     (anyVar) => anyVar.data.diceData.GetDescription(),
-                    (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.diceData.Value)) }
+                    (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.diceData.Value)) },
+            { typeof(BooleanVariable),
+                new TypeActions( "booleanData",
+                    (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.booleanData.Value); },
+                    (anyVar) => anyVar.data.booleanData.GetDescription(),
+                    (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.booleanData.Value)) },
+            { typeof(FloatVariable),
+                new TypeActions( "floatData",
+                    (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.floatData.Value); },
+                    (anyVar) => anyVar.data.floatData.GetDescription(),
+                    (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.floatData.Value)) },
+            { typeof(StringVariable),
+                new TypeActions( "stringData",
+                    (anyVar, compareOperator) =>
+                    {
+                        var subbedRHS = anyVar.variable.GetEngine().SubstituteVariables(anyVar.data.stringData.Value);
+                        return anyVar.variable.Evaluate(compareOperator, subbedRHS);
+                    },
+                    (anyVar) => anyVar.data.stringData.GetDescription(),
+                    (anyVar, setOperator) =>
+                    {
+                        var subbedRHS = anyVar.variable.GetEngine().SubstituteVariables(anyVar.data.stringData.Value);
+                        anyVar.variable.Apply(setOperator, subbedRHS);
+                    })},
     };
 
     public bool HasReference(Variable variable)

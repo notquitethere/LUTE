@@ -1,4 +1,7 @@
+using Unity.XR.CoreUtils.Datums;
 using UnityEngine;
+using static BooleanVariable;
+using static FloatVariable;
 
 [OrderInfo("Variable",
             "Set Variable",
@@ -61,6 +64,15 @@ public class SetVariable : Order, ISerializationCallbackReceiver
     [Tooltip("Integer value to compare against")]
     [SerializeField] protected IntegerData integerData;
 
+    [Tooltip("Boolean value to compare against")]
+    [SerializeField] protected BooleanData booleanData;
+
+    [Tooltip("Float value to compare against")]
+    [SerializeField] protected FloatData floatData;
+
+    [Tooltip("String value to compare against")]
+    [SerializeField] protected StringData stringData;
+
     public void OnBeforeSerialize()
     {
     }
@@ -76,6 +88,22 @@ public class SetVariable : Order, ISerializationCallbackReceiver
         {
             variable.data.integerData = integerData;
             integerData = new IntegerData();
+        }
+        else if (variable.GetType() == typeof(BooleanVariable) && !booleanData.Equals(new BooleanData()))
+        {
+            variable.data.booleanData = booleanData;
+            booleanData = new BooleanData();
+        }
+        else if (variable.GetType() == typeof(FloatVariable) && !floatData.Equals(new FloatData()))
+        {
+            variable.data.floatData = floatData;
+            floatData = new FloatData();
+        }
+        else if (variable.GetType() == typeof(StringVariable) && !stringData.Equals(new StringData()))
+        {
+            variable.data.stringData.stringRef = stringData.stringRef;
+            variable.data.stringData.stringVal = stringData.stringVal;
+            stringData = new StringData();
         }
 
         variable = null;

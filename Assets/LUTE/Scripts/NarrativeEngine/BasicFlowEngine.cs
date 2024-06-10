@@ -7,6 +7,8 @@ using Mapbox.Examples;
 using UnityEditor;
 using UnityEngine.EventSystems;
 using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Text;
 
 public static class ComponentExtensions
 {
@@ -57,8 +59,10 @@ public static class ComponentExtensions
 }
 
 [ExecuteInEditMode]
-public class BasicFlowEngine : MonoBehaviour
+public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
 {
+    public const string SubstituteVariableRegexString = "{\\$.*?}";
+
     public TextMeshProUGUI storyText;
     protected List<Node> nodes = new List<Node>();
     [SerializeField] protected List<Group> groups = new List<Group>();
@@ -145,6 +149,7 @@ public class BasicFlowEngine : MonoBehaviour
     public int SidesOfDie { get { return sidesOfDie; } set { sidesOfDie = value; } }
 
     protected static bool eventSystemPresent;
+    protected StringSubstituter stringSubstituer;
 
 
 #if UNITY_EDITOR
@@ -689,6 +694,81 @@ public class BasicFlowEngine : MonoBehaviour
         }
     }
 
+    // Gets the value of a boolean variable
+    public virtual bool GetBooleanVariable(string key)
+    {
+        var variable = GetVariable<BooleanVariable>(key);
+        if (variable != null)
+        {
+            return GetVariable<BooleanVariable>(key).Value;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Sets the value of a boolean variable
+    // The variable must already be added to the list of variables in the Engine
+    public virtual void SetBooleanVariable(string key, bool value)
+    {
+        var variable = GetVariable<BooleanVariable>(key);
+        if (variable != null)
+        {
+            variable.Value = value;
+        }
+    }
+
+    // Gets the value of a float variable
+    public virtual float GetFloatVariable(string key)
+    {
+        var variable = GetVariable<FloatVariable>(key);
+        if (variable != null)
+        {
+            return GetVariable<FloatVariable>(key).Value;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
+    // Sets the value of a float variable
+    // The variable must already be added to the list of variables in the Engine
+    public virtual void SetFloatVariable(string key, float value)
+    {
+        var variable = GetVariable<FloatVariable>(key);
+        if (variable != null)
+        {
+            variable.Value = value;
+        }
+    }
+
+    // Gets the value of a string variable
+    public virtual string GetStringVariable(string key)
+    {
+        var variable = GetVariable<StringVariable>(key);
+        if (variable != null)
+        {
+            return GetVariable<StringVariable>(key).Value;
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+    // Sets the value of a string variable
+    // The variable must already be added to the list of variables in the Engine
+    public virtual void SetStringVariable(string key, string value)
+    {
+        var variable = GetVariable<StringVariable>(key);
+        if (variable != null)
+        {
+            variable.Value = value;
+        }
+    }
+
     public virtual DiceVariable GetRandomDice()
     {
         for (int i = 0; i < variables.Count; i++)
@@ -1026,6 +1106,122 @@ public class BasicFlowEngine : MonoBehaviour
         }
         return map;
     }
+
+    /// <summary>
+    /// Substitute variables in the input text with the format {$VarName}
+    /// This will first match with private variables in this Engine, and then
+    /// with public variables in all Engines in the scene (and any component
+    /// in the scene that implements StringSubstituter.ISubstitutionHandler).
+    /// </summary>
+    public virtual string SubstituteVariables(string input)
+    {
+        if (stringSubstituer == null)
+        {
+            stringSubstituer = new StringSubstituter();
+        }
+
+        // Use the string builder from StringSubstituter for efficiency.
+        StringBuilder sb = stringSubstituer._StringBuilder;
+        sb.Length = 0;
+        sb.Append(input);
+
+        // Instantiate the regular expression object.
+        Regex r = new Regex(SubstituteVariableRegexString);
+
+        bool changed = false;
+
+        // Match the regular expression pattern against a text string.
+        var results = r.Matches(input);
+        for (int i = 0; i < results.Count; i++)
+        {
+            Match match = results[i];
+            string key = match.Value.Substring(2, match.Value.Length - 3);
+            // Look for any matching private variables in this Flowchart first
+            for (int j = 0; j < variables.Count; j++)
+            {
+                var variable = variables[j];
+                if (variable == null)
+                    continue;
+                if (variable.Scope == VariableScope.Private && variable.Key == key)
+                {
+                    string value = variable.ToString();
+                    sb.Replace(match.Value, value);
+                    changed = true;
+                }
+            }
+        }
+
+        // Now do all other substitutions in the scene
+        changed |= stringSubstituer.SubstituteStrings(sb);
+
+        if (changed)
+        {
+            return sb.ToString();
+        }
+        else
+        {
+            return input;
+        }
+    }
+
+    public virtual void DetermineSubstituteVariables(string str, List<Variable> vars)
+    {
+        Regex r = new Regex(BasicFlowEngine.SubstituteVariableRegexString);
+
+        // Match the regular expression pattern against a text string.
+        var results = r.Matches(str);
+        for (int i = 0; i < results.Count; i++)
+        {
+            var match = results[i];
+            var v = GetVariable(match.Value.Substring(2, match.Value.Length - 3));
+            if (v != null)
+            {
+                vars.Add(v);
+            }
+        }
+    }
+
+    #region IStringSubstituter implementation
+
+    /// <summary>
+    /// Implementation of StringSubstituter.ISubstitutionHandler which matches any public variable in the Engine.
+    /// To perform full variable substitution with all substitution handlers in the scene, you should
+    /// use the SubstituteVariables() method instead.
+    /// </summary>
+    public virtual bool SubstituteStrings(StringBuilder input)
+    {
+        // Instantiate the regular expression object.
+        Regex r = new Regex(SubstituteVariableRegexString);
+
+        bool modified = false;
+
+        // Match the regular expression pattern against a text string.
+        var results = r.Matches(input.ToString());
+        for (int i = 0; i < results.Count; i++)
+        {
+            Match match = results[i];
+            string key = match.Value.Substring(2, match.Value.Length - 3);
+            // Look for any matching public variables in this Flowchart
+            for (int j = 0; j < variables.Count; j++)
+            {
+                var variable = variables[j];
+                if (variable == null)
+                {
+                    continue;
+                }
+                if (variable.Scope == VariableScope.Public && variable.Key == key)
+                {
+                    string value = variable.ToString();
+                    input.Replace(match.Value, value);
+                    modified = true;
+                }
+            }
+        }
+
+        return modified;
+    }
+
+    #endregion
 
 #if UNITY_EDITOR
     public Variable AddVariable(object obj, string suggestedName, Node node = null)

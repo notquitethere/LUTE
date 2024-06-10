@@ -4,6 +4,8 @@ using System.Linq;
 using MoreMountains.InventoryEngine;
 using UnityEditor;
 using UnityEngine;
+using static BooleanVariable;
+using static FloatVariable;
 
 [CustomEditor(typeof(Variable), true)]
 public class VariableEditor : OrderEditor
@@ -300,4 +302,13 @@ public class VariableDataDrawer<T> : PropertyDrawer where T : Variable
 
 [CustomPropertyDrawer(typeof(IntegerData))]
 public class IntegerDataDrawer : VariableDataDrawer<IntegerVariable>
+{ }
+[CustomPropertyDrawer(typeof(BooleanData))]
+public class BooleanDataDrawer : VariableDataDrawer<BooleanVariable>
+{ }
+[CustomPropertyDrawer(typeof(FloatData))]
+public class FloatDataDrawer : VariableDataDrawer<FloatVariable>
+{ }
+[CustomPropertyDrawer(typeof(StringData))]
+public class StringDataDrawer : VariableDataDrawer<StringVariable>
 { }

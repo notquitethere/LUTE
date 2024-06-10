@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Text;
+using Unity.XR.CoreUtils.Datums;
 using UnityEngine;
+using static BooleanVariable;
+using static FloatVariable;
 
 //This class handles single comparison conditions - an implemented list is used for multiple conditions
 [System.Serializable]
@@ -206,6 +209,9 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
     [SerializeField] protected NodeData nodeData;
     [SerializeField] protected InventoryData inventoryData;
     [SerializeField] protected DiceData diceData;
+    [SerializeField] protected BooleanData booleanData;
+    [SerializeField] protected FloatData floatData;
+    [SerializeField] protected StringData stringData;
 
     void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
@@ -251,6 +257,22 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
             {
                 anyVariable.data.diceData = diceData;
                 diceData = new DiceData();
+            }
+            else if (variable.GetType() == typeof(BooleanVariable) && !booleanData.Equals(new BooleanData()))
+            {
+                anyVariable.data.booleanData = booleanData;
+                booleanData = new BooleanData();
+            }
+            else if (variable.GetType() == typeof(FloatVariable) && !floatData.Equals(new FloatData()))
+            {
+                anyVariable.data.floatData = floatData;
+                floatData = new FloatData();
+            }
+            else if (variable.GetType() == typeof(StringVariable) && !stringData.Equals(new StringData()))
+            {
+                anyVariable.data.stringData.stringRef = stringData.stringRef;
+                anyVariable.data.stringData.stringVal = stringData.stringVal;
+                stringData = new StringData();
             }
             //moved to new anyvar storage, clear legacy.
             variable = null;
