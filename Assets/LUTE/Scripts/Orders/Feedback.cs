@@ -78,4 +78,9 @@ public class Feedback : Order
 
         return feedback.name + (playImmediately ? ": played immediately" : "") + (waitUntilFinished ? " and waits until finished" : "");
     }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(255, 195, 150, 255);
+    }
 }

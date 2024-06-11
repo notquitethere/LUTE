@@ -46,12 +46,6 @@ public abstract class Condition : Order
         return true;
     }
 
-    //Get colour of button when styling implemented
-    // public override Color GetButtonColour()
-    // {
-    //     return new Color(0.5f, 0.5f, 0.5f);
-    // }
-
     public virtual bool StatementLooping
     {
         get { return false; }

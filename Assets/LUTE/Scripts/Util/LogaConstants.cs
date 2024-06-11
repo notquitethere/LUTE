@@ -24,7 +24,7 @@ public static class LogaConstants
     /// <summary>
     /// The default choice node color.
     /// </summary>
-    public static Color DefaultChoiceNodeTint = new Color32(101, 176, 255, 255);
+    public static Color DefaultChoiceNodeTint = new Color32(0, 224, 25, 255);
 
     /// <summary>
     /// The default event node color.
@@ -34,7 +34,7 @@ public static class LogaConstants
     /// <summary>
     /// The default process node color.
     /// </summary>
-    public static Color DefaultProcessNodeTint = new Color32(255, 180, 101, 255);
+    public static Color DefaultProcessNodeTint = new Color32(245, 160, 0, 255);
 
     /// <summary>
     /// The default key used for storing save game data in PlayerPrefs.

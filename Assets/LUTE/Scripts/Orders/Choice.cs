@@ -101,9 +101,9 @@ public class Choice : Order
         return text + " : " + targetNode._NodeName;
     }
 
-    // public override Color GetButtonColor() //to be used when custom styling is implemented
-    // {
-    //     return new Color32(184, 210, 235, 255);
-    // }
+    public override Color GetButtonColour()
+    {
+        return new Color32(224, 96, 22, 255);
+    }
 
 }

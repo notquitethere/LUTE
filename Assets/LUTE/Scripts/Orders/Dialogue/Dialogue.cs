@@ -103,11 +103,10 @@ public class Dialogue : Order
         return namePrefix + "\"" + storyText + "\"";
     }
 
-    //implement this in the parent order class and use it to set the colour of the order in the inspector (currently no styling used)
-    // public override Color GetButtonColor()
-    // {
-    //     return new Color32(184, 210, 235, 255);
-    // }
+    public override Color GetButtonColour()
+    {
+        return new Color32(224, 159, 22, 255);
+    }
 
     public override void OnReset()
     {

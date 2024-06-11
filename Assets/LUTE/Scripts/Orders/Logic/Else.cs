@@ -33,4 +33,9 @@ public class Else : Order
     {
         return true;
     }
+
+    public override Color GetButtonColour()
+    {
+        return Color.cyan;
+    }
 }

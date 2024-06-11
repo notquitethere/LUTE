@@ -32,4 +32,9 @@ public class PlayMusic : Order
 
         return "Now Playing: " + musicClip.name;
     }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(224, 160, 250, 255);
+    }
 }
