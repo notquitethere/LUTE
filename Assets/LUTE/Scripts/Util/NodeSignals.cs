@@ -1,6 +1,4 @@
 
-using System.Security.Permissions;
-
 /// <summary>
 /// Use this class to define signals that can be used to communicate between nodes or be informed of events in node executions
 /// </summary>
