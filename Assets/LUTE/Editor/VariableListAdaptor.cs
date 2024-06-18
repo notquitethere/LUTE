@@ -83,6 +83,11 @@ public class VariableListAdaptor
     {
         int index = list.index;
         Variable variable = this[index].objectReferenceValue as Variable;
+        if(variable.GetType() == typeof(LocationVariable))
+        {
+            var locVar = variable as LocationVariable;
+            MapboxControls.RemoveLocation(locVar);
+        }
         Undo.DestroyObjectImmediate(variable);
     }
 

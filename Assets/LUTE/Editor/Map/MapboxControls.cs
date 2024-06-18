@@ -31,7 +31,6 @@ public class MapboxControls : EventWindow
     //Returns true if any key was pressed.
     private float zMove = 0;
 
-    #region static vars
     protected static MapboxControls window;
     protected static QuadTreeCameraMovement map;
     protected static int forceRepaintCount = 0;
@@ -102,7 +101,21 @@ public class MapboxControls : EventWindow
         window = (MapboxControls)GetWindow(typeof(MapboxControls), false, "Map");
     }
 
-    #endregion
+    public static void RemoveLocation(LocationVariable location)
+    {
+        var index = _locations.ToList().IndexOf(Conversions.StringToLatLon(location.Value));
+        if (index != -1)
+        {
+            _locations = _locations.Where((val, idx) => idx != index).ToArray();
+            DestroyImmediate(_spawnedObjects[index].gameObject);
+            _spawnedObjects.RemoveAt(index);
+            _locationNames.RemoveAt(index);
+            _locationStrings.RemoveAt(index);
+            _locationSprites.RemoveAt(index);
+            _locationColors.RemoveAt(index);
+            _locationShowNames.RemoveAt(index);
+        }
+    }
 
     private void OnEnable()
     {

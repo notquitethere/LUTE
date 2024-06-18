@@ -135,7 +135,7 @@ public class OrderCopy : MonoBehaviour
 
         System.IO.File.WriteAllText(newPath, classText);
         //search for an editor file for the selected order class
-        string editorFile = FindFileInDirectory(Application.dataPath + "/Editor", name + "Editor" + ".cs");
+        string editorFile = FindFileInDirectory(Application.dataPath + "/LUTE/Editor", name + "Editor" + ".cs");
         if (editorFile != null)
         {
             //if there is an editor file then we must create a new one for the new type of order we created
