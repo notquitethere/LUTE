@@ -43,14 +43,14 @@
 
 		void Start()
 		{
-			//get engine by component
-			//get all nodes
-			//check all orders on nodes
-			//if order is equal to variable condition and is based on location
-			//get location and add it to the location string
-			//then spawn the marker
+            //get engine by component
+            //get all nodes
+            //check all orders on nodes
+            //if order is equal to variable condition and is based on location
+            //get location and add it to the location string
+            //then spawn the marker
 
-			engine = GetComponentInParent<BasicFlowEngine>();
+            engine = GetComponentInParent<BasicFlowEngine>();
 			if (!engine)
 			{
 				Debug.LogError("No engine found");
@@ -76,11 +76,14 @@
 					locationVariable = node.NodeLocation;
 					Vector2d latLong = Conversions.StringToLatLon(node.NodeLocation.Value);
 					var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-					_locationStrings.Add(newLocationString);
-					_locationNames.Add(locationVariable.Key);
-					_locationSprites.Add(locationVariable.locationSprite);
-					_locationColours.Add(locationVariable.locationColor);
-					_locationShowNames.Add(locationVariable.showLocationName);
+                    if (!_locationStrings.Contains(newLocationString))
+                    {
+						_locationStrings.Add(newLocationString);
+						_locationNames.Add(locationVariable.Key);
+						_locationSprites.Add(locationVariable.locationSprite);
+						_locationColours.Add(locationVariable.locationColor);
+						_locationShowNames.Add(locationVariable.showLocationName);
+					}
 				}
 
 				var orderList = node.OrderList;
@@ -94,11 +97,14 @@
 						{
 							Vector2d latLong = Conversions.StringToLatLon(location.Value);
 							var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-							_locationStrings.Add(newLocationString);
-							_locationNames.Add(location.Key);
-							_locationSprites.Add(location.locationSprite);
-							_locationColours.Add(location.locationColor);
-							_locationShowNames.Add(location.showLocationName);
+							if(!_locationStrings.Contains(newLocationString))
+							{
+								_locationStrings.Add(newLocationString);
+								_locationNames.Add(location.Key);
+								_locationSprites.Add(location.locationSprite);
+								_locationColours.Add(location.locationColor);
+								_locationShowNames.Add(location.showLocationName);
+							}
 						}
 						if (order.GetType() == typeof(If))
 						{
@@ -109,11 +115,14 @@
 								_parentNode = node;
 								Vector2d latLong = Conversions.StringToLatLon(locationVariable.Value);
 								var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-								_locationStrings.Add(newLocationString);
-								_locationNames.Add(locationVariable.Key);
-								_locationSprites.Add(locationVariable.locationSprite);
-								_locationColours.Add(locationVariable.locationColor);
-								_locationShowNames.Add(locationVariable.showLocationName);
+								if(!_locationStrings.Contains(newLocationString))
+								{
+									_locationStrings.Add(newLocationString);
+									_locationNames.Add(locationVariable.Key);
+									_locationSprites.Add(locationVariable.locationSprite);
+									_locationColours.Add(locationVariable.locationColor);
+									_locationShowNames.Add(locationVariable.showLocationName);
+								}
 							}
 						}
 					}
@@ -131,13 +140,42 @@
 				instance.gameObject.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
 				instance.gameObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 				_spawnedObjects.Add(instance);
-				//ensure you set the radius sphere correctly here (get radius then multiply by 4 then add to scale of marker)
-			}
+                //ensure you set the radius sphere correctly here (get radius then multiply by 4 then add to scale of marker)
+            }
 
-			// DrawDirections();
-		}
+            // DrawDirections();
+        }
 
-		private void DrawDirections()
+		public GameObject HideLocationMarker(LocationVariable location)
+		{
+			var loc2d = Conversions.StringToLatLon(location.Value);
+			var globalPos = _map.GeoToWorldPosition(loc2d, true);
+
+            var locationMarker = _spawnedObjects.Find(marker => marker.transform.localPosition == globalPos);
+            if (locationMarker != null)
+            {
+                locationMarker.gameObject.SetActive(false);
+                return locationMarker.gameObject;
+            }
+            return null;
+        }
+
+        public GameObject ShowLocationMarker(LocationVariable location)
+        {
+            var loc2d = Conversions.StringToLatLon(location.Value);
+            var globalPos = _map.GeoToWorldPosition(loc2d, true);
+
+            var locationMarker = _spawnedObjects.Find(marker => marker.transform.localPosition == globalPos);
+            if (locationMarker != null)
+            {
+                locationMarker.gameObject.SetActive(true);
+                return locationMarker.gameObject;
+            }
+            return null;
+        }
+
+
+        private void DrawDirections()
 		{
 			// Go through all nodes
 			List<Node> nodes = engine.gameObject.GetComponents<Node>().ToList();
