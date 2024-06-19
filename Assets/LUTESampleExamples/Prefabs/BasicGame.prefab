@@ -60,7 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348208582798535566}
   - component: {fileID: 7593878624219204050}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: CentreMarkerTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7184768016969493630}
   - component: {fileID: 2069400216335030655}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: MapCameraTool
   m_TagString: ToolCam
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5820443434286858841}
   - component: {fileID: 3426012756570791379}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: EditorLocationArrayProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7933190262624283560}
   - component: {fileID: 722756537839119183}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HeadingSmoothingLowPass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1804,7 +1804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078794497540873394}
   - component: {fileID: 7562580366274098118}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: OrientationSmoothingLowPass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 6167103804409893517}
   - component: {fileID: 4408648264684500482}
   - component: {fileID: 6804131752440980093}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4237832294980285343}
   - component: {fileID: 5482925165972546778}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: OrientationSmoothingAverage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2319,7 +2319,7 @@ GameObject:
   - component: {fileID: 4212614727425202400}
   - component: {fileID: 2796557002952266326}
   - component: {fileID: 4285912227786680067}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: MapCameraGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2381,7 +2381,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3136,7 +3136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6591897747899620441}
   - component: {fileID: 5320895987439633239}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: TransformLocationProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3909,7 +3909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652004965846882465}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LocationBasedGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4337,7 +4337,7 @@ GameObject:
   - component: {fileID: 5343368401505513395}
   - component: {fileID: 7464403197222887016}
   - component: {fileID: 3437388828007522335}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: MarkerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4614,7 +4614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614659633563734470}
   - component: {fileID: 2189404743938489017}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LocationProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3439746550369499371}
   - component: {fileID: 3276945587368993245}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: AndroidDeviceLocationProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6310,7 +6310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6360106972608377728}
   - component: {fileID: 7989109794952075044}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HeadingSmoothingNoOperation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6356,7 +6356,7 @@ GameObject:
   - component: {fileID: 8208602966739993593}
   - component: {fileID: 790967132186814476}
   - component: {fileID: 7636751491017453307}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6710,7 +6710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5662004072631011905}
   - component: {fileID: 1812400484534315097}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: EditorLocationProviderLocationLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6914,7 +6914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7386248981183970846}
   - component: {fileID: 6720958797601213136}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7008,7 +7008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819545669423543034}
   - component: {fileID: 5840551260407639892}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HeadingSmoothingAverage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8743,7 +8743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744548254586310811}
   - component: {fileID: 2064859144523076934}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: DefaultDeviceLocationProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9852,7 +9852,7 @@ GameObject:
   - component: {fileID: 1997410495907119279}
   - component: {fileID: 3076233868831070871}
   - component: {fileID: 6823850435134877731}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11029,7 +11029,7 @@ GameObject:
   - component: {fileID: 2140807906174307175}
   - component: {fileID: 8386490538668856628}
   - component: {fileID: 5179078945861104483}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13684,7 +13684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6824549821391782750}
   - component: {fileID: 4044122912815995571}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: OrientationSmoothingNoOperation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14205,7 +14205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6534309159259594397}
   - component: {fileID: 7270464342603997301}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: SimpleIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14750,7 +14750,7 @@ GameObject:
   - component: {fileID: 7232196700971736188}
   - component: {fileID: 7706166090501811441}
   - component: {fileID: 4340017353577930848}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15446,7 +15446,7 @@ GameObject:
   - component: {fileID: 194123202663781763}
   - component: {fileID: 5988608477618775875}
   - component: {fileID: 723791059420522109}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15580,7 +15580,7 @@ GameObject:
   - component: {fileID: 1988249790216554332}
   - component: {fileID: 5379204969635881759}
   - component: {fileID: 8351827561303115309}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15971,7 +15971,7 @@ GameObject:
   - component: {fileID: 996129425305012958}
   - component: {fileID: 8520352742270562089}
   - component: {fileID: 6110603352052106354}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerLocationButton
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -16271,7 +16271,7 @@ GameObject:
   - component: {fileID: 5595208252927711795}
   - component: {fileID: 2891973109674959068}
   - component: {fileID: 4836974812165372304}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

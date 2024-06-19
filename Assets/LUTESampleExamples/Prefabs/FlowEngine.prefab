@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyText: {fileID: 0}
+  groups: []
   description: 
   hideComponents: 1
   localizationId: 
@@ -57,6 +58,17 @@ MonoBehaviour:
   variablesExpanded: 1
   variablesScrollPos: {x: 0, y: 0}
   mapLocations: []
+  demoMapMode: 0
+  mapSprites: []
+  colourOrders: 1
+  showLineNumbers: 0
+  showHandlerInfoOnGraph: 1
+  showAnnotations: 1
+  labelTint: {r: 1, g: 1, b: 1, a: 1}
+  zoom: 1
+  scrollPos: {x: 0, y: 0}
+  version: 1
+  sidesOfDie: 6
   groupnames: []
 --- !u!1001 &3662627136693025727
 PrefabInstance:
@@ -69,6 +81,10 @@ PrefabInstance:
     - target: {fileID: 792170728907267672, guid: 6b5bbe707c14a7e4d83643d091d4dcfb, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 792170728907267672, guid: 6b5bbe707c14a7e4d83643d091d4dcfb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3514257104367960820, guid: 6b5bbe707c14a7e4d83643d091d4dcfb, type: 3}
       propertyPath: m_LocalPosition.x
