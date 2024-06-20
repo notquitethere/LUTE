@@ -174,6 +174,25 @@
             return null;
         }
 
+		public bool IsWithinRadius(string location, string centre, float radius)
+		{
+			var location2D = Conversions.StringToLatLon(location);
+            var centre2D = Conversions.StringToLatLon(centre);
+
+			var locationMetered = Conversions.LatLonToMeters(location2D);
+            var centreMetered = Conversions.LatLonToMeters(centre2D);
+
+            var distance = Vector2d.Distance(locationMetered, centreMetered);
+			return distance < radius;
+
+            //If true then you either:
+            //1. use backup location (using the engine)
+            // does the engine have a backup location that uses the input location?
+            // if so then go through the backup locations of the location and check if they are within the radius
+			// find the first one that is not and if none are outside of radius then continue
+            //2. disable order
+            //3. disable node
+        }
 
         private void DrawDirections()
 		{

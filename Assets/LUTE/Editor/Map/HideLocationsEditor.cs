@@ -47,5 +47,4 @@ public class HideLocationsEditor : OrderEditor
 
         serializedObject.ApplyModifiedProperties();
     }
-
 }
