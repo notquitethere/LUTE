@@ -46,5 +46,19 @@ public static class LogaConstants
     /// </summary>
     public const float NodeHoverTime = 0.5f;
 
+    /// <summary>
+    /// The default name of a new postcard.
+    /// </summary>
+    public const string DefaultPostcardName = "New Postcard";
+
+    /// <summary>
+    /// The default description of a new postcard.
+    /// </summary>
+    public const string DefaultPostcardDesc = "A little postcard all about stickers";
+
+    /// <summary>
+    /// The default author of a new postcard.
+    /// </summary>
+    public const string DefaultPostcardAuthor = "LoGa Team";
     #endregion
 }
