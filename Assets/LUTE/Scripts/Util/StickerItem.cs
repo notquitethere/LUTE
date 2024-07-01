@@ -1,4 +1,5 @@
 using MoreMountains.InventoryEngine;
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StickerItem", menuName = "LUTE/Inventory/StickerItem", order = 0)]

@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Text;
+using Unity.VisualScripting;
 
 public static class ComponentExtensions
 {
@@ -105,6 +106,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     [HideInInspector]
     [SerializeField] protected int version = 0; // Default to 0 to always trigger an update for older versions.
     [SerializeField] protected int sidesOfDie = 6;
+    [SerializeField] protected List<Postcard> postcards = new List<Postcard>();
 
     public virtual string Description { get { return description; } }
     public virtual List<Order> SelectedOrders { get { return selectedOrders; } }
@@ -147,6 +149,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     public virtual Vector2 CenterPosition { set; get; }
     public int Version { set { version = value; } }
     public int SidesOfDie { get { return sidesOfDie; } set { sidesOfDie = value; } }
+    public List<Postcard> Postcards { get { return  postcards; } }
 
     protected static bool eventSystemPresent;
     protected StringSubstituter stringSubstituer;
@@ -469,7 +472,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         }
     }
 
-    // Returns a new node key that is guaranteed not to clash with any existing Block in the Flowchart.
+    // Returns a new node key that is guaranteed not to clash with any existing Node in the Engine.
     public virtual string GetUniqueNodeKey(string originalKey, Node ignoreNode = null)
     {
         int suffix = 0;
@@ -766,6 +769,26 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         if (variable != null)
         {
             variable.Value = value;
+        }
+    }
+
+    public virtual void SetPostcard(PostcardVar postcard)
+    {
+        // Get all existing postcards
+        var postcards = GetComponents<Postcard>();
+        // Try to find the one that is being referenced to be saved
+        Postcard selectedPostcard = postcards.FirstOrDefault(x => x.PostcardName == name);
+        // If this cannot be found then create a new one
+        if (selectedPostcard == null)
+        {
+            var newCard = this.AddComponent<Postcard>();
+            newCard.PostcardName = postcard.Name;
+            newCard.PostcardDesc = postcard.Desc;
+            newCard.PostcardCreator = postcard.Creator;
+            newCard.TotalStickers = postcard.Total;
+            newCard.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
+
+            this.postcards.Add(newCard);
         }
     }
 

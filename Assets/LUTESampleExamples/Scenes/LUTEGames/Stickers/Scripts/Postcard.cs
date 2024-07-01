@@ -1,6 +1,8 @@
 using MoreMountains.Feedbacks;
+using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +19,6 @@ public class Postcard : MonoBehaviour
     [SerializeField] protected string postcardCreator;
     [Tooltip("The total number of stickers that can be on this postcard")]
     [SerializeField] protected int totalStickers;
-    protected static List<Postcard> activePostcards = new List<Postcard>();
     [Tooltip("The text that will be displayed for the postcard name")]
     [SerializeField] protected TextMeshProUGUI nameText;
     [Tooltip("The text that will be displayed for the postcard description")]
@@ -25,9 +26,10 @@ public class Postcard : MonoBehaviour
     [Tooltip("The text that will be displayed for the postcard creator")]
     [SerializeField] protected TextMeshProUGUI creatorText;
     [SerializeField] protected Animator anim;
+    [SerializeField] protected List<PostcardVar.StickerVar> stickerVars = new List<PostcardVar.StickerVar>();
 
     // The stickers that are on this postcard
-    private List<Sticker> stickers = new List<Sticker>();
+    public List<Sticker> stickers = new List<Sticker>();
     // The layout group that the stickers will be placed in
     private Transform stickerCanvas;
     // Whether the postcard has been discarded recently
@@ -35,11 +37,47 @@ public class Postcard : MonoBehaviour
     // Whether the postcard has been flipped
     private bool isFlipped;
 
+    public static List<Postcard> activePostcards = new List<Postcard>();
+
+    public string PostcardName { get { return postcardName; } set { postcardName = value; } }
+    public string PostcardDesc { get { return postcardDescription; } set { postcardDescription = value; }  }
+    public string PostcardCreator { get { return postcardCreator; } set { postcardCreator = value; } }
+    public int TotalStickers { get { return totalStickers; } set { totalStickers = value; } }
+    public List<Sticker> PostcardStickers { get { return stickers;  } set { stickers = value; } }
+    public List<PostcardVar.StickerVar> StickerVars { get { return stickerVars; } set { stickerVars = value; } }
+
+    private StickerManager manager;
+
     /// <summary>
     /// Returns the progress of the postcard (how many stickers are on it and their type based on the StickerManager achievement list)
     private int PostcardProgress()
     {
         return 0;
+    }
+
+    public Postcard SavePostcard (Postcard newPostcard, Postcard savedPostcard)
+    {
+        if (newPostcard == null)
+            return null;
+        if (savedPostcard == null)
+            return null;
+
+        newPostcard.postcardName = savedPostcard.postcardName;
+        newPostcard.postcardDescription = savedPostcard.postcardDescription;
+        newPostcard.postcardCreator = savedPostcard.postcardCreator;
+        newPostcard.totalStickers = savedPostcard.totalStickers;
+
+        var originalStickers = savedPostcard.stickers;
+        var manager = FindObjectOfType<StickerManager>();
+
+        foreach (Sticker sticker in originalStickers)
+        {
+            var newSticker = manager.AddStickerComponent();
+            newSticker.Initialise(sticker);
+            newPostcard.stickers.Add(newSticker);
+        }
+
+        return newPostcard;
     }
 
     public static Postcard ActivePostcard { get; set; }
@@ -50,6 +88,13 @@ public class Postcard : MonoBehaviour
         {
             activePostcards.Add(this);
         }
+
+        manager = FindObjectOfType<StickerManager>();
+    }
+
+    protected virtual void OnDestroy()
+    {
+        activePostcards.Remove(this);
     }
 
     public static Postcard GetPostcard(string name, string description, StickerItem sticker, string creator)
@@ -72,6 +117,7 @@ public class Postcard : MonoBehaviour
                 if (postCardPrefab != null)
                 {
                     var postcardGO = Instantiate(postCardPrefab).GetComponent<Postcard>();
+                    name = postcardGO.GetUniquePostcardName(name);
                     postcardGO.name = name;
                     postcardGO.postcardName = name;
                     postcardGO.postcardDescription = description;
@@ -84,13 +130,78 @@ public class Postcard : MonoBehaviour
         }
         if(ActivePostcard.isDiscarded)
         {
+            name = ActivePostcard.GetUniquePostcardName(name);
             ActivePostcard.SetPostcardBase(name, description, creator);
             ActivePostcard.SetPostcardText(name, description, creator);
         }
         return ActivePostcard;
     }
 
-    private void SetPostcardBase(string name, string desc, string creator)
+    // Returns a new postcard name that is guaranteed not to clash with any existing Postcards.
+    public virtual string GetUniquePostcardName(string originalKey, Postcard ignorePostcard = null)
+    {
+        int suffix = 0;
+        string baseKey = originalKey.Trim();
+
+        // No empty keys allowed
+        if (baseKey.Length == 0)
+        {
+            baseKey = LogaConstants.DefaultPostcardName;
+        }
+
+        var engine = manager.engine;
+
+        var post = engine.GetComponents<Postcard>();
+
+        string key = baseKey;
+        while (true)
+        {
+            bool collision = false;
+            for (int i = 0; i < post.Length; i++)
+            {
+                var postcard = post[i];
+                if (postcard == ignorePostcard || postcard.PostcardName == null)
+                {
+                    continue;
+                }
+                if (postcard.PostcardName.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    collision = true;
+                    suffix++;
+                    key = baseKey + " " + suffix;
+                }
+            }
+
+            if (!collision)
+            {
+                return key;
+            }
+        }
+    }
+
+    public static Postcard SetStickers(Postcard postcard)
+    {
+        foreach(var oldPostcard in activePostcards)
+        {
+            oldPostcard.Discard(null);
+        }
+        if(ActivePostcard)
+            ActivePostcard.Discard(null);
+        
+        Postcard activePostcard = GetPostcard(postcard.postcardName, postcard.postcardDescription, null, postcard.postcardCreator);
+
+        if (activePostcard == null)
+            return null;
+
+        foreach (var sticker in postcard.stickerVars)
+        {
+            activePostcard.AddSticker(sticker);
+        }
+
+        return activePostcard;
+    }
+
+    public void SetPostcardBase(string name, string desc, string creator)
     {
         if(ActivePostcard != null)
         {
@@ -103,7 +214,7 @@ public class Postcard : MonoBehaviour
         ActivePostcard.isDiscarded = false;
     }
 
-    private void SetPostcardText(string name, string desc, string creator)
+    public void SetPostcardText(string name, string desc, string creator)
     {
         if(nameText != null)
         {
@@ -145,6 +256,48 @@ public class Postcard : MonoBehaviour
         return stickerInstance;
     }
 
+    public Sticker AddSticker(Sticker sticker)
+    {
+        if (sticker == null)
+            return null;
+        if (stickerCanvas == null)
+            return null;
+        // Find the sticker prefab in the resources
+        var stickerPrefab = Resources.Load<GameObject>("Prefabs/BlankSticker");
+        if (stickerPrefab == null)
+            return null;
+        // Instantiate the sticker prefab and set its parent to the sticker canvas
+        var stickerInstance = Instantiate(stickerPrefab, stickerCanvas).GetComponent<Sticker>();
+        // Use sticker class to set image and name etc of the sticker (i.e., initialise the sticker)
+        stickerInstance.Initialise(sticker);
+
+        // Add the sticker to the list of stickers
+        stickers.Add(stickerInstance);
+
+        return stickerInstance;
+    }
+
+    public Sticker AddSticker(PostcardVar.StickerVar sticker)
+    {
+        if (sticker == null)
+            return null;
+        if (stickerCanvas == null)
+            return null;
+        // Find the sticker prefab in the resources
+        var stickerPrefab = Resources.Load<GameObject>("Prefabs/BlankSticker");
+        if (stickerPrefab == null)
+            return null;
+        // Instantiate the sticker prefab and set its parent to the sticker canvas
+        var stickerInstance = Instantiate(stickerPrefab, stickerCanvas).GetComponent<Sticker>();
+        // Use sticker class to set image and name etc of the sticker (i.e., initialise the sticker)
+        stickerInstance.Initialise(sticker);
+
+        // Add the sticker to the list of stickers
+        stickers.Add(stickerInstance);
+
+        return stickerInstance;
+    }
+
     public Sticker RemoveSticker(Sticker sticker)
     {
         if (sticker == null)
@@ -152,9 +305,10 @@ public class Postcard : MonoBehaviour
         stickers.Remove(sticker);
         return sticker;
     }
-    public bool SubmitDesign()
+    public void SubmitDesign()
     {
-        return StickerManager.SubmitDesign(stickers);
+        manager.SubmitDesign(ActivePostcard);
+        Discard(null);
     }
 
     public void Discard(MMFeedbacks discardFeedback)

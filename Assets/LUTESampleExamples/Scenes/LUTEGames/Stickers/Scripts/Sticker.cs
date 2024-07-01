@@ -17,15 +17,24 @@ public class Sticker : MonoBehaviour, IDragHandler
     [Tooltip("The image of the sticker")]
     [SerializeField] protected Sprite stickerImage;
 
-    protected RectTransform stickerRect;
+    protected Vector3 stickerPos;
 
-    public RectTransform StickerRect { get { return stickerRect; } set { stickerRect = value; } }
+    public StickerManager.StickerType StickerType { get { return stickerType; } set { stickerType = value; } }
+    public string StickerName { get { return stickerName; } set {  stickerName = value; } }
+    public string StickerDescription { get { return stickerDescription;  } set { stickerDescription = value; } }
+    public Sprite StickerImage { get { return stickerImage; } set { stickerImage = value; } }
+    public Vector3 StickerPosition { get { return stickerPos; } set { stickerPos = value; } }
 
     private bool Moveable() => true;
     private bool Rotatable() => true;
     private bool Scaleable() => true;
 
     private bool isFlipped;
+
+    public Sticker()
+    {
+
+    }
 
     public Sticker Initialise(StickerItem sticker)
     {
@@ -41,6 +50,43 @@ public class Sticker : MonoBehaviour, IDragHandler
             SetStickerIcon();
 
         this.name = stickerName;
+        stickerPos = transform.position;
+        return this;
+    }
+
+    public Sticker Initialise(Sticker sticker)
+    {
+        if(sticker == null)
+            return null;
+
+        stickerName = sticker.stickerName;
+        stickerDescription = sticker.stickerDescription;
+        stickerType = sticker.stickerType;
+        stickerImage = sticker.stickerImage;
+        transform.position = sticker.stickerPos;
+
+        if (stickerImage != null)
+            SetStickerIcon();
+
+        stickerPos = transform.position;
+        return this;
+    }
+
+    public Sticker Initialise(PostcardVar.StickerVar sticker)
+    {
+        if (sticker == null)
+            return null;
+
+        stickerName = sticker.Name;
+        stickerDescription = sticker.Desc;
+        stickerType = sticker.Type;
+        stickerImage = sticker.Image;
+        transform.position = sticker.Position;
+
+        if (stickerImage != null)
+            SetStickerIcon();
+
+        stickerPos = transform.position;
         return this;
     }
 
@@ -80,6 +126,7 @@ public class Sticker : MonoBehaviour, IDragHandler
         if (canMove)
         {
             transform.position = eventData.position;
+            stickerPos = eventData.position;
         }    
     }
 }

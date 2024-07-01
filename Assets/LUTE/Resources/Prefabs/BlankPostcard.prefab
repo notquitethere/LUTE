@@ -709,7 +709,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3239141568288130670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3471714442406048384}
+        m_TargetAssemblyTypeName: Postcard, Assembly-CSharp
+        m_MethodName: SubmitDesign
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5813466631935999119
 GameObject:
   m_ObjectHideFlags: 0

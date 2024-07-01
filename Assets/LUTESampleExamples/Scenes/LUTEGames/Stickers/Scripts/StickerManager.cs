@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contains lists of postcards and achievements related to the sticker system
@@ -14,13 +17,14 @@ public class StickerManager : MonoBehaviour
     }
 
     [Tooltip("The list of postcards saved in the game")]
-    [SerializeField] protected Postcard[] postcards;
+    [SerializeField] protected List<Postcard> postcards = new List<Postcard>();
     [Tooltip("The list of achievements saved in the game")]
     [SerializeField] protected Achievement[] achievements;
 
+    public BasicFlowEngine engine;
     public Postcard GetPostcard(int index)
     {
-        if (index < 0 || index >= postcards.Length)
+        if (index < 0 || index >= postcards.Count)
             return null;
         return postcards[index];
     }
@@ -42,10 +46,54 @@ public class StickerManager : MonoBehaviour
         return new List<Achievement>(achievements);
     }
 
-    public static bool SubmitDesign(List<Sticker> stickerList)
+    public void LoadPostCard(int index)
     {
-        //Check the list of achievements and see if the stickers match any of them
-        //Return true or false but also save this postcard in the list of postcards
+        SetPostcard(index);
+    }
+
+    private Postcard SetPostcard(int index)
+    {
+        // Need to ensure index is not out of bounds of engine postcard list count
+        var _postcard = engine.Postcards[index];
+        var postcard = Postcard.SetStickers(_postcard);
+        
+        if(postcard == null)
+            return null;
+
+        postcard.SetActive(true);
+        return postcard;
+    }
+
+    public Sticker AddStickerComponent()
+    {
+        var sticker = this.AddComponent<Sticker>();
+        return sticker;
+    }
+
+    public bool SubmitDesign(Postcard postcard)
+    {
+        if (postcard == null)
+            return false;
+
+        if (engine == null)
+            return false;
+
+        var postcards = engine.GetComponents<Postcard>();
+        if (postcards.Contains(postcard))
+            return false;
+
+        // Find the postcard with the same matching name
+        var matchingPostcard = postcards.FirstOrDefault(p => p.PostcardName == postcard.PostcardName);
+        if (matchingPostcard != null)
+            return false;
+
+        var newPostcard = engine.AddComponent<Postcard>();
+        newPostcard.SavePostcard(newPostcard, postcard);
+
+        var saveManager = LogaManager.Instance.SaveManager;
+        saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored");
+
+        // Check the list of achievements and see if the stickers match any of them
         return false;
     }
 }
