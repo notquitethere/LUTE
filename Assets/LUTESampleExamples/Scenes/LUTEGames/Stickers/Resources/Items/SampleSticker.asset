@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05e6f607e5a0a0844a2e8913a475ac11, type: 3}
-  m_Name: SunSticker
+  m_Name: SampleSticker
   m_EditorClassIdentifier: 
-  ItemID: StickerItem
+  ItemID: SampleSticker
   TargetInventoryName: MainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
@@ -33,12 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 0
   Quantity: 1
-  ItemName: Praise the Sun
-  ShortDescription: Sunny Days!
-  Description: Summer Solstice is a busy time at Avebury. Visitors gather at sunset
-    and wait through the night until sunrise - with plenty of music, dancing, and
-    other festivities along the way!
-  Icon: {fileID: 21300000, guid: 5e06a4f9a236917438c8161c57807201, type: 3}
+  ItemName: Sample Sticker
+  ShortDescription: "Stick Me!\t"
+  Description: I love to be stuck on postcards - give me a whirl!
+  Icon: {fileID: 21300000, guid: 08d14ec5687ea47fcb3de9ac267391b5, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

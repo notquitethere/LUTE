@@ -9,6 +9,7 @@ public class AddItemEditor : OrderEditor
     protected SerializedProperty itemProp;
     protected SerializedProperty amountProp;
     protected SerializedProperty feedbackProp;
+    protected SerializedProperty persistentProp;
     protected int itemIndex = 0;
 
     public override void OnEnable()
@@ -17,6 +18,7 @@ public class AddItemEditor : OrderEditor
         itemProp = serializedObject.FindProperty("item");
         amountProp = serializedObject.FindProperty("amount");
         feedbackProp = serializedObject.FindProperty("feedback");
+        persistentProp = serializedObject.FindProperty("persistentItem");
     }
 
     public override void OnInspectorGUI()
@@ -40,6 +42,7 @@ public class AddItemEditor : OrderEditor
 
         EditorGUILayout.PropertyField(amountProp);
         EditorGUILayout.PropertyField(feedbackProp);
+        EditorGUILayout.PropertyField(persistentProp);
         serializedObject.ApplyModifiedProperties();
     }
 }

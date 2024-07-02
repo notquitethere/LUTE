@@ -88,14 +88,14 @@ namespace MoreMountains.Tools
 				SceneDatas = new DictionaryStringSceneData();
 			}
 
-		#endregion
+        #endregion
 
-		#region SAVE_AND_LOAD
+        #region SAVE_AND_LOAD
 
-			/// <summary>
-			/// Saves data from objects that need saving to memory
-			/// </summary>
-			public virtual void SaveToMemory()
+        /// <summary>
+        /// Saves data from objects that need saving to memory
+        /// </summary>
+        public virtual void SaveToMemory()
 			{
 				ComputeCurrentSceneName();
 

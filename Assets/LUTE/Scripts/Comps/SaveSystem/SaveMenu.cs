@@ -76,6 +76,8 @@ public class SaveMenu : MonoBehaviour
                 saveManager.Load(saveKey);
             }
         }
+
+        MMGameEvent.Trigger("Load");
     }
 
     protected virtual void Update()
