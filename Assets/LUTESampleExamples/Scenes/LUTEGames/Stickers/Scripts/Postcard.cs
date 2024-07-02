@@ -2,7 +2,6 @@ using MoreMountains.Feedbacks;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +19,11 @@ public class Postcard : MonoBehaviour
     [Tooltip("The total number of stickers that can be on this postcard")]
     [SerializeField] protected int totalStickers;
     [Tooltip("The text that will be displayed for the postcard name")]
-    [SerializeField] protected TextMeshProUGUI nameText;
+    [SerializeField] protected TMP_InputField nameText;
     [Tooltip("The text that will be displayed for the postcard description")]
-    [SerializeField] protected TextMeshProUGUI descriptionText;
+    [SerializeField] protected TMP_InputField descriptionText;
     [Tooltip("The text that will be displayed for the postcard creator")]
-    [SerializeField] protected TextMeshProUGUI creatorText;
+    [SerializeField] protected TMP_InputField creatorText;
     [SerializeField] protected Animator anim;
     [SerializeField] protected List<PostcardVar.StickerVar> stickerVars = new List<PostcardVar.StickerVar>();
 
@@ -229,7 +228,7 @@ public class Postcard : MonoBehaviour
         }
         if (creatorText != null)
         {
-            creatorText.text = "Create By " + creator;
+            creatorText.text = creator;
         }
     }
 
@@ -339,7 +338,7 @@ public class Postcard : MonoBehaviour
 
     public void FlipPostcard()
     {
-        if(nameText == null && descriptionText == null && creatorText == null)
+        if(nameText == null || descriptionText == null || creatorText == null)
         {
             return;
         }
@@ -362,6 +361,8 @@ public class Postcard : MonoBehaviour
                 sticker.FlipSticker();
             }
             descriptorGroup.alpha = 1;
+            descriptorGroup.blocksRaycasts = true;
+            descriptorGroup.interactable = true;
             isFlipped = true;
         }
         else
@@ -376,7 +377,25 @@ public class Postcard : MonoBehaviour
                 sticker.FlipSticker();
             }
             descriptorGroup.alpha = 0;
+            descriptorGroup.blocksRaycasts = false;
+            descriptorGroup.interactable = false;
             isFlipped = false;
         }
+    }
+
+    public void UpdatePostcardName(string name)
+    {
+        if (ActivePostcard)
+            ActivePostcard.postcardName = name;
+    }
+    public void UpdatePostcardDesc(string desc)
+    {
+        if (ActivePostcard)
+            ActivePostcard.PostcardDesc = desc;
+    }
+    public void UpdatePostcardCreator(string creator)
+    {
+        if(ActivePostcard)
+            ActivePostcard.PostcardCreator = creator;
     }
 }
