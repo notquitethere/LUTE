@@ -49,7 +49,7 @@ public static class LogaConstants
     /// <summary>
     /// The default name of a new postcard.
     /// </summary>
-    public const string DefaultPostcardName = "New Postcard";
+    public const string DefaultPostcardName = "postcard";
 
     /// <summary>
     /// The default description of a new postcard.

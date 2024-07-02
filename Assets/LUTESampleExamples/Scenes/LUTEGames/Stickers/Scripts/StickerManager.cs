@@ -55,7 +55,7 @@ public class StickerManager : MonoBehaviour
     {
         // Need to ensure index is not out of bounds of engine postcard list count
         var _postcard = engine.Postcards[index];
-        var postcard = Postcard.SetStickers(_postcard);
+        var postcard = Postcard.SetStickers(_postcard, false);
         
         if(postcard == null)
             return null;
@@ -78,17 +78,16 @@ public class StickerManager : MonoBehaviour
         if (engine == null)
             return false;
 
-        var postcards = engine.GetComponents<Postcard>();
-        if (postcards.Contains(postcard))
-            return false;
+        //var postcards = engine.Postcards;
+        //// Find the postcard with the same matching name
+        //var matchingPostcard = postcards.FirstOrDefault(p => p.PostcardName == postcard.PostcardName);
+        //if (matchingPostcard != null)
+        //{
+        //    Debug.Log("match");
+        //    return false;
+        //}
 
-        // Find the postcard with the same matching name
-        var matchingPostcard = postcards.FirstOrDefault(p => p.PostcardName == postcard.PostcardName);
-        if (matchingPostcard != null)
-            return false;
-
-        var newPostcard = engine.AddComponent<Postcard>();
-        newPostcard.SavePostcard(newPostcard, postcard);
+        var newPostcard = engine.SetPostcard(postcard);
 
         var saveManager = LogaManager.Instance.SaveManager;
         saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored");

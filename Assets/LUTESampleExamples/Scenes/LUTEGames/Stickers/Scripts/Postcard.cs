@@ -97,7 +97,7 @@ public class Postcard : MonoBehaviour
         activePostcards.Remove(this);
     }
 
-    public static Postcard GetPostcard(string name, string description, StickerItem sticker, string creator)
+    public static Postcard GetPostcard(string name, string description, StickerItem sticker, string creator, bool checkName = true)
     {
         if (ActivePostcard == null)
         {
@@ -117,20 +117,23 @@ public class Postcard : MonoBehaviour
                 if (postCardPrefab != null)
                 {
                     var postcardGO = Instantiate(postCardPrefab).GetComponent<Postcard>();
-                    name = postcardGO.GetUniquePostcardName(name);
+                    if(checkName)
+                        name = postcardGO.GetUniquePostcardName(name);
                     postcardGO.name = name;
                     postcardGO.postcardName = name;
                     postcardGO.postcardDescription = description;
                     postcardGO.postcardCreator = creator;
                     postcardGO.stickerCanvas = postcardGO.GetComponentInChildren<GridLayoutGroup>().transform;
                     postcardGO.SetPostcardText(name, description, creator);
+                    ActivePostcard = postcardGO;
                     return postcardGO;
                 }
             }
         }
         if(ActivePostcard.isDiscarded)
         {
-            name = ActivePostcard.GetUniquePostcardName(name);
+            if(checkName)
+                name = ActivePostcard.GetUniquePostcardName(name);
             ActivePostcard.SetPostcardBase(name, description, creator);
             ActivePostcard.SetPostcardText(name, description, creator);
         }
@@ -179,16 +182,16 @@ public class Postcard : MonoBehaviour
         }
     }
 
-    public static Postcard SetStickers(Postcard postcard)
+    public static Postcard SetStickers(Postcard postcard, bool checkName = false)
     {
-        foreach(var oldPostcard in activePostcards)
-        {
-            oldPostcard.Discard(null);
-        }
-        if(ActivePostcard)
-            ActivePostcard.Discard(null);
+        //foreach(var oldPostcard in activePostcards)
+        //{
+        //    oldPostcard.Discard(null);
+        //}
+        //if(ActivePostcard)
+        //    ActivePostcard.Discard(null);
         
-        Postcard activePostcard = GetPostcard(postcard.postcardName, postcard.postcardDescription, null, postcard.postcardCreator);
+        Postcard activePostcard = GetPostcard(postcard.postcardName, postcard.postcardDescription, null, postcard.postcardCreator, checkName);
 
         if (activePostcard == null)
             return null;
@@ -329,7 +332,9 @@ public class Postcard : MonoBehaviour
         }
 
         discardFeedback?.PlayFeedbacks();
-        SetActive(false);
+        ActivePostcard?.SetActive(false);
+        //foreach(var card in activePostcards)
+        //    card?.SetActive(false);
     }
 
     public void FlipPostcard()

@@ -772,24 +772,59 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         }
     }
 
-    public virtual void SetPostcard(PostcardVar postcard)
+    public virtual Postcard SetPostcard(PostcardVar postcard)
     {
-        // Get all existing postcards
-        var postcards = GetComponents<Postcard>();
         // Try to find the one that is being referenced to be saved
-        Postcard selectedPostcard = postcards.FirstOrDefault(x => x.PostcardName == name);
+        Postcard selectedPostcard = postcards.FirstOrDefault(x => x.PostcardName == postcard.Name);
         // If this cannot be found then create a new one
         if (selectedPostcard == null)
         {
-            var newCard = this.AddComponent<Postcard>();
-            newCard.PostcardName = postcard.Name;
-            newCard.PostcardDesc = postcard.Desc;
-            newCard.PostcardCreator = postcard.Creator;
-            newCard.TotalStickers = postcard.Total;
-            newCard.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
-
-            this.postcards.Add(newCard);
+            selectedPostcard = this.AddComponent<Postcard>();
+            this.postcards.Add(selectedPostcard);
         }
+        selectedPostcard.PostcardName = postcard.Name;
+        selectedPostcard.PostcardDesc = postcard.Desc;
+        selectedPostcard.PostcardCreator = postcard.Creator;
+        selectedPostcard.TotalStickers = postcard.Total;
+        selectedPostcard.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
+
+        return selectedPostcard;
+    }
+
+    public virtual Postcard SetPostcard(Postcard postcard)
+    {
+        // Try to find the one that is being referenced to be saved
+        Postcard selectedPostcard = postcards.FirstOrDefault(x => x.PostcardName == postcard.PostcardName);
+        // If this cannot be found then create a new one
+        if (selectedPostcard == null)
+        {
+            selectedPostcard = this.AddComponent<Postcard>();
+            this.postcards.Add(selectedPostcard);
+        }
+        selectedPostcard.PostcardName = postcard.PostcardName;
+        selectedPostcard.PostcardDesc = postcard.PostcardDesc;
+        selectedPostcard.PostcardCreator = postcard.PostcardCreator;
+        selectedPostcard.TotalStickers = postcard.TotalStickers;
+        
+        var originalStickers = postcard.stickers;
+        selectedPostcard.StickerVars.Clear();
+
+        foreach (var original in originalStickers)
+        {
+            if (original != null)
+            {
+                var newStickerVar = new PostcardVar.StickerVar();
+                newStickerVar.Name = original.StickerName;
+                newStickerVar.Desc = original.StickerDescription;
+                newStickerVar.Type = original.StickerType;
+                newStickerVar.Image = original.StickerImage;
+                newStickerVar.Position = original.StickerPosition;
+
+                selectedPostcard.StickerVars.Add(newStickerVar);
+            }
+        }
+
+        return selectedPostcard;
     }
 
     public virtual DiceVariable GetRandomDice()

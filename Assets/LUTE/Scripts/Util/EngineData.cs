@@ -157,6 +157,7 @@ public class EngineData
                 d.Desc = postcard.PostcardDesc;
                 d.Creator = postcard.PostcardCreator;
                 d.Total = postcard.TotalStickers;
+                d.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
 
                 var originalStickers = postcard.stickers;
 
