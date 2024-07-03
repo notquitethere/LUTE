@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -60,7 +61,6 @@ public class StickerManager : MonoBehaviour
         if(postcard == null)
             return null;
 
-        postcard.SetActive(true);
         return postcard;
     }
 
@@ -78,14 +78,8 @@ public class StickerManager : MonoBehaviour
         if (engine == null)
             return false;
 
-        //var postcards = engine.Postcards;
-        //// Find the postcard with the same matching name
-        //var matchingPostcard = postcards.FirstOrDefault(p => p.PostcardName == postcard.PostcardName);
-        //if (matchingPostcard != null)
-        //{
-        //    Debug.Log("match");
-        //    return false;
-        //}
+        if(postcard.stickers.Count <= 0)
+            return false;
 
         var newPostcard = engine.SetPostcard(postcard);
 

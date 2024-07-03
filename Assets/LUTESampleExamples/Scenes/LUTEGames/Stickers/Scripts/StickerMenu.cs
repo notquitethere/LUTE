@@ -1,6 +1,5 @@
-using Mapbox.Unity.MeshGeneration.Modifiers;
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(StickerManager))]
@@ -8,6 +7,10 @@ public class StickerMenu : MonoBehaviour
 {
     [SerializeField] protected UnityEngine.UI.Button postcardButton;
     [SerializeField] protected Transform buttonLayout;
+    [Tooltip("Feedback to be played when closing this menu")]
+    [SerializeField] protected MMFeedbacks closeFeedback;
+    [Tooltip("Feedback to be played when opening this menu")]
+    [SerializeField] protected MMFeedbacks openFeedback;
 
     private StickerManager stickerManager;
     private List<UnityEngine.UI.Button> spawnedButtons = new List<UnityEngine.UI.Button>();
@@ -42,6 +45,10 @@ public class StickerMenu : MonoBehaviour
             // Spawn or use a bunch of buttons on this guy
             for (int i = 0; i < postcards.Count; i++)
             {
+                // If there are no stickers then we can't show this postcard
+                if (postcards[i].StickerVars.Count <= 0)
+                    continue;
+
                 int index = i;
 
                 var newButton = Instantiate(postcardButton, buttonLayout);
@@ -53,7 +60,7 @@ public class StickerMenu : MonoBehaviour
                 // Set the button image to first sticker
                 if (image != null)
                 {
-                    var firstSticker = engine.Postcards[i].StickerVars[0].Image;
+                    var firstSticker = postcards[i].StickerVars[0].Image;
                     image.sprite = firstSticker;
                 }
 
@@ -68,12 +75,14 @@ public class StickerMenu : MonoBehaviour
                 spawnedButtons.Add(newButton);
             }
 
+            openFeedback?.PlayFeedbacks();  
             canvasGroup.alpha = 1.0f;
 
         }
         else
         {
             ClearMenu(canvasGroup);
+            closeFeedback?.PlayFeedbacks();
         }
     }
 

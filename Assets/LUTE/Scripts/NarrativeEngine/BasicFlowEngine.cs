@@ -819,6 +819,8 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
                 newStickerVar.Type = original.StickerType;
                 newStickerVar.Image = original.StickerImage;
                 newStickerVar.Position = original.StickerPosition;
+                newStickerVar.StickerScale = original.StickerScale;
+                newStickerVar.StickerRot = original.StickerRotation;
 
                 selectedPostcard.StickerVars.Add(newStickerVar);
             }

@@ -71,12 +71,16 @@ public class PostcardVar
         [SerializeField] protected StickerManager.StickerType type;
         [SerializeField] protected Sprite image;
         [SerializeField] protected Vector3 position;
+        [SerializeField] protected Vector3 scale;
+        [SerializeField] protected Quaternion rot;
 
         public string Name { get { return name; } set { name = value; } }
         public string Desc { get { return desc; } set { desc = value; } }
         public StickerManager.StickerType Type { get { return type; } set { type = value; } }
         public Sprite Image { get { return image; } set { image = value; } }
         public Vector3 Position { get { return position; } set { position = value; } }
+        public Vector3 StickerScale { get { return scale; } set { scale = value; } }
+        public Quaternion StickerRot { get { return rot; } set { rot = value; } }
     }
 
 }
@@ -171,6 +175,8 @@ public class EngineData
                         newStickerVar.Type = original.StickerType;
                         newStickerVar.Image = original.StickerImage;
                         newStickerVar.Position = original.StickerPosition;
+                        newStickerVar.StickerScale = original.StickerScale;
+                        newStickerVar.StickerRot = original.StickerRotation;
 
                         d.StickerVars.Add(newStickerVar);
                     }

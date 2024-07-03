@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlankSticker Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 487651903649979112, guid: 355213b95de06a04fa419c2c1c5005e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8585583854230057898, guid: 355213b95de06a04fa419c2c1c5005e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
