@@ -2674,7 +2674,7 @@ MonoBehaviour:
   postcardName: 
   postcardDescription: 
   postcardCreator: 
-  totalStickers: 0
+  totalStickers: 15
   nameText: {fileID: 5254464182377664921}
   descriptionText: {fileID: 844954608946387901}
   creatorText: {fileID: 1020571996578903954}

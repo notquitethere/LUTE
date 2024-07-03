@@ -16,6 +16,8 @@ public class Sticker : MonoBehaviour, IDragHandler
     [SerializeField] protected string stickerDescription;
     [Tooltip("The image of the sticker")]
     [SerializeField] protected Sprite stickerImage;
+    [Tooltip("The speed at which the sticker rotates")]
+    [SerializeField] protected float rotatespeed = 100f;
 
     protected Vector3 stickerPos;
 
@@ -30,10 +32,16 @@ public class Sticker : MonoBehaviour, IDragHandler
     private bool Scaleable() => true;
 
     private bool isFlipped;
+    private bool mouseOver;
 
-    public Sticker()
+    private void Update()
     {
+        if (Input.GetKey(KeyCode.D) && mouseOver)
+            transform.Rotate(Vector3.back, rotatespeed * Time.deltaTime);
 
+
+        if (Input.GetKey(KeyCode.A) && mouseOver)
+            transform.Rotate(Vector3.back, -rotatespeed * Time.deltaTime);
     }
 
     public Sticker Initialise(StickerItem sticker)
@@ -128,5 +136,14 @@ public class Sticker : MonoBehaviour, IDragHandler
             transform.position = eventData.position;
             stickerPos = eventData.position;
         }    
+    }
+
+    void OnMouseOver()
+    {
+        mouseOver = true;
+    }
+    void OnMouseExit()
+    {
+        mouseOver = false;
     }
 }

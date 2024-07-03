@@ -247,6 +247,9 @@ public class Postcard : MonoBehaviour
         var stickerPrefab = Resources.Load<GameObject>("Prefabs/BlankSticker");
         if (stickerPrefab == null)
             return null;
+        // If the postcard is limited by the number of stickers it can have, check if the limit has been reached
+        if (totalStickers > 0 && stickers.Count >= totalStickers)
+            return null;
         // Instantiate the sticker prefab and set its parent to the sticker canvas
         var stickerInstance = Instantiate(stickerPrefab, stickerCanvas).GetComponent<Sticker>();
         // Use sticker class to set image and name etc of the sticker (i.e., initialise the sticker)
@@ -305,8 +308,10 @@ public class Postcard : MonoBehaviour
         if (sticker == null)
             return null;
         stickers.Remove(sticker);
+        Destroy(sticker.gameObject);
         return sticker;
     }
+
     public void SubmitDesign()
     {
         manager.SubmitDesign(ActivePostcard);
