@@ -500,7 +500,7 @@ MonoBehaviour:
   stickerDescription: 
   stickerImage: {fileID: 0}
   rotatespeed: 100
-  maxScale: 0.8
+  maxScale: 0.7
   minScale: 0.15
   scaleSpeed: 0.3
   placeStickerFeedback: {fileID: 1236574453065762986}

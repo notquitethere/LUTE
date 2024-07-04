@@ -1,11 +1,12 @@
 using MoreMountains.Feedbacks;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(StickerManager))]
 public class StickerMenu : MonoBehaviour
 {
-    [SerializeField] protected UnityEngine.UI.Button postcardButton;
+    [SerializeField] protected GameObject postcardButton;
     [SerializeField] protected Transform buttonLayout;
     [Tooltip("Feedback to be played when closing this menu")]
     [SerializeField] protected MMFeedbacks closeFeedback;
@@ -13,7 +14,7 @@ public class StickerMenu : MonoBehaviour
     [SerializeField] protected MMFeedbacks openFeedback;
 
     private StickerManager stickerManager;
-    private List<UnityEngine.UI.Button> spawnedButtons = new List<UnityEngine.UI.Button>();
+    private List<GameObject> spawnedButtons = new List<GameObject>();
 
     private void Awake()
     {
@@ -52,10 +53,17 @@ public class StickerMenu : MonoBehaviour
                 int index = i;
 
                 var newButton = Instantiate(postcardButton, buttonLayout);
-                newButton.onClick.AddListener(() => stickerManager.LoadPostCard(index));
-                newButton.onClick.AddListener(() => ClearMenu(canvasGroup));
+                var button = newButton.GetComponentInChildren<UnityEngine.UI.Button>();
+                button.onClick.AddListener(() => stickerManager.LoadPostCard(index));
+                button.onClick.AddListener(() => ClearMenu(canvasGroup));
 
-                var image = newButton.GetComponent<UnityEngine.UI.Image>();
+                UnityEngine.UI.Image image = null;
+                foreach(Transform t in newButton.transform)
+                {
+                    image = t.GetComponent<UnityEngine.UI.Image>();
+                    if (image != null)
+                        break;
+                }
 
                 // Set the button image to first sticker
                 if (image != null)
@@ -72,6 +80,23 @@ public class StickerMenu : MonoBehaviour
                     buttonName.text = postcardName;
                 }
 
+                TextMeshProUGUI descText = null;
+                foreach (Transform t in newButton.transform)
+                {
+                    TextMeshProUGUI tmpComponent = t.GetComponent<TextMeshProUGUI>();
+                    if (tmpComponent != null && tmpComponent != buttonName)
+                    {
+                        descText = tmpComponent;
+                        break;
+                    }
+                }
+
+                if(descText != null)
+                {
+                    var postcardDesc = engine.Postcards[i].PostcardDesc;
+                    descText.text = postcardDesc;
+                }
+                
                 spawnedButtons.Add(newButton);
             }
 

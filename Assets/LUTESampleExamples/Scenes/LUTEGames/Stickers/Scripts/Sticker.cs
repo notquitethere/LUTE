@@ -49,10 +49,11 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
 
     private bool isFlipped;
     private bool mouseOver;
-    private RectTransform rectTransform => GetComponent<RectTransform>();
-    private RectTransform canvasRectTransform => GetComponentInParent<RectTransform>();
 
-    private void Update()
+    private RectTransform mrect => GetComponent<RectTransform>();
+    private RectTransform parentRect => mrect.parent as RectTransform;
+
+    private void LateUpdate()
     {
         if(mouseOver)
         {
@@ -106,7 +107,7 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
             SetStickerIcon();
 
         this.name = stickerName;
-        stickerPos = transform.position;
+        stickerPos = mrect.position;
         stickerScale = transform.localScale;
         stickerRot = transform.rotation;
         return this;
@@ -121,12 +122,12 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
         stickerDescription = sticker.stickerDescription;
         stickerType = sticker.stickerType;
         stickerImage = sticker.stickerImage;
-        transform.position = sticker.stickerPos;
+        mrect.position = sticker.stickerPos;
         transform.localScale = sticker.stickerScale;
         transform.rotation = sticker.stickerRot;
         this.name = stickerName;
 
-        stickerPos = transform.position;
+        stickerPos = mrect.position;
         stickerScale = transform.localScale;
         stickerRot = transform.rotation;
 
@@ -146,12 +147,12 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
         stickerDescription = sticker.Desc;
         stickerType = sticker.Type;
         stickerImage = sticker.Image;
-        transform.position = sticker.Position;
+        mrect.position = sticker.Position;
         transform.localScale = sticker.StickerScale;
         transform.rotation = sticker.StickerRot;
         this.name = stickerName;
 
-        stickerPos = transform.position;
+        stickerPos = mrect.position;
         stickerScale = transform.localScale;
         stickerRot = transform.rotation;
 
@@ -211,7 +212,7 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
             return;
         if (canMove)
         {
-            transform.position = eventData.position;
+            mrect.position = eventData.position;
             stickerPos = eventData.position;
 
             if (RectTransformUtility.RectangleContainsScreenPoint(binIcon, eventData.position, eventData.pressEventCamera))
@@ -253,30 +254,28 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
 
     void KeepInsideCanvas()
     {
-        Vector3[] canvasCorners = new Vector3[4];
-        Vector3[] imageCorners = new Vector3[4];
 
-        canvasRectTransform.GetWorldCorners(canvasCorners);
-        rectTransform.GetWorldCorners(imageCorners);
+        Vector2 apos = mrect.anchoredPosition;
 
-        Vector3 minCanvasCorner = canvasCorners[0];
-        Vector3 maxCanvasCorner = canvasCorners[2];
+        // Get the width and height of mrect
+        float mrectWidth = mrect.rect.width;
+        float mrectHeight = mrect.rect.height;
 
-        for (int i = 0; i < 4; i++)
-        {
-            Vector3 corner = imageCorners[i];
-            corner.x = Mathf.Clamp(corner.x, minCanvasCorner.x, maxCanvasCorner.x);
-            corner.y = Mathf.Clamp(corner.y, minCanvasCorner.y, maxCanvasCorner.y);
-            imageCorners[i] = corner;
-        }
+        // X-axis clamping
+        float xpos = apos.x;
+        float leftEdge = -parentRect.rect.width + mrectWidth / 2;
+        float rightEdge = parentRect.rect.width - mrectWidth / 2;
+        xpos = Mathf.Clamp(xpos, leftEdge, rightEdge);
 
-        Vector3 newPosition = (imageCorners[0] + imageCorners[2]) / 2;
-        rectTransform.position = newPosition;
+        // Y-axis clamping
+        float ypos = apos.y;
+        float bottomEdge = -parentRect.rect.height + mrectHeight / 2;
+        float topEdge = parentRect.rect.height - mrectHeight / 2;
+        ypos = Mathf.Clamp(ypos, bottomEdge, topEdge);
 
-        Vector2 newSize = imageCorners[2] - imageCorners[0];
-        rectTransform.sizeDelta = new Vector2(
-            Mathf.Min(newSize.x, maxCanvasCorner.x - minCanvasCorner.x),
-            Mathf.Min(newSize.y, maxCanvasCorner.y - minCanvasCorner.y)
-        );
+        // Apply the clamped positions
+        apos.x = xpos;
+        apos.y = ypos;
+        mrect.anchoredPosition = apos;
     }
 }
