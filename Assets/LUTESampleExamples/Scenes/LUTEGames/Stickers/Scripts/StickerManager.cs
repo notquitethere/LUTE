@@ -1,11 +1,6 @@
-using LoGaCulture.LUTE;
-using MoreMountains.Feedbacks;
-using MoreMountains.Tools;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contains lists of postcards and achievements related to the sticker system
@@ -36,21 +31,9 @@ public class StickerManager : MonoBehaviour
         return postcards[index];
     }
 
-    public Achievement GetAchievement(int index)
-    {
-        if (index < 0 || index >= achievements.Length)
-            return null;
-        return achievements[index];
-    }
-
     public List<Postcard> GetPostcards()
     {
         return new List<Postcard>(postcards);
-    }
-
-    public List<Achievement> GetAchievements()
-    {
-        return new List<Achievement>(achievements);
     }
 
     public void LoadPostCard(int index)

@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Text;
 using Unity.VisualScripting;
+using MoreMountains.Tools;
 
 public static class ComponentExtensions
 {
@@ -168,6 +169,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     protected virtual void Start()
     {
         CheckEventSystem();
+        MMGameEvent.Trigger("Load");
     }
 
     // There must be an Event System in the scene for Say and Menu input to work.
