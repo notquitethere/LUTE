@@ -1,6 +1,3 @@
-using MoreMountains.Tools;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -76,8 +73,6 @@ public class SaveMenu : MonoBehaviour
                 saveManager.Load(saveKey);
             }
         }
-
-        MMGameEvent.Trigger("Load");
     }
 
     protected virtual void Update()

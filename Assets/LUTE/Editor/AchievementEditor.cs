@@ -36,6 +36,11 @@ public class AchievementEditor : OrderEditor
             return;
         }
 
+        if(achievements.Count == 0)
+        {
+            return;
+        }
+
         for (int i = 0; i < achievements.Count; i++)
         {
             if (achievements[i].AchievementID == achievementProp.stringValue)

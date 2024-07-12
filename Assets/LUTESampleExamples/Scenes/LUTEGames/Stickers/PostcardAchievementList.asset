@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f6e95d812fffe49a09405424010b0d, type: 3}
+  m_Name: PostcardAchievementList
+  m_EditorClassIdentifier: 
+  AchievementsListID: AchievementsList
+  Achievements: []
+  PostcardAchievements:
+  - AchievementID: Simple Postcard
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 0
+    Title: Your First Postcard
+    Description: Add 3 Stickers to a postcard
+    Points: 0
+    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 0
+    ProgressCurrent: 0
+    rules:
+    - totalStickersRequired: 3
+      stickerType: 0
+    unlockedStickers:
+    - {fileID: 11400000, guid: f616bf3b3f9aab147978084315f7bbf9, type: 2}
+    OnAchievementUnlocked:
+      m_PersistentCalls:
+        m_Calls: []
+  - AchievementID: Complex Postcard
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 0
+    Title: Your Second Postcard
+    Description: Add 3 Nature Stickers!
+    Points: 0
+    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 0
+    ProgressCurrent: 0
+    rules:
+    - totalStickersRequired: 3
+      stickerType: 2
+    unlockedStickers: []
+    OnAchievementUnlocked:
+      m_PersistentCalls:
+        m_Calls: []
+  - AchievementID: Dual Postcard
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 0
+    Title: Dual Postcard
+    Description: Add 1 Animal and 1 Nature Sticker
+    Points: 0
+    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 0
+    ProgressCurrent: 0
+    rules:
+    - totalStickersRequired: 1
+      stickerType: 2
+    - totalStickersRequired: 1
+      stickerType: 1
+    unlockedStickers: []
+    OnAchievementUnlocked:
+      m_PersistentCalls:
+        m_Calls: []

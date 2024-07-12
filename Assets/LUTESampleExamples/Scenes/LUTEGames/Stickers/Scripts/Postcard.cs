@@ -1,4 +1,6 @@
+using LoGaCulture.LUTE;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -41,6 +43,8 @@ public class Postcard : MonoBehaviour
     [SerializeField] protected MMFeedbacks flipPostcardFeedback;
     [Tooltip("Feedback to be played when hovering over bin")]
     [SerializeField] protected MMFeedbacks binHoverFeedback;
+    [Tooltip("Feedback to be played when achievement has been unlocked on this postcard")]
+    [SerializeField] protected MMFeedbacks achievementUnlockedFeedback;
 
     protected List<PostcardVar.StickerVar> stickerVars = new List<PostcardVar.StickerVar>();
     // The stickers that are on this postcard
@@ -63,6 +67,8 @@ public class Postcard : MonoBehaviour
     public List<PostcardVar.StickerVar> StickerVars { get { return stickerVars; } set { stickerVars = value; } }
 
     private StickerManager manager;
+
+    public StickerManager Manager { get { return manager; } }
 
     /// <summary>
     /// Returns the progress of the postcard (how many stickers are on it and their type based on the StickerManager achievement list)
@@ -343,8 +349,19 @@ public class Postcard : MonoBehaviour
 
     public void SubmitDesign()
     {
-        submitPostcardFeedback?.PlayFeedbacks();
         manager.SubmitDesign(ActivePostcard);
+        PostcardAchievementList list = MMAchievementManager.currentList as PostcardAchievementList;
+        if (list != null)
+        {
+            if(list.CheckPostcardAchievement(this))
+            {
+                achievementUnlockedFeedback?.PlayFeedbacks();
+            }
+            else
+                submitPostcardFeedback?.PlayFeedbacks();
+        }
+        else
+            submitPostcardFeedback?.PlayFeedbacks();
         Discard(false);
     }
 

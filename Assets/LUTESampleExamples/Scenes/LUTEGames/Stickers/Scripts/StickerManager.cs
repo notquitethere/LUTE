@@ -1,9 +1,6 @@
-using MoreMountains.Feedbacks;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contains lists of postcards and achievements related to the sticker system
@@ -14,7 +11,11 @@ public class StickerManager : MonoBehaviour
     {
         None,
         Animal,
-        Nature
+        Nature,
+        Misc,
+        Culture,
+        Food,
+        People
     }
 
     [Tooltip("The list of postcards saved in the game")]
@@ -30,21 +31,9 @@ public class StickerManager : MonoBehaviour
         return postcards[index];
     }
 
-    public Achievement GetAchievement(int index)
-    {
-        if (index < 0 || index >= achievements.Length)
-            return null;
-        return achievements[index];
-    }
-
     public List<Postcard> GetPostcards()
     {
         return new List<Postcard>(postcards);
-    }
-
-    public List<Achievement> GetAchievements()
-    {
-        return new List<Achievement>(achievements);
     }
 
     public void LoadPostCard(int index)
@@ -86,7 +75,6 @@ public class StickerManager : MonoBehaviour
         var saveManager = LogaManager.Instance.SaveManager;
         saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored");
 
-        // Check the list of achievements and see if the stickers match any of them
         return false;
     }
 }
