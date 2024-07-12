@@ -2,6 +2,7 @@ using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class AchievementItem : MonoBehaviour
 {
@@ -14,29 +15,23 @@ public class AchievementItem : MonoBehaviour
 
 
     [HideInInspector]
-    [SerializeField] protected MMAchievementList achievementList;
-    [HideInInspector]
     public string achievementID;
 
+    private List<MMAchievement> achievements = new List<MMAchievement>();
 
-    public virtual void SetAchievement(string title, string description, Sprite image, string ID, MMAchievementList _list)
+    public virtual void SetAchievement(string title, string description, Sprite image, string ID, List<MMAchievement> _achievements)
     {
         achievementTitle.text = title;
         achievementDesc.text = description;
         achievementImage.sprite = image;
         this.achievementID = ID;
-        achievementList = _list;
         achievementBackground.color = lockedColor;
+        achievements = _achievements;
     }
 
     protected virtual void Update()
     {
-        if (achievementList == null)
-        {
-            return;
-        }
-
-        foreach (MMAchievement achievement in MMAchievementManager.AchievementsList)
+        foreach (MMAchievement achievement in achievements)
         {
             if (achievement.AchievementID == achievementID)
             {
@@ -53,7 +48,12 @@ public class AchievementItem : MonoBehaviour
                     achievementDesc.text = "";
                     achievementDesc.text = achievement.Description;
                     achievementDesc.text += "\t\t\t\t\t" + achievement.ProgressCurrent + "/" + achievement.ProgressTarget;
+                    achievementImage.sprite = achievement.UnlockedImage;
                     SetCompleteAchievement();
+                }
+                else
+                {
+                    achievementImage.sprite = achievement.LockedImage;
                 }
             }
         }

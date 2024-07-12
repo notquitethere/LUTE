@@ -32,5 +32,5 @@ namespace MoreMountains.Tools
 		protected virtual void OnEnable() { _instances.Reference(this); }
 		protected virtual void OnDisable() { _instances.Dispose(); }
 		public static MMAchievementList Any => MMReferenceHolder<MMAchievementList>.Any;
-	}
+    }
 }

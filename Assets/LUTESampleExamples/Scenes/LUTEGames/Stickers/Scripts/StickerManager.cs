@@ -1,4 +1,6 @@
+using LoGaCulture.LUTE;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -14,7 +16,11 @@ public class StickerManager : MonoBehaviour
     {
         None,
         Animal,
-        Nature
+        Nature,
+        Misc,
+        Culture,
+        Food,
+        People
     }
 
     [Tooltip("The list of postcards saved in the game")]
@@ -86,7 +92,6 @@ public class StickerManager : MonoBehaviour
         var saveManager = LogaManager.Instance.SaveManager;
         saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored");
 
-        // Check the list of achievements and see if the stickers match any of them
         return false;
     }
 }

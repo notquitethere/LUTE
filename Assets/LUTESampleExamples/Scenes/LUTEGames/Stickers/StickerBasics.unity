@@ -580,11 +580,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.x
-      value: -25685.1
+      value: -25793.537
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.y
-      value: -24863.887
+      value: -24881.387
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: hideComponents
@@ -608,16 +608,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedNodes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 949217692}
+      objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1187841866192913070, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      propertyPath: AchievementList
+      value: 
+      objectReference: {fileID: 11400000, guid: 37e270d3ff86e7044af5a95f566fd902, type: 2}
     - target: {fileID: 1323396671865780293, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1202,6 +1206,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 2052765838}
+    - target: {fileID: 4816556036616925899, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      propertyPath: achievementList
+      value: 
+      objectReference: {fileID: 11400000, guid: 37e270d3ff86e7044af5a95f566fd902, type: 2}
     - target: {fileID: 4920726387187847569, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: nodeRect.x
       value: 26699.475
@@ -1721,17 +1729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1511ccae7919cfc46b603b9b337fdc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &949217692 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7776012543760205945, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
-  m_PrefabInstance: {fileID: 949217689}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781823814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1380914258
 GameObject:
   m_ObjectHideFlags: 1
@@ -1908,6 +1905,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1456.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5211630105376039240, guid: 3c2df62ac001d2447a970c788842ee63, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7865154105668921723, guid: 3c2df62ac001d2447a970c788842ee63, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.548872
@@ -1952,6 +1953,10 @@ PrefabInstance:
       propertyPath: engine
       value: 
       objectReference: {fileID: 781823837}
+    - target: {fileID: 8593611186633406552, guid: 3c2df62ac001d2447a970c788842ee63, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
