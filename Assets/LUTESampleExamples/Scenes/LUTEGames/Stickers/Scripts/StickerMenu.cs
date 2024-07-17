@@ -39,6 +39,8 @@ public class StickerMenu : MonoBehaviour
 
         var canvasGroup = GetComponent<CanvasGroup>();
         if(canvasGroup == null) return;
+        var canvas = GetComponentInChildren<Canvas>();
+        if(canvas == null) return;
 
         // If there are no buttons then we must be showig the menu
         if (spawnedButtons.Count <= 0)
@@ -55,7 +57,7 @@ public class StickerMenu : MonoBehaviour
                 var newButton = Instantiate(postcardButton, buttonLayout);
                 var button = newButton.GetComponentInChildren<UnityEngine.UI.Button>();
                 button.onClick.AddListener(() => stickerManager.LoadPostCard(index));
-                button.onClick.AddListener(() => ClearMenu(canvasGroup));
+                button.onClick.AddListener(() => ClearMenu(canvasGroup, canvas));
 
                 UnityEngine.UI.Image image = null;
                 foreach(Transform t in newButton.transform)
@@ -102,16 +104,17 @@ public class StickerMenu : MonoBehaviour
 
             openFeedback?.PlayFeedbacks();  
             canvasGroup.alpha = 1.0f;
+            canvas.enabled = true;
 
         }
         else
         {
-            ClearMenu(canvasGroup);
+            ClearMenu(canvasGroup, canvas);
             closeFeedback?.PlayFeedbacks();
         }
     }
 
-    private void ClearMenu(CanvasGroup canvasGroup)
+    private void ClearMenu(CanvasGroup canvasGroup, Canvas canvas)
     {
         if (canvasGroup == null)
             return;
@@ -123,5 +126,6 @@ public class StickerMenu : MonoBehaviour
         spawnedButtons.Clear();
 
         canvasGroup.alpha = 0.0f;
+        canvas.enabled = false;
     }
 }
