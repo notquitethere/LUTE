@@ -286,6 +286,8 @@ public class NodeEditor : Editor
 
         SerializedProperty allowMultipleExecutes = serializedObject.FindProperty("repeatable");
         EditorGUILayout.PropertyField(allowMultipleExecutes);
+        SerializedProperty saveableProp = serializedObject.FindProperty("saveable");
+        EditorGUILayout.PropertyField(saveableProp);
 
         //first thing to do is ensure that each order has a reference to its parent node
         foreach (var order in node.OrderList)

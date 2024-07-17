@@ -73,7 +73,7 @@ public class StickerManager : MonoBehaviour
         var newPostcard = engine.SetPostcard(postcard);
 
         var saveManager = LogaManager.Instance.SaveManager;
-        saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored");
+        saveManager.AddSavePoint("Postcards" + postcard.PostcardName, "A list of postcards to be stored " + System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy"));
 
         return false;
     }

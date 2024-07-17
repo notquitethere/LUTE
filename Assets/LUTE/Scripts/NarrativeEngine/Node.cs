@@ -44,6 +44,8 @@ public class Node : MonoBehaviour
     [SerializeField] protected Node targetKeyNode;
     [Tooltip("Will show the description of the node if true")]
     [SerializeField] protected bool showDesc;
+    [Tooltip("If true, the node will be saved when completed (persistent). Useful for ensuring location nodes are save upon completition")]
+    [SerializeField] protected bool saveable = false;
 
     protected int jumpToOrderIndex = -1;
     protected ExecutionState executionState;
@@ -68,7 +70,7 @@ public class Node : MonoBehaviour
     public virtual List<Order> OrderList { get { return orderList; } }
     /// Controls the next order to execute in the node execution coroutine
     public virtual int JumpToOrderIndex { set { jumpToOrderIndex = value; } }
-    public virtual ExecutionState State { get { return executionState; } }
+    public virtual ExecutionState State { get { return executionState; } set { executionState = value; } }
     public virtual Order ActiveOrder { get { return activeOrder; } }
     public int PrevActiveOrderIndex { get { return prevActiveOrderIndex; } }
     /// An optional Event Handler which can execute the node when an event occurs.
@@ -83,13 +85,13 @@ public class Node : MonoBehaviour
     public bool ChangePos { get; set; } //used for grouping
     //If this is true then if one returns to this node it can be repeated otherwise it will never be called once it has already been called
     public bool CanExecuteAgain { get { return repeatable; } set { repeatable = value; } }
-    public bool NodeComplete { get; set; }
+    public bool NodeComplete;
     public virtual Color Tint { get { return tint; } set { tint = value; } }
     public virtual bool UseCustomTint { get { return useCustomTint; } set { useCustomTint = value; } }
     public virtual float HoverStartTime { get { return hoverStartTime; } set { hoverStartTime = value; } }
     public virtual Node CurrentUnlockNode { get; set; }
     public virtual bool ShowDesc { get { return showDesc; } set { showDesc = value; } }
-
+    public virtual bool Saveable { get { return saveable; } set { saveable = value; } }
 
     protected virtual void Awake()
     {
@@ -179,6 +181,12 @@ public class Node : MonoBehaviour
         while (targetKeyNode != null && targetKeyNode is Group && (targetKeyNode as Group).GroupComplete == false)
         {
             //set bool here to prevent node from executing
+            yield return null;
+        }
+
+        // Do not execute if the node is not repeatable and has already been executed
+        while (NodeComplete && !CanExecuteAgain)
+        {
             yield return null;
         }
 
@@ -318,6 +326,21 @@ public class Node : MonoBehaviour
     private void SetComplete()
     {
         executionState = ExecutionState.Complete;
+
+        // If saving is allowed then we save the node as complete
+        if(saveable)
+        {
+            SaveNode();
+        }
+    }
+
+    private void SaveNode()
+    {
+        string saveName = nodeName;
+        string saveDesc = System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy");
+
+        var saveManager = LogaManager.Instance.SaveManager;
+        saveManager.AddSavePoint(saveName, saveDesc);
     }
 
     //when we need to know if a node has been completed we can use a simple if to determine the state based on the node

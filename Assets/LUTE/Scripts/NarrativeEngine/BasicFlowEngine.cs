@@ -774,6 +774,16 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         }
     }
 
+    public virtual void SetNodeState(string nodeName, ExecutionState state, bool completed)
+    {
+        var node = FindNode(nodeName);
+        if (node != null)
+        {
+            node.State = state;
+            node.NodeComplete = completed;
+        }
+    }
+
     public virtual Postcard SetPostcard(PostcardVar postcard)
     {
         // Try to find the one that is being referenced to be saved

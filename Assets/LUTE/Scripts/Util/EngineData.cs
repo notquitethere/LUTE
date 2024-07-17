@@ -85,6 +85,18 @@ public class PostcardVar
 
 }
 
+[System.Serializable]
+public class NodeVar
+{
+    [SerializeField] protected ExecutionState state;
+    [SerializeField] protected bool completed;
+    [SerializeField] protected string name;
+
+    public ExecutionState State { get { return state; } set { state = value; } }
+    public bool Completed { get { return completed; } set { completed = value; } }
+    public string Name { get { return name; } set { name = value; } }
+}
+
 /// Serializable container for encoding the state of variables.
 [System.Serializable]
 public class EngineData 
@@ -95,6 +107,7 @@ public class EngineData
     [SerializeField] protected List<FloatVar> floatVars = new List<FloatVar>();
     [SerializeField] protected List<StringVar> stringVars = new List<StringVar>();
     [SerializeField] protected List<PostcardVar> postcardVars = new List<PostcardVar>();
+    [SerializeField] protected List<NodeVar> nodeVars = new List<NodeVar>();
 
     public string EngineName { get { return engineName; } set { engineName = value; } }
 
@@ -103,13 +116,28 @@ public class EngineData
     public List<FloatVar> FloatVars { get { return floatVars; } set { floatVars = value; } }
     public List<StringVar> StringVars { get { return stringVars; } set { stringVars = value; } }
     public List<PostcardVar> PostcardVars { get { return postcardVars; } set {  postcardVars = value; } }
+    public List<NodeVar> NodeVars { get { return nodeVars; } set { nodeVars = value; } }
 
     public static EngineData Encode(BasicFlowEngine engine)
     {
         var engineData = new EngineData();
         engineData.EngineName = engine.name;
 
-        for(int i = 0; i < engine.Variables.Count; i++)
+        // save all the completition states on the nodes
+        var nodes = engine.GetComponents<Node>();
+        foreach (Node node in nodes)
+        {
+            if (node != null && node.Saveable)
+            {
+                var d = new NodeVar();
+                d.State = node.CheckExecutionState();
+                d.Completed = node.NodeComplete;
+                d.Name = node._NodeName;
+                engineData.NodeVars.Add(d);
+            }
+        }
+
+        for (int i = 0; i < engine.Variables.Count; i++)
         {
             var v = engine.Variables[i];
 
@@ -230,6 +258,12 @@ public class EngineData
             engine.SetPostcard(postcardVar);
         }
         Postcard.ActivePostcard = null;
-        Postcard.activePostcards.Clear();   
+        Postcard.activePostcards.Clear();
+        
+        for(int i = 0; i < engineData.NodeVars.Count; i++)
+        {
+            var nodeVar = engineData.NodeVars[i];
+            engine.SetNodeState(nodeVar.Name, nodeVar.State, nodeVar.Completed);
+        }
     }
 }

@@ -1321,11 +1321,8 @@ MonoBehaviour:
   _updateInterval: 1
   _sendEvent: 0
   _latitudeLongitude:
-  - 48.859489, 2.32000
-  - 48.859489, 2.32015
-  - 48.859489, 2.32030
-  - 48.859489, 2.32045
-  - 48.859489, 2.32060
+  - 51.42849125, -1.8542195
+  - 51.428187, -1.857333
   _heading: 112
 --- !u!1 &1208976416909010856
 GameObject:
@@ -6647,8 +6644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _options:
     locationOptions:
-      latitudeLongitude: 52.8583911334614, 1.01240033909792
-      zoom: 15.375
+      latitudeLongitude: 51.42849125, -1.8542195
+      zoom: 15
     extentOptions:
       extentType: 1
       defaultExtents:
@@ -9798,7 +9795,7 @@ MonoBehaviour:
   mapManager: {fileID: 9196987336573309532}
   _deviceLocationProviderUnity: {fileID: 5641924794150114522}
   _deviceLocationProviderAndroid: {fileID: 5955736038414259685}
-  _editorLocationProvider: {fileID: 7770093488125651149}
+  _editorLocationProvider: {fileID: 1502996988905801505}
   _transformLocationProvider: {fileID: 5817413894985273770}
   _dontDestroyOnLoad: 0
 --- !u!1 &5749577419220149952
@@ -15272,6 +15269,7 @@ MonoBehaviour:
   scrollPos: {x: -25557.725, y: -24825.137}
   version: 1
   sidesOfDie: 6
+  postcards: []
   groupnames: []
 --- !u!114 &4920726387187847569
 MonoBehaviour:
@@ -15308,6 +15306,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &500084417248727041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15346,6 +15346,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &3776211241893357210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15395,6 +15397,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &4593121287059275042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15444,6 +15448,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &5716373193295711492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15495,6 +15501,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &8496318919213552222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15530,6 +15538,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &6278678716252783838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15635,6 +15645,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &4431404481494281224
 MonoBehaviour:
   m_ObjectHideFlags: 0
