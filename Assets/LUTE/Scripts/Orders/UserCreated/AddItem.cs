@@ -17,6 +17,8 @@ public class AddItem : Order
     [SerializeField] protected MMFeedbacks feedback;
     [Tooltip("If this item should persist across scenes and sytem or should be used in this instance")]
     [SerializeField] protected bool persistentItem = false;
+    [Tooltip("If the item is already in the inventory, should we add to it or ignore it?")]
+    [SerializeField] protected bool addIfAlreadyInInventory = true;
     private ItemPicker itemPicker;
     public override void OnEnter()
     {
@@ -26,6 +28,19 @@ public class AddItem : Order
         Debug.LogError("No item picker set in the AddItem order");
         return;
     }
+
+    if(!addIfAlreadyInInventory)
+        {
+            var inventory = item.TargetInventory("Player1");
+            if(inventory != null && inventory.InventoryContains(item.ItemID).Count > 0)
+            {
+                Debug.Log("Item already in inventory");
+                // If there is an inventory and there inventory already contains this item then move on
+                Continue();
+                return;
+            }
+        }
+
     //we need a serialised item to actually add to the inventory so we must instantiate it
     itemPicker = GetEngine().gameObject.AddComponent<ItemPicker>();
     itemPicker.Item = item;

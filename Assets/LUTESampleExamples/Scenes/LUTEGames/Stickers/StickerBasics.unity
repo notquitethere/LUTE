@@ -477,6 +477,7 @@ MonoBehaviour:
   amount: 1
   feedback: {fileID: 0}
   persistentItem: 1
+  addIfAlreadyInInventory: 0
 --- !u!114 &781823840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +613,7 @@ MonoBehaviour:
   amount: 1
   feedback: {fileID: 0}
   persistentItem: 1
+  addIfAlreadyInInventory: 0
 --- !u!114 &781823955 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4920726387187847569, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
@@ -789,11 +791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.x
-      value: -25793.537
+      value: -25795.537
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.y
-      value: -24875.387
+      value: -24876.387
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: hideComponents
