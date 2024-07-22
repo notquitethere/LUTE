@@ -1,8 +1,7 @@
-using MoreMountains.Tools;
-using UnityEngine;
-using System.Collections.Generic;
-using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
+using MoreMountains.Tools;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace LoGaCulture.LUTE
 {
@@ -16,6 +15,8 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected List<StickerItem> unlockedStickers = new List<StickerItem>();
         [Tooltip("Custom event to trigger when the achievement is unlocked.")]
         [SerializeField] protected UnityEngine.Events.UnityEvent OnAchievementUnlocked;
+        [Tooltip("The node to trigger after the achievement is complete")]
+        [SerializeField] protected string triggerNode;
 
         private BasicFlowEngine engine;
         public override void UnlockAchievement()
@@ -34,9 +35,18 @@ namespace LoGaCulture.LUTE
                 }
             }
             // Trigger the custom event
-            if(OnAchievementUnlocked != null)
+            if (OnAchievementUnlocked != null)
             {
                 OnAchievementUnlocked.Invoke();
+            }
+            // Trigger the node if provided
+            if (!string.IsNullOrEmpty(triggerNode) && engine != null)
+            {
+                var node = engine.FindNode(triggerNode);
+                if (node != null)
+                {
+                    engine.ExecuteNode(node);
+                }
             }
         }
 

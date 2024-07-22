@@ -15,13 +15,13 @@ MonoBehaviour:
   AchievementsListID: AchievementsList
   Achievements: []
   PostcardAchievements:
-  - AchievementID: Simple Postcard
+  - AchievementID: SimpleCard
     AchievementType: 0
     HiddenAchievement: 0
     UnlockedStatus: 0
-    Title: Your First Postcard
-    Description: Add 3 Stickers to a postcard
-    Points: 0
+    Title: First Postcard
+    Description: The start of an epic adventure
+    Points: 100000
     LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
     UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
     UnlockedSound: {fileID: 0}
@@ -30,48 +30,8 @@ MonoBehaviour:
     rules:
     - totalStickersRequired: 3
       stickerType: 0
-    unlockedStickers:
-    - {fileID: 11400000, guid: f616bf3b3f9aab147978084315f7bbf9, type: 2}
-    OnAchievementUnlocked:
-      m_PersistentCalls:
-        m_Calls: []
-  - AchievementID: Complex Postcard
-    AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 0
-    Title: Your Second Postcard
-    Description: Add 3 Nature Stickers!
-    Points: 0
-    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedSound: {fileID: 0}
-    ProgressTarget: 0
-    ProgressCurrent: 0
-    rules:
-    - totalStickersRequired: 3
-      stickerType: 2
     unlockedStickers: []
     OnAchievementUnlocked:
       m_PersistentCalls:
         m_Calls: []
-  - AchievementID: Dual Postcard
-    AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 0
-    Title: Dual Postcard
-    Description: Add 1 Animal and 1 Nature Sticker
-    Points: 0
-    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedSound: {fileID: 0}
-    ProgressTarget: 0
-    ProgressCurrent: 0
-    rules:
-    - totalStickersRequired: 1
-      stickerType: 2
-    - totalStickersRequired: 1
-      stickerType: 1
-    unlockedStickers: []
-    OnAchievementUnlocked:
-      m_PersistentCalls:
-        m_Calls: []
+    triggerNode: Start

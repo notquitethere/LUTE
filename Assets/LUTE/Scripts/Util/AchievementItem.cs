@@ -31,7 +31,7 @@ public class AchievementItem : MonoBehaviour
 
     protected virtual void Update()
     {
-        foreach (MMAchievement achievement in achievements)
+        foreach (MMAchievement achievement in MMAchievementManager.AchievementsList)
         {
             if (achievement.AchievementID == achievementID)
             {

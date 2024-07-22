@@ -12,7 +12,7 @@ public class AchievementListFiller : MonoBehaviour
     [SerializeField] protected Transform scrollRect;
 
     public static AchievementListFiller ActiveList;
-    public static List<MMAchievement> achievements = new List<MMAchievement>();
+    //public static List<MMAchievement> achievements = new List<MMAchievement>();
 
     protected static List<AchievementListFiller> activeLists = new List<AchievementListFiller>();
     protected Canvas canvas;
@@ -34,13 +34,13 @@ public class AchievementListFiller : MonoBehaviour
     protected virtual void Update()
     {
         // Achievements are a combination of regular achievements and the postcard achievements
-        foreach(MMAchievement achievement in achievementList.Achievements)
-        {
-            if (!achievements.Exists(a => a.AchievementID == achievement.AchievementID))
-            {
-                achievements.Add(achievement);
-            }
-        }
+        //foreach(MMAchievement achievement in achievementList.Achievements)
+        //{
+        //    if (!achievements.Exists(a => a.AchievementID == achievement.AchievementID))
+        //    {
+        //        achievements.Add(achievement);
+        //    }
+        //}
         PostcardAchievementList postcardAchievementList = null;
         if(achievementList is PostcardAchievementList)
         {
@@ -50,21 +50,21 @@ public class AchievementListFiller : MonoBehaviour
         {
             foreach (PostcardAchievement achievement in postcardAchievementList.PostcardAchievements)
             {
-                if (!achievements.Exists(a => a.AchievementID == achievement.AchievementID))
+                if (!MMAchievementManager.AchievementsList.Exists(a => a.AchievementID == achievement.AchievementID))
                 {
-                    achievements.Add(achievement);
+                    MMAchievementManager.AchievementsList.Add(achievement);
                 }
             }
         }
 
-        foreach (MMAchievement achievement in achievements)
+        foreach (MMAchievement achievement in MMAchievementManager.AchievementsList)
         {
             // Check if the achievement item already exists
             if (!AchievementItemExists(achievement.AchievementID))
             {
                 AchievementItem newAchievementItem = Instantiate(achievementItem, scrollRect);
                 Sprite achievementSprite = achievement.UnlockedStatus ? achievement.UnlockedImage : achievement.LockedImage;
-                newAchievementItem.SetAchievement(achievement.Title, achievement.Description, achievementSprite, achievement.AchievementID, achievements);
+                newAchievementItem.SetAchievement(achievement.Title, achievement.Description, achievementSprite, achievement.AchievementID, MMAchievementManager.AchievementsList);
             }
         }
 
@@ -111,6 +111,7 @@ public class AchievementListFiller : MonoBehaviour
 
     public virtual void ShowList()
     {
+        canvas = GetComponent<Canvas>();
         canvas.enabled = !canvas.enabled;
     }
 }

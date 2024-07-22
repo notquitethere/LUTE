@@ -1,6 +1,6 @@
 using System.Linq;
-using MoreMountains.Tools;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(Achievement))]
 public class AchievementEditor : OrderEditor
@@ -8,6 +8,11 @@ public class AchievementEditor : OrderEditor
     protected SerializedProperty achievementProp;
     protected SerializedProperty progressProp;
     protected SerializedProperty amountProp;
+    protected SerializedProperty feedbackProp;
+    protected SerializedProperty targetEngineProp;
+    protected SerializedProperty nodeProp;
+    protected SerializedProperty startIndexProp;
+    protected SerializedProperty callModeProp;
 
     protected int achievementIndex = 0;
 
@@ -17,6 +22,11 @@ public class AchievementEditor : OrderEditor
         achievementProp = serializedObject.FindProperty("achievementID");
         progressProp = serializedObject.FindProperty("progress");
         amountProp = serializedObject.FindProperty("amount");
+        feedbackProp = serializedObject.FindProperty("achievementFeedback");
+        targetEngineProp = serializedObject.FindProperty("targetEngine");
+        nodeProp = serializedObject.FindProperty("triggerNode");
+        startIndexProp = serializedObject.FindProperty("startIndex");
+        callModeProp = serializedObject.FindProperty("callMode");
     }
 
     public override void OnInspectorGUI()
@@ -27,7 +37,15 @@ public class AchievementEditor : OrderEditor
     public override void DrawOrderGUI()
     {
         Achievement t = target as Achievement;
-        var engine = (BasicFlowEngine)t.GetEngine();
+        BasicFlowEngine engine = null;
+        if (targetEngineProp.objectReferenceValue == null)
+        {
+            engine = (BasicFlowEngine)t.GetEngine();
+        }
+        else
+        {
+            engine = targetEngineProp.objectReferenceValue as BasicFlowEngine;
+        }
 
         var achievements = engine.GetComponentInChildren<AchievementRules>().AchievementList.Achievements;
 
@@ -36,7 +54,7 @@ public class AchievementEditor : OrderEditor
             return;
         }
 
-        if(achievements.Count == 0)
+        if (achievements.Count == 0)
         {
             return;
         }
@@ -54,6 +72,17 @@ public class AchievementEditor : OrderEditor
 
         EditorGUILayout.PropertyField(progressProp);
         EditorGUILayout.PropertyField(amountProp);
+        EditorGUILayout.PropertyField(feedbackProp);
+        EditorGUILayout.PropertyField(targetEngineProp);
+        if (engine != null)
+        {
+            NodeEditor.NodeField(nodeProp,
+                                   new GUIContent("Trigger Node", "Node to call when the achievement has completed"),
+                                   new GUIContent("<None>"),
+                                   engine);
+            EditorGUILayout.PropertyField(startIndexProp);
+            EditorGUILayout.PropertyField(callModeProp);
+        }
 
         serializedObject.ApplyModifiedProperties();
     }

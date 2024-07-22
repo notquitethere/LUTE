@@ -34,7 +34,6 @@ public class AddItem : Order
             var inventory = item.TargetInventory("Player1");
             if(inventory != null && inventory.InventoryContains(item.ItemID).Count > 0)
             {
-                Debug.Log("Item already in inventory");
                 // If there is an inventory and there inventory already contains this item then move on
                 Continue();
                 return;
