@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 using System.Linq;
-using Mapbox.Utils;
+using UnityEditor;
+using UnityEngine;
 
 // Show the variable selection window as a searchable popup
 public class VariableSelectPopupWindowContent : BasePopupWindowContent
@@ -120,7 +119,7 @@ public class VariableSelectPopupWindowContent : BasePopupWindowContent
         if (newVariable.GetType() == typeof(LocationVariable) && location != null)
         {
             newVariable.Apply(SetOperator.Assign, location);
-            newVariable.Scope = VariableScope.Global;
+            newVariable.Scope = VariableScope.Public;
         }
 
         //if suggested exists, then insert, if not just add

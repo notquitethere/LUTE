@@ -4,6 +4,7 @@
     using Mapbox.Unity.MeshGeneration.Factories;
     using Mapbox.Unity.Utilities;
     using Mapbox.Utils;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
@@ -44,110 +45,170 @@
 
         void Start()
         {
-            // One can provide an engine using the inspector but if not we need need to find it in the scene
-            if (!engine)
-                engine = FindObjectOfType<BasicFlowEngine>();
-            if (!engine)
-            {
-                Debug.LogError("No engine found");
-                return;
-            }
+            InitializeEngine();
+            if (engine == null) return;
 
-            _locationNames.Clear();
-
-            List<Node> nodes = engine.gameObject
-                .GetComponents<Node>()
-                .ToList();
-
-            foreach (Node node in nodes)
-            {
-                if (node == null)
-                    continue;
-                if (node.NodeLocation != null)
-                {
-                    locationVariable = node.NodeLocation;
-                    Vector2d latLong = Conversions.StringToLatLon(node.NodeLocation.Value);
-                    var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-                    if (!_locationStrings.Contains(newLocationString))
-                    {
-                        _locationStrings.Add(newLocationString);
-                        _locationNames.Add(locationVariable.Key);
-                        _locationSprites.Add(locationVariable.locationSprite);
-                        _locationColours.Add(locationVariable.locationColor);
-                        _locationShowNames.Add(locationVariable.showLocationName);
-                    }
-                }
-                if (node.OrderList == null)
-                    continue;
-                if (node.OrderList.Count == 0)
-                    continue;
-
-                var orderList = node.OrderList;
-                if (orderList.Count > 0)
-                {
-                    foreach (Order order in orderList)
-                    {
-                        var locations = new List<LocationVariable>();
-                        order.GetLocationVariables(ref locations);
-                        foreach (var location in locations)
-                        {
-                            Vector2d latLong = Conversions.StringToLatLon(location.Value);
-                            var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-                            if (!_locationStrings.Contains(newLocationString))
-                            {
-                                _locationStrings.Add(newLocationString);
-                                _locationNames.Add(location.Key);
-                                _locationSprites.Add(location.locationSprite);
-                                _locationColours.Add(location.locationColor);
-                                _locationShowNames.Add(location.showLocationName);
-                            }
-                        }
-                        if (order.GetType() == typeof(If))
-                        {
-                            ifOrder = order as If;
-                            locationVariable = ifOrder.ReferencesLocation();
-                            if (locationVariable)
-                            {
-                                _parentNode = node;
-                                Vector2d latLong = Conversions.StringToLatLon(locationVariable.Value);
-                                var newLocationString = string.Format("{0}, {1}", latLong.x, latLong.y);
-                                if (!_locationStrings.Contains(newLocationString))
-                                {
-                                    _locationStrings.Add(newLocationString);
-                                    _locationNames.Add(locationVariable.Key);
-                                    _locationSprites.Add(locationVariable.locationSprite);
-                                    _locationColours.Add(locationVariable.locationColor);
-                                    _locationShowNames.Add(locationVariable.showLocationName);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            _locations = new Vector2d[_locationStrings.Count];
-            _spawnedObjects = new List<CameraBillboard>();
-            for (int i = 0; i < _locationStrings.Count; i++)
-            {
-                var locationString = _locationStrings[i];
-                _locations[i] = Conversions.StringToLatLon(locationString);
-                var instance = Instantiate(_markerPrefab);
-                instance.GetComponent<CameraBillboard>().SetCanvasCam(GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame);
-                instance.gameObject.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
-                instance.gameObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-                _spawnedObjects.Add(instance);
-                //ensure you set the radius sphere correctly here (get radius then multiply by 4 then add to scale of marker)
-            }
-
-            // DrawDirections();
+            ProcessNodes();
+            CreateMarkers();
         }
+
+        private void InitializeEngine()
+        {
+            if (engine == null)
+                engine = BasicFlowEngine.CachedEngines.FirstOrDefault();
+            if (engine == null)
+                engine = FindObjectOfType<BasicFlowEngine>();
+            if (engine == null)
+                Debug.LogError("No engine found");
+        }
+
+        private void ProcessNodes()
+        {
+            _locationData.Clear();
+            var nodes = engine.gameObject.GetComponents<Node>();
+
+            foreach (var node in nodes)
+            {
+                if (node == null) continue;
+
+                ProcessNodeLocation(node);
+                ProcessNodeOrders(node);
+            }
+        }
+
+        private void ProcessNodeLocation(Node node)
+        {
+            if (node.NodeLocation != null)
+                AddUniqueLocation(node.NodeLocation);
+        }
+
+        private void ProcessNodeOrders(Node node)
+        {
+            if (node.OrderList == null || node.OrderList.Count == 0) return;
+
+            foreach (var order in node.OrderList)
+            {
+                ProcessOrderLocations(order);
+                ProcessIfOrderLocation(order, node);
+            }
+        }
+
+        private void ProcessOrderLocations(Order order)
+        {
+            var locations = new List<LocationVariable>();
+            order.GetLocationVariables(ref locations);
+            foreach (var location in locations)
+                AddUniqueLocation(location);
+        }
+
+        private void ProcessIfOrderLocation(Order order, Node parentNode)
+        {
+            if (order is If ifOrder)
+            {
+                var locationVariable = ifOrder.ReferencesLocation();
+                if (locationVariable != null)
+                {
+                    _parentNode = parentNode;
+                    AddUniqueLocation(locationVariable);
+                }
+            }
+        }
+
+        private LocationData? AddUniqueLocation(LocationVariable location)
+        {
+            if (location == null || string.IsNullOrEmpty(location.Value))
+                return null;
+
+            Vector2d latLong;
+            try
+            {
+                latLong = Conversions.StringToLatLon(location.Value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error converting location {location.Key}: {e.Message}");
+                return null;
+            }
+
+            if (LocationExists(latLong))
+            {
+                const double epsilon = 0.000001; // Adjust as needed
+                return _locationData.Find(data =>
+                    Math.Abs(data.Position.x - latLong.x) < epsilon &&
+                    Math.Abs(data.Position.y - latLong.y) < epsilon);
+            }
+            else
+            {
+                var newLocationData = new LocationData
+                {
+                    Position = latLong,
+                    Name = location.Key,
+                    Sprite = location.locationSprite,
+                    Color = location.locationColor,
+                    ShowName = location.showLocationName
+                };
+
+                _locationData.Add(newLocationData);
+                return newLocationData;
+            }
+        }
+
+        private bool LocationExists(Vector2d position)
+        {
+            const double epsilon = 0.000001; // Adjust as needed
+            return _locationData.Any(loc =>
+                Math.Abs(loc.Position.x - position.x) < epsilon &&
+                Math.Abs(loc.Position.y - position.y) < epsilon);
+        }
+
+        private void CreateMarkers()
+        {
+            _spawnedObjects = new List<CameraBillboard>();
+            foreach (var locationData in _locationData)
+            {
+                CreateMarker(locationData);
+            }
+        }
+
+        private void CreateMarker(LocationData locationData)
+        {
+            var instance = Instantiate(_markerPrefab);
+            var cameraBillboard = instance.GetComponent<CameraBillboard>();
+            cameraBillboard.SetCanvasCam(GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame);
+
+            instance.transform.localPosition = _map.GeoToWorldPosition(locationData.Position, true);
+            instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+
+            // Set additional properties based on locationData
+
+            _spawnedObjects.Add(cameraBillboard);
+        }
+
+        private struct LocationData
+        {
+            public Vector2d Position;
+            public string Name;
+            public Sprite Sprite;
+            public Color Color;
+            public bool ShowName;
+        }
+
+        private List<LocationData> _locationData = new List<LocationData>();
 
         public GameObject HideLocationMarker(LocationVariable location)
         {
-            var loc2d = Conversions.StringToLatLon(location.Value);
-            var globalPos = _map.GeoToWorldPosition(loc2d, true);
+            if (location == null || string.IsNullOrEmpty(location.Value) || _map == null || _spawnedObjects == null)
+            {
+                Debug.LogWarning("Invalid input or uninitialized objects in HideLocationMarker");
+                return null;
+            }
 
-            var locationMarker = _spawnedObjects.Find(marker => marker.transform.localPosition == globalPos);
+            CameraBillboard locationMarker = _spawnedObjects.Find(marker =>
+                marker != null &&
+                marker.textMesh != null &&
+                marker.textMesh.text == location.Key
+            );
+
             if (locationMarker != null)
             {
                 locationMarker.gameObject.SetActive(false);
@@ -156,14 +217,43 @@
             return null;
         }
 
-        public GameObject ShowLocationMarker(LocationVariable location)
+        public GameObject ShowLocationMarker(LocationVariable location, bool updateText = false, string updatedText = "")
         {
-            var loc2d = Conversions.StringToLatLon(location.Value);
-            var globalPos = _map.GeoToWorldPosition(loc2d, true);
+            if (location == null || string.IsNullOrEmpty(location.Value) || _map == null || _spawnedObjects == null)
+            {
+                Debug.LogWarning("Invalid input or uninitialized objects in ShowLocationMarker");
+                return null;
+            }
 
-            var locationMarker = _spawnedObjects.Find(marker => marker.transform.localPosition == globalPos);
+            CameraBillboard locationMarker = _spawnedObjects.Find(marker =>
+                marker != null &&
+                marker.textMesh != null &&
+                marker.textMesh.text == location.Key
+            );
+
+            if (locationMarker == null)
+            {
+                AddUniqueLocation(location);
+                CreateMarker(_locationData[_locationData.Count - 1]);
+                locationMarker = _spawnedObjects[_spawnedObjects.Count - 1];
+            }
+
             if (locationMarker != null)
             {
+                if (updateText && !string.IsNullOrEmpty(updatedText))
+                {
+                    int locationIndex = _locationData.FindIndex(data => data.Name == location.Key);
+                    if (locationIndex == -1)
+                    {
+                        Debug.LogWarning($"Location {location.Key} not found in _locationData");
+                        return null;
+                    }
+
+                    // Find the location data and update the name
+                    var locationData = _locationData[locationIndex];
+                    locationData.Name = updatedText;
+                    _locationData[locationIndex] = locationData;
+                }
                 locationMarker.gameObject.SetActive(true);
                 return locationMarker.gameObject;
             }
@@ -315,83 +405,112 @@
                 }
             }
         }
-
         private void Update()
         {
-            int count = _spawnedObjects.Count;
-            for (int i = 0; i < count; i++)
-            {
-                var spawnedObject = _spawnedObjects[i];
-                var location = _locations[i];
-                spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
-                spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-                var billboard = spawnedObject.GetComponent<CameraBillboard>();
-                billboard.SetCanvasCam(GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame);
-                if (_locationNames.Count > i)
-                {
-                    if (_locationNames[i].Contains("_"))
-                    {
-                        _locationNames[i] = _locationNames[i].Replace("_", " ");
-                    }
-                    billboard.SetText(_locationNames[i]);
-                }
-
-                Sprite locSprite = _locationSprites[i];
-                if (locSprite)
-                {
-                    billboard.SetIcon(locSprite);
-                }
-
-                Color locColour = _locationColours[i];
-                if (locColour != null)
-                {
-                    billboard.SetColor(locColour);
-                }
-
-                bool showName = _locationShowNames[i];
-                billboard.SetName(showName);
-            }
-
-            // if (Input.GetMouseButtonUp(1))
-            // {
-            // 	var mousePosScreen = Input.mousePosition;
-            // 	//assign distance of camera to ground plane to z, otherwise ScreenToWorldPoint() will always return the position of the camera
-            // 	//http://answers.unity3d.com/answers/599100/view.html
-            // 	var cam = GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame;
-            // 	mousePosScreen.z = cam.transform.localPosition.y;
-
-            // 	var pos = cam.ScreenToWorldPoint(mousePosScreen);
-
-            // 	var latlongDelta = _map.WorldToGeoPosition(pos);
-
-            // 	var newLocationString = string.Format("{0}, {1}", latlongDelta.x, latlongDelta.y);
-            // 	_locationStrings.Add(newLocationString);
-            // 	_locations = new Vector2d[_locationStrings.Count];
-            // 	for (int i = 0; i < _locationStrings.Count; i++)
-            // 	{
-            // 		var locationString = _locationStrings[i];
-            // 		_locations[i] = Conversions.StringToLatLon(locationString);
-            // 	}
-
-            // 	var instance = Instantiate(_markerPrefab);
-            // 	// _spawnedObjects.Add(instance);
-            // }
-
-            var _mapCam = GetComponent<QuadTreeCameraMovement>()?._referenceCamera;
-
-            if (engine.DemoMapMode)
-            {
-                //if we are in demo mode then we must show the tracker
-                if (_mapCam.enabled)
-                {
-                    tracker.gameObject.SetActive(true);
-                }
-                else
-                    tracker.gameObject.SetActive(false);
-            }
-            else
-                tracker.gameObject.SetActive(false);
+            UpdateMarkers();
+            UpdateTracker();
         }
+
+        private void UpdateMarkers()
+        {
+            for (int i = 0; i < _locationData.Count && i < _spawnedObjects.Count; i++)
+            {
+                UpdateMarker(i);
+            }
+        }
+
+        private void UpdateMarker(int index)
+        {
+            var spawnedObject = _spawnedObjects[index];
+            var locationData = _locationData[index];
+
+            if (spawnedObject == null) return;
+
+            UpdateMarkerPosition(spawnedObject, locationData.Position);
+            UpdateMarkerScale(spawnedObject);
+            UpdateMarkerBillboard(spawnedObject, locationData);
+        }
+
+        private void UpdateMarkerPosition(CameraBillboard spawnedObject, Vector2d location)
+        {
+            spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
+        }
+
+        private void UpdateMarkerScale(CameraBillboard spawnedObject)
+        {
+            spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+        }
+
+        private void UpdateMarkerBillboard(CameraBillboard spawnedObject, LocationData locationData)
+        {
+            var billboard = spawnedObject;
+            var cam = GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame;
+            billboard.SetCanvasCam(cam);
+
+            var displayName = locationData.Name.Replace("_", " ");
+            billboard.SetText(displayName);
+
+            if (locationData.Sprite != null)
+            {
+                billboard.SetIcon(locationData.Sprite);
+            }
+
+            billboard.SetColor(locationData.Color);
+            billboard.SetName(locationData.ShowName);
+        }
+
+        private void UpdateTracker()
+        {
+            var mapCam = GetComponent<QuadTreeCameraMovement>()?._referenceCamera;
+            if (mapCam == null) return;
+
+            bool shouldShowTracker = engine.DemoMapMode && mapCam.enabled;
+            tracker.gameObject.SetActive(shouldShowTracker);
+        }
+
+        // Uncomment and adapt this method if you want to re-enable the right-click functionality
+        /*
+        private void HandleRightClick()
+        {
+            if (Input.GetMouseButtonUp(1))
+            {
+                var mousePosScreen = Input.mousePosition;
+                var cam = GetComponent<QuadTreeCameraMovement>()?._referenceCameraGame;
+                if (cam == null) return;
+
+                mousePosScreen.z = cam.transform.localPosition.y;
+                var pos = cam.ScreenToWorldPoint(mousePosScreen);
+                var latlongDelta = _map.WorldToGeoPosition(pos);
+
+                AddNewLocation(latlongDelta);
+            }
+        }
+
+        private void AddNewLocation(Vector2d position)
+        {
+            var newLocationData = new LocationData
+            {
+                Position = position,
+                Name = $"New Location {_locationData.Count + 1}",
+                // Set default values for Sprite, Color, and ShowName as needed
+            };
+
+            _locationData.Add(newLocationData);
+            CreateMarkerForLocation(newLocationData);
+        }
+
+        private void CreateMarkerForLocation(LocationData locationData)
+        {
+            var instance = Instantiate(_markerPrefab);
+            var billboard = instance.GetComponent<CameraBillboard>();
+
+            UpdateMarkerPosition(billboard, locationData.Position);
+            UpdateMarkerScale(billboard);
+            UpdateMarkerBillboard(billboard, locationData);
+
+            _spawnedObjects.Add(billboard);
+        }
+        */
 
         public Vector2d TrackerPos()
         {

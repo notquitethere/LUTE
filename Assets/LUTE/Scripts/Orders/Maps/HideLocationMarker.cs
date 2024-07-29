@@ -10,9 +10,22 @@ public class HideLocationMarker : Order
     [SerializeField] protected LocationVariable location;
     public override void OnEnter()
     {
+        if (location == null)
+        {
+            Continue();
+            return;
+        }
+
+        HideLocation();
+
+        Continue();
+    }
+
+    private void HideLocation()
+    {
         var engine = GetEngine();
 
-        if(engine == null)
+        if (engine == null)
         {
             Continue();
             return;
@@ -20,25 +33,17 @@ public class HideLocationMarker : Order
 
         var map = engine.GetMap();
 
-        if(map == null)
+        if (map == null)
         {
             Continue();
             return;
         }
-
-        if(location == null)
-        {
-            Continue();
-            return;
-        }
-
         map.HideLocationMarker(location);
-        Continue();
     }
 
     public override string GetSummary()
     {
-        if(location != null)
+        if (location != null)
             return "Hides location marker at: " + location?.Key;
 
         return "Error: No location provided.";

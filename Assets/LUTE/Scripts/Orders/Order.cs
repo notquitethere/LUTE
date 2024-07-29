@@ -1,10 +1,7 @@
-using UnityEngine;
-using UnityEngine.Serialization;
 using System;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
-using UnityEditor;
 using System.Reflection;
+using UnityEngine;
 /// <summary>
 /// Attribute class for orders.
 /// </summary>
@@ -114,13 +111,13 @@ public abstract class Order : MonoBehaviour
 
     public virtual BasicFlowEngine GetEngine()
     {
-        var flowchart = GetComponent<BasicFlowEngine>();
-        if (flowchart == null &&
+        var engine = GetComponent<BasicFlowEngine>();
+        if (engine == null &&
             transform.parent != null)
         {
-            flowchart = transform.parent.GetComponent<BasicFlowEngine>();
+            engine = transform.parent.GetComponent<BasicFlowEngine>();
         }
-        return flowchart;
+        return engine;
     }
 
     public virtual void Execute()

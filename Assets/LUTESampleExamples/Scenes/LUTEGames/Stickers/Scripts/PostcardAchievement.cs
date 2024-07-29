@@ -15,8 +15,10 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected List<StickerItem> unlockedStickers = new List<StickerItem>();
         [Tooltip("Custom event to trigger when the achievement is unlocked.")]
         [SerializeField] protected UnityEngine.Events.UnityEvent OnAchievementUnlocked;
-        [Tooltip("The node to trigger after the achievement is complete")]
-        [SerializeField] protected string triggerNode;
+        //[Tooltip("If true, the achievement will trigger a node after it is complete.")]
+        [SerializeField] protected bool triggerNode;
+        [Tooltip("The node to trigger after the achievement is complete - ensure name is exact match")]
+        [SerializeField] protected string targetNode;
 
         private BasicFlowEngine engine;
         public override void UnlockAchievement()
@@ -40,9 +42,9 @@ namespace LoGaCulture.LUTE
                 OnAchievementUnlocked.Invoke();
             }
             // Trigger the node if provided
-            if (!string.IsNullOrEmpty(triggerNode) && engine != null)
+            if (!string.IsNullOrEmpty(targetNode) && engine != null)
             {
-                var node = engine.FindNode(triggerNode);
+                var node = engine.FindNode(targetNode);
                 if (node != null)
                 {
                     engine.ExecuteNode(node);

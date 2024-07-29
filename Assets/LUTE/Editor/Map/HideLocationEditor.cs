@@ -1,5 +1,5 @@
-using UnityEditor;
 using System.Linq;
+using UnityEditor;
 
 [CustomEditor(typeof(HideLocationMarker))]
 public class HideLocationEditor : OrderEditor
@@ -29,7 +29,8 @@ public class HideLocationEditor : OrderEditor
         var locationVars = engine.GetComponents<LocationVariable>();
         for (int i = 0; i < locationVars.Length; i++)
         {
-            if (locationVars[i] == locationProp.objectReferenceValue as LocationVariable)
+            var loc = locationProp.objectReferenceValue as LocationVariable;
+            if (locationVars[i].Value == loc.Value)
             {
                 locationVarIndex = i;
             }

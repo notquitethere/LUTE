@@ -14,24 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementsListID: AchievementsList
   Achievements: []
-  PostcardAchievements:
-  - AchievementID: SimpleCard
-    AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 0
-    Title: First Postcard
-    Description: The start of an epic adventure
-    Points: 100000
-    LockedImage: {fileID: -2741756353435428437, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedImage: {fileID: -2239278724076068761, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-    UnlockedSound: {fileID: 0}
-    ProgressTarget: 0
-    ProgressCurrent: 0
-    rules:
-    - totalStickersRequired: 3
-      stickerType: 0
-    unlockedStickers: []
-    OnAchievementUnlocked:
-      m_PersistentCalls:
-        m_Calls: []
-    triggerNode: Start
+  PostcardAchievements: []

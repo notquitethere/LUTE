@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Standard comparison operators.
@@ -160,7 +158,7 @@ public abstract class BaseVariable<T> : Variable
     {
         get
         {
-            if (scope == VariableScope.Global || Application.isPlaying)
+            if (scope == VariableScope.Global || scope == VariableScope.Public || Application.isPlaying)
             {
                 return this.value;
             }

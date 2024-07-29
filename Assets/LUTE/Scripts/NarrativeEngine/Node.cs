@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 public enum ExecutionState
@@ -328,7 +327,7 @@ public class Node : MonoBehaviour
         executionState = ExecutionState.Complete;
 
         // If saving is allowed then we save the node as complete
-        if(saveable)
+        if (saveable)
         {
             SaveNode();
         }

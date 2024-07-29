@@ -1,16 +1,17 @@
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using System.Linq;
-using System;
+using LoGaCulture.LUTE;
 using Mapbox.Examples;
-using UnityEditor;
-using UnityEngine.EventSystems;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Text;
-using Unity.VisualScripting;
 using MoreMountains.Tools;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class ComponentExtensions
 {
@@ -61,6 +62,7 @@ public static class ComponentExtensions
 }
 
 [ExecuteInEditMode]
+[RequireComponent(typeof(LocationFailureHandler))]
 public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
 {
     public const string SubstituteVariableRegexString = "{\\$.*?}";
@@ -150,7 +152,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     public virtual Vector2 CenterPosition { set; get; }
     public int Version { set { version = value; } }
     public int SidesOfDie { get { return sidesOfDie; } set { sidesOfDie = value; } }
-    public List<Postcard> Postcards { get { return  postcards; } }
+    public List<Postcard> Postcards { get { return postcards; } }
 
     protected static bool eventSystemPresent;
     protected StringSubstituter stringSubstituer;
@@ -817,7 +819,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         selectedPostcard.PostcardDesc = postcard.PostcardDesc;
         selectedPostcard.PostcardCreator = postcard.PostcardCreator;
         selectedPostcard.TotalStickers = postcard.TotalStickers;
-        
+
         var originalStickers = postcard.stickers;
         selectedPostcard.StickerVars.Clear();
 
