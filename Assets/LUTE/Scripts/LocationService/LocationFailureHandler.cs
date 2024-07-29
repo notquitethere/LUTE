@@ -201,14 +201,14 @@ namespace LoGaCulture.LUTE
             return true;
         }
 
-        [FailureHandlingMethod]
+        [FailureHandlingMethod] //3 - make radius accesible and do the map issue stuff first
         private void IncreaseRadius(float radiusIncrease)
         {
             // Increase the radius of the location - we need to ensure that we run a boolean check to see if the radius has been increased
             // if it has we need to move to next method in the list - unless continued increase is desired
         }
 
-        [FailureHandlingMethod]
+        [FailureHandlingMethod] //4 - add another menu for players asking if they wish to play the content anyway but what if multiple orders/nodes use this one location?
         private void ExecuteAnyway()
         {
             // Execute the node anyway - likely needs to be generic to allow for node or order execution
@@ -216,7 +216,7 @@ namespace LoGaCulture.LUTE
             // sets ishandled to true when executed
         }
 
-        [FailureHandlingMethod]
+        [FailureHandlingMethod] //2
         private void UseNearestLocation()
         {
             // Use the nearest location by getting all location variables from the engine
@@ -246,10 +246,41 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private void DisbaleLocationBehaviour()
+        private void DisbaleLocationBehaviour(FailureMethod failureMethod)
         {
-            // Disable the behaviour related to given location - likely needs to be generic to allow for node or order execution
-            // sets ishandled to true when executed
+            // Find any reference to location - if on node then set node to cannot execute
+            // If on order then do the same to the parent node
+            var engine = failureMethod.GetEngine();
+            if (engine != null)
+            {
+                var map = engine.GetMap();
+                if (map != null)
+                {
+                    map.HideLocationMarker(failureMethod.QueriedLocation);
+                }
+
+                var nodes = engine.GetComponents<Node>();
+                foreach (var node in nodes)
+                {
+                    // If the node uses the same location as the failure method then it cannot execute
+                    if (node.NodeLocation != null && Equals(node.NodeLocation.Value, failureMethod.QueriedLocation.Value))
+                    {
+                        node.NodeComplete = true;
+                        node.CanExecuteAgain = false;
+                        failureMethod.IsHandled = true;
+                    }
+                    foreach (var order in node.OrderList)
+                    {
+                        // If the order uses the same location as the failure method then the parent node cannot execute
+                        if (order.GetOrderLocation() != null && Equals(order.GetOrderLocation(), failureMethod.QueriedLocation.Value))
+                        {
+                            node.NodeComplete = true;
+                            node.CanExecuteAgain = false;
+                            failureMethod.IsHandled = true;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -265,18 +296,22 @@ namespace LoGaCulture.LUTE
     [Serializable]
     public class FailureMethod
     {
+        [Header("Failure Method and Location")]
         [Tooltip("The location that this method is associated with")]
         [SerializeField] protected LocationVariable queriedLocation;
-        [Tooltip("A list of locations that can be used as alternatives")]
-        [SerializeField] protected List<LocationVariable> backupLocations = new List<LocationVariable>();
         [Tooltip("A list of methods that can be executed to handle the failure")]
         [SerializeField] protected List<string> priorityMethods = new List<string>();
+        [Header("Backup Locations")]
+        [Tooltip("A list of locations that can be used as alternatives")]
+        [SerializeField] protected List<LocationVariable> backupLocations = new List<LocationVariable>();
         [Tooltip("Whether the failure has been handled")]
         [SerializeField] protected bool isHandled = false;
-        [Tooltip("Whether the radius of the location can be increased more than once")]
-        [SerializeField] protected bool allowContinuousIncrease = false;
         [Tooltip("Whether the location text should be updated when the location is changed")]
         [SerializeField] protected bool updateLocationText = false;
+        [Header("Increase Settings")]
+        [Tooltip("Whether the radius of the location can be increased more than once")]
+        [SerializeField] protected bool allowContinuousIncrease = false;
+        [Header("Node Jump Settings")]
         [Tooltip("The node to jump to if the location is inaccessible")]
         [SerializeField] protected Node backupNode;
         [Tooltip("The index of the order list to start from on the backup node")]
