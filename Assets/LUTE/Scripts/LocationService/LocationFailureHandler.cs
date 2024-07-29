@@ -191,7 +191,6 @@ namespace LoGaCulture.LUTE
             return FailureHandlingOutcome.Continue;
         }
 
-        // This method needs to be implemented based on your specific criteria for accessibility
         private bool IsLocationAccessible(LocationVariable location)
         {
             // Implement your logic to check if a location is accessible using some server side or client side logic
@@ -214,7 +213,6 @@ namespace LoGaCulture.LUTE
         {
             // Execute the node anyway - likely needs to be generic to allow for node or order execution
             // If we find the location on a node we simply remove the location requirement - almost need a list to store this info?
-            // 
             // sets ishandled to true when executed
         }
 
@@ -226,10 +224,25 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private void JumpToNode()
+        private FailureHandlingOutcome JumpToNode(FailureMethod failureMethod)
         {
-            // Jump to a specific node or order - likely needs to be generic to allow for node or order execution
-            // sets ishandled to true when executed
+            var engine = failureMethod.GetEngine();
+            // If we find a node and the engine is available then we can jump to the node
+            if (engine != null && failureMethod.BackupNode != null)
+            {
+                int index = 0;
+                if (failureMethod.StartIndex >= 0 && failureMethod.StartIndex <= failureMethod.BackupNode.OrderList.Count)
+                {
+                    index = failureMethod.StartIndex;
+                }
+                engine.ExecuteNode(failureMethod.BackupNode, index);
+                // Do we hide the location also?
+                failureMethod.IsHandled = true;
+                return FailureHandlingOutcome.Stop;
+            }
+
+            // Otherwise, we continue to the next method
+            return FailureHandlingOutcome.Continue;
         }
 
         [FailureHandlingMethod]
@@ -264,6 +277,10 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected bool allowContinuousIncrease = false;
         [Tooltip("Whether the location text should be updated when the location is changed")]
         [SerializeField] protected bool updateLocationText = false;
+        [Tooltip("The node to jump to if the location is inaccessible")]
+        [SerializeField] protected Node backupNode;
+        [Tooltip("The index of the order list to start from on the backup node")]
+        [SerializeField] protected int startIndex = 0;
 
         // This is a special case where we need to ensure that the radius has been increased
         private bool hasIncreased = false;
@@ -275,7 +292,8 @@ namespace LoGaCulture.LUTE
         public bool AllowContinuousIncrease { get => allowContinuousIncrease; }
         public bool UpdateLocationText { get => updateLocationText; }
         public bool HasIncreased { get => hasIncreased; }
-
+        public Node BackupNode { get => backupNode; }
+        public int StartIndex { get => startIndex; }
 
         public BasicFlowEngine GetEngine()
         {

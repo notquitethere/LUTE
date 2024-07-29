@@ -40,6 +40,8 @@ namespace LoGaCulture.LUTE
             var updateLocationTextProp = element.FindPropertyRelative("updateLocationText");
             var backupLocationsProp = element.FindPropertyRelative("backupLocations");
             var prioritizedMethodsProp = element.FindPropertyRelative("priorityMethods");
+            var backupNodeProp = element.FindPropertyRelative("backupNode");
+            var startIndexProp = element.FindPropertyRelative("startIndex");
 
             // Draw the queried location and backup locations as a dropdown based on locations derived from the engine
             var engine = BasicFlowEngine.CachedEngines[0];
@@ -113,6 +115,23 @@ namespace LoGaCulture.LUTE
                 backupLocationsProp.InsertArrayElementAtIndex(backupLocationsProp.arraySize);
             }
 
+            rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+            // Backup Node Properties
+            rect.height = EditorGUIUtility.singleLineHeight;
+            Rect labelRect = EditorGUI.PrefixLabel(rect, new GUIContent("Target Node", "The node to jump to if the location is inaccessible"));
+            Rect popupRect = new Rect(labelRect.x, labelRect.y, rect.width - labelRect.width, labelRect.height);
+
+            NodeEditor.NodeField(
+                popupRect,
+                backupNodeProp,
+                GUIContent.none, // We're handling the label separately now
+                new GUIContent("<None>"),
+                engine
+            );
+            rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+            EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), startIndexProp);
             rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
             // Draw the prioritized methods list

@@ -1,11 +1,10 @@
-using UnityEngine;
-using UnityEditor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UnityEditor;
 using UnityEditorInternal;
-using Codice.CM.SEIDInfo;
+using UnityEngine;
 
 [CustomEditor(typeof(Node))]
 public class NodeEditor : Editor
@@ -479,6 +478,43 @@ public class NodeEditor : Editor
             node = nodes[selectedIndex - 1];
         }
 
+        property.objectReferenceValue = node;
+    }
+
+    public static void NodeField(Rect position, SerializedProperty property, GUIContent label, GUIContent nullLabel, BasicFlowEngine engine, Node currentNode = null)
+    {
+        if (engine == null)
+        {
+            return;
+        }
+        var node = property.objectReferenceValue as Node;
+        // Build dictionary of child nodes
+        List<GUIContent> nodeNames = new List<GUIContent>();
+        int selectedIndex = 0;
+        nodeNames.Add(nullLabel);
+        var nodes = engine.GetComponents<Node>();
+        nodes = nodes.OrderBy(x => x._NodeName).ToArray();
+        if (currentNode != null)
+        {
+            nodes = nodes.Where(x => x != currentNode).ToArray();
+        }
+        for (int i = 0; i < nodes.Length; ++i)
+        {
+            nodeNames.Add(new GUIContent(nodes[i]._NodeName));
+            if (node == nodes[i])
+            {
+                selectedIndex = i + 1;
+            }
+        }
+        selectedIndex = EditorGUI.Popup(position, selectedIndex, nodeNames.ToArray());
+        if (selectedIndex == 0)
+        {
+            node = null; // Option 'None'
+        }
+        else
+        {
+            node = nodes[selectedIndex - 1];
+        }
         property.objectReferenceValue = node;
     }
 
