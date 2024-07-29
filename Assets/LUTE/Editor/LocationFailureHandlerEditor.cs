@@ -136,7 +136,7 @@ namespace LoGaCulture.LUTE
 
             // Draw the prioritized methods list
             var prioritizedMethodsList = new ReorderableList(prioritizedMethodsProp.serializedObject, prioritizedMethodsProp, true, true, true, true);
-            prioritizedMethodsList.drawHeaderCallback = (Rect r) => EditorGUI.LabelField(r, "Prioritized Methods");
+            prioritizedMethodsList.drawHeaderCallback = (Rect r) => EditorGUI.LabelField(r, "Prioritised Methods");
 
             prioritizedMethodsList.drawElementCallback = (Rect r, int i, bool active, bool focused) =>
             {

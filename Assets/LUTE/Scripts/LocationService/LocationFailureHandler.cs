@@ -217,10 +217,48 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod] //2
-        private void UseNearestLocation()
+        private FailureHandlingOutcome UseNearestLocation(FailureMethod failureMethod)
         {
-            // Use the nearest location by getting all location variables from the engine
-            // sets ishandled to true when executed
+            var engine = failureMethod.GetEngine();
+            if (engine != null)
+            {
+                var map = engine.GetMap();
+                if (map != null)
+                {
+                    LocationVariable nearestLocation = null;
+                    var allLocations = engine.GetComponents<LocationVariable>();
+                    foreach (var location in allLocations)
+                    {
+                        if (location != null && !location.Equals(failureMethod.QueriedLocation))
+                        {
+                            if (nearestLocation == null)
+                            {
+                                nearestLocation = location;
+                            }
+                            else
+                            {
+                                var currentDistance = Vector2d.Distance(Conversions.StringToLatLon(nearestLocation.Value), Conversions.StringToLatLon(failureMethod.QueriedLocation.Value));
+                                var newDistance = Vector2d.Distance(Conversions.StringToLatLon(location.Value), Conversions.StringToLatLon(failureMethod.QueriedLocation.Value));
+                                if (newDistance < currentDistance)
+                                {
+                                    nearestLocation = location;
+                                }
+                            }
+                        }
+                    }
+                    if (nearestLocation != null)
+                    {
+                        map.HideLocationMarker(failureMethod.QueriedLocation);
+                        bool updateText = failureMethod.UpdateLocationText;
+                        map.ShowLocationMarker(nearestLocation, updateText, failureMethod.QueriedLocation.Key);
+                        failureMethod.QueriedLocation.Apply(SetOperator.Assign, nearestLocation);
+                        failureMethod.IsHandled = true;
+                        return FailureHandlingOutcome.Stop;
+                    }
+                }
+            }
+            Debug.Log("No nearest location found");
+            return FailureHandlingOutcome.Continue;
         }
 
         [FailureHandlingMethod]
