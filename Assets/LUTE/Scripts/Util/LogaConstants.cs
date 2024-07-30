@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class LogaConstants
@@ -60,5 +58,10 @@ public static class LogaConstants
     /// The default author of a new postcard.
     /// </summary>
     public const string DefaultPostcardAuthor = "LoGa Team";
+
+    /// <summary>
+    /// Radius to check locations in meters.
+    /// </summary>
+    public const float DefaultRadius = 100.0f;
     #endregion
 }

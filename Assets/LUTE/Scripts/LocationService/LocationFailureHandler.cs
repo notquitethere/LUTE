@@ -201,11 +201,23 @@ namespace LoGaCulture.LUTE
             return true;
         }
 
-        [FailureHandlingMethod] //3 - make radius accesible and do the map issue stuff first
-        private void IncreaseRadius(float radiusIncrease)
+        [FailureHandlingMethod]
+        private FailureHandlingOutcome IncreaseRadius(FailureMethod failureMethod)
         {
-            // Increase the radius of the location - we need to ensure that we run a boolean check to see if the radius has been increased
-            // if it has we need to move to next method in the list - unless continued increase is desired
+            if (failureMethod.HasIncreased && !failureMethod.AllowContinuousIncrease)
+            {
+                // We have already increased but we don't allow multiple increases
+                return FailureHandlingOutcome.Continue;
+            }
+            // Increase the location radius check size
+            failureMethod.QueriedLocation.RadiusIncrease += failureMethod.RadiusIncreaseSize;
+            failureMethod.HasIncreased = true;
+
+            // Possibly show player a message about the increased radius and to move around
+            // Could use dialogue system for this
+
+            failureMethod.IsHandled = true;
+            return FailureHandlingOutcome.Stop;
         }
 
         [FailureHandlingMethod] //4 - add another menu for players asking if they wish to play the content anyway but what if multiple orders/nodes use this one location?
@@ -216,7 +228,7 @@ namespace LoGaCulture.LUTE
             // sets ishandled to true when executed
         }
 
-        [FailureHandlingMethod] //2
+        [FailureHandlingMethod]
         private FailureHandlingOutcome UseNearestLocation(FailureMethod failureMethod)
         {
             var engine = failureMethod.GetEngine();
@@ -257,7 +269,6 @@ namespace LoGaCulture.LUTE
                     }
                 }
             }
-            Debug.Log("No nearest location found");
             return FailureHandlingOutcome.Continue;
         }
 
@@ -334,26 +345,28 @@ namespace LoGaCulture.LUTE
     [Serializable]
     public class FailureMethod
     {
-        [Header("Failure Method and Location")]
+        //[Header("Failure Method and Location")]
         [Tooltip("The location that this method is associated with")]
         [SerializeField] protected LocationVariable queriedLocation;
         [Tooltip("A list of methods that can be executed to handle the failure")]
         [SerializeField] protected List<string> priorityMethods = new List<string>();
-        [Header("Backup Locations")]
+        //[Header("Backup Locations")]
         [Tooltip("A list of locations that can be used as alternatives")]
         [SerializeField] protected List<LocationVariable> backupLocations = new List<LocationVariable>();
         [Tooltip("Whether the failure has been handled")]
         [SerializeField] protected bool isHandled = false;
         [Tooltip("Whether the location text should be updated when the location is changed")]
         [SerializeField] protected bool updateLocationText = false;
-        [Header("Increase Settings")]
-        [Tooltip("Whether the radius of the location can be increased more than once")]
-        [SerializeField] protected bool allowContinuousIncrease = false;
-        [Header("Node Jump Settings")]
+        //[Header("Node Jump Settings")]
         [Tooltip("The node to jump to if the location is inaccessible")]
         [SerializeField] protected Node backupNode;
         [Tooltip("The index of the order list to start from on the backup node")]
         [SerializeField] protected int startIndex = 0;
+        //[Header("Radius Increase Settings")]
+        [Tooltip("Whether the radius of the location can be increased more than once")]
+        [SerializeField] protected bool allowContinuousIncrease = false;
+        [Tooltip("The size of the radius increase in meters")]
+        [SerializeField] protected float radiusIncreaseSize = 50.0f;
 
         // This is a special case where we need to ensure that the radius has been increased
         private bool hasIncreased = false;
@@ -364,9 +377,10 @@ namespace LoGaCulture.LUTE
         public bool IsHandled { get => isHandled; set => isHandled = value; }
         public bool AllowContinuousIncrease { get => allowContinuousIncrease; }
         public bool UpdateLocationText { get => updateLocationText; }
-        public bool HasIncreased { get => hasIncreased; }
+        public bool HasIncreased { get => hasIncreased; set => hasIncreased = value; }
         public Node BackupNode { get => backupNode; }
         public int StartIndex { get => startIndex; }
+        public float RadiusIncreaseSize { get => radiusIncreaseSize; }
 
         public BasicFlowEngine GetEngine()
         {

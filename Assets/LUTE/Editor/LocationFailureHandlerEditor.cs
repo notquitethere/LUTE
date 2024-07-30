@@ -42,6 +42,8 @@ namespace LoGaCulture.LUTE
             var prioritizedMethodsProp = element.FindPropertyRelative("priorityMethods");
             var backupNodeProp = element.FindPropertyRelative("backupNode");
             var startIndexProp = element.FindPropertyRelative("startIndex");
+            var continuousIncreaseProp = element.FindPropertyRelative("allowContinuousIncrease");
+            var radiusIncreaseSizeProp = element.FindPropertyRelative("radiusIncreaseSize");
 
             // Draw the queried location and backup locations as a dropdown based on locations derived from the engine
             var engine = BasicFlowEngine.CachedEngines[0];
@@ -132,6 +134,12 @@ namespace LoGaCulture.LUTE
             rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
             EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), startIndexProp);
+            rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+            // Draw radius increase properties
+            EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), continuousIncreaseProp);
+            rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+            EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), radiusIncreaseSizeProp);
             rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
             // Draw the prioritized methods list
