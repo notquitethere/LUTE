@@ -221,11 +221,45 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod] //4 - add another menu for players asking if they wish to play the content anyway but what if multiple orders/nodes use this one location?
-        private void ExecuteAnyway()
+        private FailureHandlingOutcome ExecuteAnyway(FailureMethod failureMethod)
         {
-            // Execute the node anyway - likely needs to be generic to allow for node or order execution
-            // If we find the location on a node we simply remove the location requirement - almost need a list to store this info?
-            // sets ishandled to true when executed
+            // If location cannot be accessed then we show player a message asking if they wish to play the content anyway
+            var engine = failureMethod.GetEngine();
+            Node currentNode = null;
+            if (engine != null)
+            {
+                var map = engine.GetMap();
+                if (map != null)
+                {
+                    map.HideLocationMarker(failureMethod.QueriedLocation);
+                }
+
+                var nodes = engine.GetComponents<Node>();
+                foreach (var node in nodes)
+                {
+                    if (node.NodeLocation != null && Equals(node.NodeLocation.Value, failureMethod.QueriedLocation.Value))
+                    {
+                        currentNode = node;
+                        // Show the menu to the player and execute this node if they choose yes
+                        // Otherwise, we can add this node to a list of nodes that use this location
+                        failureMethod.IsHandled = true;
+                        return FailureHandlingOutcome.Stop;
+                    }
+                    foreach (var order in node.OrderList)
+                    {
+                        // If the order uses the same location as the failure method then the parent node cannot execute
+                        if (order.GetOrderLocation() != null && Equals(order.GetOrderLocation(), failureMethod.QueriedLocation.Value))
+                        {
+                            currentNode = node;
+                            // Show the menu to the player and execute this node if they choose yes
+                            // Otherwise, we can add this node to a list of nodes that use this location
+                            failureMethod.IsHandled = true;
+                            return FailureHandlingOutcome.Stop;
+                        }
+                    }
+                }
+            }
+            return FailureHandlingOutcome.Continue;
         }
 
         [FailureHandlingMethod]
