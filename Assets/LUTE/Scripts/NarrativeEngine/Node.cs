@@ -91,6 +91,7 @@ public class Node : MonoBehaviour
     public virtual Node CurrentUnlockNode { get; set; }
     public virtual bool ShowDesc { get { return showDesc; } set { showDesc = value; } }
     public virtual bool Saveable { get { return saveable; } set { saveable = value; } }
+    public bool ShouldCancel { get; set; }
 
     protected virtual void Awake()
     {
@@ -162,6 +163,8 @@ public class Node : MonoBehaviour
     }
     public virtual IEnumerator Execute(int orderIndex = 0, Action onComplete = null)
     {
+        ShouldCancel = false;
+
         // Wait until the node location is true (if it is set)
         while (NodeLocation != null && !NodeLocation.Evaluate(ComparisonOperator.Equals, null))
         {
@@ -189,7 +192,12 @@ public class Node : MonoBehaviour
             yield return null;
         }
 
-        // while (nodeLocation != null && nodeLocation.Evaluate(ComparisonOperator.Equals, null)) -- this could be the way to ensure that the node is not executed until the location is true
+        if (executionState != ExecutionState.Idle)
+        {
+            Debug.LogWarning(_NodeName + " cannot be executed, it is already running.");
+            yield break;
+        }
+
         {
             lastOnCompleteAction = onComplete;
 
@@ -219,6 +227,12 @@ public class Node : MonoBehaviour
             int i = 0;
             while (true)
             {
+                if (ShouldCancel)
+                {
+                    ReturnToIdle();
+                    yield break;
+                }
+
                 if (jumpToOrderIndex > -1)
                 {
                     i = jumpToOrderIndex;

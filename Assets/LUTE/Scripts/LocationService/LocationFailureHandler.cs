@@ -2,6 +2,7 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -223,42 +224,61 @@ namespace LoGaCulture.LUTE
         [FailureHandlingMethod] //4 - add another menu for players asking if they wish to play the content anyway but what if multiple orders/nodes use this one location?
         private FailureHandlingOutcome ExecuteAnyway(FailureMethod failureMethod)
         {
-            // If location cannot be accessed then we show player a message asking if they wish to play the content anyway
+            // If location cannot be accessed then we create a menu of failed nodes for the player to execute
             var engine = failureMethod.GetEngine();
-            Node currentNode = null;
             if (engine != null)
             {
                 var map = engine.GetMap();
                 if (map != null)
                 {
                     map.HideLocationMarker(failureMethod.QueriedLocation);
+
+                    // Need to remove the location entirely or set its value to null
+                    // Otherwise if player moves back to the location then the failure will be triggered again                    
                 }
 
                 var nodes = engine.GetComponents<Node>();
+                var affectedNodes = new List<Node>();
+
                 foreach (var node in nodes)
                 {
+                    bool nodeAffected = false;
+
                     if (node.NodeLocation != null && Equals(node.NodeLocation.Value, failureMethod.QueriedLocation.Value))
                     {
-                        currentNode = node;
-                        // Show the menu to the player and execute this node if they choose yes
-                        // Otherwise, we can add this node to a list of nodes that use this location
-                        failureMethod.IsHandled = true;
-                        return FailureHandlingOutcome.Stop;
+                        nodeAffected = true;
                     }
+
                     foreach (var order in node.OrderList)
                     {
-                        // If the order uses the same location as the failure method then the parent node cannot execute
                         if (order.GetOrderLocation() != null && Equals(order.GetOrderLocation(), failureMethod.QueriedLocation.Value))
                         {
-                            currentNode = node;
-                            // Show the menu to the player and execute this node if they choose yes
-                            // Otherwise, we can add this node to a list of nodes that use this location
-                            failureMethod.IsHandled = true;
-                            return FailureHandlingOutcome.Stop;
+                            nodeAffected = true;
+                            break;  // We can break here as we've determined the node is affected
                         }
                     }
+
+                    if (nodeAffected)
+                    {
+                        affectedNodes.Add(node);
+                    }
+                }
+
+                foreach (var affectedNode in affectedNodes)
+                {
+                    LocationServiceSignals.DoLocationFailed(failureMethod, affectedNode);
+                    affectedNode.NodeLocation = null;
+                    affectedNode.Stop();
+                    affectedNode.ShouldCancel = true;
+                }
+
+                if (affectedNodes.Any())
+                {
+                    failureMethod.IsHandled = true;
+                    return FailureHandlingOutcome.Stop;
                 }
             }
+
             return FailureHandlingOutcome.Continue;
         }
 

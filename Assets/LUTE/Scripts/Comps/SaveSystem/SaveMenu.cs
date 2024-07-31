@@ -32,13 +32,13 @@ public class SaveMenu : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
         instance = this;
-        if(transform.parent == null)
+        if (transform.parent == null)
         {
             GameObject.DontDestroyOnLoad(this);
         }
@@ -59,16 +59,16 @@ public class SaveMenu : MonoBehaviour
 
         var saveManager = LogaManager.Instance.SaveManager;
 
-        if(string.IsNullOrEmpty(saveManager.StartScene))
+        if (string.IsNullOrEmpty(saveManager.StartScene))
         {
             saveManager.StartScene = SceneManager.GetActiveScene().name;
         }
 
-        if(loadOnStart && !hasLoadedOnStart)
+        if (loadOnStart && !hasLoadedOnStart)
         {
             hasLoadedOnStart = true;
 
-            if(saveManager.HasSaveData(saveKey))
+            if (saveManager.HasSaveData(saveKey))
             {
                 saveManager.Load(saveKey);
             }
@@ -79,22 +79,22 @@ public class SaveMenu : MonoBehaviour
     {
         var saveManager = LogaManager.Instance.SaveManager;
 
-        bool showSaveLoadButtons = showAllOptions; 
-        if(saveButton.IsActive() != showSaveLoadButtons)
+        bool showSaveLoadButtons = showAllOptions;
+        if (saveButton.IsActive() != showSaveLoadButtons)
         {
             saveButton.gameObject.SetActive(showSaveLoadButtons);
             loadButton.gameObject.SetActive(showSaveLoadButtons);
         }
 
-        if(showSaveLoadButtons)
+        if (showSaveLoadButtons)
         {
-            if(saveButton != null)
+            if (saveButton != null)
             {
                 // Don't allow saving if the game is in a state where saving is not allowed 
                 // Don't allow saving unless there is one save point in the history - avoids loading a save with 0 points
                 saveButton.interactable = saveManager.TotalSavePoints > 0 && saveMenuActive;
             }
-            if(loadButton != null)
+            if (loadButton != null)
             {
                 loadButton.interactable = saveManager.HasSaveData(saveKey) && saveMenuActive;
             }
@@ -112,10 +112,10 @@ public class SaveMenu : MonoBehaviour
                 forwardButton.interactable = saveManager.TotalSavePoints > 0 && saveMenuActive;
             }
 
-            if(debugView.enabled)
+            if (debugView.enabled)
             {
                 var debugText = debugView.GetComponentInChildren<TextMeshProUGUI>();
-                if(debugText != null)
+                if (debugText != null)
                 {
                     debugText.text = saveManager.GetDebugInfo();
                 }
@@ -143,7 +143,7 @@ public class SaveMenu : MonoBehaviour
 
     protected void PlayClickSound()
     {
-        if(menuAudioSource != null && menuAudioSource.clip != null)
+        if (menuAudioSource != null && menuAudioSource.clip != null)
         {
             menuAudioSource.Play();
         }
@@ -156,20 +156,22 @@ public class SaveMenu : MonoBehaviour
 
     public void ToggleSaveMenu()
     {
-        if(fadeTween != null)
+        if (fadeTween != null)
         {
             LeanTween.cancel(fadeTween.id, true);
             fadeTween = null;
         }
 
-        if(saveMenuActive)
+        if (saveMenuActive)
         {
             //Fade menu out
             LeanTween.value(saveMenuGroup.gameObject, saveMenuGroup.alpha, 0f, 0.4f)
     .setEase(LeanTweenType.easeOutQuint)
-    .setOnUpdate((t) => {
+    .setOnUpdate((t) =>
+    {
         saveMenuGroup.alpha = t;
-    }).setOnComplete(() => {
+    }).setOnComplete(() =>
+    {
         saveMenuGroup.alpha = 0f;
     });
         }
@@ -178,9 +180,11 @@ public class SaveMenu : MonoBehaviour
             //Fade menu in
             LeanTween.value(saveMenuGroup.gameObject, saveMenuGroup.alpha, 1f, 0.4f)
     .setEase(LeanTweenType.easeOutQuint)
-    .setOnUpdate((t) => {
+    .setOnUpdate((t) =>
+    {
         saveMenuGroup.alpha = t;
-    }).setOnComplete(() => {
+    }).setOnComplete(() =>
+    {
         saveMenuGroup.alpha = 1f;
     });
         }
@@ -194,7 +198,7 @@ public class SaveMenu : MonoBehaviour
 
         var saveManager = LogaManager.Instance.SaveManager;
 
-        if(saveManager.TotalSavePoints > 0)
+        if (saveManager.TotalSavePoints > 0)
         {
             saveManager.SaveGame(saveKey);
         }
@@ -245,7 +249,7 @@ public class SaveMenu : MonoBehaviour
         PlayClickSound();
 
         var saveManager = LogaManager.Instance.SaveManager;
-        if(string.IsNullOrEmpty(saveManager.StartScene))
+        if (string.IsNullOrEmpty(saveManager.StartScene))
         {
             Debug.LogError("Start scene is not set in SaveManager. Please set the start scene in the inspector.");
             return;
@@ -253,7 +257,7 @@ public class SaveMenu : MonoBehaviour
 
         saveManager.ClearHistory();
 
-        if(deleteOnRestart)
+        if (deleteOnRestart)
         {
             SaveManager.DeleteSave(saveKey);
         }
