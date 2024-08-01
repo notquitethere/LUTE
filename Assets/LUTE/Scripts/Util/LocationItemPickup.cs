@@ -14,6 +14,7 @@ public class LocationItemPickup : MonoBehaviour
     protected ItemPicker item;
     protected int quantity;
     protected Sprite imageIcon;
+    protected Node parentNode;
 
     private bool itemPickedUp = false;
     private ButtonPrompt buttonPrompt;
@@ -62,7 +63,7 @@ public class LocationItemPickup : MonoBehaviour
         }
     }
 
-    public static LocationItemPickup CreateItem(LocationItemPickup customPrefab, InventoryItem item, int quantity, MMFeedbacks feedbacks, bool prompt, bool card, LocationVariable location)
+    public static LocationItemPickup CreateItem(LocationItemPickup customPrefab, InventoryItem item, int quantity, MMFeedbacks feedbacks, bool prompt, bool card, LocationVariable location, Node parentNode = null)
     {
         GameObject go = null;
         if (customPrefab != null)
@@ -87,6 +88,9 @@ public class LocationItemPickup : MonoBehaviour
         itemContainer.item = newItem;
         itemContainer.quantity = quantity;
 
+        if (parentNode != null)
+            itemContainer.parentNode = parentNode;
+
         itemContainer.isSetup = true;
 
         return itemContainer;
@@ -105,6 +109,8 @@ public class LocationItemPickup : MonoBehaviour
 
     private bool CheckLocation()
     {
-        return location.Evaluate(ComparisonOperator.Equals, null);
+        if (parentNode != null && parentNode.ShouldCancel)
+            return false;
+        return location.Evaluate(ComparisonOperator.Equals, null); //check to see if node also executing?
     }
 }

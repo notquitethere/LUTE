@@ -11,6 +11,7 @@ public class LocationVariable : BaseVariable<string>
     [SerializeField] public Sprite locationSprite;
     public Color locationColor = Color.white;
     public bool showLocationName = true;
+    public bool locationDisabled = false;
 
     protected float radiusIncrease = 0.0f;
 
@@ -36,6 +37,12 @@ public class LocationVariable : BaseVariable<string>
 
     public override bool Evaluate(ComparisonOperator comparisonOperator, string value)
     {
+        // If location is disabled then we are likely in a scenario where the location is not available thus we should return true
+        // Any other logic should be handled by the class that has called this method
+        if (locationDisabled)
+        {
+            return true;
+        }
         bool condition = false;
         Vector2 location = Vector2.zero;
         switch (comparisonOperator)

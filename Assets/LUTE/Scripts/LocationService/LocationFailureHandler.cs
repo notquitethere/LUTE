@@ -221,10 +221,11 @@ namespace LoGaCulture.LUTE
             return FailureHandlingOutcome.Stop;
         }
 
-        [FailureHandlingMethod] //4 - add another menu for players asking if they wish to play the content anyway but what if multiple orders/nodes use this one location?
+        [FailureHandlingMethod]
         private FailureHandlingOutcome ExecuteAnyway(FailureMethod failureMethod)
         {
             // If location cannot be accessed then we create a menu of failed nodes for the player to execute
+            failureMethod.QueriedLocation.locationDisabled = true;
             var engine = failureMethod.GetEngine();
             if (engine != null)
             {
@@ -232,9 +233,6 @@ namespace LoGaCulture.LUTE
                 if (map != null)
                 {
                     map.HideLocationMarker(failureMethod.QueriedLocation);
-
-                    // Need to remove the location entirely or set its value to null
-                    // Otherwise if player moves back to the location then the failure will be triggered again                    
                 }
 
                 var nodes = engine.GetComponents<Node>();
@@ -249,12 +247,14 @@ namespace LoGaCulture.LUTE
                         nodeAffected = true;
                     }
 
-                    foreach (var order in node.OrderList)
+                    if (!nodeAffected)
                     {
-                        if (order.GetOrderLocation() != null && Equals(order.GetOrderLocation(), failureMethod.QueriedLocation.Value))
+                        foreach (var order in node.OrderList)
                         {
-                            nodeAffected = true;
-                            break;  // We can break here as we've determined the node is affected
+                            if (order.GetOrderLocation() != null && Equals(order.GetOrderLocation().Value, failureMethod.QueriedLocation.Value))
+                            {
+                                nodeAffected = true;
+                            }
                         }
                     }
 
@@ -266,12 +266,13 @@ namespace LoGaCulture.LUTE
 
                 foreach (var affectedNode in affectedNodes)
                 {
-                    LocationServiceSignals.DoLocationFailed(failureMethod, affectedNode);
                     affectedNode.NodeLocation = null;
                     affectedNode.Stop();
                     affectedNode.ShouldCancel = true;
+                    LocationServiceSignals.DoLocationFailed(failureMethod, affectedNode);
                 }
 
+                // If we have affected nodes then we stop the failure method and the player can execute the node via menu
                 if (affectedNodes.Any())
                 {
                     failureMethod.IsHandled = true;

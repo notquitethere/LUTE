@@ -7,7 +7,6 @@ namespace LoGaCulture.LUTE
 {
     public class LocationFailureHandlerMenu : MonoBehaviour
     {
-        [SerializeField] protected Canvas locationFailureMenuGroup;
         [SerializeField] protected CanvasGroup buttonMenuGroup;
 
         protected static bool locationFailureMenuActive = false;
@@ -38,8 +37,9 @@ namespace LoGaCulture.LUTE
         {
             if (!locationFailureMenuActive)
             {
-                //locationFailureMenuGroup.enabled = false;
                 buttonMenuGroup.alpha = 0.0f;
+                buttonMenuGroup.interactable = false;
+                buttonMenuGroup.blocksRaycasts = false;
             }
         }
 
@@ -92,13 +92,13 @@ namespace LoGaCulture.LUTE
         }).setOnComplete(() =>
         {
             buttonMenuGroup.alpha = 0f;
-            //locationFailureMenuGroup.enabled = false;
+            buttonMenuGroup.interactable = false;
+            buttonMenuGroup.blocksRaycasts = false;
         });
             }
             else
             {
                 //Fade menu in
-                //locationFailureMenuGroup.enabled = true;
                 LeanTween.value(buttonMenuGroup.gameObject, buttonMenuGroup.alpha, 1f, 0.4f)
         .setEase(LeanTweenType.easeOutQuint)
         .setOnUpdate((t) =>
@@ -107,6 +107,8 @@ namespace LoGaCulture.LUTE
         }).setOnComplete(() =>
         {
             buttonMenuGroup.alpha = 1f;
+            buttonMenuGroup.interactable = true;
+            buttonMenuGroup.blocksRaycasts = true;
         });
             }
             locationFailureMenuActive = !locationFailureMenuActive;

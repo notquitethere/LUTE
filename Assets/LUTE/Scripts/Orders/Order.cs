@@ -62,11 +62,27 @@ public abstract class Order : MonoBehaviour
     public virtual LocationVariable GetOrderLocation()
     {
         //For copying and pasting orders between engines
+        FieldInfo fieldInfo = null;
         foreach (var field in this.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
         {
             if (field.FieldType == typeof(LocationVariable))
             {
+                fieldInfo = field;
                 return (LocationVariable)field.GetValue(this);
+            }
+        }
+        // Find relevant if statements as they are not referencing location variables explicitly
+        if (this.GetType() == typeof(If))
+        {
+            var ifNode = this as If;
+            List<ConditionExpression> conditions = new List<ConditionExpression>();
+            ifNode.GetConditions(ref conditions);
+            foreach (var condition in ifNode.conditions)
+            {
+                if (condition.AnyVariable.variable != null && condition.AnyVariable.variable.GetType() == typeof(LocationVariable))
+                {
+                    return (LocationVariable)condition.AnyVariable.variable;
+                }
             }
         }
         return null;

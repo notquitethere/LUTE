@@ -1,11 +1,11 @@
-using UnityEngine;
-using UnityEditor;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Object = UnityEngine.Object;
-using System.Reflection;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class GraphWindow : EventWindow
 {
@@ -1596,23 +1596,38 @@ public class GraphWindow : EventWindow
             }
         }
 
-        List<Order> locationOrders = new List<Order>();
-        node.GetLocationOrders(ref locationOrders);
-        if (node.NodeLocation != null || locationOrders.Count > 0)
-        {
-            // Draw a small icon to show that the node has a location in the top right corner of the node
-            Rect rect = new Rect(node._NodeRect);
-            rect.height = 28;
-            rect.width = 28;
-            rect.x += storyEngine.ScrollPos.x + node._NodeRect.width - rect.width + 8;
-            rect.y += storyEngine.ScrollPos.y - rect.height + 25;
+        bool locationFound = false;
 
+        // Determine location on node or any order
+        if (node.NodeLocation != null)
+        {
+            locationFound = true;
+        }
+        else
+        {
+            foreach (var order in node.OrderList)
+            {
+                locationFound = order.GetOrderLocation() != null;
+                if (locationFound)
+                    break;
+            }
+        }
+
+        if (locationFound)
+        {
             if (LogaEditorResources.MapIcon != null)
             {
+                // Draw a small icon to show that the node has a location in the top right corner of the node
+                Rect rect = new Rect(node._NodeRect);
+                rect.height = 28;
+                rect.width = 28;
+                rect.x += storyEngine.ScrollPos.x + node._NodeRect.width - rect.width + 8;
+                rect.y += storyEngine.ScrollPos.y - rect.height + 25;
                 GUI.DrawTexture(rect, LogaEditorResources.MapIcon);
             }
         }
 
+        // Draw the logic symbol if any node has IF conditions
         List<Order> conditions = new List<Order>();
         node.GetConditionOrders(ref conditions);
         if (conditions.Count > 0)
@@ -1739,7 +1754,7 @@ public class GraphWindow : EventWindow
     public static void ShowNotification(string text)
     {
         EditorWindow window = EditorWindow.GetWindow(typeof(GraphWindow), false, "Flow Engine");
-        if(window != null)
+        if (window != null)
         {
             window.ShowNotification(new GUIContent(text));
         }
@@ -3109,7 +3124,8 @@ public class GraphWindow : EventWindow
 
                                         menu.AddItem(new GUIContent("Add Nodes to Group"),
              storyEngine.SelectedNodes.Any(node => node.IsGrouped),
-             () => {
+             () =>
+             {
                  if (storyEngine.SelectedNodes.Any(node => node.IsGrouped))
                  {
                      int groupIndex = storyEngine.SelectedNodes.First(node => node.IsGrouped).GroupIndex;
