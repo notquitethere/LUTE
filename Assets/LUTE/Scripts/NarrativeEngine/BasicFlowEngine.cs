@@ -1,4 +1,3 @@
-using LoGaCulture.LUTE;
 using Mapbox.Examples;
 using MoreMountains.Tools;
 using System;
@@ -62,7 +61,6 @@ public static class ComponentExtensions
 }
 
 [ExecuteInEditMode]
-[RequireComponent(typeof(LocationFailureHandler))]
 public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
 {
     public const string SubstituteVariableRegexString = "{\\$.*?}";

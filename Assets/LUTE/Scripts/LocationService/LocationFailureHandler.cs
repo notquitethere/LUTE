@@ -15,6 +15,7 @@ namespace LoGaCulture.LUTE
     /// When player reaches a location that cannot be accessed, the location searches for this object and matching location
     /// It then acts according to the priority of the methods defined in this class (this list can be modified by designers in the inspector)
     /// </summary>
+    [RequireComponent(typeof(BasicFlowEngine))]
     public class LocationFailureHandler : MonoBehaviour
     {
         [SerializeField] protected List<FailureMethod> failureMethods = new List<FailureMethod>();
@@ -400,6 +401,8 @@ namespace LoGaCulture.LUTE
     [Serializable]
     public class FailureMethod
     {
+        public bool foldout = true;
+
         //[Header("Failure Method and Location")]
         [Tooltip("The location that this method is associated with")]
         [SerializeField] protected LocationVariable queriedLocation;
