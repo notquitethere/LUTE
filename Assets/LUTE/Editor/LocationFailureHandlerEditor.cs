@@ -29,9 +29,21 @@ namespace LoGaCulture.LUTE
 
             availableMethods = LocationFailureHandler.GetAvailableMethods();
 
-            headerStyle = new GUIStyle(EditorStyles.helpBox)
+            Color desiredColor = new Color32(255, 229, 217, 200);
+            Texture2D backgroundTexture = new Texture2D(1, 1);
+            backgroundTexture.SetPixel(0, 0, desiredColor);
+            backgroundTexture.Apply();
+
+            headerStyle = new GUIStyle()
             {
+                alignment = TextAnchor.MiddleCenter,
                 fontStyle = FontStyle.Bold,
+                fontSize = 12,
+                normal = new GUIStyleState
+                {
+                    background = backgroundTexture,
+                    textColor = Color.black
+                }
             };
         }
 
@@ -87,8 +99,11 @@ namespace LoGaCulture.LUTE
 
                 // Find the index of the currently selected location
                 int locationVarIndex = Array.FindIndex(locations, x => x == (queriedLocationProp.objectReferenceValue as LocationVariable));
-                if (locationVarIndex == -1) locationVarIndex = 0; // Default to first item if not found
-
+                if (locationVarIndex == -1)
+                {
+                    locationVarIndex = 0; // Default to first item if not found
+                    queriedLocationProp.objectReferenceValue = locations[0];
+                }
                 // Location Settings Header
                 EditorGUI.LabelField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), "Location Settings", headerStyle);
                 rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
@@ -244,19 +259,34 @@ namespace LoGaCulture.LUTE
 
             if (foldoutProp.boolValue)
             {
-                height += EditorGUIUtility.singleLineHeight * 7; // For all single-line properties
-                height += EditorGUIUtility.standardVerticalSpacing * 6;
-                height += EditorGUI.GetPropertyHeight(backupLocationsProp);
+                height += EditorGUIUtility.standardVerticalSpacing; // Space after foldout
+                height += EditorGUIUtility.singleLineHeight * 4; // Location Settings, Backup Location Settings, Update Location Text, Backup Locations label
+                height += EditorGUIUtility.standardVerticalSpacing * 4;
 
-                // Height for prioritized methods list
+                // Backup Locations
+                height += EditorGUIUtility.singleLineHeight * backupLocationsProp.arraySize;
+                height += EditorGUIUtility.standardVerticalSpacing * backupLocationsProp.arraySize;
+                height += EditorGUIUtility.singleLineHeight; // Add Backup Location button
+
+                // Backup Node Settings
+                height += EditorGUIUtility.singleLineHeight * 4; // Header, Target Node, Start Index, Radius Settings header
+                height += EditorGUIUtility.standardVerticalSpacing * 4;
+
+                // Radius Settings
+                height += EditorGUIUtility.singleLineHeight * 2; // Continuous Increase, Radius Increase Size
+                height += EditorGUIUtility.standardVerticalSpacing * 2;
+
+                // Prioritized Methods List
                 if (prioritizedMethodsLists.TryGetValue(index, out ReorderableList prioritizedMethodsList))
                 {
-                    height += prioritizedMethodsList.GetHeight() + 50;
+                    height += prioritizedMethodsList.GetHeight() + 15;
                 }
                 else
                 {
-                    height += 10; // Fallback height if list not created yet
+                    height += EditorGUIUtility.singleLineHeight * 2; // Fallback height if list not created yet
                 }
+
+                height += EditorGUIUtility.standardVerticalSpacing * 2; // Extra space at the bottom
             }
 
             return height;

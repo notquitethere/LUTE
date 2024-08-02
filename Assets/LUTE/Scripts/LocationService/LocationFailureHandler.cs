@@ -146,7 +146,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome UseBackupLocation(FailureMethod failureMethod)
+        private FailureHandlingOutcome Use_Backup_Location(FailureMethod failureMethod)
         {
             // Check if there are any backup locations
             if (failureMethod.BackupLocations == null || failureMethod.BackupLocations.Count == 0)
@@ -204,7 +204,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome IncreaseRadius(FailureMethod failureMethod)
+        private FailureHandlingOutcome Increase_Radius(FailureMethod failureMethod)
         {
             if (failureMethod.HasIncreased && !failureMethod.AllowContinuousIncrease)
             {
@@ -223,7 +223,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome ExecuteAnyway(FailureMethod failureMethod)
+        private FailureHandlingOutcome Execute_Anyway(FailureMethod failureMethod)
         {
             // If location cannot be accessed then we create a menu of failed nodes for the player to execute
             failureMethod.QueriedLocation.locationDisabled = true;
@@ -285,7 +285,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome UseNearestLocation(FailureMethod failureMethod)
+        private FailureHandlingOutcome Use_Nearest_Location(FailureMethod failureMethod)
         {
             var engine = failureMethod.GetEngine();
             if (engine != null)
@@ -329,7 +329,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome JumpToNode(FailureMethod failureMethod)
+        private FailureHandlingOutcome Use_BackupNode(FailureMethod failureMethod)
         {
             var engine = failureMethod.GetEngine();
             // If we find a node and the engine is available then we can jump to the node
@@ -351,7 +351,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private void DisbaleLocationBehaviour(FailureMethod failureMethod)
+        private void Disbale_Location_Behaviour(FailureMethod failureMethod)
         {
             // Find any reference to location - if on node then set node to cannot execute
             // If on order then do the same to the parent node
