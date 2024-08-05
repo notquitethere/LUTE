@@ -1709,6 +1709,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4327719991540447548, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      propertyPath: failureMethods.Array.data[3].allowContinuousIncrease
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327719991540447548, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: failureMethods.Array.data[0].backupLocations.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1798,11 +1802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4327719991540447548, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: failureMethods.Array.data[3].priorityMethods.Array.data[0]
-      value: Execute_Anyway
+      value: Increase_Radius
       objectReference: {fileID: 0}
     - target: {fileID: 4327719991540447548, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: failureMethods.Array.data[3].priorityMethods.Array.data[1]
-      value: Increase_Radius
+      value: Execute_Anyway
       objectReference: {fileID: 0}
     - target: {fileID: 4327719991540447548, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: failureMethods.Array.data[3].priorityMethods.Array.data[2]
@@ -2658,7 +2662,7 @@ MonoBehaviour:
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
-  showDesc: 0
+  showDesc: 1
   saveable: 0
   NodeComplete: 0
 --- !u!114 &949217713
@@ -2740,7 +2744,7 @@ MonoBehaviour:
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
-  showDesc: 0
+  showDesc: 1
   saveable: 0
   NodeComplete: 0
   groupedNodes:

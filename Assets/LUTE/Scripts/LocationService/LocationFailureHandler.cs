@@ -36,6 +36,16 @@ namespace LoGaCulture.LUTE
             RegisterFailureHandlingMethods();
         }
 
+        private void OnEnable()
+        {
+            LocationServiceSignals.OnLocationComplete += OnLocationSuccess;
+        }
+
+        private void OnDisable()
+        {
+            LocationServiceSignals.OnLocationComplete -= OnLocationSuccess;
+        }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnBeforeSceneLoadRuntimeMethod()
         {
@@ -58,6 +68,18 @@ namespace LoGaCulture.LUTE
                 {
                     availableMethods[method.Name] = method;
                 }
+            }
+        }
+
+        protected virtual void OnLocationSuccess(LocationVariable location)
+        {
+            // Find the relevant failure method via location and set it to handled
+            var failureMethod = failureMethods.Find(fm =>
+                           fm.QueriedLocation != null && Equals(fm.QueriedLocation.Value, location.Value));
+
+            if (failureMethod != null)
+            {
+                failureMethod.IsHandled = true;
             }
         }
 
@@ -308,7 +330,6 @@ namespace LoGaCulture.LUTE
             // Possibly show player a message about the increased radius and to move around
             // Could use dialogue system for this
 
-            failureMethod.IsHandled = true;
             return FailureHandlingOutcome.Stop;
         }
 

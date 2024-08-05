@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
@@ -41,6 +42,7 @@ public class LocationVariable : BaseVariable<string>
         // Any other logic should be handled by the class that has called this method
         if (locationDisabled)
         {
+            LocationServiceSignals.DoLocationComplete(this);
             return true;
         }
         bool condition = false;
@@ -56,6 +58,11 @@ public class LocationVariable : BaseVariable<string>
             default:
                 condition = base.Evaluate(comparisonOperator, value);
                 break;
+        }
+
+        if (condition)
+        {
+            LocationServiceSignals.DoLocationComplete(this);
         }
 
         return condition;
