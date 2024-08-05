@@ -52,6 +52,20 @@ namespace LoGaCulture.LUTE
             serializedObject.Update();
             failureMethodsList.DoLayoutList();
             serializedObject.ApplyModifiedProperties();
+            // Draw an auto location button that will setup all locations to handle failure in a simple way
+            LocationFailureHandler t = (LocationFailureHandler)target;
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (t != null)
+            {
+                if (GUILayout.Button(new GUIContent("Auto Setup Locations", "Sets up all locations to handle failure")))
+                {
+                    t.SetupLocations();
+                }
+            }
+
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
         }
 
         private void DrawFailureMethodElement(Rect rect, int index, bool isActive, bool isFocused)

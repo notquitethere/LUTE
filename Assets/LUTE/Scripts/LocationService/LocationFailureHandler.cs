@@ -67,6 +67,96 @@ namespace LoGaCulture.LUTE
             return new List<string>(availableMethods.Keys).ToArray();
         }
 
+        public void SetupLocations()
+        {
+            var engine = BasicFlowEngine.CachedEngines.FirstOrDefault();
+            if (engine == null)
+                engine = FindObjectOfType<BasicFlowEngine>();
+            if (engine != null)
+            {
+                var nodes = engine.GetComponents<Node>();
+                if (nodes != null && nodes.Count() > 0)
+                {
+                    foreach (var node in nodes)
+                    {
+                        if (node != null && node.NodeLocation != null)
+                        {
+                            // Found a node location so we can set this up
+                            AddNodeLocation(node.NodeLocation);
+                        }
+                        else
+                        {
+                            // Node is not null but has no location - check to see if any orders on this node use a location
+                            var orders = node.OrderList;
+                            foreach (var order in orders)
+                            {
+                                if (order.GetOrderLocation() != null)
+                                {
+                                    var location = order.GetOrderLocation();
+                                    AddOrderLocation(location, order);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AddNodeLocation(LocationVariable location)
+        {
+            // Check if the location already exists in our failure handler list
+            bool locationExists = failureMethods.Any(fm =>
+                fm.QueriedLocation != null &&
+                Equals(fm.QueriedLocation.Value, location.Value));
+
+            if (!locationExists)
+            {
+                var newFailureMethod = new FailureMethod(location);
+                // Available methods applicable
+                newFailureMethod.PriorityMethods.Add("Execute_Anyway");
+                newFailureMethod.PriorityMethods.Add("Increase_Radius");
+                newFailureMethod.PriorityMethods.Add("Use_Nearest_Location");
+                newFailureMethod.PriorityMethods.Add("Disbale_Location_Behaviour");
+                failureMethods.Add(newFailureMethod);
+            }
+        }
+
+        private void AddOrderLocation(LocationVariable location, Order order)
+        {
+            // Check if the location already exists in our failure handler list
+            bool locationExists = failureMethods.Any(fm =>
+                fm.QueriedLocation != null &&
+                Equals(fm.QueriedLocation.Value, location.Value));
+            // If not then add a location failure handler for it and base the method and setup on the type of node provided
+            if (!locationExists && order != null)
+            {
+                var newFailureMethod = new FailureMethod(location);
+                // Available methods applicable are based on order type - add more here
+                switch (order)
+                {
+                    //case If ifT:
+                    //    newFailureMethod.PriorityMethods.Add("Execute_Anyway");
+                    //    newFailureMethod.PriorityMethods.Add("Increase_Radius");
+                    //    newFailureMethod.PriorityMethods.Add("Use_Nearest_Location");
+                    //    newFailureMethod.PriorityMethods.Add("Disbale_Location_Behaviour");
+                    //    break;
+                    //case LocationPickups locationPickupsT:
+                    //    newFailureMethod.PriorityMethods.Add("Execute_Anyway");
+                    //    newFailureMethod.PriorityMethods.Add("Increase_Radius");
+                    //    newFailureMethod.PriorityMethods.Add("Use_Nearest_Location");
+                    //    newFailureMethod.PriorityMethods.Add("Disbale_Location_Behaviour");
+                    //    break;
+                    default:
+                        newFailureMethod.PriorityMethods.Add("Execute_Anyway");
+                        newFailureMethod.PriorityMethods.Add("Increase_Radius");
+                        newFailureMethod.PriorityMethods.Add("Use_Nearest_Location");
+                        newFailureMethod.PriorityMethods.Add("Disbale_Location_Behaviour");
+                        break;
+                }
+                failureMethods.Add(newFailureMethod);
+            }
+        }
+
         public bool HandleFailure(Vector2d location)
         {
             if (location == null)
@@ -329,7 +419,7 @@ namespace LoGaCulture.LUTE
         }
 
         [FailureHandlingMethod]
-        private FailureHandlingOutcome Use_BackupNode(FailureMethod failureMethod)
+        private FailureHandlingOutcome Use_Backup_Node(FailureMethod failureMethod)
         {
             var engine = failureMethod.GetEngine();
             // If we find a node and the engine is available then we can jump to the node
@@ -431,7 +521,7 @@ namespace LoGaCulture.LUTE
 
         public LocationVariable QueriedLocation { get => queriedLocation; }
         public List<LocationVariable> BackupLocations { get => backupLocations; }
-        public List<string> PriorityMethods { get => priorityMethods; }
+        public List<string> PriorityMethods { get => priorityMethods; set => priorityMethods = value; }
         public bool IsHandled { get => isHandled; set => isHandled = value; }
         public bool AllowContinuousIncrease { get => allowContinuousIncrease; }
         public bool UpdateLocationText { get => updateLocationText; }
@@ -439,6 +529,23 @@ namespace LoGaCulture.LUTE
         public Node BackupNode { get => backupNode; }
         public int StartIndex { get => startIndex; }
         public float RadiusIncreaseSize { get => radiusIncreaseSize; }
+
+        public FailureMethod(LocationVariable queriedLocation, List<string> priorityMethods = null, List<LocationVariable> backupLocations = null)
+        {
+            this.queriedLocation = queriedLocation;
+            this.priorityMethods = priorityMethods ?? new List<string>();
+            this.backupLocations = backupLocations ?? new List<LocationVariable>();
+
+            // Set default values for other fields
+            this.foldout = true;
+            this.isHandled = false;
+            this.updateLocationText = false;
+            this.backupNode = null;
+            this.startIndex = 0;
+            this.allowContinuousIncrease = false;
+            this.radiusIncreaseSize = 50.0f;
+            this.hasIncreased = false;
+        }
 
         public BasicFlowEngine GetEngine()
         {
