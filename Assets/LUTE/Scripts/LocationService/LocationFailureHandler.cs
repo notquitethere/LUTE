@@ -293,6 +293,8 @@ namespace LoGaCulture.LUTE
 
                     failureMethod.QueriedLocation.Apply(SetOperator.Assign, backupLocation);
                     failureMethod.IsHandled = true;
+                    string message = $"Location {failureMethod.QueriedLocation.Key} is inaccessible. The backup location {backupLocation.Key} has been selected instead.";
+                    DisplayMessage(message);
                     return FailureHandlingOutcome.Stop;
                 }
                 else
@@ -327,8 +329,8 @@ namespace LoGaCulture.LUTE
             failureMethod.QueriedLocation.RadiusIncrease += failureMethod.RadiusIncreaseSize;
             failureMethod.HasIncreased = true;
 
-            // Possibly show player a message about the increased radius and to move around
-            // Could use dialogue system for this
+            string message = $"Location {failureMethod.QueriedLocation.Key} is inaccessible. The radius has been increased by {failureMethod.RadiusIncreaseSize} meters.";
+            DisplayMessage(message);
 
             return FailureHandlingOutcome.Stop;
         }
@@ -375,19 +377,22 @@ namespace LoGaCulture.LUTE
                         affectedNodes.Add(node);
                     }
                 }
-
+                string failedNodes = string.Empty;
                 foreach (var affectedNode in affectedNodes)
                 {
                     affectedNode.NodeLocation = null;
                     affectedNode.Stop();
                     affectedNode.ShouldCancel = true;
                     LocationServiceSignals.DoLocationFailed(failureMethod, affectedNode);
+                    failedNodes += affectedNode._NodeName + ", ";
                 }
 
                 // If we have affected nodes then we stop the failure method and the player can execute the node via menu
                 if (affectedNodes.Any())
                 {
                     failureMethod.IsHandled = true;
+                    string message = $"Location {failureMethod.QueriedLocation.Key} is inaccessible. Please use the content menu to play the content for these given nodes: {failedNodes}";
+                    DisplayMessage(message);
                     return FailureHandlingOutcome.Stop;
                 }
             }
@@ -432,6 +437,8 @@ namespace LoGaCulture.LUTE
                         map.ShowLocationMarker(nearestLocation, updateText, failureMethod.QueriedLocation.Key);
                         failureMethod.QueriedLocation.Apply(SetOperator.Assign, nearestLocation);
                         failureMethod.IsHandled = true;
+                        string message = $"Location {failureMethod.QueriedLocation.Key} is inaccessible. The nearest location has been selected instead. Please head to: {nearestLocation.Key}";
+                        DisplayMessage(message);
                         return FailureHandlingOutcome.Stop;
                     }
                 }
@@ -497,6 +504,26 @@ namespace LoGaCulture.LUTE
                     }
                 }
             }
+        }
+
+        private string DisplayMessage(string message)
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                return null;
+            }
+            var dialogueBox = DialogueBox.GetDialogueBox();
+            if (dialogueBox == null)
+            {
+                return null;
+            }
+
+            dialogueBox.SetStoryText(message);
+            dialogueBox.SetActive(true);
+            dialogueBox.StartDialogue(0.04f, 1f, true, true, false, delegate
+            {
+            });
+            return message;
         }
     }
 

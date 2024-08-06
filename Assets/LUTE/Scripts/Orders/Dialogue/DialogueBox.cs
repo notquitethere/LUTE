@@ -1,10 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
+using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Display story text in a visual novel style Dialogue box.
