@@ -1,4 +1,7 @@
+using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +11,9 @@ namespace LoGaCulture.LUTE
     public class LocationFailureHandlerMenu : MonoBehaviour
     {
         [SerializeField] protected CanvasGroup buttonMenuGroup;
+        [Header("Custom Location Menu")]
+        [SerializeField] protected CanvasGroup customLocationMenuGroup;
+        [SerializeField] protected TMP_Dropdown locationChoiceDropdown;
 
         protected static bool locationFailureMenuActive = false;
 
@@ -62,6 +68,8 @@ namespace LoGaCulture.LUTE
 
             var newFailedLocationNode = new FailedLocatioNode(failureMethod.QueriedLocation, relatedNode, "Location Not Found...");
             failedLocationNodes.Add(newFailedLocationNode);
+            if (locationFailureMenuActive)
+                CreateNodeButton(newFailedLocationNode);
         }
 
         public void ToggleMenu()
@@ -140,6 +148,93 @@ namespace LoGaCulture.LUTE
                 button.GetComponent<Button>().onClick.AddListener(() => PlayNode(failedLocationNode.relatedNode));
                 nodeButtons.Add(button.GetComponent<Button>());
             }
+        }
+
+        public void ToggleCustomLocationMenu()
+        {
+            if (customLocationMenuGroup)
+            {
+                customLocationMenuGroup.alpha = customLocationMenuGroup.alpha > 0 ? 0 : 1;
+
+                if (locationChoiceDropdown == null)
+                {
+                    locationChoiceDropdown = customLocationMenuGroup.GetComponentInChildren<TMP_Dropdown>();
+                    if (locationChoiceDropdown == null)
+                    {
+                        Debug.LogError("LocationChoiceDropdown is not found in the custom location menu");
+                        return;
+                    }
+                }
+
+                // If we can see the location selector then we fill the dropdown with the available locations
+                if (customLocationMenuGroup.alpha > 0)
+                {
+                    //Fill the dropdown with the available locations
+                    locationChoiceDropdown.ClearOptions();
+                    //locationChoiceDropdown.placeholder.GetComponent<TextMeshProUGUI>().text = "Select a location";
+                    var engine = BasicFlowEngine.CachedEngines[0];
+                    if (engine == null)
+                    {
+                        engine = FindObjectOfType<BasicFlowEngine>();
+                    }
+                    if (engine == null)
+                    {
+                        Debug.LogError("BasicFlowEngine is not found in the scene");
+                        return;
+                    }
+                    var handler = engine.GetComponent<LocationFailureHandler>();
+                    if (handler == null)
+                    {
+                        Debug.LogError("LocationFailureHandler is not found in the scene");
+                        return;
+                    }
+                    var locations = engine.GetComponents<LocationVariable>();
+                    foreach (var location in locations)
+                    {
+                        // Find the location failure handler in handler
+                        var failureLocation = handler.FailureMethods.Find(x => x.QueriedLocation.Value == location.Value);
+                        // If the location is not handled then we handle it
+                        if (failureLocation != null && !failureLocation.IsHandled)
+                        {
+                            locationChoiceDropdown.options.Add(new TMP_Dropdown.OptionData(location.Key));
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public void RunLocationFailure()
+        {
+            // Get the input value from the dropdown and test to location failure handler based on this value
+            var engine = BasicFlowEngine.CachedEngines[0];
+            if (engine == null)
+            {
+                engine = FindObjectOfType<BasicFlowEngine>();
+            }
+            if (engine == null)
+            {
+                Debug.LogError("BasicFlowEngine is not found in the scene");
+                return;
+            }
+
+            var locationKey = locationChoiceDropdown.options[locationChoiceDropdown.value].text;
+            var location = engine.GetComponents<LocationVariable>().ToList().Find(x => x.Key == locationKey);
+            if (location == null)
+            {
+                Debug.LogError("Location with key " + locationKey + " is not found in the scene");
+                return;
+            }
+            LocationFailureHandler handler = engine.GetComponent<LocationFailureHandler>();
+            if (handler == null)
+            {
+                Debug.LogError("LocationFailureHandler is not found in the scene");
+                return;
+            }
+            Vector2d location2D = Conversions.StringToLatLon(location.Value);
+            handler.HandleFailure(location2D);
+            customLocationMenuGroup.alpha = 0;
+            locationChoiceDropdown.ClearOptions();
         }
     }
 
