@@ -64,5 +64,25 @@ namespace LoGaCulture.LUTE
     {
         public int totalStickersRequired;
         public StickerManager.StickerType stickerType;
+        [Tooltip("To determine if an achievement requires checking the name text")]
+        public bool checkNameText;
+        [Tooltip("If the name text contains any of this string, this aspect of the rule has been met")]
+        public string nameTextContains;
+        [Tooltip("If the name text does NOT contains any of this string, this aspect of the rule has been met")]
+        public string nameTextDoesNotContain;
+
+        [Tooltip("To determine if an achievement requires checking the description text")]
+        public bool checkDescText;
+        [Tooltip("If the description text contains any of this string, this aspect of the rule has been met")]
+        public string descTextContains;
+        [Tooltip("If the description text does NOT contains any of this string, this aspect of the rule has been met")]
+        public string descTextDoesNotContain;
+
+        [Tooltip("To determine if an achievement requires checking the author text")]
+        public bool checkAuthorText;
+        [Tooltip("If the author text contains any of this string, this aspect of the rule has been met")]
+        public string authorTextContains;
+        [Tooltip("If the author text does NOT contains any of this string, this aspect of the rule has been met")]
+        public string authorTextDoesNotContain;
     }
 }

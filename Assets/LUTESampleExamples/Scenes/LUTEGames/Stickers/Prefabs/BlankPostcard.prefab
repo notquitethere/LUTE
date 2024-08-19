@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6909692684320757081, guid: 8824f0d1352a0c544b3845bc2e18dad7, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7011348399169364280, guid: 8824f0d1352a0c544b3845bc2e18dad7, type: 3}
       propertyPath: m_Name
       value: BlankPostcard
