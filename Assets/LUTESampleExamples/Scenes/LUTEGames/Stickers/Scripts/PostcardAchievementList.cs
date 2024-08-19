@@ -52,6 +52,8 @@ namespace LoGaCulture.LUTE
         private bool CheckRule(CustomAchievement rule, Postcard postcard)
         {
             bool rulesMet = false;
+
+            // Check sticker rules
             if (rule.stickerType == StickerManager.StickerType.None)
             {
                 rulesMet = postcard.stickers.Count >= rule.totalStickersRequired;
@@ -62,41 +64,20 @@ namespace LoGaCulture.LUTE
                 rulesMet = postcard.stickers.Count >= rule.totalStickersRequired && matchingStickersCount >= rule.totalStickersRequired;
             }
 
+            // If sticker rules are met, check text rules
             if (rulesMet)
             {
-                // check the text then return based on this
-                if (rule.checkNameText)
+                bool CheckTextRule(string text, string contains, string doesNotContain)
                 {
-                    if (postcard.PostcardName.Contains(rule.nameTextContains) || string.IsNullOrEmpty(rule.nameTextContains) && !postcard.PostcardName.Contains(rule.nameTextDoesNotContain) || string.IsNullOrEmpty(rule.nameTextDoesNotContain))
-                    {
-                        rulesMet = true;
-                    }
-                    else
-                    {
-                        rulesMet = false;
-                    }
+                    return (string.IsNullOrEmpty(contains) || text.Contains(contains)) &&
+                           (string.IsNullOrEmpty(doesNotContain) || !text.Contains(doesNotContain));
                 }
-                if (rule.checkAuthorText)
+
+                if (rule.checkNameText && !CheckTextRule(postcard.PostcardName, rule.nameTextContains, rule.nameTextDoesNotContain) ||
+                    rule.checkAuthorText && !CheckTextRule(postcard.PostcardCreator, rule.authorTextContains, rule.authorTextDoesNotContain) ||
+                    rule.checkDescText && !CheckTextRule(postcard.PostcardDesc, rule.descTextContains, rule.descTextDoesNotContain))
                 {
-                    if (postcard.PostcardCreator.Contains(rule.authorTextContains) || string.IsNullOrEmpty(rule.authorTextContains) && !postcard.PostcardCreator.Contains(rule.authorTextDoesNotContain) || string.IsNullOrEmpty(rule.authorTextDoesNotContain))
-                    {
-                        rulesMet = true;
-                    }
-                    else
-                    {
-                        rulesMet = false;
-                    }
-                }
-                if (rule.checkDescText)
-                {
-                    if (postcard.PostcardDesc.Contains(rule.descTextContains) || string.IsNullOrEmpty(rule.descTextContains) && !postcard.PostcardDesc.Contains(rule.descTextDoesNotContain) || string.IsNullOrEmpty(rule.descTextDoesNotContain))
-                    {
-                        rulesMet = true;
-                    }
-                    else
-                    {
-                        rulesMet = false;
-                    }
+                    rulesMet = false;
                 }
             }
 
