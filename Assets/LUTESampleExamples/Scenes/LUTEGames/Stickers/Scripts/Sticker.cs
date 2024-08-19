@@ -1,7 +1,4 @@
 using MoreMountains.Feedbacks;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,7 +22,7 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
     [Tooltip("The minimum scale of the sticker")]
     [SerializeField] protected float minScale = 0.5f;
     [Tooltip("The speed at which the sticker scales")]
-    [SerializeField] protected float scaleSpeed = 0.1f;
+    [SerializeField] protected float scaleSpeed = 0.01f;
     [Tooltip("Feedback to be played when placing sticker")]
     [SerializeField] protected MMFeedbacks placeStickerFeedback;
     protected RectTransform binIcon;
@@ -36,11 +33,11 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
     protected Quaternion stickerRot;
 
     public StickerManager.StickerType StickerType { get { return stickerType; } set { stickerType = value; } }
-    public string StickerName { get { return stickerName; } set {  stickerName = value; } }
-    public string StickerDescription { get { return stickerDescription;  } set { stickerDescription = value; } }
+    public string StickerName { get { return stickerName; } set { stickerName = value; } }
+    public string StickerDescription { get { return stickerDescription; } set { stickerDescription = value; } }
     public Sprite StickerImage { get { return stickerImage; } set { stickerImage = value; } }
     public Vector3 StickerPosition { get { return stickerPos; } set { stickerPos = value; } }
-    public Vector3 StickerScale { get {  return stickerScale; } set { stickerScale  = value; } }
+    public Vector3 StickerScale { get { return stickerScale; } set { stickerScale = value; } }
     public Quaternion StickerRotation { get { return stickerRot; } set { stickerRot = value; } }
 
     private bool Moveable() => true;
@@ -49,15 +46,67 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
 
     private bool isFlipped;
     private bool mouseOver;
+    private bool hasTwoFingers = false;
+    private bool isScaling = false;
+    private float scaleThreshold = 0.1f;
 
     private RectTransform mrect => GetComponent<RectTransform>();
     private RectTransform parentRect => mrect.parent as RectTransform;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        if(mouseOver)
+        if (Input.touchCount == 2)
         {
-            if(Rotatable())
+            hasTwoFingers = true;
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
+
+            // Calculate the middle point between the two touches
+            Vector2 touchMiddlePoint = (touch0.position + touch1.position) / 2;
+
+            // Check if either touch is over the object
+            bool touch0OverObject = IsTouchOverObject(touch0.position);
+            bool touch1OverObject = IsTouchOverObject(touch1.position);
+
+            if (touch0OverObject || touch1OverObject)
+            {
+                // Determine if we're scaling
+                Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
+                Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+                float prevTouchDeltaMag = (touch0PrevPos - touch1PrevPos).magnitude;
+                float touchDeltaMag = (touch0.position - touch1.position).magnitude;
+                float deltaMagnitudeDiff = Mathf.Abs(touchDeltaMag - prevTouchDeltaMag);
+
+                isScaling = deltaMagnitudeDiff > scaleThreshold;
+
+                if (Scaleable())
+                {
+                    // Scaling logic
+                    float scaleFactor = touchDeltaMag / prevTouchDeltaMag;
+                    Vector3 newScale = transform.localScale * scaleFactor;
+                    transform.localScale = newScale;
+                    stickerScale = transform.localScale;
+                }
+                if (Rotatable())
+                {
+                    float angle = Mathf.Atan2(touch1.position.y - touch0.position.y, touch1.position.x - touch0.position.x) * Mathf.Rad2Deg;
+                    float prevAngle = Mathf.Atan2(touch1PrevPos.y - touch0PrevPos.y, touch1PrevPos.x - touch0PrevPos.x) * Mathf.Rad2Deg;
+                    float angleDiff = Mathf.DeltaAngle(prevAngle, angle);
+
+                    // Rotate around the object's pivot
+                    transform.Rotate(Vector3.forward, angleDiff, Space.Self);
+                    stickerRot = transform.rotation;
+                }
+            }
+        }
+        else
+        {
+            hasTwoFingers = false;
+        }
+        // Keyboard input logic - should be updated to new input system
+        if (mouseOver)
+        {
+            if (Rotatable())
             {
                 if (Input.GetKey(KeyCode.D))
                 {
@@ -70,8 +119,8 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
                     stickerRot = transform.rotation;
                 }
             }
-            if(Scaleable())
-            {            
+            if (Scaleable())
+            {
                 if (Input.GetKey(KeyCode.W))
                 {
                     transform.localScale += Vector3.one * scaleSpeed * Time.deltaTime;
@@ -85,12 +134,22 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
             }
         }
 
+        // Clamping scale
         if (transform.localScale.x > maxScale)
             transform.localScale = new Vector3(maxScale, maxScale, maxScale);
         if (transform.localScale.x < minScale)
             transform.localScale = new Vector3(minScale, minScale, minScale);
 
         KeepInsideCanvas();
+    }
+
+    private bool IsTouchOverObject(Vector2 screenPosition)
+    {
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(mrect, screenPosition, null, out Vector2 localPoint))
+        {
+            return mrect.rect.Contains(localPoint);
+        }
+        return false;
     }
 
     public Sticker Initialise(StickerItem sticker)
@@ -115,7 +174,7 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
 
     public Sticker Initialise(Sticker sticker)
     {
-        if(sticker == null)
+        if (sticker == null)
             return null;
 
         stickerName = sticker.stickerName;
@@ -198,14 +257,18 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
             image.enabled = true;
         }
     }
-    
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (hasTwoFingers)
+            return;
         binIcon?.gameObject.SetActive(true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (hasTwoFingers)
+            return;
         var parentCard = transform.parent;
         bool canMove = Moveable();
         if (parentCard == null)
@@ -228,6 +291,8 @@ public class Sticker : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragH
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (hasTwoFingers)
+            return;
         // Check mouse position to see if it is over the bin icon
         if (RectTransformUtility.RectangleContainsScreenPoint(binIcon, eventData.position, eventData.pressEventCamera))
         {

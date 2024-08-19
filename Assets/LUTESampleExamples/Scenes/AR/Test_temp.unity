@@ -260,10 +260,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4981096788378851643, guid: 28e31e91ea74135498b09c8a85243cfb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e31e91ea74135498b09c8a85243cfb, type: 3}
 --- !u!1 &1173575375
 GameObject:
@@ -434,7 +431,6 @@ MonoBehaviour:
   orderList:
   - {fileID: 1867393956}
   - {fileID: 1867393962}
-  - {fileID: 1867393963}
   - {fileID: 1867393964}
   eventHandler: {fileID: 0}
   isGrouped: 0
@@ -447,6 +443,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1867393958
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -496,6 +494,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1867393960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,8 +513,7 @@ MonoBehaviour:
   description: 
   hideComponents: 1
   localizationId: 
-  selectedOrders:
-  - {fileID: 1867393963}
+  selectedOrders: []
   selectedNodes:
   - {fileID: 1867393957}
   nodeViewHeight: 400
@@ -534,6 +533,7 @@ MonoBehaviour:
   scrollPos: {x: 0, y: 0}
   version: 1
   sidesOfDie: 6
+  postcards: []
   groupnames: []
 --- !u!4 &1867393961
 Transform:
@@ -572,7 +572,7 @@ MonoBehaviour:
   planeAlignment: 100
 --- !u!114 &1867393963
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
