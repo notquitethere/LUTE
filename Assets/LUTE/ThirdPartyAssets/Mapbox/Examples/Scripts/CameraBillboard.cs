@@ -1,9 +1,10 @@
 ﻿namespace Mapbox.Examples
 {
     using UnityEngine;
+    using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
-    public class CameraBillboard : MonoBehaviour
+    public class CameraBillboard : MonoBehaviour, IPointerClickHandler
     {
         Camera _camera;
         Canvas canvas;
@@ -84,6 +85,11 @@
                 spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             if (spriteRenderer != null)
                 spriteRenderer.sprite = icon;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            // This is where we must handle the click event to trigger the node
         }
     }
 }

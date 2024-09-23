@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -239,7 +239,9 @@ public class ContainerCard : MonoBehaviour
                 var locations = engine.GetComponents<LocationVariable>();
                 for (int i = 0; i < locations.Length; i++)
                 {
-                    if (locations[i].Scope == VariableScope.Global && locations[i].Value == locationVariable)
+                    var locString = locationVariable;
+
+                    if (locations[i].Scope == VariableScope.Global && locations[i].Value.Position == locString)
                     {
                         ActiveContainerCard.locationVar = locations[i];
                     }

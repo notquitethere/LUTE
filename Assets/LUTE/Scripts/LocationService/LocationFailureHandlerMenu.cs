@@ -1,4 +1,3 @@
-using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System.Collections.Generic;
 using System.Linq;
@@ -231,7 +230,7 @@ namespace LoGaCulture.LUTE
                 Debug.LogError("LocationFailureHandler is not found in the scene");
                 return;
             }
-            Vector2d location2D = Conversions.StringToLatLon(location.Value);
+            Vector2d location2D = location.Value.LatLongString();
             handler.HandleFailure(location2D);
             customLocationMenuGroup.alpha = 0;
             locationChoiceDropdown.ClearOptions();

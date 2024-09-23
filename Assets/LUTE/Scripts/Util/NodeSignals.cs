@@ -1,4 +1,3 @@
-
 /// <summary>
 /// Use this class to define signals that can be used to communicate between nodes or be informed of events in node executions
 /// </summary>
@@ -18,4 +17,5 @@ public static class NodeSignals
     public delegate void OrderExecuteHandler(Node node, Order order, int orderIndex, int maxOrderIndex);
 
     public static void DoOrderExecute(Node node, Order order, int orderIndex, int maxOrderIndex) { OnOrderExecute?.Invoke(node, order, orderIndex, maxOrderIndex); }
+
 }

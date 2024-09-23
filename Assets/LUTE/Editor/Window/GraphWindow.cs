@@ -1251,6 +1251,17 @@ public class GraphWindow : EventWindow
         GUILayout.EndHorizontal();
     }
 
+    public Node AddNodeFromLocation(LocationVariable locationVariable)
+    {
+        DeselectAllNodes();
+        Vector2 newNodePosition = new Vector2(
+            50 / storyEngine.Zoom - storyEngine.ScrollPos.x, 50 / storyEngine.Zoom - storyEngine.ScrollPos.y
+        );
+        var node = AddNode(newNodePosition);
+        UpdateNodes();
+        node.NodeLocation = locationVariable;
+        return node;
+    }
     protected Node AddNode(Vector2 position)
     {
         Node newNode = storyEngine.CreateNode(position);

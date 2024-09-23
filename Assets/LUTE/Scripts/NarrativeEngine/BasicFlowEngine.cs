@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using Mapbox.Examples;
 using MoreMountains.Tools;
 using System;
@@ -839,6 +840,28 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         }
 
         return selectedPostcard;
+    }
+
+    public virtual void SetObjectInfo(string objectName, bool objectUnlocked)
+    {
+        foreach (var item in Resources.FindObjectsOfTypeAll<BaseInfo>())
+        {
+            if (item.ObjectName == objectName)
+            {
+                item.Unlocked = objectUnlocked;
+            }
+        }
+    }
+
+    public virtual void SetLocationInfo(Guid infoID, LUTELocationInfo.LocationStatus status)
+    {
+        foreach (var item in GetComponents<LocationVariable>())
+        {
+            if (item.Value.infoID == infoID)
+            {
+                item.Value._LocationStatus = status;
+            }
+        }
     }
 
     public virtual DiceVariable GetRandomDice()

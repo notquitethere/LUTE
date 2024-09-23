@@ -52,7 +52,6 @@ public class Choice : Order
         {
             if (setMenuDialogue != null)
             {
-                Debug.Log("menu dialogue set");
                 MenuDialogue.ActiveMenuDialogue = setMenuDialogue;
             }
 

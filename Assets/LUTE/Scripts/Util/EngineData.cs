@@ -1,6 +1,6 @@
-using JetBrains.Annotations;
+using LoGaCulture.LUTE;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -56,7 +56,7 @@ public class PostcardVar
 
 
     public Postcard Postcard { get { return postcard; } set { postcard = value; } }
-    public string Name { get { return name; } set {  name = value; } }
+    public string Name { get { return name; } set { name = value; } }
     public string Desc { get { return desc; } set { desc = value; } }
     public string Creator { get { return creator; } set { creator = value; } }
     public int Total { get { return total; } set { total = value; } }
@@ -82,7 +82,6 @@ public class PostcardVar
         public Vector3 StickerScale { get { return scale; } set { scale = value; } }
         public Quaternion StickerRot { get { return rot; } set { rot = value; } }
     }
-
 }
 
 [System.Serializable]
@@ -97,9 +96,29 @@ public class NodeVar
     public string Name { get { return name; } set { name = value; } }
 }
 
+[System.Serializable]
+public class ObjectInfoVar
+{
+    [SerializeField] protected string objectName;
+    [SerializeField] protected bool unlocked;
+
+    public string ObjectName { get { return objectName; } set { objectName = value; } }
+    public bool Unlocked { get { return unlocked; } set { unlocked = value; } }
+}
+
+[System.Serializable]
+public class LocationInfoVar
+{
+    [SerializeField] protected Guid locationID;
+    [SerializeField] protected LUTELocationInfo.LocationStatus locationStatus;
+
+    public Guid LocationID { get { return locationID; } set { locationID = value; } }
+    public LUTELocationInfo.LocationStatus LocationStatus { get { return locationStatus; } set { locationStatus = value; } }
+}
+
 /// Serializable container for encoding the state of variables.
 [System.Serializable]
-public class EngineData 
+public class EngineData
 {
     [SerializeField] protected string engineName;
     [SerializeField] protected List<IntVar> intVars = new List<IntVar>();
@@ -108,6 +127,8 @@ public class EngineData
     [SerializeField] protected List<StringVar> stringVars = new List<StringVar>();
     [SerializeField] protected List<PostcardVar> postcardVars = new List<PostcardVar>();
     [SerializeField] protected List<NodeVar> nodeVars = new List<NodeVar>();
+    [SerializeField] protected List<ObjectInfoVar> objectInfoVars = new List<ObjectInfoVar>();
+    [SerializeField] protected List<LocationInfoVar> locationInfoVars = new List<LocationInfoVar>();
 
     public string EngineName { get { return engineName; } set { engineName = value; } }
 
@@ -115,8 +136,10 @@ public class EngineData
     public List<BoolVar> BoolVars { get { return boolVars; } set { boolVars = value; } }
     public List<FloatVar> FloatVars { get { return floatVars; } set { floatVars = value; } }
     public List<StringVar> StringVars { get { return stringVars; } set { stringVars = value; } }
-    public List<PostcardVar> PostcardVars { get { return postcardVars; } set {  postcardVars = value; } }
+    public List<PostcardVar> PostcardVars { get { return postcardVars; } set { postcardVars = value; } }
     public List<NodeVar> NodeVars { get { return nodeVars; } set { nodeVars = value; } }
+    public List<ObjectInfoVar> ObjectInfoVars { get { return objectInfoVars; } set { objectInfoVars = value; } }
+    public List<LocationInfoVar> LocationInfoVars { get { return locationInfoVars; } set { locationInfoVars = value; } }
 
     public static EngineData Encode(BasicFlowEngine engine)
     {
@@ -214,6 +237,22 @@ public class EngineData
             }
         }
 
+        foreach (var item in Resources.FindObjectsOfTypeAll<BaseInfo>())
+        {
+            var d = new ObjectInfoVar();
+            d.ObjectName = item.ObjectName;
+            d.Unlocked = item.Unlocked;
+            engineData.ObjectInfoVars.Add(d);
+        }
+
+        foreach (var item in engine.GetComponents<LocationVariable>())
+        {
+            var d = new LocationInfoVar();
+            d.LocationID = item.Value.infoID;
+            d.LocationStatus = item.Value._LocationStatus;
+            engineData.LocationInfoVars.Add(d);
+        }
+
         return engineData;
     }
 
@@ -252,18 +291,30 @@ public class EngineData
             var stringVar = engineData.StringVars[i];
             engine.SetStringVariable(stringVar.Key, stringVar.Value);
         }
-        for(int i = 0; i < engineData.PostcardVars.Count; i++)
+        for (int i = 0; i < engineData.PostcardVars.Count; i++)
         {
             var postcardVar = engineData.PostcardVars[i];
             engine.SetPostcard(postcardVar);
         }
         Postcard.ActivePostcard = null;
         Postcard.activePostcards.Clear();
-        
-        for(int i = 0; i < engineData.NodeVars.Count; i++)
+
+        for (int i = 0; i < engineData.NodeVars.Count; i++)
         {
             var nodeVar = engineData.NodeVars[i];
             engine.SetNodeState(nodeVar.Name, nodeVar.State, nodeVar.Completed);
+        }
+
+        for (int i = 0; i < engineData.ObjectInfoVars.Count; i++)
+        {
+            var objectInfoVar = engineData.ObjectInfoVars[i];
+            engine.SetObjectInfo(objectInfoVar.ObjectName, objectInfoVar.Unlocked);
+        }
+
+        for (int i = 0; i < engineData.LocationInfoVars.Count; i++)
+        {
+            var locationInfoVar = engineData.LocationInfoVars[i];
+            engine.SetLocationInfo(locationInfoVar.LocationID, locationInfoVar.LocationStatus);
         }
     }
 }

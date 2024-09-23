@@ -1,5 +1,4 @@
 using Mapbox.Unity.Location;
-using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System;
 using System.Linq;
@@ -48,7 +47,7 @@ namespace LoGaCulture.LUTE
             {
                 // If location is provided by designer/player
                 // Do the location failure handling based on this location
-                var loc2d = Conversions.StringToLatLon(location.Value);
+                var loc2d = location.Value.LatLongString();
                 if (loc2d != Vector2d.zero)
                 {
                     locationFailureHandler.HandleFailure(loc2d);
@@ -135,19 +134,9 @@ namespace LoGaCulture.LUTE
 
             foreach (var loc in locations)
             {
-                if (string.IsNullOrEmpty(loc.Value))
+                Vector2d locPosition = loc.Value.LatLongString();
+                if (locPosition == Vector2d.zero || locPosition == null)
                 {
-                    Debug.LogWarning($"LocationVariable {loc.name} has no value");
-                    continue;
-                }
-                Vector2d locPosition;
-                try
-                {
-                    locPosition = Conversions.StringToLatLon(loc.Value);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogWarning($"Failed to convert location value '{loc.Value}' to Vector2d: {e.Message}");
                     continue;
                 }
 

@@ -1,10 +1,8 @@
-using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEditor;
 using UnityEngine;
 
 namespace LoGaCulture.LUTE
@@ -188,7 +186,7 @@ namespace LoGaCulture.LUTE
             }
             foreach (FailureMethod method in failureMethods)
             {
-                var location2d = Conversions.StringToLatLon(method.QueriedLocation.Value);
+                var location2d = method.QueriedLocation.Value.Position;
                 if (Vector2d.Equals(location2d, location))
                 {
                     foreach (string methodName in method.PriorityMethods)
@@ -326,7 +324,7 @@ namespace LoGaCulture.LUTE
                 return FailureHandlingOutcome.Continue;
             }
             // Increase the location radius check size
-            failureMethod.QueriedLocation.RadiusIncrease += failureMethod.RadiusIncreaseSize;
+            failureMethod.QueriedLocation.Value.RadiusIncrease += failureMethod.RadiusIncreaseSize;
             failureMethod.HasIncreased = true;
 
             string message = $"Location {failureMethod.QueriedLocation.Key} is inaccessible. The radius has been increased by {failureMethod.RadiusIncreaseSize} meters.";
@@ -339,7 +337,7 @@ namespace LoGaCulture.LUTE
         private FailureHandlingOutcome Execute_Anyway(FailureMethod failureMethod)
         {
             // If location cannot be accessed then we create a menu of failed nodes for the player to execute
-            failureMethod.QueriedLocation.locationDisabled = true;
+            failureMethod.QueriedLocation.Value.locationDisabled = true;
             var engine = failureMethod.GetEngine();
             if (engine != null)
             {
@@ -421,8 +419,8 @@ namespace LoGaCulture.LUTE
                             }
                             else
                             {
-                                var currentDistance = Vector2d.Distance(Conversions.StringToLatLon(nearestLocation.Value), Conversions.StringToLatLon(failureMethod.QueriedLocation.Value));
-                                var newDistance = Vector2d.Distance(Conversions.StringToLatLon(location.Value), Conversions.StringToLatLon(failureMethod.QueriedLocation.Value));
+                                var currentDistance = Vector2d.Distance(nearestLocation.Value.LatLongString(), failureMethod.QueriedLocation.Value.LatLongString());
+                                var newDistance = Vector2d.Distance(location.Value.LatLongString(), failureMethod.QueriedLocation.Value.LatLongString());
                                 if (newDistance < currentDistance)
                                 {
                                     nearestLocation = location;
@@ -527,7 +525,7 @@ namespace LoGaCulture.LUTE
         }
     }
 
-    [InitializeOnLoad]
+    //[InitializeOnLoad]
     public class LocationFailureHandlerInitializer
     {
         static LocationFailureHandlerInitializer()

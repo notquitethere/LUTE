@@ -13,12 +13,12 @@ public class SaveData : MonoBehaviour
 
     public virtual void Encode(List<SaveDataItem> saveDataItems)
     {
-        for(int i = 0; i < engines.Count; i++)
+        for (int i = 0; i < engines.Count; i++)
         {
             var engine = engines[i];
             var engineData = EngineData.Encode(engine);
 
-            var saveDataItem = SaveDataItem.Create(EngineDataKey, JsonUtility.ToJson(engineData))   ;
+            var saveDataItem = SaveDataItem.Create(EngineDataKey, JsonUtility.ToJson(engineData));
             saveDataItems.Add(saveDataItem);
 
             var logData = SaveDataItem.Create(LogKey, LogaManager.Instance.SaveLog.GetJsonHistory());
@@ -28,18 +28,18 @@ public class SaveData : MonoBehaviour
 
     public virtual void Decode(List<SaveDataItem> saveDataItems)
     {
-        for(int i = 0; i < saveDataItems.Count; i++)
+        for (int i = 0; i < saveDataItems.Count; i++)
         {
             var saveDataItem = saveDataItems[i];
-            if(saveDataItem == null)
+            if (saveDataItem == null)
             {
                 continue;
             }
 
-            if(saveDataItem.Type == EngineDataKey)
+            if (saveDataItem.Type == EngineDataKey)
             {
                 var engineData = JsonUtility.FromJson<EngineData>(saveDataItem.Data);
-                if(engineData == null)
+                if (engineData == null)
                 {
                     Debug.LogError("Engine data is null so failed to decode engine data");
                     return;
@@ -48,7 +48,7 @@ public class SaveData : MonoBehaviour
                 EngineData.Decode(engineData);
             }
 
-            if(saveDataItem.Type == LogKey)
+            if (saveDataItem.Type == LogKey)
             {
                 LogaManager.Instance.SaveLog.LoadLogData(saveDataItem.Data);
             }

@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -102,7 +103,7 @@ public class VariableSelectPopupWindowContent : BasePopupWindowContent
         PrefabUtility.RecordPrefabInstancePropertyModifications(engine);
     }
 
-    public static Variable AddVariable(object obj, string suggestedName, string location)
+    public static Variable AddVariable(object obj, string suggestedName, LUTELocationInfo location)
     {
         System.Type t = obj as System.Type;
         if (t == null)

@@ -18,6 +18,8 @@ namespace LoGaCulture.LUTE
         private CanvasGroup canvasGroup;
         private List<StickerCollectionMenuItem> stickerItems = new List<StickerCollectionMenuItem>();
 
+
+        // this needs to be done with resources loading rather than asset database
         public static T[] GetAllInstances<T>() where T : ScriptableObject
         {
             string[] guids = AssetDatabase.FindAssets("t:" + typeof(T).Name); //FindAssets uses tags check documentation for more info
@@ -27,6 +29,10 @@ namespace LoGaCulture.LUTE
                 string path = AssetDatabase.GUIDToAssetPath(guids[i]);
                 instances[i] = AssetDatabase.LoadAssetAtPath<T>(path);
             }
+
+            // This may be the ideal solution - could split this into editor code (above) and runtime code (below)
+            //var list = Resources.FindObjectsOfTypeAll<T>();
+            //return list;
 
             return instances;
         }

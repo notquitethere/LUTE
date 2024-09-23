@@ -1,9 +1,8 @@
+using LoGaCulture.LUTE;
 using Mapbox.Examples;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
-using Mapbox.Utils;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
@@ -39,17 +38,10 @@ public class MapboxControls : EventWindow
 
     private static string currentLocationName = "New Location";
     private static Sprite currentLocationSprite = null;
-    private static Sprite defautSprite;
-    private static List<CameraBillboard> _spawnedObjects = new List<CameraBillboard>();
-    protected static List<string> _locationStrings = new List<string>();
-    private static Vector2d[] _locations = new Vector2d[1];
     private static string currentLocationString;
     private static Color locationColor = Color.white;
     private static bool currentLocationNameBool = true;
-    private static List<string> _locationNames = new List<string>();
-    private static List<Sprite> _locationSprites = new List<Sprite>();
-    private static List<Color> _locationColors = new List<Color>();
-    private static List<bool> _locationShowNames = new List<bool>();
+
     private static Camera mapCam;
     private static CameraBillboard cameraBillboard;
     private static AbstractMap abstractMap;
@@ -62,38 +54,9 @@ public class MapboxControls : EventWindow
 
     static void Update()
     {
-        //ensure that all spawned objects are positioned correctly on the map
-        //ensuring that the objects will move accordingly when the map is panned or zoomed
-        int count = _spawnedObjects.Count;
-        for (int i = 0; i < count; i++)
-        {
-            var spawnedObject = _spawnedObjects[i];
-            var location = _locations[i];
-            spawnedObject.transform.localPosition = abstractMap.GeoToWorldPosition(location, true);
-            spawnedObject.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
-            // var billboard = spawnedObject.GetComponent<CameraBillboard>(); //make this a function on the camera billboard (get the text on enable rather than update in that class)
-            spawnedObject.SetCanvasCam(mapCam);
-            if (_locationNames.Count > i)
-            {
-                if (_locationNames[i].Contains("_"))
-                {
-                    _locationNames[i] = ReplaceUnderscoresWithSpace(_locationNames[i]);
-                }
-                spawnedObject.SetText(_locationNames[i]);
-            }
-            if (_locationSprites.Count > i)
-            {
-                spawnedObject.SetIcon(_locationSprites[i]);
-            }
-            if (_locationColors.Count > i)
-            {
-                spawnedObject.SetColor(_locationColors[i]);
-            }
-            if (_locationShowNames.Count > i)
-            {
-                spawnedObject.SetName(_locationShowNames[i]);
-            }
-        }
+        // Update the spawn on map trackers
+        if (spawnOnMap != null)
+            spawnOnMap.UpdateMarkers();
     }
     public static void ShowWindow()
     {
@@ -102,78 +65,15 @@ public class MapboxControls : EventWindow
 
     public static void RemoveLocation(LocationVariable location)
     {
-        var index = _locations.ToList().IndexOf(Conversions.StringToLatLon(location.Value));
-        if (index != -1)
-        {
-            _locations = _locations.Where((val, idx) => idx != index).ToArray();
-            DestroyImmediate(_spawnedObjects[index].gameObject);
-            _spawnedObjects.RemoveAt(index);
-            _locationNames.RemoveAt(index);
-            _locationStrings.RemoveAt(index);
-            _locationSprites.RemoveAt(index);
-            _locationColors.RemoveAt(index);
-            _locationShowNames.RemoveAt(index);
-        }
+        // Somehow remove the location from the map and delete the variable (not the SO)
     }
 
     private void OnEnable()
     {
-        map = GameObject.FindObjectOfType<QuadTreeCameraMovement>();
-        spawnOnMap = map.GetComponent<SpawnOnMap>();
+        map = FindObjectOfType<QuadTreeCameraMovement>(); // bad check
+        spawnOnMap = map.GetComponent<SpawnOnMap>(); // ensure that quadtreemovement requires spawn on map
         cameraBillboard = spawnOnMap.tracker.GetComponent<CameraBillboard>(); //ensure that tracker is set elsewhere
-        abstractMap = map.GetComponent<AbstractMap>();
-        //destroy any leftover spawned objects
-        foreach (var obj in _spawnedObjects)
-        {
-            DestroyImmediate(obj);
-        }
-        _spawnedObjects.Clear();
-        _locationNames.Clear();
-        _locationStrings.Clear();
-        _locationSprites.Clear();
-        _locationColors.Clear();
-        _locationShowNames.Clear();
-
-        //get all location variables from the flow engine
-        if (engine != null)
-        {
-            var locations = engine.GetComponents<LocationVariable>();
-            foreach (var loc in locations)
-            {
-                //ensure we can access the location value
-                if (loc.Scope == VariableScope.Global || loc.Scope == VariableScope.Public)
-                {
-                    var locVal = Conversions.StringToLatLon(loc.Value);
-                    if (locVal != null)
-                    {
-                        var locString = string.Format("{0}, {1}", locVal.x, locVal.y);
-                        _locationStrings.Add(locString);
-                        _locationNames.Add(loc.Key);
-                        _locationSprites.Add(loc.locationSprite);
-                        _locationColors.Add(loc.locationColor);
-                        _locationShowNames.Add(loc.showLocationName);
-                    }
-                }
-            }
-        }
-
-        //using the location strings, create a list of locations and spawn markers on the map
-        var _markerPrefab = spawnOnMap._markerPrefab;
-
-        defautSprite = _markerPrefab.spriteRenderer.sprite;
-
-        spawnScale = spawnOnMap._spawnScale;
-        _locations = new Vector2d[_locationStrings.Count];
-        _spawnedObjects = new List<CameraBillboard>();
-        for (int i = 0; i < _locationStrings.Count; i++)
-        {
-            var locationString = _locationStrings[i];
-            _locations[i] = Conversions.StringToLatLon(locationString);
-            var instance = Instantiate(_markerPrefab);
-            instance.transform.localPosition = abstractMap.GeoToWorldPosition(_locations[i], true);
-            instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
-            _spawnedObjects.Add(instance);
-        }
+        abstractMap = map.GetComponent<AbstractMap>(); // ensure that this is required by others
 
         //create a camera if none exists - ensure you set a tag and culling mask to only map
         //first ensure that there is a tag called map otherwise create one
@@ -203,6 +103,9 @@ public class MapboxControls : EventWindow
             cameraBillboard.SetCanvasCam(mapCam);
 
         map._referenceCamera = mapCam;
+
+        spawnOnMap.ProcessLocationInfo();
+        spawnOnMap.CreateMarkers();
     }
 
     private void OnDisable()
@@ -213,13 +116,8 @@ public class MapboxControls : EventWindow
                 abstractMap.DisableEditorPreview();
         }
 
-        //destroy all spawned objects when the window is closed
-        foreach (var obj in _spawnedObjects)
-        {
-            DestroyImmediate(obj.gameObject);
-        }
-        _spawnedObjects.Clear();
         map._dragStartedOnUI = false;
+        spawnOnMap.ClearLocations();
     }
 
     private void OnGUI()
@@ -245,7 +143,6 @@ public class MapboxControls : EventWindow
         }
 
         // When you're ready to render, ensure the camera is set up correctly
-        // mapCam.SetupCamera(); // Set up camera parameters if needed
         mapCam.targetTexture = mapTexture; // Set the target texture on the camera
         mapCam.Render();
 
@@ -375,42 +272,32 @@ public class MapboxControls : EventWindow
     }
     private void AddNewLocation()
     {
-        _locationStrings.Add(currentLocationString);
-        _locations = new Vector2d[_locationStrings.Count];
-        for (int i = 0; i < _locationStrings.Count; i++)
-        {
-            var locationString = _locationStrings[i];
-            _locations[i] = Conversions.StringToLatLon(locationString);
-        }
-        var _markerPrefab = spawnOnMap._markerPrefab;
-        var instance = Instantiate(_markerPrefab);
-        _spawnedObjects.Add(instance);
-        _locationNames.Add(currentLocationName);
-        if (currentLocationSprite == null)
-        {
-            currentLocationSprite = defautSprite;
-        }
-        if (locationColor == null)
-        {
-            locationColor = Color.white;
-        }
+        LUTELocationInfo newLocationInfo = ScriptableObject.CreateInstance<LUTELocationInfo>();
+        int count = engine.GetComponents<LocationVariable>().Length;
+        string name = count > 0 ? currentLocationName + count : currentLocationName;
+        AssetDatabase.CreateAsset(newLocationInfo, "Assets/Resources/" + name + ".asset");
+        var locString = Conversions.StringToLatLon(currentLocationString);
+        newLocationInfo.Position = currentLocationString;
+        newLocationInfo.Name = currentLocationName;
+        newLocationInfo.Sprite = currentLocationSprite;
+        newLocationInfo.Color = locationColor;
+        newLocationInfo.ShowName = currentLocationNameBool;
 
-        if (engine != null)
-        {
-            LocationVariable locVar = new LocationVariable();
-            var loc = Conversions.StringToLatLon(currentLocationString);
-            LocationVariable newVar = VariableSelectPopupWindowContent.AddVariable(locVar.GetType(), currentLocationName, currentLocationString) as LocationVariable;
-            newVar.locationSprite = currentLocationSprite;
-            _locationSprites.Add(currentLocationSprite);
-            newVar.locationColor = locationColor;
-            _locationColors.Add(locationColor);
-            newVar.showLocationName = currentLocationNameBool;
-            _locationShowNames.Add(currentLocationNameBool);
-            currentLocationName = "New Location";
-            locationColor = Color.white;
-            currentLocationNameBool = true;
-            showLocationPopup = false;
-        }
+        AssetDatabase.SaveAssets();
+
+        //EditorUtility.FocusProjectWindow();
+        //Selection.activeObject = newLocationInfo;
+
+        LocationVariable locVar = new LocationVariable();
+        LocationVariable newVar = VariableSelectPopupWindowContent.AddVariable(locVar.GetType(), currentLocationName, newLocationInfo) as LocationVariable;
+        currentLocationName = "New Location";
+        locationColor = Color.white;
+        currentLocationNameBool = true;
+        currentLocationSprite = null;
+        showLocationPopup = false;
+
+        spawnOnMap.ProcessLocationInfo();
+        spawnOnMap.CreateMarkers();
     }
 
     protected override void OnMouseDown(Event e)

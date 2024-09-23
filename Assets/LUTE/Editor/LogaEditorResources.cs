@@ -1,10 +1,10 @@
-using UnityEngine;
-using UnityEditor;
-using UnityEditor.Callbacks;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Callbacks;
+using UnityEngine;
 #if UNITY_5_0 || UNITY_5_1
 using System.Reflection;
 #endif
@@ -72,7 +72,7 @@ public partial class LogaEditorResources : ScriptableObject
 
     private static LogaEditorResources instance;
     private static readonly string editorResourcesFolderName = "\"EditorResources\"";
-    private static readonly string editorResourcesPath = System.IO.Path.Combine("Loga", "EditorResources");
+    private static readonly string editorResourcesPath = System.IO.Path.Combine("LUTE", "EditorResources");
     [SerializeField][HideInInspector] private bool updateOnReloadScripts = false;
 
     public static LogaEditorResources Instance

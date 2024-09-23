@@ -366,6 +366,7 @@ public class Node : MonoBehaviour
     {
         executionState = ExecutionState.Idle;
         activeOrder = null;
+        NodeSignals.NodeEnd(this);
 
         if (lastOnCompleteAction != null)
         {

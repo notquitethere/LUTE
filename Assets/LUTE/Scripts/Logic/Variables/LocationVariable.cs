@@ -1,27 +1,13 @@
 using LoGaCulture.LUTE;
 using Mapbox.Unity.Location;
-using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using UnityEngine;
 
 [VariableInfo("", "Location")]
 [AddComponentMenu("")]
 [System.Serializable]
-public class LocationVariable : BaseVariable<string>
+public class LocationVariable : BaseVariable<LUTELocationInfo>
 {
-    [SerializeField] public Sprite locationSprite;
-    public Color locationColor = Color.white;
-    public bool showLocationName = true;
-    public bool locationDisabled = false;
-
-    protected float radiusIncrease = 0.0f;
-
-    public float RadiusIncrease
-    {
-        get { return radiusIncrease; }
-        set { radiusIncrease = value; }
-    }
-
     ILocationProvider _locationProvider;
     ILocationProvider LocationProvider
     {
@@ -36,11 +22,11 @@ public class LocationVariable : BaseVariable<string>
         }
     }
 
-    public override bool Evaluate(ComparisonOperator comparisonOperator, string value)
+    public override bool Evaluate(ComparisonOperator comparisonOperator, LUTELocationInfo value)
     {
         // If location is disabled then we are likely in a scenario where the location is not available thus we should return true
         // Any other logic should be handled by the class that has called this method
-        if (locationDisabled)
+        if (Value.locationDisabled)
         {
             LocationServiceSignals.DoLocationComplete(this);
             return true;
@@ -75,7 +61,7 @@ public class LocationVariable : BaseVariable<string>
         var tracker = map.TrackerPos();
         var trackerPos = tracker;
 
-        Vector2d vecVal = Conversions.StringToLatLon(Value);
+        Vector2d vecVal = Value.LatLongString();
         var deviceLoc = LocationProvider.CurrentLocation.LatitudeLongitude;
         if (engine.DemoMapMode)
         {
@@ -86,7 +72,7 @@ public class LocationVariable : BaseVariable<string>
             return false;
         }
 
-        var radiusInMeters = LogaConstants.DefaultRadius + radiusIncrease;
+        var radiusInMeters = LogaConstants.DefaultRadius + Value.RadiusIncrease;
         float r = 6371000.0f; // Earth radius in meters
 
         // Determine distance between target and tracker in radians
@@ -109,7 +95,7 @@ public class LocationVariable : BaseVariable<string>
         return true;
     }
 
-    public override void Apply(SetOperator setOperator, string value)
+    public override void Apply(SetOperator setOperator, LUTELocationInfo value)
     {
         switch (setOperator)
         {
@@ -156,20 +142,20 @@ public struct LocationData
     public LocationVariable locationRef;
 
     [SerializeField]
-    public string locationVal;
+    public LUTELocationInfo locationVal;
 
-    public LocationData(string v)
+    public LocationData(LUTELocationInfo v)
     {
         locationVal = v;
         locationRef = null;
     }
 
-    public static implicit operator string(LocationData stringData)
+    public static implicit operator LUTELocationInfo(LocationData locationInfo)
     {
-        return stringData.Value;
+        return locationInfo.Value;
     }
 
-    public string Value
+    public LUTELocationInfo Value
     {
         get { return (locationRef == null) ? locationVal : locationRef.Value; }
         set { if (locationRef == null) { locationVal = value; } else { locationRef.Value = value; } }

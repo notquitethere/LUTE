@@ -29,8 +29,7 @@ public class HideLocationEditor : OrderEditor
         var locationVars = engine.GetComponents<LocationVariable>();
         for (int i = 0; i < locationVars.Length; i++)
         {
-            var loc = locationProp.objectReferenceValue as LocationVariable;
-            if (locationVars[i].Value == loc.Value)
+            if (locationVars[i] == locationProp.objectReferenceValue as LocationVariable)
             {
                 locationVarIndex = i;
             }
