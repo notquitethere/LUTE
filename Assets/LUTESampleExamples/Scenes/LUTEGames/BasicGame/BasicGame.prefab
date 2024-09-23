@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 4806665123537749153}
   - component: {fileID: 9041250745754362898}
   - component: {fileID: 8546888014584424483}
+  - component: {fileID: 4625199466079868497}
   m_Layer: 0
   m_Name: Flow Engine
   m_TagString: Untagged
@@ -237,10 +238,8 @@ MonoBehaviour:
   description: A game about Avebury!
   hideComponents: 1
   localizationId: 
-  selectedOrders:
-  - {fileID: 8546888014584424483}
-  selectedNodes:
-  - {fileID: 4303630939233821233}
+  selectedOrders: []
+  selectedNodes: []
   nodeViewHeight: 370
   hideOrders: []
   variables: []
@@ -253,9 +252,9 @@ MonoBehaviour:
   showLineNumbers: 1
   showHandlerInfoOnGraph: 1
   showAnnotations: 1
-  labelTint: {r: 0.9966797, g: 0.7216981, b: 1, a: 1}
+  labelTint: {r: 1, g: 0.8980392, b: 0.8509804, a: 1}
   zoom: 1
-  scrollPos: {x: -25100.725, y: -24667.637}
+  scrollPos: {x: -25085.725, y: -24636.637}
   version: 1
   sidesOfDie: 6
   postcards: []
@@ -372,6 +371,96 @@ MonoBehaviour:
   customButtonIcon: {fileID: 21300000, guid: 0958bf3dd415e974e90f978b50a845ee, type: 3}
   setIconButton: {fileID: 0}
   showIcon: 1
+--- !u!114 &4625199466079868497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be523a2ad79cc4143b7f1002f5188df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tint: {r: 1, g: 0.8980392, b: 0.8509804, a: 1}
+  useCustomTint: 0
+  itemId: 0
+  labelRect:
+    serializedVersion: 2
+    x: 25784.725
+    y: 24833.637
+    width: 125
+    height: 55
+  labelText: Use this Node to add more Orders or create your own Node to get started
+    on creating your own experience!
+  labelStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 1
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1 &1395142573013482607
 GameObject:
   m_ObjectHideFlags: 0
