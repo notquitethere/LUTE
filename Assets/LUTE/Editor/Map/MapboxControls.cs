@@ -66,7 +66,7 @@ public class MapboxControls : EventWindow
 
     public static void RemoveLocation(LocationVariable location)
     {
-        // Somehow remove the location from the map and delete the variable (not the SO)
+        spawnOnMap?.RemoveLocationMarker(location);
     }
 
     private void OnEnable()

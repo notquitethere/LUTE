@@ -254,7 +254,6 @@ public class EngineData
             d.LocationStatus = item.Value._LocationStatus;
             d.LocationName = item.Value.Name;
             engineData.LocationInfoVars.Add(d);
-            Debug.Log(d.LocationID);
         }
 
         return engineData;
@@ -320,8 +319,6 @@ public class EngineData
             var locationInfoVar = engineData.LocationInfoVars[i];
 
             engine.SetLocationInfo(locationInfoVar.LocationID, locationInfoVar.LocationStatus);
-
-            Debug.Log(locationInfoVar.LocationID);
         }
     }
 }

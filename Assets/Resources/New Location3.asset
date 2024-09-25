@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4ddc75f9f1b3043893d0de76d49f2c, type: 3}
   m_Name: New Location3
   m_EditorClassIdentifier: 
-  infoID: 24790bd4-ad7f-4fce-9213-e4e08c49aa89
-  Position: 51.4291282740869, -1.85852932140917
-  Name: New Location
-  Sprite: {fileID: 21300000, guid: a861ca850d8929a4fb0a50b084585369, type: 3}
+  infoID: 7823a6a8-1159-4716-a505-0c2aa5e1e3fd
+  Position: 
+  Name: 
+  Sprite: {fileID: 0}
   InProgressSprite: {fileID: 0}
   CompletedSprite: {fileID: 0}
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ShowName: 1
+  ShowName: 0
   showRadius: 0
   radiusColor: {r: 0, g: 0, b: 0, a: 0}
   locationDisabled: 0

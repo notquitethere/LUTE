@@ -37,7 +37,9 @@ namespace LoGaCulture.LUTE
                 {
                     // We are at the right location so we can execute the node
                     if (locationInfo._LocationStatus != LUTELocationInfo.LocationStatus.Completed)
+                    {
                         engine.ExecuteNode(locationInfo.ExecuteNode);
+                    }
                 }
             }
         }

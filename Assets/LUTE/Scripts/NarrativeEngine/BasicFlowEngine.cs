@@ -780,7 +780,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         var node = FindNode(nodeName);
         if (node != null)
         {
-            node.State = state;
+            //node.State = state;
             node.NodeComplete = completed;
         }
     }

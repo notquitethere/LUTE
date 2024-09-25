@@ -649,5 +649,16 @@
             }
             return false;
         }
+
+        public void RemoveLocationMarker(LocationVariable location)
+        {
+            var locationMarker = _spawnedObjects.Find(marker =>
+                           marker != null && marker.locationInfo != null && marker.locationInfo.infoID == location.Value.infoID);
+            if (locationMarker != null)
+            {
+                _spawnedObjects.Remove(locationMarker);
+                DestroyImmediate(locationMarker.gameObject);
+            }
+        }
     }
 }
