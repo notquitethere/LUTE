@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b4ddc75f9f1b3043893d0de76d49f2c, type: 3}
-  m_Name: INFO
+  m_Name: LOCINFO1
   m_EditorClassIdentifier: 
-  Position: 51.42775210319837, -1.8555788958831758
-  Name: Banana
+  infoID: 6ea9447c-b51b-43e7-b21c-6cc9d351a6d2
+  Position: 50.86309223093823, 0.5865650504203364
+  Name: Pear
   Sprite: {fileID: 21300000, guid: d8eb571ec3eb8fc46afb6fcd3e64b25f, type: 3}
   InProgressSprite: {fileID: 21300000, guid: 82fb92a372784b04db03ee645e87d3f1, type: 3}
   CompletedSprite: {fileID: 21300000, guid: a861ca850d8929a4fb0a50b084585369, type: 3}

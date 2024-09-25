@@ -1,9 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using System;
-using UnityEngine.PlayerLoop;
+using UnityEngine;
 
 public class TextWriter : MonoBehaviour
 {
@@ -117,7 +116,7 @@ public class TextWriter : MonoBehaviour
         //when a click is detected 
         //if the text is still typing, skip to the end of the text if allowed
         //if the text is not typing, continue to the next text if allowed
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // this works on android (perhaps not iOS!)
         {
             if (isTyping)
             {

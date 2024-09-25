@@ -853,7 +853,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         }
     }
 
-    public virtual void SetLocationInfo(Guid infoID, LUTELocationInfo.LocationStatus status)
+    public virtual void SetLocationInfo(string infoID, LUTELocationInfo.LocationStatus status)
     {
         foreach (var item in GetComponents<LocationVariable>())
         {

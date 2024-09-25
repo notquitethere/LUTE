@@ -1,7 +1,6 @@
 using MoreMountains.InventoryEngine;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace LoGaCulture.LUTE
@@ -20,22 +19,22 @@ namespace LoGaCulture.LUTE
 
 
         // this needs to be done with resources loading rather than asset database
-        public static T[] GetAllInstances<T>() where T : ScriptableObject
-        {
-            string[] guids = AssetDatabase.FindAssets("t:" + typeof(T).Name); //FindAssets uses tags check documentation for more info
-            T[] instances = new T[guids.Length];
-            for (int i = 0; i < guids.Length; i++) //probably could get optimized
-            {
-                string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-                instances[i] = AssetDatabase.LoadAssetAtPath<T>(path);
-            }
+        //public static T[] GetAllInstances<T>() where T : ScriptableObject
+        //{
+        //    string[] guids = AssetDatabase.FindAssets("t:" + typeof(T).Name); //FindAssets uses tags check documentation for more info
+        //    T[] instances = new T[guids.Length];
+        //    for (int i = 0; i < guids.Length; i++) //probably could get optimized
+        //    {
+        //        string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+        //        instances[i] = AssetDatabase.LoadAssetAtPath<T>(path);
+        //    }
 
-            // This may be the ideal solution - could split this into editor code (above) and runtime code (below)
-            //var list = Resources.FindObjectsOfTypeAll<T>();
-            //return list;
+        //    // This may be the ideal solution - could split this into editor code (above) and runtime code (below)
+        //    //var list = Resources.FindObjectsOfTypeAll<T>();
+        //    //return list;
 
-            return instances;
-        }
+        //    return instances;
+        //}
 
         protected virtual void Start()
         {
@@ -52,18 +51,19 @@ namespace LoGaCulture.LUTE
         {
             if (mainInventory == null) return;
 
-            var items = GetAllInstances<StickerItem>();
-            if (items.Length <= 0) return;
 
-            if (stickerGroup == null) return;
+            var items = new List<InventoryItem>();
+            //if (items.Length <= 0) return;
 
-            if (canvasGroup == null) return;
+            //if (stickerGroup == null) return;
 
-            if (fadeTween != null)
-            {
-                LeanTween.cancel(fadeTween.id, true);
-                fadeTween = null;
-            }
+            //if (canvasGroup == null) return;
+
+            //if (fadeTween != null)
+            //{
+            //    LeanTween.cancel(fadeTween.id, true);
+            //    fadeTween = null;
+            //}
 
             foreach (var item in items)
             {

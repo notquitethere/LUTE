@@ -1,6 +1,7 @@
 ﻿namespace Mapbox.Examples
 {
     using LoGaCulture.LUTE;
+    using Mapbox.Unity.Location;
     using Mapbox.Unity.Map;
     using Mapbox.Unity.MeshGeneration.Factories;
     using Mapbox.Unity.Utilities;
@@ -17,17 +18,14 @@
 
         [Geocode] protected List<string> _locationStrings = new List<string>();
 
-
         [SerializeField] protected BasicFlowEngine engine;
-
-
         [SerializeField] protected DirectionsFactory _directionPrefab;
+
+        [SerializeField] private GameObject _radiusCirclePrefab; // Assign this in the inspector
 
         private List<LocationMarker> _spawnedObjects;
         private List<LUTELocationInfo> _locationData = new List<LUTELocationInfo>();
-
         private float _radiusInMeters = LogaConstants.DefaultRadius / 7.5f;
-        [SerializeField] private GameObject _radiusCirclePrefab; // Assign this in the inspector
         private List<GameObject> _radiusCircles = new List<GameObject>();
 
         [SerializeField] public LocationMarker _markerPrefab;
@@ -36,7 +34,15 @@
         void Start()
         {
             InitializeEngine();
-            if (engine == null) return;
+            if (engine == null)
+            {
+                engine = FindObjectOfType<BasicFlowEngine>();
+            }
+            if (engine == null)
+            {
+                return;
+            }
+            _map = LocationProviderFactory.Instance.mapManager;
 
             ProcessNodes();
             CreateMarkers();
@@ -538,8 +544,8 @@
             {
                 _spawnScale = 0.0f;
             }
-            else
-                _spawnScale = Mathf.Lerp(4.0f, 5.0f, zoomFactor);
+            //else
+            //    _spawnScale = Mathf.Lerp(4.0f, 5.0f, zoomFactor);
 
             spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
         }
@@ -563,7 +569,11 @@
             if (mapCam == null) return;
 
             bool shouldShowTracker = engine.DemoMapMode && mapCam.enabled;
-            tracker.gameObject.SetActive(shouldShowTracker);
+            var playerMovement = LocationProviderFactory.Instance.PlayerMapMovement;
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = !shouldShowTracker;
+            }
         }
 
         // Uncomment and adapt this method if you want to re-enable the right-click functionality

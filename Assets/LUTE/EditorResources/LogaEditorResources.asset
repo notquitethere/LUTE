@@ -20,7 +20,7 @@ MonoBehaviour:
   cross:
     normal: {fileID: 2800000, guid: 91b780dd292390c49b16e221bb745632, type: 3}
   default100:
-    normal: {fileID: 2800000, guid: a861ca850d8929a4fb0a50b084585369, type: 3}
+    normal: {fileID: 2800000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
   diamond:
     normal: {fileID: 2800000, guid: 1e4868606be888243b07b3df1e0cbf5f, type: 3}
   duplicate:

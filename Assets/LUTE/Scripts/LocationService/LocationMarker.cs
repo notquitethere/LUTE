@@ -33,7 +33,6 @@ namespace LoGaCulture.LUTE
             {
                 // First we must ensure that the player is a location
                 var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
-                Debug.Log(locVar.Value.infoID);
                 if (locVar.Evaluate(ComparisonOperator.Equals, null))
                 {
                     // We are at the right location so we can execute the node

@@ -1,5 +1,6 @@
 using LoGaCulture.LUTE;
 using Mapbox.Examples;
+using Mapbox.Unity.Location;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
 using System;
@@ -70,10 +71,21 @@ public class MapboxControls : EventWindow
 
     private void OnEnable()
     {
-        map = FindObjectOfType<QuadTreeCameraMovement>(); // bad check
-        spawnOnMap = map.GetComponent<SpawnOnMap>(); // ensure that quadtreemovement requires spawn on map
-        cameraBillboard = spawnOnMap.tracker.GetComponent<CameraBillboard>(); //ensure that tracker is set elsewhere
-        abstractMap = map.GetComponent<AbstractMap>(); // ensure that this is required by others
+        if (LocationProviderFactory.Instance != null)
+        {
+            abstractMap = LocationProviderFactory.Instance.mapManager;
+        }
+        if (abstractMap == null)
+        {
+            abstractMap = FindObjectOfType<AbstractMap>();
+        }
+        if (abstractMap == null)
+        {
+            return;
+        }
+        map = abstractMap.gameObject.GetComponent<QuadTreeCameraMovement>();
+        spawnOnMap = abstractMap.gameObject.GetComponent<SpawnOnMap>(); // ensure that quadtreemovement requires spawn on map
+        cameraBillboard = spawnOnMap.tracker?.GetComponent<CameraBillboard>(); //ensure that tracker is set elsewhere
 
         //create a camera if none exists - ensure you set a tag and culling mask to only map
         //first ensure that there is a tag called map otherwise create one
@@ -279,6 +291,15 @@ public class MapboxControls : EventWindow
         var locString = Conversions.StringToLatLon(currentLocationString);
         newLocationInfo.Position = currentLocationString;
         newLocationInfo.Name = currentLocationName;
+        if (currentLocationSprite == null)
+        {
+            var texture = LogaEditorResources.Default100;
+            currentLocationSprite = Sprite.Create(
+               texture,
+               new Rect(0, 0, texture.width, texture.height),
+               new Vector2(0.5f, 0.5f)
+           );
+        }
         newLocationInfo.Sprite = currentLocationSprite;
         newLocationInfo.Color = locationColor;
         newLocationInfo.ShowName = currentLocationNameBool;

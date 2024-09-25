@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LUTESampleExamples/Scenes/LUTEGames/AlbertoDemo/AveburyGame.unity
     guid: c17072c70b56ff749827e99b21d9c1e3
+  - enabled: 0
+    path: Assets/LUTESampleExamples/Scenes/LUTEGames/BasicGame/BasicGame.unity
+    guid: 1c32c43aecfee754b9cd100f85c1d5c6
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: a3b44f079399f1e40bf8b146f79bb5bc, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 4329e4e5071ac414ca4e4ea6d2bb52a4, type: 2}

@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b4ddc75f9f1b3043893d0de76d49f2c, type: 3}
-  m_Name: INFO 2
+  m_Name: LOCINFO2
   m_EditorClassIdentifier: 
-  Position: 51.42538406746826, -1.857231285009002
-  Name: Avebury
+  infoID: 1a98c04e-54cc-4178-b4e0-b3ce9eca169c
+  Position: 50.85915824050322, 0.5875583158399059
+  Name: Apple
   Sprite: {fileID: 21300000, guid: d8eb571ec3eb8fc46afb6fcd3e64b25f, type: 3}
   InProgressSprite: {fileID: 21300000, guid: 82fb92a372784b04db03ee645e87d3f1, type: 3}
   CompletedSprite: {fileID: 21300000, guid: a861ca850d8929a4fb0a50b084585369, type: 3}
-  Color: {r: 0.3726415, g: 0.44447303, b: 1, a: 0.5882353}
+  Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
   showRadius: 1
   radiusColor: {r: 0.3726415, g: 0.44447303, b: 1, a: 0.5882353}
   locationDisabled: 0
   radiusIncrease: 0
   locationStatus: 0
-  nodeComplete: Correct 3
-  executeNode: Question 3
+  nodeComplete: Correct 2
+  executeNode: Question 2
   interactable: 1
   saveInfo: 1

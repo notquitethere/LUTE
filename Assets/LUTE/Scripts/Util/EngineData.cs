@@ -109,11 +109,13 @@ public class ObjectInfoVar
 [System.Serializable]
 public class LocationInfoVar
 {
-    [SerializeField] protected Guid locationID;
+    [SerializeField] protected string locationID;
     [SerializeField] protected LUTELocationInfo.LocationStatus locationStatus;
+    [SerializeField] protected string locationName;
 
-    public Guid LocationID { get { return locationID; } set { locationID = value; } }
+    public string LocationID { get { return locationID; } set { locationID = value; } }
     public LUTELocationInfo.LocationStatus LocationStatus { get { return locationStatus; } set { locationStatus = value; } }
+    public string LocationName { get { return locationName; } set { locationName = value; } }
 }
 
 /// Serializable container for encoding the state of variables.
@@ -250,7 +252,9 @@ public class EngineData
             var d = new LocationInfoVar();
             d.LocationID = item.Value.infoID;
             d.LocationStatus = item.Value._LocationStatus;
+            d.LocationName = item.Value.Name;
             engineData.LocationInfoVars.Add(d);
+            Debug.Log(d.LocationID);
         }
 
         return engineData;
@@ -314,7 +318,32 @@ public class EngineData
         for (int i = 0; i < engineData.LocationInfoVars.Count; i++)
         {
             var locationInfoVar = engineData.LocationInfoVars[i];
+
             engine.SetLocationInfo(locationInfoVar.LocationID, locationInfoVar.LocationStatus);
+
+            Debug.Log(locationInfoVar.LocationID);
         }
+    }
+}
+
+[System.Serializable]
+public struct SerializableGuid
+{
+    [SerializeField] private string guidString;
+
+    public Guid Guid
+    {
+        get { return Guid.Parse(guidString); }
+        set { guidString = value.ToString(); }
+    }
+
+    public SerializableGuid(Guid guid)
+    {
+        guidString = guid.ToString();
+    }
+
+    public override string ToString()
+    {
+        return guidString;
     }
 }

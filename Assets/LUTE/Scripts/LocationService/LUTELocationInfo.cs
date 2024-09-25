@@ -16,7 +16,7 @@ namespace LoGaCulture.LUTE
             Completed
         }
 
-        public Guid infoID = Guid.NewGuid(); // Unique ID for the location
+        public string infoID; // Unique ID for the location
 
         [Header("Location Info")]
         [Tooltip("The coordinates of the location in the format 'latitude, longitude'")]
@@ -92,7 +92,21 @@ namespace LoGaCulture.LUTE
 
         protected virtual void Awake()
         {
-            infoID = Guid.NewGuid();
+            infoID = GetInfoID();
+        }
+
+        protected virtual void OnEnable()
+        {
+            infoID = GetInfoID();
+        }
+
+        private string GetInfoID()
+        {
+            if (string.IsNullOrEmpty(infoID))
+            {
+                infoID = Guid.NewGuid().ToString();
+            }
+            return infoID;
         }
 
         public virtual Vector2d LatLongString()
