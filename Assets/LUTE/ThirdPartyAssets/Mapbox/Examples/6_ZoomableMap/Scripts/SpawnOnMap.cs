@@ -269,6 +269,7 @@
             _spawnedObjects.Add(cameraBillboard);
         }
 
+        // This could use LocationData rather than getting the marker class
         public GameObject HideLocationMarker(LocationVariable location)
         {
             if (location == null || _map == null || _spawnedObjects == null)
