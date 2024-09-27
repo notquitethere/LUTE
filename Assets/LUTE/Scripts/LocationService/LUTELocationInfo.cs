@@ -55,6 +55,8 @@ namespace LoGaCulture.LUTE
         [Tooltip("Whether the location can be interacted with or not (using mouse, touch etc. input)")]
         [SerializeField] protected bool interactable = true;
         [SerializeField] protected bool saveInfo = true; // Whether the location info should be saved or not
+        [Tooltip("Whether the marker should update independently of any related nodes")]
+        [SerializeField] protected bool indepedentMarkerUpdating;
 
         public LocationStatus _LocationStatus
         {
@@ -87,7 +89,11 @@ namespace LoGaCulture.LUTE
             set { saveInfo = value; }
         }
 
-        //public Vector2d Position { get { return LatLongString(); } set { _ = Position; } }
+        public bool IndependentMarkerUpdating
+        {
+            get { return indepedentMarkerUpdating; }
+            set { indepedentMarkerUpdating = value; }
+        }
 
 
         protected virtual void Awake()

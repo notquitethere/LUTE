@@ -61,7 +61,6 @@ public static class ComponentExtensions
     }
 }
 
-[ExecuteInEditMode]
 public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
 {
     public const string SubstituteVariableRegexString = "{\\$.*?}";
@@ -171,6 +170,10 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     {
         CheckEventSystem();
         MMGameEvent.Trigger("Load");
+
+
+        if (!this.name.Contains("GlobalVariablesEngine"))
+            LogaManager.Instance.LogManager.Log(LoGaCulture.LUTE.Logs.LogLevel.Info, "Engine started", "Engine: " + description);
     }
 
     // There must be an Event System in the scene for Say and Menu input to work.
@@ -223,6 +226,12 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
 #if UNITY_5_4_OR_NEWER
         UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
 #endif
+    }
+
+    protected virtual void OnApplicationQuit()
+    {
+        if (!this.name.Contains("GlobalVariablesEngine"))
+            LogaManager.Instance.LogManager.Log(LoGaCulture.LUTE.Logs.LogLevel.Info, "Engine Ended", "Engine: " + description);
     }
 
     protected virtual void UpdateVersion()

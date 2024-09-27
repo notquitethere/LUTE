@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,8 +6,10 @@ public static class LogaEditorPreferences
 {
     private static bool prefsLoaded = false;
     private const string HIDE_ICON_KEY = "hideIconInHierarchy";
+    private const string USE_LOGS_KEY = "useLogs";
 
     public static bool hideIconInHierarchy;
+    public static bool useLogs;
 
     static LogaEditorPreferences()
     {
@@ -44,6 +45,11 @@ public static class LogaEditorPreferences
 
         EditorGUILayout.Space();
 
+        useLogs = EditorGUILayout.Toggle("Use Logs", useLogs);
+        LogaConstants.UseLogs = useLogs;
+
+        EditorGUILayout.Space();
+
         if (LogaEditorResources.Add == null)
             EditorGUILayout.HelpBox("Resources need to be regenerated!", MessageType.Error);
 
@@ -67,12 +73,15 @@ public static class LogaEditorPreferences
         if (GUI.changed)
         {
             EditorPrefs.SetBool(HIDE_ICON_KEY, hideIconInHierarchy);
+            EditorPrefs.SetBool(USE_LOGS_KEY, useLogs);
         }
     }
 
     public static void LoadOnScript()
     {
         hideIconInHierarchy = EditorPrefs.GetBool(HIDE_ICON_KEY, false);
+        useLogs = EditorPrefs.GetBool(USE_LOGS_KEY, false);
+        LogaConstants.UseLogs = useLogs;
         prefsLoaded = true;
     }
 }

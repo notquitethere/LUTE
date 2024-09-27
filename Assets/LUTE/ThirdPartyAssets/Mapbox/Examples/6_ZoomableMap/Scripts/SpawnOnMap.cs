@@ -177,7 +177,9 @@
             var locations = new List<LocationVariable>();
             order.GetLocationVariables(ref locations);
             foreach (var location in locations)
+            {
                 AddUniqueLocation(location);
+            }
         }
 
         private void ProcessIfOrderLocation(Order order)
@@ -226,6 +228,7 @@
                     SaveInfo = location.Value.SaveInfo,
                     showRadius = location.Value.showRadius,
                     radiusColor = location.Value.radiusColor,
+                    IndependentMarkerUpdating = location.Value.IndependentMarkerUpdating
                 };
 
                 _locationData.Add(newLocationData);
@@ -280,8 +283,8 @@
 
             LocationMarker locationMarker = _spawnedObjects.Find(marker =>
                 marker != null &&
-                marker.TextMesh != null &&
-                marker.TextMesh.text == location.Key
+                marker.locationInfo.infoID != null &&
+                marker.locationInfo.infoID == location.Value.infoID
             );
 
             if (locationMarker != null)
@@ -302,8 +305,8 @@
 
             LocationMarker locationMarker = _spawnedObjects.Find(marker =>
                 marker != null &&
-                marker.TextMesh != null &&
-                marker.TextMesh.text == location.Key
+                marker.locationInfo.infoID != null &&
+                marker.locationInfo.infoID == location.Value.infoID
             );
 
             if (locationMarker == null)

@@ -198,6 +198,8 @@ public class Node : MonoBehaviour
             yield break;
         }
 
+        LogaManager.Instance.LogManager.Log(LoGaCulture.LUTE.Logs.LogLevel.Info, "Executing node: " + _NodeName);
+
         {
             lastOnCompleteAction = onComplete;
 

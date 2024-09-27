@@ -1,9 +1,12 @@
+using LoGaCulture.LUTE.Logs;
 using UnityEngine;
 
 [RequireComponent(typeof(SoundManager))]
 [RequireComponent(typeof(CameraManager))]
 [RequireComponent(typeof(StateManager))]
 [RequireComponent(typeof(GlobalVariables))]
+[RequireComponent(typeof(LogManager))]
+[RequireComponent(typeof(ConnectionManager))]
 #if UNITY_5_3_OR_NEWER
 [RequireComponent(typeof(SaveManager))]
 [RequireComponent(typeof(SaveLog))]
@@ -21,6 +24,8 @@ public class LogaManager : MonoBehaviour
     public CameraManager CameraManager { get; private set; }
     public StateManager StateManager { get; private set; }
     public GlobalVariables GlobalVariables { get; private set; }
+    public LogManager LogManager { get; private set; }
+    public ConnectionManager ConnectionManager { get; private set; }
 #if UNITY_5_3_OR_NEWER
     public SaveManager SaveManager { get; private set; }
     public SaveLog SaveLog { get; private set; }
@@ -33,6 +38,8 @@ public class LogaManager : MonoBehaviour
         CameraManager = GetComponent<CameraManager>();
         StateManager = GetComponent<StateManager>();
         GlobalVariables = GetComponent<GlobalVariables>();
+        LogManager = GetComponent<LogManager>();
+        ConnectionManager = GetComponent<ConnectionManager>();
 #if UNITY_5_3_OR_NEWER
         SaveManager = GetComponent<SaveManager>();
         SaveLog = GetComponent<SaveLog>();

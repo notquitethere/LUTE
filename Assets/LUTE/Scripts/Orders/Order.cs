@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 /// <summary>
@@ -70,6 +71,11 @@ public abstract class Order : MonoBehaviour
                 fieldInfo = field;
                 return (LocationVariable)field.GetValue(this);
             }
+            if (field.FieldType == typeof(List<LocationVariable>) || field.FieldType == typeof(LocationVariable[]))
+            {
+                var collection = field.GetValue(this) as IEnumerable<LocationVariable>;
+                return collection != null ? collection.FirstOrDefault() : null;
+            }
         }
         // Find relevant if statements as they are not referencing location variables explicitly
         if (this.GetType() == typeof(If))
@@ -105,6 +111,14 @@ public abstract class Order : MonoBehaviour
             {
                 var locationVariable = (LocationVariable)field.GetValue(this);
                 locationVariables.Add(locationVariable);
+            }
+            if (field.FieldType == typeof(List<LocationVariable>) || field.FieldType == typeof(LocationVariable[]))
+            {
+                var collection = field.GetValue(this) as IEnumerable<LocationVariable>;
+                if (collection != null)
+                {
+                    locationVariables.AddRange(collection);
+                }
             }
         }
     }

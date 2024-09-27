@@ -64,5 +64,9 @@ public static class LogaConstants
     /// </summary>
     public const float DefaultRadius = 50.0f;
 
+    /// <summary>
+    ///     
+    /// </summary>
+    public static bool UseLogs;
     #endregion
 }

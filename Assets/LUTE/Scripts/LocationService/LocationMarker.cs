@@ -42,6 +42,17 @@ namespace LoGaCulture.LUTE
                     }
                 }
             }
+
+            // if  allows clicking without being in location
+            // create and show custom marker based on location info and state
+
+            //ObjectInfoPanel infoPanel = ObjectInfoPanel.GetInfoPanel();
+            //if (infoPanel != null)
+            //{
+            //    // Need to create object info based on the location info - likely a search
+            //    //infoPanel.SetInfo(locationInfo);
+            //    infoPanel.ToggleMenu();
+            //}
         }
 
         protected void OnEnable()
@@ -68,7 +79,7 @@ namespace LoGaCulture.LUTE
                 transform.LookAt(transform.position + markerCamera.transform.rotation * Vector3.forward, markerCamera.transform.rotation * Vector3.up);
             }
 
-            if (engine != null && !string.IsNullOrEmpty(locationInfo.ExecuteNode))
+            if (engine != null)
             {
                 var node = engine.FindNode(locationInfo.NodeComplete);
                 if (node != null)
@@ -78,11 +89,13 @@ namespace LoGaCulture.LUTE
                         locationInfo._LocationStatus = LUTELocationInfo.LocationStatus.Completed;
                     }
                 }
-                // First we must ensure that the player is a location
-                var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
-                if (locVar.Evaluate(ComparisonOperator.Equals, null))
+                if (!string.IsNullOrEmpty(locationInfo.ExecuteNode) || locationInfo.IndependentMarkerUpdating)
                 {
-                    OnLocationComplete(locVar);
+                    var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
+                    if (locVar.Evaluate(ComparisonOperator.Equals, null))
+                    {
+                        OnLocationComplete(locVar);
+                    }
                 }
             }
 
