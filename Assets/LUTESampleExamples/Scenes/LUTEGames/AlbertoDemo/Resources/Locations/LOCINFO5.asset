@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b4ddc75f9f1b3043893d0de76d49f2c, type: 3}
-  m_Name: LOCINFO2
+  m_Name: LOCINFO5
   m_EditorClassIdentifier: 
-  infoID: 1a98c04e-54cc-4178-b4e0-b3ce9eca169c
-  Position: 51.42778823831875, -1.8558977060909136
-  Name: Banks
+  infoID: 91acbd1a-69bf-4a98-9b7c-3b63c0754290
+  Position: 51.42764715361124, -1.8535524144436868
+  Name: InnerCircle
   Sprite: {fileID: 21300000, guid: 6a93ba6c38197db4fb34c36028f98c24, type: 3}
   InProgressSprite: {fileID: 21300000, guid: bb16fc8f730e49d41bfad390322f8654, type: 3}
   CompletedSprite: {fileID: 21300000, guid: d764252b019bccb48bc36a1869796494, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
-  showRadius: 1
+  showRadius: 0
   radiusColor: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
   locationDisabled: 0
-  objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
+  objectInfo: {fileID: 0}
   radiusIncrease: 0
-  locationStatus: 1
-  nodeComplete: Correct 2
-  executeNode: Question 2
+  locationStatus: 0
+  nodeComplete: 
+  executeNode: 
   interactable: 1
   saveInfo: 1
   indepedentMarkerUpdating: 1

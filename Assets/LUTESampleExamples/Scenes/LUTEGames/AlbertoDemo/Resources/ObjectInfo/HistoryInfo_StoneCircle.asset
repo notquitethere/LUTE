@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e584817ecd9d685498c58195ea23716c, type: 3}
-  m_Name: HistoryInfo2
+  m_Name: HistoryInfo_StoneCircle
   m_EditorClassIdentifier: 
-  objectName: Mr History
+  objectName: Stone Circle
   objectDescription: 'History History History History History History History History
     History History History History History History History History History History
     History History '
-  shortDescription: History is all about being old
-  objectIcon: {fileID: 21300000, guid: aa42084cccf519140a5d01ff04fbf12c, type: 3}
+  shortDescription: Ancient stones stand tall, silently encircling mysteries
+  objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: 304efb7658899454bac87c3d02e56268, type: 3}
   unlocked: 0

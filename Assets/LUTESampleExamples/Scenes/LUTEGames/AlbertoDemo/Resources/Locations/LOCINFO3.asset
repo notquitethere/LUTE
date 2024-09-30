@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: LOCINFO3
   m_EditorClassIdentifier: 
   infoID: a62fa314-5fcd-4dc5-9c05-ba54545de893
-  Position: 51.42895056182021, -1.8524016807901853
-  Name: Orange
-  Sprite: {fileID: 21300000, guid: d8eb571ec3eb8fc46afb6fcd3e64b25f, type: 3}
-  InProgressSprite: {fileID: 21300000, guid: 82fb92a372784b04db03ee645e87d3f1, type: 3}
-  CompletedSprite: {fileID: 21300000, guid: a861ca850d8929a4fb0a50b084585369, type: 3}
+  Position: 51.42714392008189, -1.85458355226391
+  Name: BarberStone
+  Sprite: {fileID: 21300000, guid: 6a93ba6c38197db4fb34c36028f98c24, type: 3}
+  InProgressSprite: {fileID: 21300000, guid: bb16fc8f730e49d41bfad390322f8654, type: 3}
+  CompletedSprite: {fileID: 21300000, guid: d764252b019bccb48bc36a1869796494, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
   showRadius: 1
-  radiusColor: {r: 0.18513432, g: 0.745283, b: 0, a: 0.5882353}
+  radiusColor: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: e6d5636128d48ef4c85a73df8c9c13ad, type: 2}
   radiusIncrease: 0
-  locationStatus: 0
+  locationStatus: 1
   nodeComplete: Correct 3
   executeNode: Question 3
   interactable: 1

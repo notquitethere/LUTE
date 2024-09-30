@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e584817ecd9d685498c58195ea23716c, type: 3}
-  m_Name: HistoryInfo1
+  m_Name: HistoryInfo_TheCove
   m_EditorClassIdentifier: 
-  objectName: The Famous Latin Historian
+  objectName: The Cove
   objectDescription: Lorem ipsum odor amet, consectetuer adipiscing elit. Nulla condimentum
     mattis turpis posuere; consectetur eleifend. Semper interdum integer quam est
     platea, elementum justo. Vitae aenean rhoncus magnis id; mattis non turpis nec.
@@ -25,7 +25,7 @@ MonoBehaviour:
     mattis magna pellentesque nec netus dis nulla. Scelerisque pulvinar ipsum enim
     sapien sodales nibh fames. Interdum maximus metus maximus ultricies magna feugiat
     tincidunt.
-  shortDescription: Great History starts here
-  objectIcon: {fileID: 21300000, guid: 8147d3db2dd801540b228d1aab010152, type: 3}
+  shortDescription: Megalithic Box that guards a secluded corner of history
+  objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: 10064968011a81d40a72f5a3f53da87f, type: 3}
-  unlocked: 0
+  unlocked: 1
