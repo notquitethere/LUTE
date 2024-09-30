@@ -22,6 +22,7 @@ namespace LoGaCulture.LUTE
         private ObjectSpinner spawnedObject;
 
         public static ObjectInfoPanel ActiveInfoPanel;
+        public static LocationInfoPanel ActiveLocationInfoPanel;
 
         public static ObjectInfoPanel GetInfoPanel()
         {
@@ -100,10 +101,13 @@ namespace LoGaCulture.LUTE
             spawnedObject.transform.localScale = objectSpawn.localScale;
             spawnedObject.transform.rotation = objectSpawn.rotation;
 
+            var hiddenObject = GetHiddenInteraction();
+            if (hiddenObject != null)
+                hiddenObject.ObjectInfo = info;
+
             if (info.Unlocked)
             {
                 RevealInfo();
-                var hiddenObject = GetHiddenInteraction();
                 if (hiddenObject != null)
                 {
                     hiddenObject.SetActive(false);
@@ -177,7 +181,8 @@ namespace LoGaCulture.LUTE
         .setOnUpdate((t) =>
         {
             panelGroup.alpha = t;
-            spawnedObject.transform.localScale = new Vector3(t, t, t);
+            if (spawnedObject != null && objectSpawn != null)
+                spawnedObject.transform.localScale = new Vector3(t, t, t);
         }).setOnComplete(() =>
         {
             panelGroup.alpha = 0f;
@@ -195,8 +200,11 @@ namespace LoGaCulture.LUTE
         .setOnUpdate((t) =>
         {
             panelGroup.alpha = t;
-            float x = t * objectSpawn.localScale.x;
-            spawnedObject.transform.localScale = new Vector3(x, x, x);
+            if (spawnedObject != null && objectSpawn != null)
+            {
+                float x = t * objectSpawn.localScale.x;
+                spawnedObject.transform.localScale = new Vector3(x, x, x);
+            }
         }).setOnComplete(() =>
         {
             panelGroup.alpha = 1f;

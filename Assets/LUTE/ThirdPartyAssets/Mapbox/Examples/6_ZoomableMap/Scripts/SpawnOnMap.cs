@@ -25,7 +25,7 @@
 
         private List<LocationMarker> _spawnedObjects;
         private List<LUTELocationInfo> _locationData = new List<LUTELocationInfo>();
-        private float _radiusInMeters = LogaConstants.DefaultRadius / 7.5f;
+        private float _radiusInMeters = LogaConstants.DefaultRadius / 14f;
         private List<GameObject> _radiusCircles = new List<GameObject>();
 
         [SerializeField] public LocationMarker _markerPrefab;
@@ -228,7 +228,9 @@
                     SaveInfo = location.Value.SaveInfo,
                     showRadius = location.Value.showRadius,
                     radiusColor = location.Value.radiusColor,
-                    IndependentMarkerUpdating = location.Value.IndependentMarkerUpdating
+                    IndependentMarkerUpdating = location.Value.IndependentMarkerUpdating,
+                    ObjectInfo = location.Value.ObjectInfo,
+                    AllowClickWithoutLocation = location.Value.AllowClickWithoutLocation
                 };
 
                 _locationData.Add(newLocationData);
@@ -548,8 +550,8 @@
             {
                 _spawnScale = 0.0f;
             }
-            //else
-            //    _spawnScale = Mathf.Lerp(4.0f, 5.0f, zoomFactor);
+            else
+                _spawnScale = Mathf.Lerp(2.0f, 2.5f, zoomFactor);
 
             spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LOCINFO2
   m_EditorClassIdentifier: 
   infoID: 1a98c04e-54cc-4178-b4e0-b3ce9eca169c
-  Position: 50.85915824050322, 0.5875583158399059
+  Position: 51.42527702573934, -1.857478034938693
   Name: Apple
   Sprite: {fileID: 21300000, guid: d8eb571ec3eb8fc46afb6fcd3e64b25f, type: 3}
   InProgressSprite: {fileID: 21300000, guid: 82fb92a372784b04db03ee645e87d3f1, type: 3}
@@ -21,11 +21,14 @@ MonoBehaviour:
   Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
   showRadius: 1
-  radiusColor: {r: 0.3726415, g: 0.44447303, b: 1, a: 0.5882353}
+  radiusColor: {r: 0.18513432, g: 0.745283, b: 0, a: 0.5882353}
   locationDisabled: 0
+  objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
   radiusIncrease: 0
   locationStatus: 0
   nodeComplete: Correct 2
   executeNode: Question 2
   interactable: 1
   saveInfo: 1
+  indepedentMarkerUpdating: 1
+  allowClickWithoutLocation: 1

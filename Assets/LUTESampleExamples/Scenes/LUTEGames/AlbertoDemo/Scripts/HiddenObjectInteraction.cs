@@ -11,6 +11,12 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected ObjectInfo objectInfo; // Will fill out certain canvas objects
         [SerializeField] protected bool createNewPanel; // Will create a new panel or simply reveal the description
 
+        public ObjectInfo ObjectInfo
+        {
+            get { return objectInfo; }
+            set { objectInfo = value; }
+        }
+
         private bool isVisible = false;
 
         // need to setup using nodes

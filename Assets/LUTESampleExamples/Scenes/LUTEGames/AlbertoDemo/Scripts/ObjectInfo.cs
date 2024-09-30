@@ -11,12 +11,14 @@ namespace LoGaCulture.LUTE
     {
         [SerializeField] protected string objectName;
         [SerializeField] protected string objectDescription;
+        [SerializeField] protected string shortDescription;
         [SerializeField] protected Sprite objectIcon;
         [SerializeField] protected ObjectSpinner spinningObject;
         [SerializeField] protected bool unlocked;
 
         public string ObjectName => objectName;
         public string ObjectDescription => objectDescription;
+        public string ShortDescription => shortDescription;
         public Sprite ObjectIcon => objectIcon;
         public ObjectSpinner SpinningObject => spinningObject;
         public bool Unlocked { get => unlocked; set => unlocked = value; }

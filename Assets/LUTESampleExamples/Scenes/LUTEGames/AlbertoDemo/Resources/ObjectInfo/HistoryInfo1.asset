@@ -25,6 +25,7 @@ MonoBehaviour:
     mattis magna pellentesque nec netus dis nulla. Scelerisque pulvinar ipsum enim
     sapien sodales nibh fames. Interdum maximus metus maximus ultricies magna feugiat
     tincidunt.
-  objectIcon: {fileID: 21300000, guid: aa42084cccf519140a5d01ff04fbf12c, type: 3}
+  shortDescription: Great History starts here
+  objectIcon: {fileID: 21300000, guid: 8147d3db2dd801540b228d1aab010152, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: 10064968011a81d40a72f5a3f53da87f, type: 3}
   unlocked: 0

@@ -43,16 +43,23 @@ namespace LoGaCulture.LUTE
                 }
             }
 
-            // if  allows clicking without being in location
-            // create and show custom marker based on location info and state
+            if (locationInfo.AllowClickWithoutLocation)
+            {
+                var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
+                if (locVar == null)
+                    return;
 
-            //ObjectInfoPanel infoPanel = ObjectInfoPanel.GetInfoPanel();
-            //if (infoPanel != null)
-            //{
-            //    // Need to create object info based on the location info - likely a search
-            //    //infoPanel.SetInfo(locationInfo);
-            //    infoPanel.ToggleMenu();
-            //}
+                // If the location is completed or we click without being at the location
+                if (locationInfo._LocationStatus == LUTELocationInfo.LocationStatus.Completed || !locVar.Evaluate(ComparisonOperator.Equals, null))
+                {
+                    LocationInfoPanel newPanel = LocationInfoPanel.GetLocationInfoPanel();
+                    if (newPanel != null)
+                    {
+                        newPanel.SetLocationInfo(locationInfo);
+                        newPanel.ToggleMenu();
+                    }
+                }
+            }
         }
 
         protected void OnEnable()

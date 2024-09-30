@@ -42,6 +42,8 @@ namespace LoGaCulture.LUTE
         [Header("Location Settings")]
         [Tooltip("Whether or not this location can be used (can be set with location failure handling)")]
         public bool locationDisabled = false;
+        [Tooltip("The info related to this panel")]
+        public ObjectInfo objectInfo;
 
         [Tooltip("The amount to increase the radius of the location by ")]
         [SerializeField] protected float radiusIncrease = 0.0f;
@@ -57,6 +59,8 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected bool saveInfo = true; // Whether the location info should be saved or not
         [Tooltip("Whether the marker should update independently of any related nodes")]
         [SerializeField] protected bool indepedentMarkerUpdating;
+        [Tooltip("Whether the location can be clicked without a location evaluated fully by player")]
+        [SerializeField] protected bool allowClickWithoutLocation;
 
         public LocationStatus _LocationStatus
         {
@@ -94,7 +98,16 @@ namespace LoGaCulture.LUTE
             get { return indepedentMarkerUpdating; }
             set { indepedentMarkerUpdating = value; }
         }
-
+        public ObjectInfo ObjectInfo
+        {
+            get { return objectInfo; }
+            set { objectInfo = value; }
+        }
+        public bool AllowClickWithoutLocation
+        {
+            get { return allowClickWithoutLocation; }
+            set { allowClickWithoutLocation = value; }
+        }
 
         protected virtual void Awake()
         {
