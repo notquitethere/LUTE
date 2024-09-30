@@ -13,19 +13,10 @@ MonoBehaviour:
   m_Name: HistoryInfo_Obelisk
   m_EditorClassIdentifier: 
   objectName: The Obelisk
-  objectDescription: Lorem ipsum odor amet, consectetuer adipiscing elit. Nulla condimentum
-    mattis turpis posuere; consectetur eleifend. Semper interdum integer quam est
-    platea, elementum justo. Vitae aenean rhoncus magnis id; mattis non turpis nec.
-    Class pretium dis dolor class fusce vivamus. Posuere mus dictumst aliquet etiam
-    erat eleifend at phasellus. Ultricies ultricies hendrerit tempus egestas proin
-    sit mus? Curabitur ultrices inceptos fringilla ullamcorper maximus elementum
-    adipiscing imperdiet.  Hendrerit integer placerat accumsan per lacinia quam volutpat.
-    Dui arcu condimentum tempor senectus parturient eu potenti sollicitudin vel.
-    Pulvinar odio luctus feugiat consequat sagittis lectus. Turpis tristique dictum
-    mattis magna pellentesque nec netus dis nulla. Scelerisque pulvinar ipsum enim
-    sapien sodales nibh fames. Interdum maximus metus maximus ultricies magna feugiat
-    tincidunt.
+  objectDescription: A central monolith once dominated the southern inner circle,
+    where it likely served as a focal point for gatherings or rituals before it fell
+    and was removed. INSERT INFO PIC.
   shortDescription: A lone pillar was once standing here, marking an ancient gathering
   objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: 10064968011a81d40a72f5a3f53da87f, type: 3}
-  unlocked: 1
+  unlocked: 0

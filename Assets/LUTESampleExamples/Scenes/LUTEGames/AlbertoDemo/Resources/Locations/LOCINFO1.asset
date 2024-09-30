@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: LOCINFO1
   m_EditorClassIdentifier: 
   infoID: 6ea9447c-b51b-43e7-b21c-6cc9d351a6d2
-  Position: 51.429115641341525, -1.8539967438403255
-  Name: Cove
+  Position: 51.429105609146376, -1.8539931715514162
+  Name: The Cove
   Sprite: {fileID: 21300000, guid: 6a93ba6c38197db4fb34c36028f98c24, type: 3}
   InProgressSprite: {fileID: 21300000, guid: bb16fc8f730e49d41bfad390322f8654, type: 3}
   CompletedSprite: {fileID: 21300000, guid: d764252b019bccb48bc36a1869796494, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ShowName: 0
+  ShowName: 1
   showRadius: 1
   radiusColor: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 58c03fa8ba422134b88f8ffcbc0b8271, type: 2}
   radiusIncrease: 0
-  locationStatus: 2
+  locationStatus: 0
   nodeComplete: Correct 1
   executeNode: Question 1
   interactable: 1
