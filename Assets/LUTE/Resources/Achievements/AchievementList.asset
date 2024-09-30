@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementsListID: AchievementsList
   Achievements:
-  - AchievementID: Coins
-    AchievementType: 1
+  - AchievementID: Reconstruction
+    AchievementType: 0
     HiddenAchievement: 0
-    UnlockedStatus: 0
+    UnlockedStatus: 1
     Title: Dollar Billz
     Description: Grab 5 Coins
     Points: 50
@@ -26,10 +26,10 @@ MonoBehaviour:
     UnlockedSound: {fileID: 0}
     ProgressTarget: 5
     ProgressCurrent: 0
-  - AchievementID: Bananas
+  - AchievementID: Gnagne
     AchievementType: 1
     HiddenAchievement: 0
-    UnlockedStatus: 0
+    UnlockedStatus: 1
     Title: Monkeying Around
     Description: Eat 5 Bananas
     Points: 50
@@ -41,7 +41,19 @@ MonoBehaviour:
   - AchievementID: Finish
     AchievementType: 0
     HiddenAchievement: 0
-    UnlockedStatus: 0
+    UnlockedStatus: 1
+    Title: First Experience
+    Description: Complete the simple experience
+    Points: 50
+    LockedImage: {fileID: 0}
+    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 5
+    ProgressCurrent: 0
+  - AchievementID: lelel
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
     Title: First Experience
     Description: Complete the simple experience
     Points: 50
@@ -50,10 +62,10 @@ MonoBehaviour:
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: Finish
+  - AchievementID: cane
     AchievementType: 0
     HiddenAchievement: 0
-    UnlockedStatus: 0
+    UnlockedStatus: 1
     Title: First Experience
     Description: Complete the simple experience
     Points: 50
@@ -61,4 +73,40 @@ MonoBehaviour:
     UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
+    ProgressCurrent: 0
+  - AchievementID: gatto
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
+    Title: First Experience
+    Description: Complete the simple experience
+    Points: 50
+    LockedImage: {fileID: 0}
+    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 1
+    ProgressCurrent: 0
+  - AchievementID: Banana
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
+    Title: First Experience
+    Description: Complete the simple experience
+    Points: 50
+    LockedImage: {fileID: 0}
+    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 1
+    ProgressCurrent: 0
+  - AchievementID: juju
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
+    Title: First Experience
+    Description: Complete the simple experience
+    Points: 50
+    LockedImage: {fileID: 0}
+    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 10
     ProgressCurrent: 0
