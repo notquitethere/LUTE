@@ -19,13 +19,13 @@ MonoBehaviour:
   InProgressSprite: {fileID: 21300000, guid: bb16fc8f730e49d41bfad390322f8654, type: 3}
   CompletedSprite: {fileID: 21300000, guid: d764252b019bccb48bc36a1869796494, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ShowName: 1
-  showRadius: 1
+  ShowName: 0
+  showRadius: 0
   radiusColor: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
   radiusIncrease: 0
-  locationStatus: 0
+  locationStatus: 1
   nodeComplete: 
   executeNode: 
   interactable: 1
