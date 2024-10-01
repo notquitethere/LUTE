@@ -3221,11 +3221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 477.81323
+      value: 414.02023
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 770.95514
+      value: 834.7482
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -3289,12 +3289,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535703}
+      objectReference: {fileID: 1034535693}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -3436,8 +3436,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3323502711fafdb479ee6c6ed5423df0, type: 3}
     - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: MovedSlotImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: FilledSlotImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: NumberOfColumns
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: PressedSlotImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: DisabledSlotImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: HighlightedSlotImage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8914231864885694563, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: inventoryInputManager
@@ -3701,9 +3721,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535702}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535701}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535700}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -3731,9 +3748,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535692}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535691}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535715}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -3746,16 +3760,10 @@ PrefabInstance:
       addedObject: {fileID: 1034535717}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535716}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535725}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535724}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535723}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535722}
@@ -3771,6 +3779,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535718}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535727}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535731}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535730}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535729}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535728}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535732}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -3913,9 +3939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 111.84777
-    y: -677.1517
-    width: 115.51721
+    x: 182.53737
+    y: -773.70337
+    width: 115.573746
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -3954,7 +3980,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -372.95972
     y: -492.3694
-    width: 98.27583
+    width: 99.18031
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -4009,7 +4035,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 363.1726
     y: -577.0358
-    width: 113.793076
+    width: 113.387955
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -4156,7 +4182,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -112.65216
     y: -471.38354
-    width: 131.03445
+    width: 127.5956
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -4266,7 +4292,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 87.50844
     y: -474.8941
-    width: 99.99998
+    width: 101.366104
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -4394,7 +4420,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -125.298706
     y: -405.3145
-    width: 175.862
+    width: 174.59012
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -4463,7 +4489,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 80.88776
     y: -403.27338
-    width: 101.72411
+    width: 102.459
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -4573,7 +4599,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 361.0609
     y: -504.49585
-    width: 129.3103
+    width: 128.68849
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -4737,21 +4763,6 @@ MonoBehaviour:
   buttonEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1034535691
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6359e5049e07a814e8afe403c21c5e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
-  historyInventoryItem: {fileID: 11400000, guid: 08e8a63939434b8448c62b9fb54966bf, type: 2}
-  inventory: {fileID: 722612698}
 --- !u!114 &1034535692
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4783,7 +4794,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 83.167175
     y: -210.03409
-    width: 99.99998
+    width: 101.366104
     height: 40
   nodeName: Correct 6
   nodeDescription: Basic building block of a narrative engine
@@ -4791,8 +4802,6 @@ MonoBehaviour:
   itemId: 1
   orderList:
   - {fileID: 1034535692}
-  - {fileID: 1034535691}
-  - {fileID: 1034535716}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
@@ -4852,7 +4861,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 108.81784
     y: -271.29105
-    width: 99.99998
+    width: 101.366104
     height: 40
   nodeName: Correct 5
   nodeDescription: Basic building block of a narrative engine
@@ -4921,7 +4930,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 86.276276
     y: -339.54224
-    width: 101.72411
+    width: 102.459
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -4956,29 +4965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Avebury
+  text: Hi Katrine, nice to meet you
   description: 
-  targetNode: {fileID: 1034535721}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535701
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Steamland
-  description: 
-  targetNode: {fileID: 1034535594}
+  targetNode: {fileID: 1034535703}
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -5002,7 +4991,9 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: What is this place called?
+  storyText: "Hello there! I\u2019m Katrine, an archaeologist with a deep fascination
+    for the ancient secrets of Avebury. It\u2019s fantastic to see you here, delving
+    into the mysteries of this site!"
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -5029,9 +5020,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -109.22959
-    y: -560.11835
-    width: 156.8965
+    x: -159.22955
+    y: -623.9114
+    width: 153.8251
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -5039,8 +5030,8 @@ MonoBehaviour:
   itemId: 2
   orderList:
   - {fileID: 1034535702}
-  - {fileID: 1034535701}
   - {fileID: 1034535700}
+  - {fileID: 1034535727}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
@@ -5141,7 +5132,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -98.884796
     y: -269.05048
-    width: 165.51718
+    width: 162.56827
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -5251,7 +5242,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -121.920395
     y: -344.46027
-    width: 158.62064
+    width: 156.0109
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -5327,26 +5318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementID: Reconstruction
-  progress: 0
-  amount: 1
-  achievementFeedback: {fileID: 0}
-  targetEngine: {fileID: 0}
-  triggerNode: {fileID: 0}
-  startIndex: 0
-  callMode: 0
---- !u!114 &1034535716
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievementID: gatto
   progress: 0
   amount: 1
   achievementFeedback: {fileID: 0}
@@ -5438,11 +5409,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 94.3127
-    y: -559.9208
-    width: 98.27583
+    x: 63.27822
+    y: -663.3688
+    width: 96.994514
     height: 40
-  nodeName: Correct 1
+  nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
@@ -5478,26 +5449,6 @@ MonoBehaviour:
   text: Avebury
   description: 
   targetNode: {fileID: 1034535693}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535723
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Steamland
-  description: 
-  targetNode: {fileID: 1034535594}
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -5550,7 +5501,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -121.7791
     y: -209.92105
-    width: 155.17236
+    width: 153.8251
     height: 40
   nodeName: Maji - Stone Circle
   nodeDescription: Basic building block of a narrative engine
@@ -5558,8 +5509,8 @@ MonoBehaviour:
   itemId: 2
   orderList:
   - {fileID: 1034535724}
-  - {fileID: 1034535723}
   - {fileID: 1034535722}
+  - {fileID: 1034535732}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
@@ -5573,6 +5524,161 @@ MonoBehaviour:
   showDesc: 0
   saveable: 0
   NodeComplete: 0
+--- !u!114 &1034535727
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 366376642}
+  characterPortrait: {fileID: 21300000, guid: 7f3abbdcc524ec249ac8b70c47bc0c46, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'My pleasure. Great to see many new people exploring Avebury and seeing
+    the Cove.
+
+    You know, there is a lot of speculation around this Box-like
+    structure. Would you want me to tell you more about it?'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535728
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementID: gatto
+  progress: 0
+  amount: 1
+  achievementFeedback: {fileID: 0}
+  targetEngine: {fileID: 0}
+  triggerNode: {fileID: 0}
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1034535729
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359e5049e07a814e8afe403c21c5e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
+  historyInventoryItem: {fileID: 11400000, guid: 08e8a63939434b8448c62b9fb54966bf, type: 2}
+  inventory: {fileID: 722612698}
+--- !u!114 &1034535730
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 1410524942}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535731
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 65.57721
+    y: -611.6449
+    width: 98.08741
+    height: 40
+  nodeName: Choice 2
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 1
+  orderList:
+  - {fileID: 1034535730}
+  - {fileID: 1034535729}
+  - {fileID: 1034535728}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 1
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 1
+  NodeComplete: 0
+--- !u!114 &1034535732
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Bravissimoz
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
