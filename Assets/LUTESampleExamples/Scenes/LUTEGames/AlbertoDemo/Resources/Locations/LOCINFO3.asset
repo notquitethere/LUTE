@@ -25,9 +25,9 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: e6d5636128d48ef4c85a73df8c9c13ad, type: 2}
   radiusIncrease: 0
-  locationStatus: 0
+  locationStatus: 1
   nodeComplete: Correct 3
-  executeNode: Question 3
+  executeNode: Henry - Barber's Stone
   interactable: 1
   saveInfo: 1
   indepedentMarkerUpdating: 1
