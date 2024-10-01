@@ -14,99 +14,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementsListID: AchievementsList
   Achievements:
-  - AchievementID: Reconstruction
+  - AchievementID: Curious of Stones
     AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: Dollar Billz
-    Description: Grab 5 Coins
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: -1922425793, guid: 075289b53d2214247aaee342cc134414, type: 3}
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Curious of Stones
+    Description: For completing Tutorial and having encountered Dr Webb.
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: 8676c99d85b215447ae54c7a7b3e6ebe, type: 3}
     UnlockedSound: {fileID: 0}
-    ProgressTarget: 5
+    ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: Gnagne
+  - AchievementID: Megalith Trio
     AchievementType: 1
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: Monkeying Around
-    Description: Eat 5 Bananas
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 338cd290f7afedb4995a6a444f685fc0, type: 3}
-    UnlockedSound: {fileID: 0}
-    ProgressTarget: 5
-    ProgressCurrent: 0
-  - AchievementID: Finish
-    AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
-    UnlockedSound: {fileID: 0}
-    ProgressTarget: 5
-    ProgressCurrent: 0
-  - AchievementID: lelel
-    AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Megalith Trio
+    Description: For unlocking the mysteries of The Cove.
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: c1f6fb97eb294d1408f2fa1294eb39e2, type: 3}
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: cane
+  - AchievementID: Henge Digger
     AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Henge Digger
+    Description: For discovering the secrets of the Henge.
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: d4d566f7f88ec614bb1c8b73ea773880, type: 3}
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: gatto
+  - AchievementID: Barber Surgeon's Ghostbuster
     AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Barber Surgeon's Ghostbuster
+    Description: "For uncovering the story of the Barber Surgeon\u2019s Stone."
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: 96b20197b12599541a030bd1a80d41ef, type: 3}
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: Banana
+  - AchievementID: Obelisk Observer
     AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
-    Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Obelisk Observer
+    Description: For discovering the marking significance of The Obelisk
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: f8bf1f1e51308a448ac372235d8d9d0d, type: 3}
     UnlockedSound: {fileID: 0}
     ProgressTarget: 1
     ProgressCurrent: 0
-  - AchievementID: juju
+  - AchievementID: Stone Builder
     AchievementType: 0
-    HiddenAchievement: 0
-    UnlockedStatus: 1
-    Title: First Experience
-    Description: Complete the simple experience
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Stone Builder
+    Description: For learning how villagers repurposed the stones for construction
     Points: 50
-    LockedImage: {fileID: 0}
-    UnlockedImage: {fileID: 21300000, guid: 9396e3c6cab0d5f4c8d60d8223b163fa, type: 3}
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: 90408d64544e8f24ab4f444ea5475cc0, type: 3}
     UnlockedSound: {fileID: 0}
-    ProgressTarget: 10
+    ProgressTarget: 1
+    ProgressCurrent: 0
+  - AchievementID: Imagination
+    AchievementType: 0
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Imagination
+    Description: For learning about the Avebury stone circle.
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: d4d566f7f88ec614bb1c8b73ea773880, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 1
+    ProgressCurrent: 0
+  - AchievementID: Collector
+    AchievementType: 0
+    HiddenAchievement: 1
+    UnlockedStatus: 0
+    Title: Collector
+    Description: For collecting all Replicas in Avebury
+    Points: 0
+    LockedImage: {fileID: 21300000, guid: b91e4efbf5609634389a18c2b2dba4f8, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: d4d566f7f88ec614bb1c8b73ea773880, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 1
     ProgressCurrent: 0
