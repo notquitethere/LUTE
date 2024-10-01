@@ -126,7 +126,12 @@ public class TextWriter : MonoBehaviour
             else
             {
                 if (waitForClick)
+                {
+                    StopCoroutine(displayRoutine);
+                    isTyping = false;
+                    DialogueBox.GetDialogueBox().FadeWhenDone = true;
                     onComplete?.Invoke();
+                }
             }
         }
     }
