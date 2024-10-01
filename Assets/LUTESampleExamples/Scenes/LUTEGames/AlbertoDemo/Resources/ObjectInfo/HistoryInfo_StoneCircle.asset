@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: HistoryInfo_StoneCircle
   m_EditorClassIdentifier: 
   objectName: Stone Circle
-  objectDescription: 'SBAM FULL DESCRIPTION '
-  shortDescription: Ancient stones stand tall, silently encircling mysteries
+  objectDescription: What a wonderful sight! Image seeing a complete Avebury, showing
+    off 200 or more stones. This is what the artist J. Britton thought it would look
+    like. A marvel of perfect circle, perfect, yet so mysterious.
+  shortDescription: Short Description Info Popup
   objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: 304efb7658899454bac87c3d02e56268, type: 3}
-  unlocked: 0
+  unlocked: 1
