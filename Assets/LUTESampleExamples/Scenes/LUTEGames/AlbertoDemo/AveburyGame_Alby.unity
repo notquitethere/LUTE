@@ -293,92 +293,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0973709683afc8b49b81c6eeed1e4c3f, type: 3}
---- !u!21 &277626732
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RealisticTopMaterial
-  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _NORMALMAP
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f99015b7b1a6f497bab611412ee65c90, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 581505b85254d4d29b170800875ef29a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 0bc8bd5e5fc49497fad146b25f52e005, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &295400429
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,94 +873,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c066a527a5039f478fd4b11b3b82540, type: 3}
---- !u!21 &621111679
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RealisticSideMaterial
-  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _METALLICGLOSSMAP
-  - _NORMALMAP
-  - _SPECGLOSSMAP
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 639754785a99045debbad4593b7c92e9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0bcf5c7180b764937aa4cd980bd44e8b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: c3370fc9cdec647fcb05b4bcfb13aa37, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: feda69b01240b4568a23a5a754012e5a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: b4566aacde9a0463a89407bec92aa87c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!114 &722612698 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6885913695637968734, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -3371,7 +3197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 0.7000002
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -3395,11 +3221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 306.96265
+      value: 499.5202
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 395.29175
+      value: 362.47852
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -3468,7 +3294,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535725}
+      objectReference: {fileID: 1034535750}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -3488,7 +3314,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535733}
+      objectReference: {fileID: 1034535752}
     - target: {fileID: 8647909171326844323, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4016,6 +3842,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535733}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535748}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535749}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535750}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535751}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535752}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -4160,7 +4001,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 182.53737
     y: -773.70337
-    width: 113.80951
+    width: 119.07217
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -4199,7 +4040,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -372.95972
     y: -492.3694
-    width: 97.61903
+    width: 101.54639
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -4254,7 +4095,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 363.1726
     y: -577.0358
-    width: 113.80951
+    width: 117.01031
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -4401,7 +4242,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -112.65216
     y: -471.38354
-    width: 127.14284
+    width: 133.50516
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -4511,7 +4352,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 87.50844
     y: -474.8941
-    width: 99.523796
+    width: 103.608246
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -4639,7 +4480,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -125.298706
     y: -405.3145
-    width: 171.90472
+    width: 181.95876
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -4708,7 +4549,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 80.88776
     y: -403.27338
-    width: 100.47618
+    width: 104.639175
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -4818,7 +4659,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 361.0609
     y: -504.49585
-    width: 126.19045
+    width: 132.47423
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -5013,7 +4854,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 144.70563
     y: -211.133
-    width: 161.42853
+    width: 170.61856
     height: 40
   nodeName: StoneCircle_Choice1
   nodeDescription: Basic building block of a narrative engine
@@ -5080,7 +4921,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 108.81784
     y: -271.29105
-    width: 99.523796
+    width: 103.608246
     height: 40
   nodeName: Correct 5
   nodeDescription: Basic building block of a narrative engine
@@ -5149,7 +4990,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 86.276276
     y: -339.54224
-    width: 100.47618
+    width: 104.639175
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -5241,7 +5082,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -159.22955
     y: -623.9114
-    width: 151.90472
+    width: 160.30927
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -5351,7 +5192,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -97.7859
     y: -270.14938
-    width: 159.52377
+    width: 168.5567
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -5461,7 +5302,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -121.920395
     y: -344.46027
-    width: 153.8095
+    width: 162.37112
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -5630,7 +5471,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 63.27822
     y: -663.3688
-    width: 96.66666
+    width: 100.51546
     height: 40
   nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
@@ -5667,7 +5508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Hey Maji, thanks a lot, likewise
   description: 
-  targetNode: {fileID: 1034535693}
+  targetNode: {fileID: 0}
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -5720,7 +5561,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -98.137146
     y: -192.11282
-    width: 150.95236
+    width: 158.24742
     height: 40
   nodeName: Maji - Stone Circle
   nodeDescription: Basic building block of a narrative engine
@@ -5771,8 +5612,8 @@ MonoBehaviour:
   storyText: 'My pleasure. Great to see many new people exploring Avebury and seeing
     the Cove.
 
-    You know, there is a lot of speculation around this Box-like
-    structure. Would you want me to tell you more about it?'
+    You know, there is a lot of speculation around this Box-like structure.
+    Would you want me to tell you more about it?'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -5851,7 +5692,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 65.57721
     y: -611.6449
-    width: 97.61903
+    width: 101.54639
     height: 40
   nodeName: Choice 2
   nodeDescription: Basic building block of a narrative engine
@@ -5999,7 +5840,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 146.92032
     y: -22.704504
-    width: 174.76187
+    width: 185.05154
     height: 40
   nodeName: StoneCircle_Choice3_2
   nodeDescription: Basic building block of a narrative engine
@@ -6017,7 +5858,7 @@ MonoBehaviour:
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
-  showDesc: 1
+  showDesc: 0
   saveable: 1
   NodeComplete: 0
 --- !u!114 &1034535737
@@ -6071,7 +5912,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 147.80652
     y: -77.59874
-    width: 173.80948
+    width: 184.02061
     height: 40
   nodeName: StoneCircle_Choice3_1
   nodeDescription: Basic building block of a narrative engine
@@ -6176,7 +6017,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 145.89476
     y: -121.495834
-    width: 173.80948
+    width: 184.02061
     height: 40
   nodeName: StoneCircle_Choice2_2
   nodeDescription: Basic building block of a narrative engine
@@ -6248,7 +6089,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 143.33063
     y: -166.55112
-    width: 172.85712
+    width: 182.98969
     height: 40
   nodeName: StoneCircle_Choice2_1
   nodeDescription: Basic building block of a narrative engine
@@ -6284,6 +6125,165 @@ MonoBehaviour:
   feedback: {fileID: 1410524942}
   playImmediately: 1
   waitUntilFinished: 1
+--- !u!114 &1034535748
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -106.7083
+    y: -73.96782
+    width: 154.12372
+    height: 40
+  nodeName: Maji 2nd Dialogue
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535749}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535749
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: "My pleasure! It\u2019s always great seeing new people visiting Avebury!
+    \nDr. Webb has told me that you\u2019re interested to learn a bit more about
+    the landmarks, am I right?"
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535750
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -327.35574
+    y: -85.15908
+    width: 113.91753
+    height: 40
+  nodeName: Maji - New
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 1
+  orderList:
+  - {fileID: 1034535751}
+  - {fileID: 1034535752}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 1034535688}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535751
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: "Hi there!\nI\u2019m Maji, nice to meet you."
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535752
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Hey Maji, thanks a lot, likewise
+  description: 
+  targetNode: {fileID: 1034535748}
+  hideIfVisited: 0
+  interactable: 1
+  setMenuDialogue: {fileID: 0}
+  hideThisOption: 0
+  closeMenuOnSelect: 1
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
