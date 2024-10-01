@@ -33,7 +33,7 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: AveburyHistory
+  ItemName: Avebury History
   ShortDescription: Boring History about Avebury!
   Description: An item all about being cool in historical times...
   Icon: {fileID: 21300000, guid: aa42084cccf519140a5d01ff04fbf12c, type: 3}

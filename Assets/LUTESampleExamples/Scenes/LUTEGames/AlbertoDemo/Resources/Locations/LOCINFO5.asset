@@ -25,7 +25,7 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 0977b928da8c3b344bb23850a5e5b6b8, type: 2}
   radiusIncrease: 0
-  locationStatus: 1
+  locationStatus: 0
   nodeComplete: Correct 5
   executeNode: Angela - Inner Circle
   interactable: 1

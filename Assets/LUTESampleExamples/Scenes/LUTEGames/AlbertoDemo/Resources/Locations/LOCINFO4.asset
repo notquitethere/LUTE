@@ -25,7 +25,7 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 121be63f92810534facdb4549f93c78f, type: 2}
   radiusIncrease: 0
-  locationStatus: 1
+  locationStatus: 0
   nodeComplete: Correct 4
   executeNode: Clara - The Obelisk
   interactable: 1
