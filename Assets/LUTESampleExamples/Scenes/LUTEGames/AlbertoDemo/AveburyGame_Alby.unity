@@ -1613,7 +1613,7 @@ GameObject:
   - component: {fileID: 828295316}
   - component: {fileID: 828295315}
   m_Layer: 5
-  m_Name: Achievement_Title
+  m_Name: Inventory_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1631,7 +1631,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1169097001}
+  m_Father: {fileID: 48696901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -3560,12 +3560,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5646089167663100277, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3825,7 +3833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7479614022618383239, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7673409931069187708, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3914,6 +3922,10 @@ PrefabInstance:
     - target: {fileID: 7720936570687937702, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731577072583164082, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7735914937338759753, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4072,6 +4084,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377150363403145874, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: CloseList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377150363403145874, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: OverlayActiveOpacity
       value: 0
       objectReference: {fileID: 0}
@@ -4105,7 +4121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 0.6100003
+      value: 0.8199997
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -4129,11 +4145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 638.9763
+      value: 650.622
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 276.10132
+      value: 316.08926
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -4202,7 +4218,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535780}
+      objectReference: {fileID: 1034535755}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -4210,19 +4226,35 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1034535750}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1034535755}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1034535759}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[5]
+      value: 
+      objectReference: {fileID: 1034535780}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[6]
+      value: 
+      objectReference: {fileID: 1034535775}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[7]
+      value: 
+      objectReference: {fileID: 1034535762}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[8]
+      value: 
+      objectReference: {fileID: 1034535767}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535782}
+      objectReference: {fileID: 0}
     - target: {fileID: 8647909171326844323, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4481,18 +4513,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4129428090591462735, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1264450442}
-    - targetCorrespondingSourceObject: {fileID: 6921988035838107886, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 828295314}
-    - targetCorrespondingSourceObject: {fileID: 6921988035838107886, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1914542872}
     - targetCorrespondingSourceObject: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 742807565}
     - targetCorrespondingSourceObject: {fileID: 8533057121976975698, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 787166218}
+    - targetCorrespondingSourceObject: {fileID: 8533057121976975698, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 828295314}
+    - targetCorrespondingSourceObject: {fileID: 8533057121976975698, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1914542872}
     - targetCorrespondingSourceObject: {fileID: 6910895443391204781, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1838513927}
@@ -4700,12 +4732,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535694}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535693}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535692}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535715}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -4716,15 +4742,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535717}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535725}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535724}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535722}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535721}
@@ -4752,54 +4769,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535728}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535732}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535745}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535742}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535746}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535747}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535743}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535744}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535741}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535739}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535740}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535736}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535737}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535738}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535735}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535734}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535733}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535748}
@@ -4830,9 +4799,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535758}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535757}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535759}
@@ -4914,6 +4880,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535782}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535787}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535788}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535790}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535789}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535791}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535795}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535794}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535793}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535792}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -5056,9 +5049,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 182.53737
-    y: -773.70337
-    width: 115.57374
+    x: -385.46265
+    y: -1221.7034
+    width: 119.79167
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -5095,9 +5088,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -372.95972
-    y: -492.3694
-    width: 99.180305
+    x: -940.9597
+    y: -940.3694
+    width: 102.083336
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -5150,9 +5143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 363.1726
-    y: -577.0358
-    width: 113.38795
+    x: -888.8274
+    y: -369.03583
+    width: 117.708336
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -5297,9 +5290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -112.65216
-    y: -471.38354
-    width: 127.59559
+    x: -680.65216
+    y: -919.38354
+    width: 134.375
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -5407,9 +5400,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 87.50844
-    y: -474.8941
-    width: 101.3661
+    x: -482.05408
+    y: -922.8941
+    width: 104.16667
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -5535,9 +5528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -125.298706
-    y: -405.3145
-    width: 174.5901
+    x: -693.2987
+    y: -853.3145
+    width: 183.33334
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -5604,9 +5597,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 80.88776
-    y: -403.27338
-    width: 102.45899
+    x: -487.11224
+    y: -851.2734
+    width: 105.208336
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -5714,9 +5707,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 361.0609
-    y: -504.49585
-    width: 128.68848
+    x: -890.9391
+    y: -296.49585
+    width: 133.33334
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -5880,58 +5873,6 @@ MonoBehaviour:
   buttonEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1034535692
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
-  playImmediately: 1
-  waitUntilFinished: 1
---- !u!114 &1034535693
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 278.9521
-    y: 47.77104
-    width: 163.66115
-    height: 40
-  nodeName: StoneCircle_Choice1
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 1
-  orderList:
-  - {fileID: 1034535692}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 1
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
 --- !u!114 &1034535694
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5976,9 +5917,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -410.59637
-    y: 272.9353
-    width: 105.73768
+    x: -423.13556
+    y: 265.34595
+    width: 109.375
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -6046,9 +5987,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 86.276276
-    y: -339.54224
-    width: 102.45899
+    x: -481.72372
+    y: -787.54224
+    width: 105.208336
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -6138,9 +6079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -159.22955
-    y: -623.9114
-    width: 153.82509
+    x: -727.22955
+    y: -1071.9114
+    width: 161.45834
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -6248,9 +6189,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -97.7859
-    y: -270.14938
-    width: 162.56825
+    x: -665.7859
+    y: -718.1494
+    width: 169.79167
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -6358,9 +6299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -123.96121
-    y: -344.46027
-    width: 156.01088
+    x: -691.9612
+    y: -792.46027
+    width: 163.54167
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -6435,7 +6376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementID: Reconstruction
+  achievementID: Curious of Stones
   progress: 0
   amount: 1
   achievementFeedback: {fileID: 0}
@@ -6527,9 +6468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 63.27822
-    y: -663.3688
-    width: 96.994514
+    x: -504.72177
+    y: -1111.3688
+    width: 101.04167
     height: 40
   nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
@@ -6544,103 +6485,6 @@ MonoBehaviour:
   groupIndex: -1
   repeatable: 1
   nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
---- !u!114 &1034535722
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Hey Maji, thanks a lot, likewise
-  description: 
-  targetNode: {fileID: 0}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535724
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: "Hi there!\nI\u2019m Maji, nice to meet you."
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 0
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535725
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 26.831085
-    y: 86.37891
-    width: 153.82509
-    height: 40
-  nodeName: Maji - Stone Circle
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 2
-  orderList:
-  - {fileID: 1034535724}
-  - {fileID: 1034535722}
-  - {fileID: 1034535732}
-  - {fileID: 1034535745}
-  - {fileID: 1034535742}
-  - {fileID: 1034535741}
-  - {fileID: 1034535738}
-  - {fileID: 1034535735}
-  - {fileID: 1034535734}
-  - {fileID: 1034535733}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 0
-  nodeLocation: {fileID: 1034535688}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -6748,9 +6592,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 65.57721
-    y: -611.6449
-    width: 98.08741
+    x: -502.4228
+    y: -1059.6449
+    width: 102.083336
     height: 40
   nodeName: Choice 2
   nodeDescription: Basic building block of a narrative engine
@@ -6773,416 +6617,6 @@ MonoBehaviour:
   showDesc: 0
   saveable: 1
   NodeComplete: 0
---- !u!114 &1034535732
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: "My pleasure! It\u2019s always great seeing new people visiting Avebury!
-    \nDr. Webb has told me that you\u2019re interested to learn a bit more about
-    the landmarks, am I right?"
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535733
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: 'gnagnagna
-
-'
-  description: 
-  targetNode: {fileID: 0}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535734
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: "Right? The circle is extremely old and unfortunately, we don\u2019t
-    have a full picture of its purpose. \nAlthough, I might have something to tickle
-    your imagination, let\u2019s see\u2026\r\nHave you been paying attention? Can
-    you answer these couple of questions?\u201D\r\n"
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535735
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: I didn't know that!
-  description: 
-  targetNode: {fileID: 1034535736}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535736
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 281.16675
-    y: 236.19952
-    width: 177.86879
-    height: 40
-  nodeName: StoneCircle_Choice3_2
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 1
-  orderList:
-  - {fileID: 1034535737}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 1
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
---- !u!114 &1034535737
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
-  playImmediately: 1
-  waitUntilFinished: 1
---- !u!114 &1034535738
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Fascinating!
-  description: 
-  targetNode: {fileID: 1034535739}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535739
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 282.05295
-    y: 181.30531
-    width: 176.7759
-    height: 40
-  nodeName: StoneCircle_Choice3_1
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 1
-  orderList:
-  - {fileID: 1034535740}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 1
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
---- !u!114 &1034535740
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
-  playImmediately: 1
-  waitUntilFinished: 1
---- !u!114 &1034535741
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: "Let\u2019s see then, did you know that the Avebury stone circle is
-    the largest in the world? \nIt\u2019s believed to have been constructed around
-    2600 BC and was used for ceremonial purposes."
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535742
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Indeed.
-  description: 
-  targetNode: {fileID: 1034535743}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535743
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 280.1412
-    y: 137.4082
-    width: 176.7759
-    height: 40
-  nodeName: StoneCircle_Choice2_2
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 1
-  orderList:
-  - {fileID: 1034535744}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 1
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
---- !u!114 &1034535744
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
-  playImmediately: 1
-  waitUntilFinished: 1
---- !u!114 &1034535745
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Yes, I would love to.
-  description: 
-  targetNode: {fileID: 1034535746}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
---- !u!114 &1034535746
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 277.5771
-    y: 92.352936
-    width: 175.683
-    height: 40
-  nodeName: StoneCircle_Choice2_1
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 1
-  orderList:
-  - {fileID: 1034535747}
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 1
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 1
-  NodeComplete: 0
---- !u!114 &1034535747
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
-  playImmediately: 1
-  waitUntilFinished: 1
 --- !u!114 &1034535748
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7197,9 +6631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -318.37842
-    y: -100.71012
-    width: 148.36061
+    x: -445.95682
+    y: -172.56206
+    width: 155.20834
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7249,7 +6683,7 @@ MonoBehaviour:
   showCount: 1
   fadeWhenDone: 0
   allowLineSkip: 1
-  waitForClick: 0
+  waitForClick: 1
   timeToWait: 1
   stopVoiceover: 1
   waitForVO: 0
@@ -7268,9 +6702,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -250.15976
-    y: -161.31378
-    width: 111.202156
+    x: -432.4417
+    y: -249.22472
+    width: 114.583336
     height: 40
   nodeName: Maji - New
   nodeDescription: Basic building block of a narrative engine
@@ -7318,7 +6752,7 @@ MonoBehaviour:
   showCount: 1
   fadeWhenDone: 0
   allowLineSkip: 1
-  waitForClick: 0
+  waitForClick: 1
   timeToWait: 1
   stopVoiceover: 1
   waitForVO: 0
@@ -7397,9 +6831,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -367.252
-    y: -46.726105
-    width: 156.01088
+    x: -446.6949
+    y: -126.06289
+    width: 162.5
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7409,7 +6843,6 @@ MonoBehaviour:
   - {fileID: 1034535756}
   - {fileID: 1034535785}
   - {fileID: 1034535758}
-  - {fileID: 1034535757}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
@@ -7450,31 +6883,11 @@ MonoBehaviour:
   showCount: 1
   fadeWhenDone: 0
   allowLineSkip: 1
-  waitForClick: 0
+  waitForClick: 1
   timeToWait: 1
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
---- !u!114 &1034535757
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: I didn't know that!
-  description: 
-  targetNode: {fileID: 1034535759}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
 --- !u!114 &1034535758
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7489,7 +6902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Fascinating!
   description: 
-  targetNode: {fileID: 1034535759}
+  targetNode: {fileID: 1034535795}
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -7509,9 +6922,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -429.03583
-    y: 13.470062
-    width: 156.01088
+    x: -443.71088
+    y: 16.568207
+    width: 162.5
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7583,15 +6996,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -300.48972
-    y: 178.0947
-    width: 154.91798
+    x: -298.67163
+    y: 170.82199
+    width: 161.45834
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034535789}
   - {fileID: 1034535764}
   - {fileID: 1034535763}
   eventHandler: {fileID: 0}
@@ -7750,15 +7164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -544.46716
-    y: 173.4786
-    width: 154.91798
+    x: -584.49854
+    y: 164.4817
+    width: 161.45834
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034535787}
   - {fileID: 1034535766}
   - {fileID: 1034535765}
   eventHandler: {fileID: 0}
@@ -7965,15 +7380,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -371.00305
-    y: 70.84708
-    width: 154.91798
+    x: -283.71188
+    y: 66.24843
+    width: 161.45834
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034535790}
   - {fileID: 1034535774}
   - {fileID: 1034535772}
   - {fileID: 1034535769}
@@ -8108,15 +7524,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -572.97015
-    y: 70.84708
-    width: 154.91798
+    x: -606.0851
+    y: 68.729126
+    width: 161.45834
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034535788}
   - {fileID: 1034535779}
   - {fileID: 1034535782}
   - {fileID: 1034535773}
@@ -8137,7 +7554,7 @@ MonoBehaviour:
   NodeComplete: 0
 --- !u!114 &1034535781
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8168,7 +7585,7 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
 --- !u!114 &1034535782
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8200,7 +7617,7 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
 --- !u!114 &1034535783
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8210,8 +7627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  characterPortrait: {fileID: 0}
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
   characterName: 
   characterNameColour:
     serializedVersion: 2
@@ -8231,7 +7648,7 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
 --- !u!114 &1034535784
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8263,7 +7680,7 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
 --- !u!114 &1034535785
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8295,7 +7712,7 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
 --- !u!114 &1034535786
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8325,6 +7742,225 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+--- !u!114 &1034535787
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 1410524942}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535788
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 1410524942}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535789
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 380124019}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535790
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 380124019}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535791
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -872.9696
+    y: -423.35498
+    width: 81.25
+    height: 40
+  nodeName: Node
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList: []
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535792
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: I didn't know that!
+  description: 
+  targetNode: {fileID: 1034535759}
+  hideIfVisited: 0
+  interactable: 1
+  setMenuDialogue: {fileID: 0}
+  hideThisOption: 0
+  closeMenuOnSelect: 1
+--- !u!114 &1034535793
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Each stone was carefully placed and was likely significant for rituals
+    and community gatherings.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535794
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1264450443}
+  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: The circle originally had around 200 standing stones, although many
+    have been lost or moved over time.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535795
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -473.03638
+    y: -55.33114
+    width: 215.625
+    height: 40
+  nodeName: Maji - 3.5rd Dialogue (Copy)
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535794}
+  - {fileID: 1034535793}
+  - {fileID: 1034535792}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8576,11 +8212,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 790, y: 590}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &1169097001 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6921988035838107886, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-  m_PrefabInstance: {fileID: 1034535571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1170735340
 GameObject:
   m_ObjectHideFlags: 0
@@ -10474,7 +10105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1838513927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10794,11 +10425,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1169097001}
+  m_Father: {fileID: 48696901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -365}
+  m_AnchoredPosition: {x: 250, y: -389}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914542873
