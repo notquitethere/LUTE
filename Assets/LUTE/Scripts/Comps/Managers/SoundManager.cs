@@ -25,9 +25,9 @@ public class SoundManager : MonoBehaviour
     }
 
     /// Plays game music using an audio clip - one music clip may be played at a time.
-    public void PlayMusic(AudioClip musicClip, bool loop, float fadeDuration, float atTime)
+    public void PlayMusic(AudioClip musicClip, bool loop, float fadeDuration, float atTime, bool resume = false)
     {
-        if (audioSourceMusic == null || audioSourceMusic.clip == musicClip)
+        if (audioSourceMusic == null || audioSourceMusic.clip == musicClip && resume == false)
         {
             return;
         }
@@ -113,14 +113,35 @@ public class SoundManager : MonoBehaviour
             });
     }
 
+    public virtual void SetSourceTime(float value)
+    {
+        if (!audioSourceMusic.isPlaying || audioSourceMusic.clip == null)
+            return;
+
+        audioSourceMusic.time = value * audioSourceMusic.clip.length;
+    }
+
     public virtual void StopMusic()
     {
         audioSourceMusic.Stop();
         audioSourceMusic.clip = null;
     }
 
+    public virtual void PauseMusic()
+    {
+        audioSourceMusic.Pause();
+    }
+
     public virtual float GetVolume()
     {
         return audioSourceMusic.volume;
+    }
+
+    public virtual AudioSource GetAudioSource()
+    {
+        if ((audioSourceMusic == null))
+            return null;
+
+        return audioSourceMusic;
     }
 }

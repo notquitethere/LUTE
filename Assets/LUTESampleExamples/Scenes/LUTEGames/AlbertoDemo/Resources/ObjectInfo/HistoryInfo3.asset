@@ -18,6 +18,8 @@ MonoBehaviour:
     quam est platea, elementum justo. Vitae aenean rhoncus magnis id; mattis non
     turpis nec. Class pretium dis dolor class fusce vivamus. '
   shortDescription: Avebury has history deeply rooted in trees.
+  voiceOverClip: {fileID: 8300000, guid: 744d09109a63f004fa2e484c72e86b35, type: 3}
+  stopAudioOnClose: 0
   objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: b1eba4fcd1494eb4f974c31ff73430e0, type: 3}
   unlocked: 0

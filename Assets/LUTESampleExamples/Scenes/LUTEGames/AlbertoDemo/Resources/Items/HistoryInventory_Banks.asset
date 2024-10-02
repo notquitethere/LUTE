@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc128575df606c741889484c61bf33b2, type: 3}
   m_Name: HistoryInventory_Banks
   m_EditorClassIdentifier: 
-  ItemID: StoneCircle
+  ItemID: HistoryInventory_Banks
   TargetInventoryName: MainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
@@ -92,4 +92,4 @@ MonoBehaviour:
   MovedSound: {fileID: 0}
   DroppedSound: {fileID: 0}
   UseDefaultSoundsIfNull: 1
-  historicalInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
+  historicalInfo: {fileID: 11400000, guid: 7d89586e90e2f7649a3a51c9b2398abc, type: 2}

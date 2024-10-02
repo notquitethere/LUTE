@@ -12,6 +12,8 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected string objectName;
         [SerializeField] protected string objectDescription;
         [SerializeField] protected string shortDescription;
+        [SerializeField] protected AudioClip voiceOverClip;
+        [SerializeField] protected bool stopAudioOnClose;
         [SerializeField] protected Sprite objectIcon;
         [SerializeField] protected ObjectSpinner spinningObject;
         [SerializeField] protected bool unlocked;
@@ -19,6 +21,8 @@ namespace LoGaCulture.LUTE
         public string ObjectName => objectName;
         public string ObjectDescription => objectDescription;
         public string ShortDescription => shortDescription;
+        public AudioClip VoiceOverClip => voiceOverClip;
+        public bool StopAudioOnClose => stopAudioOnClose;
         public Sprite ObjectIcon => objectIcon;
         public ObjectSpinner SpinningObject => spinningObject;
         public bool Unlocked { get => unlocked; set => unlocked = value; }

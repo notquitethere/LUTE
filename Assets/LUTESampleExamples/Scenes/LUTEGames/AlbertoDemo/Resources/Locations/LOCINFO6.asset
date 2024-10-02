@@ -25,7 +25,7 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
   radiusIncrease: 0
-  locationStatus: 2
+  locationStatus: 0
   nodeComplete: Maji - End
   executeNode: Maji - Start
   interactable: 1

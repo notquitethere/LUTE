@@ -10,6 +10,9 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected TextMeshProUGUI titleText;
         [SerializeField] protected TextMeshProUGUI bodyText;
         [SerializeField] protected UnityEngine.UI.Image infoImage; // Eventually replaced by spinning object
+        [SerializeField] protected UnityEngine.UI.Button playButton;
+        [SerializeField] protected UnityEngine.UI.Button stopButton;
+        [SerializeField] protected CanvasGroup audioPlayerGroup;
         [SerializeField] protected CanvasGroup panelGroup; // For fading in and out
         [SerializeField] protected Transform objectSpawn;
         [SerializeField] protected bool hideDescription;
@@ -20,6 +23,8 @@ namespace LoGaCulture.LUTE
         protected static bool infoPanelActive = false;
 
         private ObjectSpinner spawnedObject;
+        private bool stopAudioOnClose = false;
+        private bool hasAudio = false;
 
         public static ObjectInfoPanel ActiveInfoPanel;
         public static LocationInfoPanel ActiveLocationInfoPanel;
@@ -93,6 +98,15 @@ namespace LoGaCulture.LUTE
             bodyText.text = info.ObjectDescription;
             infoImage.sprite = info.ObjectIcon;
             var spinner = info.SpinningObject;
+            hasAudio = false;
+            audioPlayerGroup.alpha = 0; audioPlayerGroup.interactable = false; audioPlayerGroup.blocksRaycasts = false;
+
+            if (playButton != null && stopButton != null)
+            {
+                if (info.VoiceOverClip != null)
+                    SetAudioInteraction(info.VoiceOverClip);
+            }
+            stopAudioOnClose = info.StopAudioOnClose;
 
             if (spawnedObject != null)
                 Destroy(spawnedObject.gameObject);
@@ -119,6 +133,42 @@ namespace LoGaCulture.LUTE
             }
         }
 
+
+        protected virtual void SetAudioInteraction(AudioClip clip)
+        {
+            hasAudio = true;
+            playButton.onClick.AddListener(() =>
+            {
+                SoundManager soundManager = LogaManager.Instance.SoundManager;
+                if (soundManager == null)
+                    return;
+
+                // needs to play from the point of the clip
+                var audiosource = soundManager.GetAudioSource();
+                if (audiosource != null)
+                {
+                    if (audiosource.clip != null)
+                    {
+                        soundManager.PlayMusic(clip, false, 0.5f, audiosource.time, true);
+                    }
+                    else
+                    {
+                        soundManager.PlayMusic(clip, false, 0.5f, 0);
+                    }
+                }
+
+            });
+
+            stopButton.onClick.AddListener(() =>
+            {
+                SoundManager soundManager = LogaManager.Instance.SoundManager;
+                if (soundManager == null)
+                    return;
+
+                soundManager.PauseMusic();
+            });
+        }
+
         // Reveals the rest of the information about the object
         public virtual void RevealInfo()
         {
@@ -133,9 +183,17 @@ namespace LoGaCulture.LUTE
     .setEase(LeanTweenType.easeOutQuint)
     .setOnUpdate((t) =>
     {
+        if (audioPlayerGroup != null && hasAudio)
+            audioPlayerGroup.alpha = t;
         bodyText.alpha = t;
     }).setOnComplete(() =>
     {
+        if (audioPlayerGroup != null && hasAudio)
+        {
+            audioPlayerGroup.alpha = 1f;
+            audioPlayerGroup.interactable = true;
+            audioPlayerGroup.blocksRaycasts = true;
+        }
         bodyText.alpha = 1f;
     });
         }
@@ -153,9 +211,17 @@ namespace LoGaCulture.LUTE
     .setEase(LeanTweenType.easeOutQuint)
     .setOnUpdate((t) =>
     {
+        if (audioPlayerGroup != null && hasAudio)
+            audioPlayerGroup.alpha = t;
         bodyText.alpha = t;
     }).setOnComplete(() =>
     {
+        if (audioPlayerGroup != null && hasAudio)
+        {
+            audioPlayerGroup.alpha = 0f;
+            audioPlayerGroup.interactable = false;
+            audioPlayerGroup.blocksRaycasts = false;
+        }
         bodyText.alpha = 0f;
     });
         }
@@ -188,6 +254,8 @@ namespace LoGaCulture.LUTE
             panelGroup.alpha = 0f;
             panelGroup.interactable = false;
             panelGroup.blocksRaycasts = false;
+            if (stopAudioOnClose)
+                LogaManager.Instance.SoundManager.StopMusic();
             SetActive(false);
         });
             }
