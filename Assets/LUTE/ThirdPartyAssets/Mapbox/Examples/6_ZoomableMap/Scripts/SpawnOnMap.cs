@@ -31,7 +31,7 @@
         [SerializeField] public LocationMarker _markerPrefab;
         [SerializeField] public float _spawnScale = 5f;
 
-        void Start()
+        void Awake()
         {
             InitializeEngine();
             if (engine == null)
@@ -42,7 +42,8 @@
             {
                 return;
             }
-            _map = LocationProviderFactory.Instance.mapManager;
+            if (_map == null)
+                _map = LocationProviderFactory.Instance.mapManager;
 
             ProcessNodes();
             CreateMarkers();
