@@ -25,7 +25,7 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 58c03fa8ba422134b88f8ffcbc0b8271, type: 2}
   radiusIncrease: 0
-  locationStatus: 2
+  locationStatus: 0
   nodeComplete: Correct 1
   executeNode: Katrine - The Cove
   interactable: 1
