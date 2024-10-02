@@ -5027,7 +5027,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -385.46265
     y: -1221.7034
-    width: 117.543884
+    width: 115.306145
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -5066,7 +5066,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -940.9597
     y: -940.3694
-    width: 100.87721
+    width: 98.979614
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -5121,7 +5121,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -887.2649
     y: -369.03583
-    width: 114.9123
+    width: 112.58505
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -5251,7 +5251,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -680.65216
     y: -919.38354
-    width: 129.82458
+    width: 127.55105
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -5361,7 +5361,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -482.05408
     y: -922.8941
-    width: 102.63159
+    width: 101.7007
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -5489,7 +5489,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -693.2987
     y: -853.3145
-    width: 178.07022
+    width: 175.1701
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -5558,7 +5558,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -487.11224
     y: -851.2734
-    width: 103.50879
+    width: 103.06125
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -5668,7 +5668,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1039.0968
     y: -271.89053
-    width: 129.82458
+    width: 128.91159
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -5829,7 +5829,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -481.72372
     y: -787.54224
-    width: 103.50879
+    width: 103.06125
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -5921,7 +5921,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -727.22955
     y: -1071.9114
-    width: 156.14038
+    width: 154.76195
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -6031,7 +6031,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -665.7859
     y: -718.1494
-    width: 163.15793
+    width: 161.56467
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -6141,7 +6141,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -691.9612
     y: -792.46027
-    width: 157.01758
+    width: 156.1225
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -6290,7 +6290,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -504.72177
     y: -1111.3688
-    width: 98.24563
+    width: 97.619064
     height: 40
   nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
@@ -6414,7 +6414,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -502.4228
     y: -1059.6449
-    width: 99.12282
+    width: 98.979614
     height: 40
   nodeName: Choice 2
   nodeDescription: Basic building block of a narrative engine
@@ -6453,7 +6453,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -543.01544
     y: -172.56206
-    width: 149.12283
+    width: 147.95923
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6524,7 +6524,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -529.50037
     y: -249.22472
-    width: 113.15791
+    width: 111.22452
     height: 40
   nodeName: Maji - Start
   nodeDescription: Basic building block of a narrative engine
@@ -6653,7 +6653,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -543.75354
     y: -126.06289
-    width: 156.14038
+    width: 154.76195
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6744,7 +6744,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -540.76953
     y: 16.568207
-    width: 156.14038
+    width: 154.76195
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6883,7 +6883,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -688.557
     y: 160.4817
-    width: 155.26318
+    width: 153.4014
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7103,7 +7103,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -380.77054
     y: 66.24843
-    width: 155.26318
+    width: 153.4014
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7247,7 +7247,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -701.58105
     y: 67.166626
-    width: 155.26318
+    width: 153.4014
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7493,7 +7493,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -872.9696
     y: -423.35498
-    width: 79.82457
+    width: 79.931984
     height: 40
   nodeName: Node
   nodeDescription: Basic building block of a narrative engine
@@ -7613,7 +7613,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -570.095
     y: -55.33114
-    width: 207.0176
+    width: 205.1021
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -7863,7 +7863,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -395.5572
     y: 163.48169
-    width: 155.26318
+    width: 153.4014
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7938,7 +7938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -510.24146
     y: 248.50484
-    width: 106.140366
+    width: 104.42179
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -7974,7 +7974,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 21.932373
     y: 249.77066
-    width: 115.7895
+    width: 113.9456
     height: 40
   nodeName: Finley - End
   nodeDescription: Basic building block of a narrative engine
@@ -8171,7 +8171,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 125.87105
     y: 142.89342
-    width: 164.91232
+    width: 162.92522
     height: 40
   nodeName: Finley - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8376,7 +8376,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -133.26318
     y: 148.717
-    width: 164.91232
+    width: 162.92522
     height: 40
   nodeName: Finley - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8538,7 +8538,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 115.69977
     y: 52.921204
-    width: 164.91232
+    width: 162.92522
     height: 40
   nodeName: Finley - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8730,7 +8730,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -137.46387
     y: 52.460747
-    width: 167.5439
+    width: 165.6463
     height: 40
   nodeName: Finley - 5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8876,7 +8876,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -7.432007
     y: -11.338757
-    width: 165.78952
+    width: 164.28577
     height: 40
   nodeName: Finley - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8980,7 +8980,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -20.478485
     y: -80.912506
-    width: 178.07022
+    width: 176.53067
     height: 40
   nodeName: Finley - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9102,9 +9102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 10.51416
-    y: -142.34193
-    width: 168.42108
+    x: -1.7307434
+    y: -144.38275
+    width: 167.00685
     height: 40
   nodeName: Finley - 3nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9248,7 +9248,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1.9499207
     y: -202.79456
-    width: 167.5439
+    width: 165.6463
     height: 40
   nodeName: Finley - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9340,7 +9340,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.946198
     y: -262.3342
-    width: 122.807045
+    width: 120.74833
     height: 40
   nodeName: Finley - Start
   nodeDescription: Basic building block of a narrative engine
@@ -9604,7 +9604,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1059.2982
     y: -197.09926
-    width: 175.43863
+    width: 172.44904
     height: 40
   nodeName: DrWebb - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9843,7 +9843,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1035.8643
     y: 174.85411
-    width: 128.07019
+    width: 126.190506
     height: 40
   nodeName: DrWebb - End
   nodeDescription: Basic building block of a narrative engine
@@ -9936,7 +9936,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1061.6334
     y: -45.71579
-    width: 178.07022
+    width: 176.53067
     height: 40
   nodeName: DrWebb - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10050,7 +10050,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1062.6918
     y: -129.24216
-    width: 179.8246
+    width: 177.8912
     height: 40
   nodeName: DrWebb - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10091,7 +10091,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1064.0021
     y: 27.968449
-    width: 178.07022
+    width: 176.53067
     height: 40
   nodeName: DrWebb - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10650,7 +10650,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81000a54f770b444f863e5613d2e29ce, type: 3}
   m_Name: 
@@ -13769,6 +13769,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1174488356745260051, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1336898436132295961, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13808,6 +13812,10 @@ PrefabInstance:
     - target: {fileID: 2440501551611539698, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4279312913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2653958491984466701, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672870621958300050, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: unlockFeedback
