@@ -3833,7 +3833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 1101.1027
+      value: 1211.6294
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
@@ -3901,12 +3901,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535883}
+      objectReference: {fileID: 1034535669}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -4340,9 +4340,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535669}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535670}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535671}
@@ -5679,7 +5676,6 @@ MonoBehaviour:
   itemId: 0
   orderList:
   - {fileID: 1034535673}
-  - {fileID: 1034535670}
   - {fileID: 1034535907}
   eventHandler: {fileID: 1034535671}
   isGrouped: 0
@@ -5694,37 +5690,6 @@ MonoBehaviour:
   showDesc: 0
   saveable: 0
   NodeComplete: 0
---- !u!114 &1034535670
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: hello world! Insert definitive tutorial.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
 --- !u!114 &1034535671
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9708,7 +9673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Hi Dr Webb, nice meeting you.
+  text: Hi Dr Webb!
   description: 
   targetNode: {fileID: 1034535888}
   hideIfVisited: 0
@@ -9876,8 +9841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1041.1274
-    y: 115.64358
+    x: -1035.8643
+    y: 174.85411
     width: 128.07019
     height: 40
   nodeName: DrWebb - End
@@ -10010,7 +9975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Alright, what do I need to do?
+  text: Maybe this one?
   description: 
   targetNode: {fileID: 1034535883}
   hideIfVisited: 0
@@ -10030,7 +9995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Sure.
+  text: Alright, let's try this one.
   description: 
   targetNode: {fileID: 1034535883}
   hideIfVisited: 0
@@ -10056,8 +10021,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Thanks darling, It\u2019s great to see you here, Avebury deserves to
-    be better known!"
+  storyText: "It\u2019s great to see you here, Avebury deserves to be better known!"
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10380,7 +10344,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: That's great! Well done.
+  storyText: Well done! You're a quick learner.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10411,9 +10375,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Now, since you\u2019re here, I bet you\u2019re curious about what Avebury
-    was like back in the day. How about we dive into the mystery of these incredible
-    stones together?"
+  storyText: "Now, since you\u2019re here, I bet you\u2019re curious about Avebury,
+    aren't you?\nHow about we dive into the mystery of these incredible stones together?"
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10444,8 +10407,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Now, try with two different answers, give it a try. \nTAP on the one
-    you want to select."
+  storyText: "Now, try with two different answers, give it a try. \n{b} TAP {/b}
+    on the one you wish to answer with."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10507,8 +10470,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: You will have to TAP the option you want to reply with. It's very simple,
-    give it a try!
+  storyText: "Just {b} TAP {/b} the option to select it. \nIt's very simple, give
+    it a try!"
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10539,8 +10502,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: At the end of this dialogue, a little window will appear over my head.
-    That's the answers you can give to questions.
+  storyText: "At the end of this dialogue, a little white window will appear over
+    my head. \nThese are the answers you can give to questions."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10571,8 +10534,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: I know this might a bit unfamiliar to you, don't worry, I will help
-    you.
+  storyText: I know this might a bit unfamiliar at first, but don't worry, I will
+    help you.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
