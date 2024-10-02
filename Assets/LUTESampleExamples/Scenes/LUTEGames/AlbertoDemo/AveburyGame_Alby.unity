@@ -2702,7 +2702,7 @@ PrefabInstance:
     - target: {fileID: 2069400216335030655, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1450322627}
+      objectReference: {fileID: 1731343825}
     - target: {fileID: 2189404743938489017, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3809,7 +3809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 0.75999975
+      value: 0.46000034
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -3833,11 +3833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 1211.6294
+      value: 2278.1353
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 407.56903
+      value: 276.086
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -3853,7 +3853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: groupnames.Array.size
@@ -3866,29 +3866,41 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535656}
+      objectReference: {fileID: 1034535942}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[1]
       value: 
-      objectReference: {fileID: 1034535657}
+      objectReference: {fileID: 1034535656}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[2]
       value: 
-      objectReference: {fileID: 1034535658}
+      objectReference: {fileID: 1034535657}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[3]
       value: 
-      objectReference: {fileID: 1034535684}
+      objectReference: {fileID: 1034535658}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[4]
       value: 
-      objectReference: {fileID: 1034535689}
+      objectReference: {fileID: 1034535684}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[5]
       value: 
-      objectReference: {fileID: 1034535688}
+      objectReference: {fileID: 1034535689}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[6]
+      value: 
+      objectReference: {fileID: 1034535688}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[7]
+      value: 
+      objectReference: {fileID: 1034535941}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[8]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[9]
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -3906,7 +3918,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535669}
+      objectReference: {fileID: 1034535943}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -4546,9 +4558,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535790}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535791}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535795}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -4816,12 +4825,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535876}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535875}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535874}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535873}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -4870,19 +4873,139 @@ PrefabInstance:
       addedObject: {fileID: 1034535894}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535892}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535891}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535890}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535896}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535893}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535925}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535924}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535923}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535922}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535921}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535920}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535912}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535918}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535919}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535917}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535916}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535915}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535913}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535940}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535939}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535938}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535937}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535936}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535935}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535934}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535933}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535932}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535931}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535930}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535929}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535928}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535927}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535926}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535942}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535941}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535957}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535956}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535943}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535954}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535953}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535952}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535951}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535950}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535944}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535949}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535948}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535947}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535946}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034535945}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -5027,7 +5150,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -385.46265
     y: -1221.7034
-    width: 115.306145
+    width: 119.56516
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -5066,7 +5189,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -940.9597
     y: -940.3694
-    width: 98.979614
+    width: 102.173874
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -5119,9 +5242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -887.2649
-    y: -369.03583
-    width: 112.58505
+    x: -1623.264
+    y: -365.1175
+    width: 116.66662
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -5251,7 +5374,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -680.65216
     y: -919.38354
-    width: 127.55105
+    width: 132.60864
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -5361,7 +5484,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -482.05408
     y: -922.8941
-    width: 101.7007
+    width: 103.623146
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -5489,7 +5612,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -693.2987
     y: -853.3145
-    width: 175.1701
+    width: 181.88396
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -5558,7 +5681,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -487.11224
     y: -851.2734
-    width: 103.06125
+    width: 105.07242
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -5666,9 +5789,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1039.0968
-    y: -271.89053
-    width: 128.91159
+    x: -1627.0968
+    y: -279.89053
+    width: 132.60864
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -5829,7 +5952,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -481.72372
     y: -787.54224
-    width: 103.06125
+    width: 105.07242
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -5921,7 +6044,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -727.22955
     y: -1071.9114
-    width: 154.76195
+    width: 160.14484
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -6031,7 +6154,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -665.7859
     y: -718.1494
-    width: 161.56467
+    width: 167.3912
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -6141,7 +6264,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -691.9612
     y: -792.46027
-    width: 156.1225
+    width: 160.14484
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -6290,7 +6413,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -504.72177
     y: -1111.3688
-    width: 97.619064
+    width: 99.27533
     height: 40
   nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
@@ -6414,7 +6537,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -502.4228
     y: -1059.6449
-    width: 98.979614
+    width: 100.724594
     height: 40
   nodeName: Choice 2
   nodeDescription: Basic building block of a narrative engine
@@ -6453,7 +6576,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -543.01544
     y: -172.56206
-    width: 147.95923
+    width: 152.89847
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6524,13 +6647,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: -529.50037
     y: -249.22472
-    width: 111.22452
+    width: 115.21734
     height: 40
   nodeName: Maji - Start
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034535956}
+  - {fileID: 1034535957}
   - {fileID: 1034535751}
   - {fileID: 1034535752}
   eventHandler: {fileID: 0}
@@ -6653,7 +6778,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -543.75354
     y: -126.06289
-    width: 154.76195
+    width: 160.14484
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6744,7 +6869,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -540.76953
     y: 16.568207
-    width: 154.76195
+    width: 160.14484
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6883,7 +7008,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -688.557
     y: 160.4817
-    width: 153.4014
+    width: 158.69556
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7103,7 +7228,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -380.77054
     y: 66.24843
-    width: 153.4014
+    width: 158.69556
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7246,8 +7371,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -701.58105
-    y: 67.166626
-    width: 153.4014
+    y: 64.992714
+    width: 158.69556
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7477,42 +7602,6 @@ MonoBehaviour:
   feedback: {fileID: 380124019}
   playImmediately: 1
   waitUntilFinished: 1
---- !u!114 &1034535791
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: -872.9696
-    y: -423.35498
-    width: 79.931984
-    height: 40
-  nodeName: Node
-  nodeDescription: Basic building block of a narrative engine
-  groupDescription: A series of nodes that can be executed as a group
-  itemId: 0
-  orderList: []
-  eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
-  repeatable: 0
-  nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
-  showDesc: 0
-  saveable: 0
-  NodeComplete: 0
 --- !u!114 &1034535792
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7613,7 +7702,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -570.095
     y: -55.33114
-    width: 205.1021
+    width: 212.31871
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -7863,7 +7952,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -395.5572
     y: 163.48169
-    width: 153.4014
+    width: 158.69556
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7938,7 +8027,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -510.24146
     y: 248.50484
-    width: 104.42179
+    width: 107.97097
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -7974,7 +8063,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 21.932373
     y: 249.77066
-    width: 113.9456
+    width: 118.11589
     height: 40
   nodeName: Finley - End
   nodeDescription: Basic building block of a narrative engine
@@ -8152,7 +8241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedback: {fileID: 1410524942}
+  feedback: {fileID: 380124019}
   playImmediately: 1
   waitUntilFinished: 1
 --- !u!114 &1034535817
@@ -8171,7 +8260,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 125.87105
     y: 142.89342
-    width: 162.92522
+    width: 168.84048
     height: 40
   nodeName: Finley - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8190,14 +8279,14 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
-  saveable: 0
+  saveable: 1
   NodeComplete: 0
 --- !u!114 &1034535818
 MonoBehaviour:
@@ -8227,7 +8316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementID: Imagination
+  achievementID: Henge Digger
   progress: 1
   amount: 1
   achievementFeedback: {fileID: 0}
@@ -8376,7 +8465,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -133.26318
     y: 148.717
-    width: 162.92522
+    width: 168.84048
     height: 40
   nodeName: Finley - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8395,14 +8484,14 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
-  saveable: 0
+  saveable: 1
   NodeComplete: 0
 --- !u!114 &1034535826
 MonoBehaviour:
@@ -8537,8 +8626,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 115.69977
-    y: 52.921204
-    width: 162.92522
+    y: 50.74729
+    width: 168.84048
     height: 40
   nodeName: Finley - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8555,14 +8644,14 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
-  saveable: 0
+  saveable: 1
   NodeComplete: 0
 --- !u!114 &1034535832
 MonoBehaviour:
@@ -8730,7 +8819,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -137.46387
     y: 52.460747
-    width: 165.6463
+    width: 171.73904
     height: 40
   nodeName: Finley - 5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8747,14 +8836,14 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
-  saveable: 0
+  saveable: 1
   NodeComplete: 0
 --- !u!114 &1034535839
 MonoBehaviour:
@@ -8876,7 +8965,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -7.432007
     y: -11.338757
-    width: 164.28577
+    width: 170.28976
     height: 40
   nodeName: Finley - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8891,7 +8980,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -8980,7 +9069,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -20.478485
     y: -80.912506
-    width: 176.53067
+    width: 183.33324
     height: 40
   nodeName: Finley - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8995,7 +9084,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -9104,7 +9193,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1.7307434
     y: -144.38275
-    width: 167.00685
+    width: 173.18831
     height: 40
   nodeName: Finley - 3nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9120,7 +9209,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -9248,7 +9337,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1.9499207
     y: -202.79456
-    width: 165.6463
+    width: 171.73904
     height: 40
   nodeName: Finley - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9264,7 +9353,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -9340,7 +9429,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.946198
     y: -262.3342
-    width: 120.74833
+    width: 125.36226
     height: 40
   nodeName: Finley - Start
   nodeDescription: Basic building block of a narrative engine
@@ -9353,7 +9442,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -9602,9 +9691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1059.2982
-    y: -197.09926
-    width: 172.44904
+    x: -1647.2982
+    y: -205.09926
+    width: 177.53613
     height: 40
   nodeName: DrWebb - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9693,7 +9782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementID: Imagination
+  achievementID: Curious of Stones
   progress: 1
   amount: 1
   achievementFeedback: {fileID: 0}
@@ -9701,52 +9790,6 @@ MonoBehaviour:
   triggerNode: {fileID: 0}
   startIndex: 0
   callMode: 0
---- !u!114 &1034535874
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6359e5049e07a814e8afe403c21c5e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectInfo: {fileID: 11400000, guid: 2e9200a2aa516f64c9ea18cc42833a08, type: 2}
-  historyInventoryItem: {fileID: 11400000, guid: b90b2c84a5fbecd4598af07014273a6c, type: 2}
-  inventory: {fileID: 722612698}
---- !u!114 &1034535875
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: Have a great day!
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
 --- !u!114 &1034535876
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9759,14 +9802,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
   characterName: 
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "You might want to flip it and touch the back of the card, you never
-    know what\u2019s written behind those!\r\n"
+  storyText: 'See you around!
+
+'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -9791,15 +9835,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1264450443}
-  characterPortrait: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
   characterName: 
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: Exactly right! The stones were primarily used for ceremonies and gatherings.
-    Well done! Avebury is full of amazing things to discover, take this and give
-    it a look!
+  storyText: 'Anyway, I''ll talk about this later!
+
+    I''ll leave you to it.
+
+'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -9841,9 +9887,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1035.8643
-    y: 174.85411
-    width: 126.190506
+    x: -1629.1715
+    y: 309.10666
+    width: 129.71008
     height: 40
   nodeName: DrWebb - End
   nodeDescription: Basic building block of a narrative engine
@@ -9853,8 +9899,6 @@ MonoBehaviour:
   - {fileID: 1034535878}
   - {fileID: 1034535877}
   - {fileID: 1034535876}
-  - {fileID: 1034535875}
-  - {fileID: 1034535874}
   - {fileID: 1034535873}
   eventHandler: {fileID: 0}
   isGrouped: 0
@@ -9934,9 +9978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1061.6334
-    y: -45.71579
-    width: 176.53067
+    x: -1649.6334
+    y: -53.715782
+    width: 181.88396
     height: 40
   nodeName: DrWebb - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10048,9 +10092,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1062.6918
-    y: -129.24216
-    width: 177.8912
+    x: -1650.6918
+    y: -137.24216
+    width: 183.33324
     height: 40
   nodeName: DrWebb - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10089,9 +10133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1064.0021
-    y: 27.968449
-    width: 176.53067
+    x: -1652.0021
+    y: 9.03096
+    width: 181.88396
     height: 40
   nodeName: DrWebb - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10101,10 +10145,6 @@ MonoBehaviour:
   - {fileID: 1034535895}
   - {fileID: 1034535894}
   - {fileID: 1034535893}
-  - {fileID: 1034535892}
-  - {fileID: 1034535891}
-  - {fileID: 1034535890}
-  - {fileID: 1034535896}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
@@ -10118,101 +10158,6 @@ MonoBehaviour:
   showDesc: 0
   saveable: 0
   NodeComplete: 0
---- !u!114 &1034535890
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: Walk towards the {color=orange} Orange circle (color){/color} and tap
-    the PIN at the center.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535891
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: These are the areas you need to reach in order to chat ith locals.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535892
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: Perfect. Now, you should also see some orange circles spread around
-    the map.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
 --- !u!114 &1034535893
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10227,7 +10172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Yes, I see it.
   description: 
-  targetNode: {fileID: 0}
+  targetNode: {fileID: 1034535925}
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10251,7 +10196,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: I should see the map of Avebury behind me, am I right?
+  storyText: You should see the map of Avebury behind me, am I right?
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10283,37 +10228,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: 'That''s great question.. '
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535896
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: Give it a try.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10690,6 +10604,1520 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+--- !u!114 &1034535912
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1650.8209
+    y: 149.3469
+    width: 180.43468
+    height: 40
+  nodeName: DrWebb - 6th Dialogue
+  nodeDescription: Dialogue to fire with boolean
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535918}
+  - {fileID: 1034535919}
+  - {fileID: 1034535917}
+  - {fileID: 1034535916}
+  - {fileID: 1034535915}
+  - {fileID: 1034535913}
+  - {fileID: 1034535940}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535913
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: By reaching an Orange Circle and Tapping on it.
+  description: 
+  targetNode: {fileID: 1034535939}
+  hideIfVisited: 0
+  interactable: 1
+  setMenuDialogue: {fileID: 0}
+  hideThisOption: 0
+  closeMenuOnSelect: 1
+--- !u!114 &1034535915
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: How do you talk to people?
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535916
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Now. Let's see if you understood.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535917
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Those are the places in which you can talk to other partecipants of
+    "Replicas", our little game.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535918
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Hey again! Happy to see you here at the Barn.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535919
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Now, as we finish our little chit chat, you'll see {b}6{/b} new {b}{color=orange}
+    Orange Circles (color){/color}{/b} appearing on the map.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535920
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: See you at the barn!
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535921
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: ' Once there, TAP on the {color=orange} Orange Circle (color){/color}
+    to start talking to me again.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535922
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Come ad the Barn, you'll fine me there.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535923
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: That's the position of the Barn.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535924
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Perfect. Now, you should also see an {b}{color=orange} Orange (color){/color}{/b}
+    circle on the map.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535925
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1650.7521
+    y: 69.96849
+    width: 180.43468
+    height: 40
+  nodeName: DrWebb - 5th Dialogue
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535924}
+  - {fileID: 1034535923}
+  - {fileID: 1034535922}
+  - {fileID: 1034535921}
+  - {fileID: 1034535920}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535926
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 380124019}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535927
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133078f9e2ba359449757eb2bc7dfbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedback: {fileID: 1410524942}
+  playImmediately: 1
+  waitUntilFinished: 1
+--- !u!114 &1034535928
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81000a54f770b444f863e5613d2e29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEngine: {fileID: 0}
+  targetNode: {fileID: 1034535879}
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1034535929
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'You can click on Orange Circles even when you''re not inside them.
+
+    If
+    you do this, you''ll see the Details of the Landmark in that Orange Circle.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535930
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'Ohhh!! I almost forgot about that!
+
+    One more little thing!'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535931
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'I know a couple people around here, like Maji, Katrine or Henry.
+
+    I''m
+    sure you''ll have a great time around Avebury.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535932
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'Not quite!
+
+    You need be INSIDE the Orange Circle.
+
+    By Tapping
+    on it, you''ll start a new dialogue.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535933
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1481.8876
+    y: 221.22186
+    width: 180.43468
+    height: 40
+  nodeName: DrWebb - 8th Dialogue
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535926}
+  - {fileID: 1034535932}
+  - {fileID: 1034535931}
+  - {fileID: 1034535930}
+  - {fileID: 1034535929}
+  - {fileID: 1034535928}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535934
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81000a54f770b444f863e5613d2e29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEngine: {fileID: 0}
+  targetNode: {fileID: 1034535879}
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1034535935
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'You can click on Orange Circles even when you''re not inside them.
+
+    If
+    you do this, you''ll see the Details of the Landmark in that Orange Circle.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535936
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'Ohhh!! I almost forgot about that!
+
+    One more little thing!'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535937
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'I know a couple people around here, like Maji, Katrine or Henry.
+
+    I''m
+    sure you''ll have a great time around Avebury.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535938
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'That''s right!
+
+    You need be INSIDE the Orange Circle.
+
+    By Tapping
+    on it, you''ll start a new dialogue.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535939
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1815.1959
+    y: 214.97186
+    width: 180.43468
+    height: 40
+  nodeName: DrWebb - 7th Dialogue
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034535927}
+  - {fileID: 1034535938}
+  - {fileID: 1034535937}
+  - {fileID: 1034535936}
+  - {fileID: 1034535935}
+  - {fileID: 1034535934}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535940
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Tapping on an Orange Circle anytime.
+  description: 
+  targetNode: {fileID: 1034535933}
+  hideIfVisited: 0
+  interactable: 1
+  setMenuDialogue: {fileID: 0}
+  hideThisOption: 0
+  closeMenuOnSelect: 1
+--- !u!114 &1034535941
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbdf225c9326e64390f838c1277c906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: TutorialComplete
+  value: 0
+--- !u!114 &1034535942
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6b6fee47fe44e48b3fa567bf2412cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: Barn
+  value: {fileID: 11400000, guid: f16cdbbbcdf995546be6761f34d8cd52, type: 2}
+--- !u!114 &1034535943
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1198.2662
+    y: -201.87346
+    width: 219.56508
+    height: 40
+  nodeName: DrWebb - 1st Dialogue (Copy)
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 1
+  orderList:
+  - {fileID: 1034535954}
+  - {fileID: 1034535953}
+  - {fileID: 1034535952}
+  - {fileID: 1034535951}
+  - {fileID: 1034535950}
+  - {fileID: 1034535949}
+  - {fileID: 1034535948}
+  - {fileID: 1034535947}
+  - {fileID: 1034535946}
+  - {fileID: 1034535945}
+  - {fileID: 1034535944}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034535944
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Hi Dr Webb!
+  description: 
+  targetNode: {fileID: 0}
+  hideIfVisited: 0
+  interactable: 1
+  setMenuDialogue: {fileID: 0}
+  hideThisOption: 0
+  closeMenuOnSelect: 1
+--- !u!114 &1034535945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'This will unlock the full description of the Replica.
+
+    By Unlocking
+    the replica, The PIN icon on Maji''s Orange Circle will become Green.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'By tapping on the Replicas, you can Inspect them.
+
+    I suggest you
+    to spin the Replica and TAP the back of it.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: The INVENTORY holds all the known Replicas you've collected so far.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: TAP on the INVENTORY icon, you can find it at the TOP LEFT side of the
+    screen.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'This is because he has gifted you his Replica.
+
+    However... you
+    might need to further examine the replica.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535950
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: The PIN Icon on Maji's Orange Circle is now Yellow.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535951
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: As you noticed, the dialogue you've just cleared has made some changes
+    on the Map.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535952
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: I wanted to tell you a few more bits.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535953
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: I see you're holding you're first Replica, good job.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535954
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Hey! Here again.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034535956
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 0}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034535957
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 0}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11924,44 +13352,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440903490}
   m_CullTransparentMesh: 1
---- !u!84 &1450322627
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1461
-  m_Height: 661
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1462322051
 GameObject:
   m_ObjectHideFlags: 0
@@ -12727,6 +14117,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!84 &1731343825
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 582
+  m_Height: 323
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!114 &1739357269 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5320895987439633239, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -13497,6 +14925,94 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -355}
   m_SizeDelta: {x: 0, y: -490}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &2027253577
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RealisticSideMaterial
+  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _METALLICGLOSSMAP
+  - _NORMALMAP
+  - _SPECGLOSSMAP
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 639754785a99045debbad4593b7c92e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0bcf5c7180b764937aa4cd980bd44e8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: c3370fc9cdec647fcb05b4bcfb13aa37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: feda69b01240b4568a23a5a754012e5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 2800000, guid: b4566aacde9a0463a89407bec92aa87c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!114 &2031458022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4563077360956677471, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -13718,6 +15234,92 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!21 &2144266887
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RealisticTopMaterial
+  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _NORMALMAP
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: f99015b7b1a6f497bab611412ee65c90, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 581505b85254d4d29b170800875ef29a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: 0bc8bd5e5fc49497fad146b25f52e005, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!4 &2147385961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8208602966739993593, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
