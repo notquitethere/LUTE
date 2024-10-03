@@ -322,10 +322,10 @@ RectTransform:
   - {fileID: 380044186}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 409, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &187056050
 CanvasGroup:
@@ -556,9 +556,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 772263997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295400431
@@ -3153,7 +3153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3804884752071051529, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3838526938885613272, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
@@ -3373,7 +3373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3381,7 +3381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3393,11 +3393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 900
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5042937597127326952, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -202.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311269577943430692, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_Color.b
@@ -3581,7 +3581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6467502516159721051, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6531921250603480968, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4021,7 +4021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 0.4
+      value: 0.48999998
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -4045,11 +4045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 2504.623
+      value: 1857.5443
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 442.57495
+      value: 875.56976
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -4125,12 +4125,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535991}
+      objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -4166,7 +4166,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 1034535992}
+      objectReference: {fileID: 0}
     - target: {fileID: 8647909171326844323, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4369,7 +4369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119899333165757735, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9210217083921240040, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5175,9 +5175,6 @@ PrefabInstance:
       addedObject: {fileID: 1034535954}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034535953}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034535952}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -5185,9 +5182,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535950}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034535944}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034535949}
@@ -5332,6 +5326,69 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536015}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536021}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536020}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536019}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536018}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536017}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536044}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536043}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536042}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536041}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536040}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536039}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536038}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536037}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536036}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536035}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536034}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536033}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536032}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536031}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536022}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536045}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -5476,7 +5533,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -385.46265
     y: -1221.7034
-    width: 113.33333
+    width: 115.30613
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -5515,7 +5572,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -940.9597
     y: -940.3694
-    width: 96.666664
+    width: 98.9796
     height: 40
   nodeName: Incorrect
   nodeDescription: show incorrect panel/image then cancel the question node so it
@@ -5570,7 +5627,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1530.264
     y: -612.1175
-    width: 115
+    width: 112.58504
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -5701,7 +5758,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -680.65216
     y: -919.38354
-    width: 131.66666
+    width: 127.551025
     height: 40
   nodeName: Finley - Banks
   nodeDescription: Finley
@@ -5811,7 +5868,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -482.05408
     y: -922.8941
-    width: 98.33333
+    width: 101.70068
     height: 40
   nodeName: Correct 2
   nodeDescription: Basic building block of a narrative engine
@@ -5939,7 +5996,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -693.2987
     y: -853.3145
-    width: 175
+    width: 175.17007
     height: 40
   nodeName: Henry - Barber's Stone
   nodeDescription: Basic building block of a narrative engine
@@ -6008,7 +6065,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -487.11224
     y: -851.2734
-    width: 100
+    width: 103.061226
     height: 40
   nodeName: Correct 3
   nodeDescription: Basic building block of a narrative engine
@@ -6116,9 +6173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1630.0968
-    y: -279.92145
-    width: 126.666664
+    x: -1670.0968
+    y: -424.92145
+    width: 128.91156
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6253,7 +6310,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -481.72372
     y: -787.54224
-    width: 100
+    width: 103.061226
     height: 40
   nodeName: Correct 4
   nodeDescription: Basic building block of a narrative engine
@@ -6345,7 +6402,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -727.22955
     y: -1071.9114
-    width: 155
+    width: 154.7619
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -6455,7 +6512,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -665.7859
     y: -718.1494
-    width: 163.33333
+    width: 161.56464
     height: 40
   nodeName: Angela - Inner Circle
   nodeDescription: Basic building block of a narrative engine
@@ -6565,7 +6622,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -691.9612
     y: -792.46027
-    width: 158.33333
+    width: 156.12245
     height: 40
   nodeName: Clara - The Obelisk
   nodeDescription: Basic building block of a narrative engine
@@ -6714,7 +6771,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -504.72177
     y: -1111.3688
-    width: 98.33333
+    width: 97.61905
     height: 40
   nodeName: Choice 1
   nodeDescription: Basic building block of a narrative engine
@@ -6838,7 +6895,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -502.4228
     y: -1059.6449
-    width: 98.33333
+    width: 98.9796
     height: 40
   nodeName: Choice 2
   nodeDescription: Basic building block of a narrative engine
@@ -6877,7 +6934,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -853.01544
     y: -80.06206
-    width: 150
+    width: 147.9592
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -6946,9 +7003,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -838.4694
+    x: -836.9069
     y: -155.69379
-    width: 113.33333
+    width: 111.224495
     height: 40
   nodeName: Maji - Start
   nodeDescription: Basic building block of a narrative engine
@@ -6962,7 +7019,7 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 1
-  nodeLocation: {fileID: 1034535942}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -7078,7 +7135,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -853.75354
     y: -33.56289
-    width: 158.33333
+    width: 154.7619
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7169,7 +7226,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -850.76953
     y: 109.06821
-    width: 158.33333
+    width: 154.7619
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7307,8 +7364,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -998.557
-    y: 252.9817
-    width: 156.66666
+    y: 250.4817
+    width: 153.40137
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7528,7 +7585,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -690.7705
     y: 158.74843
-    width: 156.66666
+    width: 153.40137
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -7672,7 +7729,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1011.58105
     y: 157.4927
-    width: 156.66666
+    width: 153.40137
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8002,7 +8059,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -880.095
     y: 37.16886
-    width: 206.66666
+    width: 205.10205
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -8252,7 +8309,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -705.5572
     y: 255.98169
-    width: 156.66666
+    width: 153.40137
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8326,8 +8383,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -841.82916
-    y: 332.75745
-    width: 108.33333
+    y: 330.43185
+    width: 104.42177
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -8365,7 +8422,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 21.932373
     y: 249.77066
-    width: 116.666664
+    width: 113.94559
     height: 40
   nodeName: Finley - End
   nodeDescription: Basic building block of a narrative engine
@@ -8562,7 +8619,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 125.87105
     y: 142.89342
-    width: 165
+    width: 162.92517
     height: 40
   nodeName: Finley - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8767,7 +8824,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -133.26318
     y: 148.717
-    width: 165
+    width: 162.92517
     height: 40
   nodeName: Finley - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8929,7 +8986,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 115.69977
     y: 50.74729
-    width: 165
+    width: 162.92517
     height: 40
   nodeName: Finley - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9121,7 +9178,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -137.46387
     y: 52.460747
-    width: 168.33333
+    width: 165.64627
     height: 40
   nodeName: Finley - 5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9267,7 +9324,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -7.432007
     y: -11.338757
-    width: 166.66666
+    width: 164.28572
     height: 40
   nodeName: Finley - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9371,7 +9428,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -20.478485
     y: -80.912506
-    width: 180
+    width: 176.53061
     height: 40
   nodeName: Finley - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9495,7 +9552,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1.7307434
     y: -144.38275
-    width: 170
+    width: 167.0068
     height: 40
   nodeName: Finley - 3nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9639,7 +9696,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1.9499207
     y: -202.79456
-    width: 168.33333
+    width: 165.64627
     height: 40
   nodeName: Finley - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9731,7 +9788,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.946198
     y: -262.3342
-    width: 121.666664
+    width: 120.74831
     height: 40
   nodeName: Finley - Start
   nodeDescription: Basic building block of a narrative engine
@@ -9993,9 +10050,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1647.2982
-    y: -205.09926
-    width: 175
+    x: -1687.2982
+    y: -350.09924
+    width: 172.44899
     height: 40
   nodeName: DrWebb - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10189,9 +10246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1627.4474
-    y: 306.3825
-    width: 126.666664
+    x: -1667.4474
+    y: 161.3825
+    width: 126.19048
     height: 40
   nodeName: DrWebb - End
   nodeDescription: Basic building block of a narrative engine
@@ -10253,7 +10310,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "We have a little game going on here, which we call \u201CReplicas\u201D. "
+  storyText: We have a little game going on here, which we call {b}Replicas{/b}.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10280,9 +10337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1649.6334
-    y: -53.715782
-    width: 176.66666
+    x: -1689.6334
+    y: -198.71579
+    width: 176.53061
     height: 40
   nodeName: DrWebb - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10394,9 +10451,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1650.6918
-    y: -137.24216
-    width: 178.33333
+    x: -1690.6918
+    y: -282.24216
+    width: 177.89117
     height: 40
   nodeName: DrWebb - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10435,9 +10492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1652.0021
-    y: 8.000032
-    width: 176.66666
+    x: -1692.0021
+    y: -136.99997
+    width: 176.53061
     height: 40
   nodeName: DrWebb - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10623,8 +10680,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Now, try with two different answers, give it a try. \n{b} TAP {/b}
-    on the one you wish to answer with."
+  storyText: "Now, try with two different answers, give it a try. \n{b}TAP{/b} on
+    the one you wish to answer with."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10750,7 +10807,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: I know this might a bit unfamiliar at first, but don't worry, I will
+  storyText: I know this might be a bit unfamiliar at first, but don't worry, I will
     help you.
   typingSpeed: 0.04
   extendPrevious: 0
@@ -10813,7 +10870,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: Replicas are copies of old picture, images and letters, all items recording
+  storyText: Replicas are copies of old pictures, images and letters, all items recording
     the history of Avebury.
   typingSpeed: 0.04
   extendPrevious: 0
@@ -10845,8 +10902,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: You can obtain them by chatting with curios people or locals spread
-    around Avebury. Answer their questions and I'm sure they'll appreciate your effort!
+  storyText: "You can obtain them by chatting with curious people or locals spread
+    around Avebury. \nAnswer their questions and I'm sure they'll reward your effort!"
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10904,9 +10961,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1650.8209
-    y: 149.3469
-    width: 175
+    x: -1690.8209
+    y: 4.3468933
+    width: 175.17007
     height: 40
   nodeName: DrWebb - 6th Dialogue
   nodeDescription: Dialogue to fire with boolean
@@ -11281,9 +11338,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1650.7521
-    y: 69.96849
-    width: 175
+    x: -1690.7521
+    y: -75.03151
+    width: 175.17007
     height: 40
   nodeName: DrWebb - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11507,9 +11564,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1481.8876
-    y: 221.22186
-    width: 175
+    x: -1521.8876
+    y: 76.22186
+    width: 175.17007
     height: 40
   nodeName: DrWebb - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11702,9 +11759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1816.2598
-    y: 214.97186
-    width: 175
+    x: -1856.2598
+    y: 69.97186
+    width: 175.17007
     height: 40
   nodeName: DrWebb - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11794,31 +11851,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1200.7662
-    y: -204.37346
-    width: 213.33333
+    x: -1225.1285
+    y: -373.09122
+    width: 179.25171
     height: 40
-  nodeName: DrWebb - 1st Dialogue (Copy)
+  nodeName: DrWebb2 - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 1
   orderList:
+  - {fileID: 1034536021}
   - {fileID: 1034535954}
-  - {fileID: 1034535953}
   - {fileID: 1034535952}
   - {fileID: 1034535951}
   - {fileID: 1034535950}
   - {fileID: 1034535949}
+  - {fileID: 1034536031}
   - {fileID: 1034535948}
   - {fileID: 1034535947}
   - {fileID: 1034535946}
   - {fileID: 1034535945}
-  - {fileID: 1034535944}
+  - {fileID: 1034536017}
   eventHandler: {fileID: 0}
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
-  nodeLocation: {fileID: 0}
+  nodeLocation: {fileID: 1034535942}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -11827,26 +11885,6 @@ MonoBehaviour:
   showDesc: 0
   saveable: 0
   NodeComplete: 0
---- !u!114 &1034535944
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: Hi Dr Webb!
-  description: 
-  targetNode: {fileID: 0}
-  hideIfVisited: 0
-  interactable: 1
-  setMenuDialogue: {fileID: 0}
-  hideThisOption: 0
-  closeMenuOnSelect: 1
 --- !u!114 &1034535945
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11867,8 +11905,8 @@ MonoBehaviour:
     rgba: 0
   storyText: 'This will unlock the full description of the Replica.
 
-    By Unlocking
-    the replica, The PIN icon on Maji''s Orange Circle will become Green.'
+    Give it
+    a try, here''s your first Replica!'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -11996,10 +12034,10 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: 'This is because he has gifted you his Replica.
+  storyText: 'The Pin will change again, from Yellow to Green.
 
     However... you
-    might need to further examine the replica.'
+    will need to receive the Replica from that Area and examine it.'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -12030,7 +12068,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: The PIN Icon on Maji's Orange Circle is now Yellow.
+  storyText: This is because you've Partially Discovered this Landmark, in this case,
+    the Barn.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -12061,8 +12100,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: As you noticed, the dialogue you've just cleared has made some changes
-    on the Map.
+  storyText: As you noticed, by entering the Orange Circle and Tapping on it, the
+    PIN Icon has changed coour, from Baclk to Yellow.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -12094,37 +12133,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: I wanted to tell you a few more bits.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
---- !u!114 &1034535953
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1179934542}
-  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: I see you're holding you're first Replica, good job.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -12199,7 +12207,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1386.6602
     y: -697.1027
-    width: 158.33333
+    width: 160.20409
     height: 40
   nodeName: Unlock Tutorial One
   nodeDescription: Basic building block of a narrative engine
@@ -12239,7 +12247,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1385.1581
     y: -618.9996
-    width: 161.66666
+    width: 161.56464
     height: 40
   nodeName: Unlock Tutorial Two
   nodeDescription: Basic building block of a narrative engine
@@ -12876,7 +12884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anyOrAllCondition: 0
   conditions:
-  - compareOperator: 0
+  - compareOperator: 1
     anyVariable:
       variable: {fileID: 1034535958}
       data:
@@ -13066,7 +13074,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2401.121
     y: -723.1322
-    width: 205
+    width: 207.82314
     height: 40
   nodeName: JB Custom Location Updater
   nodeDescription: Basic building block of a narrative engine
@@ -13133,7 +13141,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1659.1211
     y: -713.1322
-    width: 120
+    width: 118.027214
     height: 40
   nodeName: Pause Menu
   nodeDescription: Basic building block of a narrative engine
@@ -13263,7 +13271,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1658.1211
     y: -609.41785
-    width: 113.33333
+    width: 111.224495
     height: 40
   nodeName: Main Menu
   nodeDescription: Basic building block of a narrative engine
@@ -13364,7 +13372,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1818.1211
     y: -611.1322
-    width: 70
+    width: 69.04762
     height: 40
   nodeName: Exit
   nodeDescription: Basic building block of a narrative engine
@@ -13541,6 +13549,833 @@ MonoBehaviour:
   waitUntilFinished: 0
   durationOLD: 0
   targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1034536017
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81000a54f770b444f863e5613d2e29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEngine: {fileID: 0}
+  targetNode: {fileID: 1034536020}
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1034536018
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8917b3b565fc8bd40b694af83193d3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartingPoint: 0
+  keyMode: 0
+  customKey: 
+  keySeperator: _
+  descriptionMode: 0
+  customDescription: 
+  fireEvent: 1
+  resumeOnLoad: 1
+  autoSave: 1
+--- !u!114 &1034536019
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8617880b8f3d3a34a9815383c6d112d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable:
+    variable: {fileID: 1034535958}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 1
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  setOperator: 0
+  var: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536020
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1203.9249
+    y: -299.6709
+    width: 132.9932
+    height: 40
+  nodeName: DrWebb2 - End
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034536019}
+  - {fileID: 1034536018}
+  - {fileID: 1034536022}
+  - {fileID: 1034536045}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 1
+  nodeLocation: {fileID: 1034535942}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 1
+  NodeComplete: 0
+--- !u!114 &1034536021
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 1034535958}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536022
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359e5049e07a814e8afe403c21c5e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectInfo: {fileID: 11400000, guid: 15bee95146a297441ac693c44c55da6a, type: 2}
+  historyInventoryItem: {fileID: 11400000, guid: ac757c41c9dd2ac4183f152c3cb9f35b, type: 2}
+  inventory: {fileID: 722612698}
+--- !u!114 &1034536031
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: To do so, you need to open the INVENTORY, easy job, don't worry.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536032
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81000a54f770b444f863e5613d2e29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEngine: {fileID: 0}
+  targetNode: {fileID: 0}
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1034536033
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'This will unlock the full description of the Replica.
+
+    By Unlocking
+    the replica, The PIN icon on Maji''s Orange Circle will become Green.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536034
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'By tapping on the Replicas, you can Inspect them.
+
+    I suggest you
+    to spin the Replica and TAP the back of it.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536035
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: The INVENTORY holds all the known Replicas you've collected so far.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536036
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: TAP on the INVENTORY icon, you can find it at the TOP LEFT side of the
+    screen.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536037
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: 'This is because he has gifted you his Replica.
+
+    However... you
+    might need to further examine the replica.'
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536038
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: The PIN Icon on Maji's Orange Circle is now Yellow.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536039
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: As you noticed, the dialogue you've just cleared has made some changes
+    on the Map.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536040
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: I wanted to tell you a few more bits.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536041
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: I see you're holding you're first Replica, good job.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536042
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1179934542}
+  characterPortrait: {fileID: 21300000, guid: deaf0d10c1d18b44a82b5f34f26fc338, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Hey! Here again.
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+--- !u!114 &1034536043
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 1034535958}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536044
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1063.6448
+    y: -608.75525
+    width: 220.06804
+    height: 40
+  nodeName: DrWebb2 - 1st Dialogue (Copy)
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 1
+  orderList:
+  - {fileID: 1034536043}
+  - {fileID: 1034536042}
+  - {fileID: 1034536041}
+  - {fileID: 1034536040}
+  - {fileID: 1034536039}
+  - {fileID: 1034536038}
+  - {fileID: 1034536037}
+  - {fileID: 1034536036}
+  - {fileID: 1034536035}
+  - {fileID: 1034536034}
+  - {fileID: 1034536033}
+  - {fileID: 1034536032}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034536045
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0219f026303c1b64d80d682815098ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementID: Curious of Stones
+  progress: 1
+  amount: 1
+  achievementFeedback: {fileID: 0}
+  targetEngine: {fileID: 0}
+  triggerNode: {fileID: 0}
+  startIndex: 0
+  callMode: 0
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13679,7 +14514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5453896668789114138, guid: df0a1de0c57f50141a712c7e8b2b2d91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6706854918257043308, guid: df0a1de0c57f50141a712c7e8b2b2d91, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14311,10 +15146,10 @@ RectTransform:
   - {fileID: 1254838934}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1366886392
 GameObject:
@@ -14976,7 +15811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1663631789679371734, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1664257770256351207, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15210,6 +16045,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4245401418940718800, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245401418940718800, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e50e262df67f5b418f607e8d16753aa, type: 3}
     - target: {fileID: 4284560031066138210, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
       propertyPath: m_Alpha
       value: 1
@@ -15599,8 +16442,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8904388402139971048, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904388402139971048, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904388402139971048, guid: 8973bef9f5740894bab0f4c359804bf0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15701,7 +16552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560494724856702529, guid: 15402d7c6f1b91442a97db3ab2381c57, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4936601371651791330, guid: 15402d7c6f1b91442a97db3ab2381c57, type: 3}
       propertyPath: m_Sprite
@@ -16202,10 +17053,10 @@ RectTransform:
   - {fileID: 1861734699}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 202, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1708108650
 GameObject:
@@ -16348,10 +17199,10 @@ RectTransform:
   - {fileID: 2127237955}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 271, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739357269 stripped
 MonoBehaviour:
@@ -16663,10 +17514,10 @@ RectTransform:
   - {fileID: 1170735341}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 64, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1861734698
 GameObject:
@@ -17023,10 +17874,10 @@ RectTransform:
   - {fileID: 1366886393}
   m_Father: {fileID: 2119331286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -64}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1991956538 stripped
 Transform:
@@ -17397,7 +18248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174488356745260051, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1336898436132295961, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_IsActive
@@ -17421,7 +18272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2205289510571520907, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2440501551611539698, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_fontColor.b
@@ -17441,7 +18292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653958491984466701, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672870621958300050, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: unlockFeedback

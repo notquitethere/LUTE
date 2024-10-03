@@ -26,8 +26,8 @@ MonoBehaviour:
   objectInfo: {fileID: 11400000, guid: 15bee95146a297441ac693c44c55da6a, type: 2}
   radiusIncrease: 0
   locationStatus: 0
-  nodeComplete: Maji - End
-  executeNode: Maji - Start
+  nodeComplete: DrWebb2 - End
+  executeNode: DrWebb2 - 1st Dialogue
   interactable: 1
   saveInfo: 1
   indepedentMarkerUpdating: 1
