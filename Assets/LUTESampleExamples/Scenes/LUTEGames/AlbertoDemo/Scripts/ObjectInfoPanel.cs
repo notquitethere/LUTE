@@ -47,6 +47,10 @@ namespace LoGaCulture.LUTE
 
         public virtual HiddenObjectInteraction GetHiddenInteraction()
         {
+            if (spawnedObject == null)
+            {
+                return null;
+            }
             var hiddenObject = spawnedObject.GetComponentInChildren<HiddenObjectInteraction>();
             if (hiddenObject == null)
             {
@@ -110,10 +114,13 @@ namespace LoGaCulture.LUTE
 
             if (spawnedObject != null)
                 Destroy(spawnedObject.gameObject);
-            spawnedObject = Instantiate(spinner, infoImage.transform.parent.transform, false);
-            spawnedObject.transform.localPosition = objectSpawn.localPosition;
-            spawnedObject.transform.localScale = objectSpawn.localScale;
-            spawnedObject.transform.rotation = objectSpawn.rotation;
+            if (spinner != null)
+            {
+                spawnedObject = Instantiate(spinner, infoImage.transform.parent.transform, false);
+                spawnedObject.transform.localPosition = objectSpawn.localPosition;
+                spawnedObject.transform.localScale = objectSpawn.localScale;
+                spawnedObject.transform.rotation = objectSpawn.rotation;
+            }
 
             var hiddenObject = GetHiddenInteraction();
             if (hiddenObject != null)

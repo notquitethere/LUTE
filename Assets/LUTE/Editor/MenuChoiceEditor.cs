@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(MenuChoice))]
 public class MenuChoiceEditor : OrderEditor
@@ -58,18 +58,7 @@ public class MenuChoiceEditor : OrderEditor
         EditorGUILayout.PropertyField(interactableProp);
         EditorGUILayout.PropertyField(setMenuDialogProp);
         EditorGUILayout.PropertyField(hideThisOptionProp);
-
-        var orders = t.ParentNode.OrderList;
-        if (orders.Count > 0)
-        {
-            foreach (Order order in orders)
-            {
-                if (order is PopupMenu)
-                {
-                    EditorGUILayout.PropertyField(closeMenuOnSelectProp);
-                }
-            }
-        }
+        EditorGUILayout.PropertyField(closeMenuOnSelectProp);
 
         serializedObject.ApplyModifiedProperties();
     }

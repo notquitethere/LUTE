@@ -210,7 +210,7 @@ public class MenuDialogue : MonoBehaviour
     /// Adds the option to the list of displayed options. Calls a Node when selected
     /// Will cause the Menu to become visible if it is not already visible
     /// <returns><c>true</c>, if the option was added successfully.</returns>
-    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode)
+    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu)
     {
         var node = targetNode;
         UnityEngine.Events.UnityAction action = delegate
@@ -218,12 +218,24 @@ public class MenuDialogue : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             StopAllCoroutines();
             // Stop timeout
-            Clear();
-            HideDialogue();
+            if (hideMenu)
+            {
+                Clear();
+                HideDialogue();
+            }
+            else
+            {
+                var dialogueBox = DialogueBox.GetDialogueBox();
+                if (dialogueBox != null)
+                {
+                    dialogueBox.FadeWhenDone = false;
+                }
+            }
             if (node != null)
             {
                 var engine = node.GetEngine();
-                gameObject.SetActive(false);
+                if (hideMenu)
+                    gameObject.SetActive(false);
                 // Use a coroutine to call the node on the next frame
                 // Have to use the engine gameobject as this menu is now inactive
                 engine.StartCoroutine(CallNode(node));

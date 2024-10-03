@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc128575df606c741889484c61bf33b2, type: 3}
   m_Name: HistoryInventory_DrWebb
   m_EditorClassIdentifier: 
-  ItemID: HistoryInventory_StoneCircle
+  ItemID: HistoryInventory_DrWebb
   TargetInventoryName: MainInventory
   ForceSlotIndex: 0
   TargetIndex: 0

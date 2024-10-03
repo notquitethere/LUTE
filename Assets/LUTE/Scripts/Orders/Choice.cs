@@ -24,8 +24,8 @@ public class Choice : Order
     [SerializeField] protected bool hideThisOption = false;
     [Tooltip("If true, the menu will close when this option is selected")]
     [SerializeField] protected bool closeMenuOnSelect = true;
-    [Tooltip("If true, this option will be passed to the Menu Dialogue but marked as a choice, this can be used to hide options while maintaining a Menu Shuffle.")] //to be implemented
 
+    [Tooltip("If true, this option will be passed to the Menu Dialogue but marked as a choice, this can be used to hide options while maintaining a Menu Shuffle.")] //to be implemented
     protected bool isPopupChoice = false;
 
     public MenuDialogue SetMenuDialogue { get { return setMenuDialogue; } set { setMenuDialogue = value; } }
@@ -62,7 +62,7 @@ public class Choice : Order
             {
                 menu.SetActive(true);
 
-                menu.AddOption(text, interactable, hideOption, targetNode);
+                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect);
             }
 
             Continue();

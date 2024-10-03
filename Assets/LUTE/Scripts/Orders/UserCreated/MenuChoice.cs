@@ -62,7 +62,7 @@ public class MenuChoice : Order
             {
                 menu.SetActive(true);
 
-                menu.AddOption(text, interactable, hideOption, targetNode);
+                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect);
             }
         }
         Continue();
