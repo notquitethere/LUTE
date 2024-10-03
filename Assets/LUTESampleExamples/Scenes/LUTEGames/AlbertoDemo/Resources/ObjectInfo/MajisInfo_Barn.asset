@@ -17,6 +17,6 @@ MonoBehaviour:
   shortDescription: Maji has given you the full tutorial - nice work!
   voiceOverClip: {fileID: 0}
   stopAudioOnClose: 0
-  objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
+  objectIcon: {fileID: 21300000, guid: 050945650c5e38142b673e2cdd52c56c, type: 3}
   spinningObject: {fileID: 0}
   unlocked: 0

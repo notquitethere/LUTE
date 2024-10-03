@@ -20,6 +20,8 @@ namespace LoGaCulture.LUTE.Logs
 
         private void Awake()
         {
+            if (!LogaConstants.UseLogs)
+                return;
             if (Instance == null)
             {
                 Instance = this;
@@ -149,6 +151,8 @@ namespace LoGaCulture.LUTE.Logs
 
         private void SaveLogsToFile()
         {
+            if (!LogaConstants.UseLogs)
+                return;
             if (logQueue.Count > 0)
             {
                 // Wrap logs into a LogWrapper

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -205,6 +204,7 @@ public class MenuDialogue : MonoBehaviour
         {
             dialogueBox.FadeWhenDone = true;
         }
+        ActiveMenuDialogue = null;
     }
 
     /// Adds the option to the list of displayed options. Calls a Node when selected

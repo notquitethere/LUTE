@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 /// Fades a sprite to a target color over a period of time.
 [OrderInfo("Sprite",
              "Fade Sprite",
-             "Fades a sprite to a target color over a period of time")]
+             "Fades a sprite to a target colour over a period of time")]
 [AddComponentMenu("")]
 [ExecuteInEditMode]
 public class FadeSprite : Order
@@ -15,7 +15,7 @@ public class FadeSprite : Order
     [SerializeField] protected float _duration = 1f;
     [Tooltip("Target color to fade to. To only fade transparency level, set the color to white and set the alpha to required transparency.")]
     [SerializeField] protected Color32 _targetColor = Color.white;
-    [Tooltip("Wait until the fade has finished before executing the next command")]
+    [Tooltip("Wait until the fade has finished before executing the next order")]
     [SerializeField] protected bool waitUntilFinished = true;
 
     public override void OnEnter()
