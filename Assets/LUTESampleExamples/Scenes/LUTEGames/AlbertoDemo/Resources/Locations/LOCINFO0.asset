@@ -27,7 +27,7 @@ MonoBehaviour:
   radiusIncrease: 0
   locationStatus: 0
   nodeComplete: DrWebb2 - End
-  executeNode: DrWebb2 - 1st Dialogue
+  executeNode: DrWebb2 - Start
   interactable: 1
   saveInfo: 1
   indepedentMarkerUpdating: 1

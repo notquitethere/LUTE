@@ -25,8 +25,8 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 7d89586e90e2f7649a3a51c9b2398abc, type: 2}
   radiusIncrease: 0
-  locationStatus: 1
-  nodeComplete: FInley - End
+  locationStatus: 0
+  nodeComplete: Finley - End
   executeNode: Finley - Start
   interactable: 1
   saveInfo: 1

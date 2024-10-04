@@ -20,14 +20,14 @@ MonoBehaviour:
   CompletedSprite: {fileID: 21300000, guid: d764252b019bccb48bc36a1869796494, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
-  showRadius: 0
+  showRadius: 1
   radiusColor: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
   locationDisabled: 0
-  objectInfo: {fileID: 11400000, guid: e6d5636128d48ef4c85a73df8c9c13ad, type: 2}
+  objectInfo: {fileID: 11400000, guid: 9e804432ad7fb9842804e8b28f8fe5dd, type: 2}
   radiusIncrease: 0
   locationStatus: 0
-  nodeComplete: Correct 3
-  executeNode: Henry - Barber's Stone
+  nodeComplete: Henry - End
+  executeNode: Henry - Start
   interactable: 1
   saveInfo: 1
   indepedentMarkerUpdating: 1
