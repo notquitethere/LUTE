@@ -40,6 +40,8 @@ public class Dialogue : Order
     [SerializeField] protected bool waitForVO = false;
     [Tooltip("Sets the active dialogue box with a reference to a box object in the scene. All story text will now display using this box.")]
     [SerializeField] protected DialogueBox setDialogueBox;
+    [Tooltip("Allow the player to click anywhere to progress the text or force click on the box")]
+    [SerializeField] protected bool allowClickAnywhere = false;
 
     protected int executionCount;
 
@@ -86,7 +88,7 @@ public class Dialogue : Order
         dialogueBox.StartDialogue(typingSpeed, timeToWait, allowLineSkip, waitForClick, fadeWhenDone, delegate
         {
             Continue();
-        });
+        }, allowClickAnywhere);
     }
 
     public override string GetSummary()

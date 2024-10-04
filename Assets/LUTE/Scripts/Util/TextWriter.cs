@@ -18,7 +18,17 @@ public class TextWriter : MonoBehaviour
     private bool clicked = false;
     private bool isTyping;
     private bool waitForClick;
+    private bool allowClickAnywhere = false;
     private Action onComplete;
+
+    protected virtual void OnEnable()
+    {
+        LoGaCulture.LUTE.WriterSignals.OneWriterClick += OnWriterClick;
+    }
+    protected virtual void OnDisable()
+    {
+        LoGaCulture.LUTE.WriterSignals.OneWriterClick -= OnWriterClick;
+    }
 
     protected virtual void Awake()
     {
@@ -51,12 +61,14 @@ public class TextWriter : MonoBehaviour
         float typingSpeed,
         float waitTime,
         bool skipLine,
-        bool waitForClick
+        bool waitForClick,
+        bool allowClickAnywhere = false
     )
     {
         this.onComplete = onComplete;
         this.allowSkippingLine = skipLine;
         this.waitForClick = waitForClick;
+        this.allowClickAnywhere = allowClickAnywhere;
         if (displayRoutine != null)
             StopCoroutine(displayRoutine);
         displayRoutine = StartCoroutine(DisplayText(text, textUI, onComplete, waitTime, typingSpeed));
@@ -111,8 +123,33 @@ public class TextWriter : MonoBehaviour
         }
     }
 
+    private void OnWriterClick()
+    {
+        if (allowClickAnywhere)
+            return;
+
+        if (isTyping)
+        {
+            if (allowSkippingLine)
+                clicked = true;
+        }
+        else
+        {
+            if (waitForClick)
+            {
+                StopCoroutine(displayRoutine);
+                isTyping = false;
+                DialogueBox.GetDialogueBox().FadeWhenDone = true;
+                onComplete?.Invoke();
+            }
+        }
+    }
+
     private void Update()
     {
+        if (!allowClickAnywhere)
+            return;
+
         //when a click is detected 
         //if the text is still typing, skip to the end of the text if allowed
         //if the text is not typing, continue to the next text if allowed

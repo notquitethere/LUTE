@@ -3285,7 +3285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceType
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceType
@@ -3333,7 +3333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceOptions.layerSource.Id
-      value: mapbox://styles/jbog/cm1tsqw0l011q01qvgm3w8jjs
+      value: mapbox.satellite
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceOptions.layerSource.Id
@@ -6271,6 +6271,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535624
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6387,6 +6388,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535631
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6694,6 +6696,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535664
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6961,6 +6964,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535703
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7071,6 +7075,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535707
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7181,6 +7186,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535711
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7404,6 +7410,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535728
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7564,6 +7571,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535750
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7634,6 +7642,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535752
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7765,6 +7774,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535758
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7859,6 +7869,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535765
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7891,6 +7902,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535766
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7924,6 +7936,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535767
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8079,6 +8092,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535773
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8111,6 +8125,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535774
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8144,6 +8159,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535775
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8256,6 +8272,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535779
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8288,6 +8305,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535780
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8362,6 +8380,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535783
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8393,6 +8412,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535784
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8425,6 +8445,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535785
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8457,6 +8478,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535786
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8489,6 +8511,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535787
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8586,6 +8609,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535794
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8618,6 +8642,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535795
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8703,6 +8728,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535798
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8789,6 +8815,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535802
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8821,6 +8848,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535803
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8853,6 +8881,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535804
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9099,6 +9128,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535814
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9131,6 +9161,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535815
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9163,6 +9194,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535816
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9304,6 +9336,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535822
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9336,6 +9369,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535823
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9368,6 +9402,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535824
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9499,6 +9534,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535829
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9530,6 +9566,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535830
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9659,6 +9696,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535835
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9691,6 +9729,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535836
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9722,6 +9761,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535837
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9851,6 +9891,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535844
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9883,6 +9924,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535845
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9955,6 +9997,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535848
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9987,6 +10030,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535849
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10079,6 +10123,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535852
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10111,6 +10156,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535853
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10224,6 +10270,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535857
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10255,6 +10302,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535858
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10347,6 +10395,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535861
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10417,6 +10466,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535863
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10468,6 +10518,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535865
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10500,6 +10551,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535866
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10532,6 +10584,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535867
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10564,6 +10617,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535868
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10611,6 +10665,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535870
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10626,7 +10681,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -1687.2982
-    y: -350.09924
+    y: -349.09924
     width: 176
     height: 40
   nodeName: DrWebb - 1st Dialogue
@@ -10684,6 +10739,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535872
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10757,6 +10813,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535877
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10792,6 +10849,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535878
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10898,6 +10956,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535883
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11012,6 +11071,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535888
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11143,6 +11203,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535895
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11174,6 +11235,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535897
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11205,6 +11267,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535898
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11237,6 +11300,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535899
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11269,6 +11333,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535900
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11300,6 +11365,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535901
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11332,6 +11398,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535902
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11364,6 +11431,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535903
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11396,6 +11464,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535904
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11427,6 +11496,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535905
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11459,6 +11529,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535906
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11491,6 +11562,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535908
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11522,6 +11594,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535912
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11616,6 +11689,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535916
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11647,6 +11721,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535917
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11679,6 +11754,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535918
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11710,6 +11786,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535919
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11742,6 +11819,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535920
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11773,6 +11851,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535921
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11805,6 +11884,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535922
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11836,6 +11916,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535923
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11867,6 +11948,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535924
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11899,6 +11981,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535925
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12022,6 +12105,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535930
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12055,6 +12139,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535931
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12089,6 +12174,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535932
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12125,6 +12211,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535933
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12217,6 +12304,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535936
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12250,6 +12338,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535937
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12284,6 +12373,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535938
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12320,6 +12410,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535939
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12494,6 +12585,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535946
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12528,6 +12620,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535947
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12560,6 +12653,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535948
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12592,6 +12686,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535949
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12626,6 +12721,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535950
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12658,6 +12754,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535951
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12691,6 +12788,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535952
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12722,6 +12820,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535954
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -12753,6 +12852,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034535958
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14430,6 +14530,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536032
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14480,6 +14581,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536034
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14514,6 +14616,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536035
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14545,6 +14648,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536036
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14577,6 +14681,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536037
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14611,6 +14716,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536038
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14642,6 +14748,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536039
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14674,6 +14781,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536040
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14705,6 +14813,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536041
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14736,6 +14845,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536042
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14767,6 +14877,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
 --- !u!114 &1034536043
 MonoBehaviour:
   m_ObjectHideFlags: 2

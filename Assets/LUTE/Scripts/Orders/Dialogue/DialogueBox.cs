@@ -1,15 +1,17 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
 /// Display story text in a visual novel style Dialogue box.
 /// </summary>
 /// 
-public class DialogueBox : MonoBehaviour
+public class DialogueBox : MonoBehaviour, IPointerClickHandler
 {
     [Tooltip("The continue button UI object")]
     [SerializeField] protected Button continueButton;
@@ -26,7 +28,11 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] protected Image characterImage;
     [Tooltip("Adjust width of story text when Character Image is displayed (to avoid overlapping)")]
     [SerializeField] protected bool fitTextWithImage = true;
+    [Tooltip("Allow clicking anywhere to proceed to next text or make users click the box to progress")]
+    [SerializeField] protected bool allowClickAnywhere = false;
+
     public virtual Image CharacterImage { get { return characterImage; } }
+
     protected TextWriter writer;
     protected CanvasGroup canvasGroup;
     protected bool fadeWhenDone = true;
@@ -322,12 +328,12 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    public virtual void StartDialogue(float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, Action onComplete)
+    public virtual void StartDialogue(float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, Action onComplete, bool allowClickAnywhere = false)
     {
         StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone));
     }
 
-    public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone)
+    public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false)
     {
         var tw = GetWriter();
 
@@ -364,7 +370,7 @@ public class DialogueBox : MonoBehaviour
         //get the ui text component
         var displayText = GetTextDisplay();
 
-        tw.WriteText(storyText, displayText, onComplete, typingSpeed, waitTime, skipLine, waitForClick);
+        tw.WriteText(storyText, displayText, onComplete, typingSpeed, waitTime, skipLine, waitForClick, allowClickAnywhere);
     }
 
     public virtual bool FadeWhenDone { get { return fadeWhenDone; } set { fadeWhenDone = value; } }
@@ -383,5 +389,10 @@ public class DialogueBox : MonoBehaviour
 
         // Kill any active write coroutine
         StopAllCoroutines();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        WriterSignals.WriterClick();
     }
 }

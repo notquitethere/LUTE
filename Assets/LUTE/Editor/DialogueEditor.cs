@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
 
 [CustomEditor(typeof(Dialogue))]
 public class DialogueEditor : OrderEditor
@@ -95,6 +94,7 @@ public class DialogueEditor : OrderEditor
     protected SerializedProperty waitForClickProp;
     protected SerializedProperty stopVoiceoverProp;
     protected SerializedProperty waitForVOProp;
+    protected SerializedProperty allowClickAnywhereProp;
 
     public override void OnEnable()
     {
@@ -112,6 +112,7 @@ public class DialogueEditor : OrderEditor
         stopVoiceoverProp = serializedObject.FindProperty("stopVoiceover");
         waitForVOProp = serializedObject.FindProperty("waitForVO");
         typingSpeedProp = serializedObject.FindProperty("typingSpeed");
+        allowClickAnywhereProp = serializedObject.FindProperty("allowClickAnywhere");
 
         // if (blackTex == null)
         // {
@@ -213,6 +214,7 @@ public class DialogueEditor : OrderEditor
         EditorGUILayout.PropertyField(waitForClickProp);
         EditorGUILayout.PropertyField(stopVoiceoverProp);
         EditorGUILayout.PropertyField(waitForVOProp);
+        EditorGUILayout.PropertyField(allowClickAnywhereProp);
 
         if (showPortraits && t.Portrait != null)
         {
