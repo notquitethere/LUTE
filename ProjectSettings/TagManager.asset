@@ -46,3 +46,6 @@ TagManager:
   - name: Logo
     uniqueID: 830121435
     locked: 0
+  - name: Main Menu
+    uniqueID: 4182058763
+    locked: 0
