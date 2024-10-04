@@ -3285,7 +3285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceType
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceType
@@ -3333,7 +3333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceOptions.layerSource.Id
-      value: mapbox.satellite
+      value: mapbox://styles/jbog/cm1tsqw0l011q01qvgm3w8jjs
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceOptions.layerSource.Id
@@ -4577,11 +4577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 2366.5854
+      value: 2361.5854
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: 981.93884
+      value: 1029.9388
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -5961,6 +5961,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536058}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536059}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -13646,8 +13649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1938.1211
-    y: -912.1322
+    x: -2198.121
+    y: -826.1322
     width: 211
     height: 40
   nodeName: JB Custom Location Updater
@@ -13656,7 +13659,7 @@ MonoBehaviour:
   itemId: 0
   orderList:
   - {fileID: 1034535992}
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 1034536059}
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
@@ -15007,8 +15010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1810.5854
-    y: -780.93884
+    x: -1372.5854
+    y: -760.93884
     width: 140
     height: 40
   nodeName: Prefix Text Start
@@ -15263,8 +15266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1810.5854
-    y: -713.93884
+    x: -1823.5854
+    y: -675.93884
     width: 90
     height: 40
   nodeName: Credits
@@ -15384,8 +15387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1844.5854
-    y: -539.93884
+    x: -1841.5854
+    y: -556.93884
     width: 109
     height: 40
   nodeName: Disclaimer
@@ -15427,6 +15430,20 @@ MonoBehaviour:
   setMenuDialogue: {fileID: 1463625384}
   hideThisOption: 0
   closeMenuOnSelect: 0
+--- !u!114 &1034536059
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 1034535991}
+  waitForFrames: 1
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18108,7 +18125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1624535936
 Transform:
   m_ObjectHideFlags: 0

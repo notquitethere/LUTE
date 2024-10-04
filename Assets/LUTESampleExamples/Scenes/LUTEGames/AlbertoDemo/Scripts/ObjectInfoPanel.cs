@@ -11,6 +11,8 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected TextMeshProUGUI bodyText;
         [SerializeField] protected UnityEngine.UI.Image infoImage; // Eventually replaced by spinning object
         [SerializeField] protected UnityEngine.UI.Button playButton;
+        [SerializeField] protected Sprite playSprite;
+        [SerializeField] protected Sprite pauseSprite;
         [SerializeField] protected UnityEngine.UI.Button stopButton;
         [SerializeField] protected CanvasGroup audioPlayerGroup;
         [SerializeField] protected CanvasGroup panelGroup; // For fading in and out
@@ -105,10 +107,17 @@ namespace LoGaCulture.LUTE
             hasAudio = false;
             audioPlayerGroup.alpha = 0; audioPlayerGroup.interactable = false; audioPlayerGroup.blocksRaycasts = false;
 
-            if (playButton != null && stopButton != null)
+            //if (playButton != null && stopButton != null)
+            //{
+            //    if (info.VoiceOverClip != null)
+            //        SetAudioInteraction(info.VoiceOverClip);
+            //}
+            if (playButton != null && playSprite != null && pauseSprite != null)
             {
                 if (info.VoiceOverClip != null)
-                    SetAudioInteraction(info.VoiceOverClip);
+                {
+                    SetAudioInteractionBool(info.VoiceOverClip);
+                }
             }
             stopAudioOnClose = info.StopAudioOnClose;
 
@@ -173,6 +182,48 @@ namespace LoGaCulture.LUTE
                     return;
 
                 soundManager.PauseMusic();
+            });
+        }
+
+        protected virtual void SetAudioInteractionBool(AudioClip clip)
+        {
+            bool isPlaying = false; // Track whether the audio is currently playing
+            hasAudio = true;
+
+            // Set initial button sprite to play icon
+            playButton.image.sprite = playSprite;
+
+            playButton.onClick.AddListener(() =>
+            {
+                SoundManager soundManager = LogaManager.Instance.SoundManager;
+                if (soundManager == null)
+                    return;
+
+                var audiosource = soundManager.GetAudioSource();
+                if (audiosource != null)
+                {
+                    if (isPlaying)
+                    {
+                        // Pause the music if it is currently playing
+                        soundManager.PauseMusic();
+                        playButton.image.sprite = playSprite;
+                        isPlaying = false;
+                    }
+                    else
+                    {
+                        // Play the music from where it was left off
+                        if (audiosource.clip != null)
+                        {
+                            soundManager.PlayMusic(clip, false, 0.5f, audiosource.time, true);
+                        }
+                        else
+                        {
+                            soundManager.PlayMusic(clip, false, 0.5f, 0);
+                        }
+                        playButton.image.sprite = pauseSprite;
+                        isPlaying = true;
+                    }
+                }
             });
         }
 
