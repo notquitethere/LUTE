@@ -42,6 +42,8 @@ public class Dialogue : Order
     [SerializeField] protected DialogueBox setDialogueBox;
     [Tooltip("Allow the player to click anywhere to progress the text or force click on the box")]
     [SerializeField] protected bool allowClickAnywhere = false;
+    [Tooltip("Use a button to progress the text - this button is set on the dialogue box prefab")]
+    [SerializeField] protected bool useButtonToProgress = false;
 
     protected int executionCount;
 
@@ -88,7 +90,7 @@ public class Dialogue : Order
         dialogueBox.StartDialogue(typingSpeed, timeToWait, allowLineSkip, waitForClick, fadeWhenDone, delegate
         {
             Continue();
-        }, allowClickAnywhere);
+        }, allowClickAnywhere, useButtonToProgress);
     }
 
     public override string GetSummary()

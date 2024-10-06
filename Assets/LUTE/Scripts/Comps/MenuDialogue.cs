@@ -11,6 +11,8 @@ public class MenuDialogue : MonoBehaviour
 {
     [SerializeField] protected bool autoSelectFirstButton = false;
     [SerializeField] protected TextMeshProUGUI textDisplay; //this needs to be on a new button class
+    [SerializeField] protected CanvasGroup canvasGroup;
+
     protected Button[] cachedButtons;
     protected Slider cachedSlider;
     protected Slider[] cachedOptionSliders; //ensure that any of these are never equal to the timer slider
@@ -31,6 +33,8 @@ public class MenuDialogue : MonoBehaviour
     public virtual void SetActive(bool state)
     {
         gameObject.SetActive(state);
+        if (state == true)
+            GetCanvasGroup().alpha = 1;
     }
 
     //searches scene for menu then creates one if none found
@@ -81,6 +85,7 @@ public class MenuDialogue : MonoBehaviour
             // Don't auto disable buttons in the editor
             Clear();
         }
+        GetCanvasGroup().alpha = 0;
 
         CheckEventSystem();
     }
@@ -106,6 +111,22 @@ public class MenuDialogue : MonoBehaviour
         // The canvas sometimes fails to update if the menu  is enabled in the first game frame
         // thus we need to force the canvas update when the object is enabled (silly unity)
         Canvas.ForceUpdateCanvases();
+    }
+
+    protected virtual CanvasGroup GetCanvasGroup()
+    {
+        if (canvasGroup != null)
+        {
+            return canvasGroup;
+        }
+
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
+
+        return canvasGroup;
     }
 
     protected virtual TextMeshProUGUI GetTextDisplay(Transform buttonParent)
@@ -203,8 +224,8 @@ public class MenuDialogue : MonoBehaviour
         if (dialogueBox != null)
         {
             dialogueBox.FadeWhenDone = true;
+            ActiveMenuDialogue = null;
         }
-        ActiveMenuDialogue = null;
     }
 
     /// Adds the option to the list of displayed options. Calls a Node when selected
@@ -235,7 +256,8 @@ public class MenuDialogue : MonoBehaviour
             {
                 var engine = node.GetEngine();
                 if (hideMenu)
-                    gameObject.SetActive(false);
+                    GetCanvasGroup().alpha = 0;
+                //gameObject.SetActive(false);
                 // Use a coroutine to call the node on the next frame
                 // Have to use the engine gameobject as this menu is now inactive
                 engine.StartCoroutine(CallNode(node));

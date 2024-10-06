@@ -30,6 +30,8 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     [SerializeField] protected bool fitTextWithImage = true;
     [Tooltip("Allow clicking anywhere to proceed to next text or make users click the box to progress")]
     [SerializeField] protected bool allowClickAnywhere = false;
+    [Tooltip("Use a button to progress the text - this button is set on the dialogue box prefab")]
+    [SerializeField] protected bool buttonToProgress = false;
 
     public virtual Image CharacterImage { get { return characterImage; } }
 
@@ -156,7 +158,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
         if (continueButton != null)
         {
-            continueButton.gameObject.SetActive(GetWriter().IsWaitingForInput);
+            //continueButton.gameObject.SetActive(GetWriter().IsWaitingForInput);
         }
     }
 
@@ -200,6 +202,11 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     protected virtual void ClearStoryText()
     {
         storyText = "";
+    }
+
+    protected virtual void SetButtonClick()
+    {
+        WriterSignals.WriterClick();
     }
 
     public virtual void SetStoryText(string text)
@@ -328,12 +335,22 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public virtual void StartDialogue(float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, Action onComplete, bool allowClickAnywhere = false)
+    public virtual void StartDialogue(float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, Action onComplete, bool allowClickAnywhere = false, bool useButton = false)
     {
-        StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone));
+        buttonToProgress = false;
+        // you may wish to hide your button here also
+        if (useButton && continueButton != null)
+        {
+            buttonToProgress = useButton;
+
+            continueButton.onClick.AddListener(SetButtonClick);
+            continueButton.gameObject.SetActive(true);
+        }
+
+        StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone, allowClickAnywhere, useButton));
     }
 
-    public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false)
+    public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false, bool useButton = false)
     {
         var tw = GetWriter();
 
@@ -393,6 +410,9 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        WriterSignals.WriterClick();
+        if (!buttonToProgress)
+        {
+            WriterSignals.WriterClick();
+        }
     }
 }

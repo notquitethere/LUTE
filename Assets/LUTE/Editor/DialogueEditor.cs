@@ -95,6 +95,7 @@ public class DialogueEditor : OrderEditor
     protected SerializedProperty stopVoiceoverProp;
     protected SerializedProperty waitForVOProp;
     protected SerializedProperty allowClickAnywhereProp;
+    protected SerializedProperty useButtonProp;
 
     public override void OnEnable()
     {
@@ -113,6 +114,7 @@ public class DialogueEditor : OrderEditor
         waitForVOProp = serializedObject.FindProperty("waitForVO");
         typingSpeedProp = serializedObject.FindProperty("typingSpeed");
         allowClickAnywhereProp = serializedObject.FindProperty("allowClickAnywhere");
+        useButtonProp = serializedObject.FindProperty("useButtonToProgress");
 
         // if (blackTex == null)
         // {
@@ -214,7 +216,10 @@ public class DialogueEditor : OrderEditor
         EditorGUILayout.PropertyField(waitForClickProp);
         EditorGUILayout.PropertyField(stopVoiceoverProp);
         EditorGUILayout.PropertyField(waitForVOProp);
-        EditorGUILayout.PropertyField(allowClickAnywhereProp);
+        if (useButtonProp.boolValue == false)
+            EditorGUILayout.PropertyField(allowClickAnywhereProp);
+        if (allowClickAnywhereProp.boolValue == false)
+            EditorGUILayout.PropertyField(useButtonProp);
 
         if (showPortraits && t.Portrait != null)
         {
