@@ -52,7 +52,7 @@ public class Choice : Order
         {
             if (setMenuDialogue != null)
             {
-                MenuDialogue.ActiveMenuDialogue = setMenuDialogue;
+                MenuDialogue.SetMenuDialogue(setMenuDialogue);
             }
 
             bool hideOption = (hideIfVisited && targetNode != null && targetNode.GetExecutionCount() > 0) || hideThisOption;

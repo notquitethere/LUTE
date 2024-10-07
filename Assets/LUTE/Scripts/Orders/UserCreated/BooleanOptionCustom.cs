@@ -25,7 +25,7 @@ public class BooleanOptionCustom : BooleanOption
         {
             if (setMenuDialogue != null)
             {
-                MenuDialogue.ActiveMenuDialogue = setMenuDialogue;
+                MenuDialogue.SetMenuDialogue(setMenuDialogue);
             }
 
             var menu = MenuDialogue.GetMenuDialogue();

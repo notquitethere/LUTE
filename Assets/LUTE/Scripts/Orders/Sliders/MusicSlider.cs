@@ -1,7 +1,3 @@
-using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
-
 [OrderInfo("Menu", "Music Slider", "Displays a slider in a menu to adjust the music volume")]
 public class MusicSlider : OptionSlider
 {
@@ -38,7 +34,7 @@ public class MusicSlider : OptionSlider
         {
             if (setMenuDialogue != null)
             {
-                MenuDialogue.ActiveMenuDialogue = setMenuDialogue;
+                MenuDialogue.SetMenuDialogue(setMenuDialogue);
             }
 
             var menu = MenuDialogue.GetMenuDialogue();

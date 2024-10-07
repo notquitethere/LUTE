@@ -137,7 +137,8 @@ public class TextWriter : MonoBehaviour
         {
             if (waitForClick)
             {
-                StopCoroutine(displayRoutine);
+                if (displayRoutine != null)
+                    StopCoroutine(displayRoutine);
                 isTyping = false;
                 DialogueBox.GetDialogueBox().FadeWhenDone = true;
                 onComplete?.Invoke();

@@ -25,7 +25,7 @@ MonoBehaviour:
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 15bee95146a297441ac693c44c55da6a, type: 2}
   radiusIncrease: 0
-  locationStatus: 2
+  locationStatus: 0
   nodeComplete: DrWebb2 - End
   executeNode: DrWebb2 - Start
   interactable: 1

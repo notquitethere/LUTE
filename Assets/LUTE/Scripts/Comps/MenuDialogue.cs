@@ -29,6 +29,8 @@ public class MenuDialogue : MonoBehaviour
     public virtual Slider[] CachedOptionSliders { get { return cachedOptionSliders; } }
     public virtual Toggle[] CachedOptionToggles { get { return cachedOptionToggles; } }
 
+    private static bool usingSetDialogue = false;
+
     /// Sets the active state of the Menu gameobject.
     public virtual void SetActive(bool state)
     {
@@ -64,6 +66,12 @@ public class MenuDialogue : MonoBehaviour
         }
 
         return ActiveMenuDialogue;
+    }
+
+    public static void SetMenuDialogue(MenuDialogue menuDialogue)
+    {
+        ActiveMenuDialogue = menuDialogue;
+        usingSetDialogue = true;
     }
 
     protected virtual void Awake()
@@ -178,7 +186,7 @@ public class MenuDialogue : MonoBehaviour
     }
 
     //clear all menu options
-    public virtual void Clear()
+    public virtual void Clear(bool closeMenu = true)
     {
         StopAllCoroutines();
 
@@ -216,6 +224,14 @@ public class MenuDialogue : MonoBehaviour
         {
             CachedOptionToggles[i].gameObject.SetActive(false);
         }
+
+        if (usingSetDialogue && closeMenu)
+        {
+            usingSetDialogue = false;
+
+            ActiveMenuDialogue = null;
+            SetActive(false);
+        }
     }
 
     public virtual void HideDialogue()
@@ -224,7 +240,6 @@ public class MenuDialogue : MonoBehaviour
         if (dialogueBox != null)
         {
             dialogueBox.FadeWhenDone = true;
-            ActiveMenuDialogue = null;
         }
     }
 
@@ -241,7 +256,7 @@ public class MenuDialogue : MonoBehaviour
             // Stop timeout
             if (hideMenu)
             {
-                Clear();
+                Clear(hideMenu);
                 HideDialogue();
             }
             else
