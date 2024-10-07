@@ -48,5 +48,13 @@ public class FadeScreen : Order
         }
     }
 
-    //ensure you get button colours here when custom styles are used
+    public override string GetSummary()
+    {
+        return "Fade to " + targetAlpha + " over " + duration + " seconds";
+    }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(216, 228, 170, 255);
+    }
 }

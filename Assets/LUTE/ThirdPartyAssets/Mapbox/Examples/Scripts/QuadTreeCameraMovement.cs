@@ -27,6 +27,17 @@
         [SerializeField]
         bool _useDegreeMethod;
 
+        [SerializeField] protected bool allowPanning;
+        [SerializeField] protected bool allowZooming;
+        [SerializeField] protected bool allowTilting;
+
+        [Range(0, 21)]
+        [SerializeField] protected float minZoomLevel = 0.0f;
+        [Range(0, 21)]
+        [SerializeField] protected float maxZoomLevel = 21.0f;
+
+        [SerializeField] float sensitivityZ = 2f;   // Horizontal sensitivity
+
         [HideInInspector]
         public bool _dragStartedOnUI = false;
 
@@ -36,6 +47,9 @@
         private bool _shouldDrag;
         private bool _isInitialized = false;
         private Plane _groundPlane = new Plane(Vector3.up, 0);
+        // Store the current rotation of the camera
+        private float rotationZ = 0f;  // Vertical rotation
+        private Vector3 defaultRotation;
 
         public static QuadTreeCameraMovement _instance;
 
@@ -62,6 +76,8 @@
         {
             if (_referenceCameraGame != null)
                 _referenceCamera = _referenceCameraGame;
+
+            defaultRotation = _referenceCameraGame.transform.localEulerAngles;
         }
 
         public void Update()
@@ -108,11 +124,24 @@
             //Returns true if any key was pressed.
             float zMove = Input.GetAxis("Vertical");
 
-            PanMapUsingKeyBoard(xMove, zMove);
+            if (allowPanning)
+                PanMapUsingKeyBoard(xMove, zMove);
+
+            // If right mouse button is held, rotate/pan the camera
+            if (Input.GetMouseButton(1))
+            {
+                float mouseX = Input.GetAxis("Mouse X");
+                float mouseY = Input.GetAxis("Mouse Y"); // useful if you want up/down panning
+
+                // Use the unified method to handle camera rotation and zoom
+                if (allowTilting)
+                    PanOrRotateCamera(mouseX);
+            }
 
 
             //pan mouse
-            PanMapUsingTouchOrMouse();
+            if (allowPanning)
+                PanMapUsingTouchOrMouse();
         }
 
         void HandleTouch()
@@ -123,7 +152,16 @@
             {
                 case 1:
                     {
-                        PanMapUsingTouchOrMouse();
+                        if (allowPanning)
+                            PanMapUsingTouchOrMouse();
+
+                        Touch touch = Input.GetTouch(0);
+                        float touchX = touch.deltaPosition.x;
+                        float touchY = touch.deltaPosition.y;
+
+                        // Use the unified method to handle camera rotation with touch input
+                        if (allowTilting)
+                            PanOrRotateCamera(touchX);  // No zoom for single touch
                     }
                     break;
                 case 2:
@@ -143,16 +181,26 @@
                         // Find the difference in the distances between each frame.
                         zoomFactor = 0.01f * (touchDeltaMag - prevTouchDeltaMag);
                     }
-                    ZoomMapUsingTouchOrMouse(zoomFactor);
+                    if (allowZooming)
+                        ZoomMapUsingTouchOrMouse(zoomFactor);
                     break;
                 default:
                     break;
             }
         }
 
+        void PanOrRotateCamera(float zInput)
+        {
+            // Adjust the camera rotation based on the input
+            rotationZ += zInput * sensitivityZ;  // Horizontal movement (pan or rotate)
+
+            // Apply the new rotation to the camera
+            _referenceCameraGame.transform.localEulerAngles = new Vector3(defaultRotation.x, defaultRotation.y, rotationZ);
+        }
+
         public void ZoomMapUsingTouchOrMouse(float zoomFactor)
         {
-            var zoom = Mathf.Max(0.0f, Mathf.Min(_mapManager.Zoom + zoomFactor * _zoomSpeed, 21.0f));
+            var zoom = Mathf.Max(minZoomLevel, Mathf.Min(_mapManager.Zoom + zoomFactor * _zoomSpeed, maxZoomLevel));
             if (Math.Abs(zoom - _mapManager.Zoom) > 0.0f)
             {
                 _mapManager.UpdateMap(_mapManager.CenterLatitudeLongitude, zoom);
