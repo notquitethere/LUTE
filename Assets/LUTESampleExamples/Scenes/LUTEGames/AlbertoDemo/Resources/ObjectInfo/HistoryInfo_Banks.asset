@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: HistoryInfo_Banks
   m_EditorClassIdentifier: 
   objectName: Banks
-  objectDescription: The large, encircling earthworks of the Avebury Henge served
-    as a boundary to the sacred space within, with its ditches and banks rising dramatically
-    to emphasize the area's significance.
-  shortDescription: A vast earthwork, shaped by hands long gone
+  objectDescription: A gift from Finley, looks like an old photograph.
+  shortDescription: A vast earthwork, shaped by hands long gone.
   voiceOverClip: {fileID: 8300000, guid: 744d09109a63f004fa2e484c72e86b35, type: 3}
   stopAudioOnClose: 1
-  objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
-  spinningObject: {fileID: 2344481177358540255, guid: 10064968011a81d40a72f5a3f53da87f, type: 3}
+  objectIcon: {fileID: 21300000, guid: 290ed3971153ddb42ae0d6f2c8ecfc36, type: 3}
+  spinningObject: {fileID: 2344481177358540255, guid: d67a85387f5786e4886a2c36494bb29d, type: 3}
   unlocked: 0

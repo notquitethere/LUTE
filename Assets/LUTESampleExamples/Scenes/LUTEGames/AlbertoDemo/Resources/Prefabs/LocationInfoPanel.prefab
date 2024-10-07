@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61, y: -259}
+  m_AnchoredPosition: {x: 60, y: -260}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3470599370897795900
@@ -450,10 +450,10 @@ Canvas:
   m_GameObject: {fileID: 5453896668789114138}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -531,12 +531,17 @@ MonoBehaviour:
   titleText: {fileID: 3815746671969502014}
   bodyText: {fileID: 2678148853441485053}
   infoImage: {fileID: 5303775859281142739}
+  playButton: {fileID: 0}
+  playSprite: {fileID: 0}
+  pauseSprite: {fileID: 0}
+  stopButton: {fileID: 0}
+  audioPlayerGroup: {fileID: 0}
   panelGroup: {fileID: 7186922257395689936}
   objectSpawn: {fileID: 0}
   hideDescription: 0
   unlockFeedback: {fileID: 0}
   defaultImage: {fileID: 21300000, guid: 6a93ba6c38197db4fb34c36028f98c24, type: 3}
-  partialTint: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0.5882353}
+  partialTint: {r: 0.714, g: 0.714, b: 0.714, a: 0.5882353}
   statusText: {fileID: 5950962932523747155}
   partialTextLength: 0.552
   defaultTitle: Unknown Landmark
@@ -575,7 +580,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -733}
-  m_SizeDelta: {x: 1400, y: 860}
+  m_SizeDelta: {x: 1300, y: 860}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1320200179449599881
 CanvasRenderer:
@@ -680,9 +685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A lone pillar was once standing here, marking an ancient gathering
-
-'
+  m_text: A lone pillar was once standing here, marking an ancient gathering
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0347551b45f96943a46dded20c93ee9, type: 2}
   m_sharedMaterial: {fileID: -3524813108858004611, guid: e0347551b45f96943a46dded20c93ee9, type: 2}
@@ -691,8 +694,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281476387
-  m_fontColor: {r: 0.13725491, g: 0.14509805, b: 0.19607843, a: 1}
+    rgba: 4279374354
+  m_fontColor: {r: 0.07058824, g: 0.07058824, b: 0.07058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -745,7 +748,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 150, y: 0, z: 150, w: 50}
+  m_margin: {x: 114.12266, y: 0, z: 109.63794, w: 75}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -821,7 +824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e15f73246d215fb418ab73bf265c21b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11c61be2bb504b6469a77e1aca116ffc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

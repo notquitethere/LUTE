@@ -26,7 +26,7 @@ namespace LoGaCulture.LUTE
             if (angularVelocity.magnitude > 0.01f)
             {
                 // Apply momentum-based rotation
-                transform.Rotate(Vector3.right, angularVelocity.x * Time.deltaTime, Space.World);
+                //transform.Rotate(Vector3.right, angularVelocity.x * Time.deltaTime, Space.World);
                 transform.Rotate(Vector3.up, angularVelocity.y * Time.deltaTime, Space.World);
                 // Apply friction
                 angularVelocity *= frictionCoefficient;
@@ -44,14 +44,14 @@ namespace LoGaCulture.LUTE
 
         public void OnDrag(PointerEventData eventData)
         {
-            float rotX = -eventData.delta.y * rotationSpeed * Time.deltaTime;
+            //float rotX = -eventData.delta.y * rotationSpeed * Time.deltaTime;
             float rotY = eventData.delta.x * rotationSpeed * Time.deltaTime;
 
-            transform.Rotate(Vector3.right, rotX, Space.World);
+            //transform.Rotate(Vector3.right, rotX, Space.World);
             transform.Rotate(Vector3.up, rotY, Space.World);
 
             // Calculate angular velocity
-            angularVelocity = new Vector3(rotX, rotY, 0) / Time.deltaTime;
+            angularVelocity = new Vector3( rotY, 0) / Time.deltaTime;
         }
 
         public void OnEndDrag(PointerEventData eventData)

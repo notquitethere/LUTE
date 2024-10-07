@@ -33,12 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Avebury History
-  ShortDescription: Short Description
-  Description: What a wonderful sight! Image seeing a complete Avebury, showing off
-    200 or more stones. This is what the artist J. Britton thought it would look
-    like. A marvel of perfect circle, perfect, yet so mysterious.
-  Icon: {fileID: 21300000, guid: 14c14a8e73ba6d4489ec21defe61397d, type: 3}
+  ItemName: The Temple at Avebury
+  ShortDescription: 
+  Description: 
+  Icon: {fileID: 21300000, guid: d5c656686e5ca434cbffd9ec592b39c3, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: HistoryInfo_InnerCircle
   m_EditorClassIdentifier: 
   objectName: Inner Circle
-  objectDescription: This massive outer circle of standing stones once encircled
-    the entire village of Avebury, a testament to the immense effort of its creators,
-    who shaped this monument over 4,500 years ago. INSERT INFO PIC.
-  shortDescription: At the heart of it all, a place of power and ritual
+  objectDescription: A gift from Angela, looks like an old scheme.
+  shortDescription: Belived to have hosted an old square, gathering space of the
+    ancients.
   voiceOverClip: {fileID: 8300000, guid: 744d09109a63f004fa2e484c72e86b35, type: 3}
   stopAudioOnClose: 1
-  objectIcon: {fileID: 21300000, guid: f1321adbaa6e24299bb58ab33ad3adf9, type: 3}
-  spinningObject: {fileID: 2344481177358540255, guid: 10064968011a81d40a72f5a3f53da87f, type: 3}
+  objectIcon: {fileID: 21300000, guid: 1b16ff30abf92b04c88a5de69ea0f0c4, type: 3}
+  spinningObject: {fileID: 2344481177358540255, guid: fc44d603120b04f4b9bf71a5af122527, type: 3}
   unlocked: 0
