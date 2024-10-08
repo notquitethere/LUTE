@@ -33,10 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: The Temple at Avebury
+  ItemName: Drawing - The Temple at Avebury
   ShortDescription: 
   Description: 
-  Icon: {fileID: 21300000, guid: d5c656686e5ca434cbffd9ec592b39c3, type: 3}
+  Icon: {fileID: 21300000, guid: e65d208eeb8f2ff419c1da3adf9cae70, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

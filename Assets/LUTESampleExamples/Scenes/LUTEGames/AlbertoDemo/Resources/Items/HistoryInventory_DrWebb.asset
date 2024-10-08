@@ -33,12 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: DrWebb - Welcome
-  ShortDescription: Gnagna
-  Description: What a wonderful sight! Image seeing a complete Avebury, showing off
-    200 or more stones. This is what the artist J. Britton thought it would look
-    like. A marvel of perfect circle, perfect, yet so mysterious.
-  Icon: {fileID: 21300000, guid: b44fee1cb3b768e4da6fc8d624b9eed6, type: 3}
+  ItemName: Print - Avebury's Map
+  ShortDescription: 
+  Description: 
+  Icon: {fileID: 21300000, guid: dba356a21d16b664abc6fe295468be74, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

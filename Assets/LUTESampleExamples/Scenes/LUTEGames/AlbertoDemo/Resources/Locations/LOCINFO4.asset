@@ -21,8 +21,8 @@ MonoBehaviour:
   Color: {r: 1, g: 1, b: 1, a: 1}
   ShowName: 0
   showRadius: 1
-  defaultRadiusColour: {r: 0.7372549, g: 0.47058824, b: 0.23921569, a: 0.5882353}
-  visitedRadiusColour: {r: 0.96862745, g: 0.8862745, b: 0.14509805, a: 0.5882353}
+  defaultRadiusColour: {r: 0.99215686, g: 0.2627451, b: 0.18431373, a: 0.5882353}
+  visitedRadiusColour: {r: 1, g: 0.59607846, b: 0.03529412, a: 0.5882353}
   completedRadiusColour: {r: 0.18513432, g: 0.745283, b: 0, a: 0.5882353}
   locationDisabled: 0
   objectInfo: {fileID: 11400000, guid: 121be63f92810534facdb4549f93c78f, type: 2}

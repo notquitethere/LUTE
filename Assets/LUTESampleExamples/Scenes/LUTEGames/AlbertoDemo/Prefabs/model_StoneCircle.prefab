@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2344481177358540255}
   - component: {fileID: 8356391914327395702}
   m_Layer: 0
-  m_Name: model_Obelisk
+  m_Name: model_StoneCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7169231958084708083}
-  m_Mesh: {fileID: 5403873900665001532, guid: c8ea4698be43cfa4b92522034d28a3bd, type: 3}
+  m_Mesh: {fileID: -5283235328860048979, guid: d3af23a7b9149cb43811918b203d5126, type: 3}
 --- !u!23 &2564609699834081690
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,8 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66faa539f093ae645af0818fcc8bcffb, type: 2}
-  - {fileID: 2100000, guid: 20c55412949455c42a923119fa1aecc8, type: 2}
+  - {fileID: 2100000, guid: ec97b4b76384e77468ea9d4977513994, type: 2}
+  - {fileID: 2100000, guid: 55e7ce3562720fa4a97ffba073df2c4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,9 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 10
   frictionCoefficient: 1
-  rotateX: 1
-  rotateY: 0
-  allowSpin: 0
 --- !u!65 &8356391914327395702
 BoxCollider:
   m_ObjectHideFlags: 0

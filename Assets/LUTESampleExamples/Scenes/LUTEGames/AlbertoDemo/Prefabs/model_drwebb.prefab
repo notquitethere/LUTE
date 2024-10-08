@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2344481177358540255}
   - component: {fileID: 8356391914327395702}
   m_Layer: 0
-  m_Name: model_TempleAvebury
+  m_Name: model_drwebb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec97b4b76384e77468ea9d4977513994, type: 2}
-  - {fileID: 2100000, guid: 55e7ce3562720fa4a97ffba073df2c4b, type: 2}
+  - {fileID: 2100000, guid: e5a117dcf527a65489b43041677dd218, type: 2}
+  - {fileID: 2100000, guid: db4d6ba219b0e6d418ea2a4bb0c1210a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 10
   frictionCoefficient: 1
+  rotateX: 1
+  rotateY: 0
+  allowSpin: 0
 --- !u!65 &8356391914327395702
 BoxCollider:
   m_ObjectHideFlags: 0

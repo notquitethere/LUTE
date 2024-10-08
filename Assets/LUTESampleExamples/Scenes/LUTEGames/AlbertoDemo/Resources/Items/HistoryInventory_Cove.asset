@@ -33,12 +33,10 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: The Cove
-  ShortDescription: Short Description
-  Description: What a wonderful sight! Image seeing a complete Avebury, showing off
-    200 or more stones. This is what the artist J. Britton thought it would look
-    like. A marvel of perfect circle, perfect, yet so mysterious.
-  Icon: {fileID: 21300000, guid: 9555d55c2985c7346a3ea486471d5058, type: 3}
+  ItemName: Lithography - Mysterious Box
+  ShortDescription: 
+  Description: 
+  Icon: {fileID: 21300000, guid: d3a7ceb0575e52940a174d4d01794cbc, type: 3}
   Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
