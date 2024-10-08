@@ -1,33 +1,34 @@
-// This needs to be created in similar way to dialogue boxes
-// If one already exists can we just swap out the object with children?
-
-// Reusing the same object will require knowing:
-// -- Object info, mesh of the object, sprite of the hidden object
-// -- But would require us to randomly place the hidden object on every intitialise
-// -- Otherwise we must delete current object then spawn it again
-
-// ---- ensure that the object info is not on this class but in another one
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace LoGaCulture.LUTE
 {
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-
+    /// <summary>
+    /// Allows the user to spin an object around its local X and Y axes by dragging it using idraghandler interfaces.
+    /// </summary>
     public class ObjectSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
 
         [SerializeField] protected float rotationSpeed = 5f;
         [SerializeField] protected float frictionCoefficient = 0.95f; // Controls how quickly the spin slows down
 
+        [SerializeField] protected bool rotateX = true;
+        [SerializeField] protected bool rotateY = false;
+        [SerializeField] protected bool allowSpin = false;
+
         private Vector3 angularVelocity;
 
-        void Update()
+        protected virtual void Update()
         {
+            if (!allowSpin)
+                return;
             if (angularVelocity.magnitude > 0.01f)
             {
                 // Apply momentum-based rotation
-                //transform.Rotate(Vector3.right, angularVelocity.x * Time.deltaTime, Space.World);
-                transform.Rotate(Vector3.up, angularVelocity.y * Time.deltaTime, Space.World);
+                if (rotateY)
+                    transform.Rotate(Vector3.right, angularVelocity.x * Time.deltaTime, Space.World);
+                if (rotateX)
+                    transform.Rotate(Vector3.up, angularVelocity.y * Time.deltaTime, Space.World);
                 // Apply friction
                 angularVelocity *= frictionCoefficient;
             }
@@ -44,14 +45,25 @@ namespace LoGaCulture.LUTE
 
         public void OnDrag(PointerEventData eventData)
         {
-            //float rotX = -eventData.delta.y * rotationSpeed * Time.deltaTime;
-            float rotY = eventData.delta.x * rotationSpeed * Time.deltaTime;
+            float rotX = 0;
+            float rotY = 0;
+            if (rotateY)
+            {
+                rotX = -eventData.delta.y * rotationSpeed * Time.deltaTime;
+                transform.Rotate(Vector3.right, rotX, Space.World);
+            }
 
-            //transform.Rotate(Vector3.right, rotX, Space.World);
-            transform.Rotate(Vector3.up, rotY, Space.World);
+            if (rotateX)
+            {
+                rotY = eventData.delta.x * rotationSpeed * Time.deltaTime;
+                transform.Rotate(Vector3.up, rotY, Space.World);
+            }
+
 
             // Calculate angular velocity
-            angularVelocity = new Vector3( rotY, 0) / Time.deltaTime;
+            //angularVelocity = new Vector3(rotY, 0) / Time.deltaTime;
+            angularVelocity = new Vector3(rotX, rotY, 0) / Time.deltaTime;
+
         }
 
         public void OnEndDrag(PointerEventData eventData)
