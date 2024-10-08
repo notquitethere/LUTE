@@ -17,12 +17,18 @@ namespace LoGaCulture.LUTE
 
         [Tooltip("The image that will be used to render the marker.")]
         [SerializeField] protected SpriteRenderer spriteRenderer;
+        [Tooltip("The image that will be used to render the marker radius.")]
+        [SerializeField] protected SpriteRenderer radiusRendererPrefab;
         [Tooltip("The text mesh that will be used to render the marker label")]
         [SerializeField] protected TextMesh textMesh;
         [Tooltip("The feedback to play when the location is completed.")]
         [SerializeField] protected MMFeedbacks completeFeedback;
 
         public TextMesh TextMesh { get => textMesh; set => textMesh = value; }
+        public SpriteRenderer RadiusRenderer { get => radiusRendererPrefab; set => radiusRendererPrefab = value; }
+        public GameObject RadiusObject { get; set; }
+
+        public SpriteRenderer markerRadius;
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -77,6 +83,9 @@ namespace LoGaCulture.LUTE
         protected void Start()
         {
             markerCanvas = GetComponentInChildren<Canvas>();
+
+            markerRadius = RadiusObject.GetComponent<SpriteRenderer>();
+            markerRadius.color = locationInfo.defaultRadiusColour;
         }
 
         protected void Update()
@@ -110,12 +119,15 @@ namespace LoGaCulture.LUTE
             {
                 case LUTELocationInfo.LocationStatus.Unvisited:
                     SetMarkerSprite(locationInfo.Sprite);
+                    SetRadiusColour(locationInfo.defaultRadiusColour);
                     break;
                 case LUTELocationInfo.LocationStatus.Visited:
                     SetMarkerSprite(locationInfo.InProgressSprite);
+                    SetRadiusColour(locationInfo.visitedRadiusColour);
                     break;
                 case LUTELocationInfo.LocationStatus.Completed:
                     SetMarkerSprite(locationInfo.CompletedSprite);
+                    SetRadiusColour(locationInfo.completedRadiusColour);
                     break;
             }
         }
@@ -211,6 +223,13 @@ namespace LoGaCulture.LUTE
                 spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
             spriteRenderer.sprite = sprite;
+        }
+
+        public void SetRadiusColour(Color color)
+        {
+            if (markerRadius == null)
+                markerRadius = RadiusObject.GetComponent<SpriteRenderer>();
+            markerRadius.color = color;
         }
     }
 }

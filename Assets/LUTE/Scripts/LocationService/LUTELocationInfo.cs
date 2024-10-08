@@ -38,7 +38,11 @@ namespace LoGaCulture.LUTE
         [Tooltip("Whether the radius of the location should be shown or not")]
         public bool showRadius;
         [Tooltip("The colour of the radius of the location")]
-        public Color radiusColor;
+        public Color defaultRadiusColour = LogaConstants.defaultRadiusColour;
+        [Tooltip("The colour of the radius of the location when visited")]
+        public Color visitedRadiusColour = LogaConstants.defaultRadiusColour;
+        [Tooltip("The colour of the radius of the location when completed")]
+        public Color completedRadiusColour = LogaConstants.defaultRadiusColour;
         [Header("Location Settings")]
         [Tooltip("Whether or not this location can be used (can be set with location failure handling)")]
         public bool locationDisabled = false;

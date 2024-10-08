@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationInfo: {fileID: 0}
   spriteRenderer: {fileID: 6408619797996679676}
+  radiusRendererPrefab: {fileID: 6138538478120909439, guid: d6ed17cc88af03542adfd3f2762a73e0, type: 3}
   textMesh: {fileID: 6067892912135492101}
   completeFeedback: {fileID: 0}
 --- !u!65 &6929094769558939847

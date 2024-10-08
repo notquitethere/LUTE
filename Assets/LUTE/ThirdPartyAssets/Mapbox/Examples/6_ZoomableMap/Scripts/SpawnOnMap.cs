@@ -21,12 +21,11 @@
         [SerializeField] protected BasicFlowEngine engine;
         [SerializeField] protected DirectionsFactory _directionPrefab;
 
-        [SerializeField] private GameObject _radiusCirclePrefab; // Assign this in the inspector
+        [SerializeField] private GameObject _radiusCirclePrefab;
 
         private List<LocationMarker> _spawnedObjects;
         private List<LUTELocationInfo> _locationData = new List<LUTELocationInfo>();
         private float _radiusInMeters = LogaConstants.DefaultRadius / 14f;
-        private List<GameObject> _radiusCircles = new List<GameObject>();
 
         [SerializeField] public LocationMarker _markerPrefab;
         [SerializeField] public float _spawnScale = 5f;
@@ -60,12 +59,12 @@
 
         private void CreateRadiusCircle(LocationMarker marker)
         {
-            GameObject radiusCircle = Instantiate(_radiusCirclePrefab, marker.transform);
+            if (marker == null || marker.RadiusRenderer == null) return;
+            GameObject radiusCircle = Instantiate(marker.RadiusRenderer.gameObject, marker.transform);
             radiusCircle.transform.localPosition = Vector3.zero;
 
             UpdateRadiusCircleScale(radiusCircle, marker.transform.position);
-
-            _radiusCircles.Add(radiusCircle);
+            marker.RadiusObject = radiusCircle;
         }
 
         private const float MIN_SCALE = 0.1f;
@@ -228,7 +227,9 @@
                     Interactable = location.Value.Interactable,
                     SaveInfo = location.Value.SaveInfo,
                     showRadius = location.Value.showRadius,
-                    radiusColor = location.Value.radiusColor,
+                    defaultRadiusColour = location.Value.defaultRadiusColour,
+                    visitedRadiusColour = location.Value.visitedRadiusColour,
+                    completedRadiusColour = location.Value.completedRadiusColour,
                     IndependentMarkerUpdating = location.Value.IndependentMarkerUpdating,
                     ObjectInfo = location.Value.ObjectInfo,
                     AllowClickWithoutLocation = location.Value.AllowClickWithoutLocation
@@ -469,22 +470,14 @@
         private void Update()
         {
             UpdateMarkers();
-            UpdateRadiusCircles();
             UpdateTracker();
-        }
-
-        private void UpdateRadiusCircles()
-        {
-            for (int i = 0; i < _spawnedObjects.Count && i < _radiusCircles.Count; i++)
-            {
-                UpdateRadiusCircle(i);
-            }
         }
 
         private void UpdateRadiusCircle(int index)
         {
             var marker = _spawnedObjects[index];
-            var radiusCircle = _radiusCircles[index];
+            //var radiusCircle = _radiusCircles[index];
+            var radiusCircle = marker.RadiusObject;
             var locationData = _locationData[index];
             var infoObject = Resources.FindObjectsOfTypeAll<LUTELocationInfo>().FirstOrDefault(x => x.infoID == locationData.infoID);
 
@@ -493,7 +486,7 @@
             if (infoObject.showRadius)
             {
                 radiusCircle.SetActive(true);
-                radiusCircle.GetComponent<SpriteRenderer>().color = locationData.radiusColor;
+                //radiusCircle.GetComponent<SpriteRenderer>().color = locationData.radiusColor;
             }
             else
             {
@@ -534,6 +527,7 @@
             UpdateMarkerPosition(spawnedObject, infoObject.LatLongString());
             UpdateMarkerScale(spawnedObject);
             UpdateMarkerBillboard(spawnedObject, infoObject);
+            UpdateRadiusCircle(index);
         }
 
         private void UpdateMarkerPosition(LocationMarker spawnedObject, Vector2d location)

@@ -4053,6 +4053,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: allowTilting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: allowZooming
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: maxZoomLevel
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: minZoomLevel
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7304099546048636722, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

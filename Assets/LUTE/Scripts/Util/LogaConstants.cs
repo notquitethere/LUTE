@@ -65,8 +65,14 @@ public static class LogaConstants
     public const float DefaultRadius = 50.0f;
 
     /// <summary>
-    ///     
+    /// Whether to use logs during runtime.
     /// </summary>
     public static bool UseLogs;
+
+    /// <summary>
+    /// Default colour of the marker radius.
+    /// </summary>
+    public static Color defaultRadiusColour = new Color(188, 120, 61, 150);
+
     #endregion
 }
