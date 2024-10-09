@@ -3512,6 +3512,7 @@ MonoBehaviour:
   autoSelectFirstButton: 0
   textDisplay: {fileID: 0}
   canvasGroup: {fileID: 4284560031066138210}
+  clickSound: {fileID: 0}
 --- !u!1 &8749645387087487127
 GameObject:
   m_ObjectHideFlags: 0

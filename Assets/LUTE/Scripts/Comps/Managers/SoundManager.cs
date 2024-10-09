@@ -127,6 +127,40 @@ public class SoundManager : MonoBehaviour
         audioSourceMusic.clip = null;
     }
 
+    public void StopMusic(float fadeDuration)
+    {
+        // If no audio is playing, return
+        if (audioSourceMusic == null || !audioSourceMusic.isPlaying)
+        {
+            return;
+        }
+
+        if (Mathf.Approximately(fadeDuration, 0f))
+        {
+            // Immediately stop the music if no fade-out duration
+            audioSourceMusic.Stop();
+        }
+        else
+        {
+            float startVolume = audioSourceMusic.volume;
+
+            // Fade out the current music over the given duration
+            LeanTween.value(gameObject, startVolume, 0f, fadeDuration)
+                .setOnUpdate((v) =>
+                {
+                    // Gradually reduce the volume
+                    audioSourceMusic.volume = v;
+                })
+                .setOnComplete(() =>
+                {
+                    // Once fade-out is complete, stop the music
+                    audioSourceMusic.Stop();
+                    // Optionally reset the volume back to the starting volume (if you'll play new music later)
+                    audioSourceMusic.volume = startVolume;
+                });
+        }
+    }
+
     public virtual void PauseMusic()
     {
         audioSourceMusic.Pause();

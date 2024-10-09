@@ -38,6 +38,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     protected TextWriter writer;
     protected CanvasGroup canvasGroup;
     protected bool fadeWhenDone = true;
+    protected bool waitForClick = true;
     protected float targetAlpha = 0f;
     protected float fadeCoolDownTimer = 0f;
     // Cache active boxes to avoid expensive scene search
@@ -169,7 +170,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
             targetAlpha = 1f;
             fadeCoolDownTimer = 0.1f;
         }
-        else if (fadeWhenDone && Mathf.Approximately(fadeCoolDownTimer, 0f))
+        else if (!waitForClick && fadeWhenDone && Mathf.Approximately(fadeCoolDownTimer, 0f))
         {
             targetAlpha = 0f;
         }
@@ -377,6 +378,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         gameObject.SetActive(true);
 
         this.fadeWhenDone = fadeWhenDone;
+        this.waitForClick = waitForClick;
 
         // AudioClip SFX = null;
         // if (VOClip != null)
@@ -391,6 +393,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     }
 
     public virtual bool FadeWhenDone { get { return fadeWhenDone; } set { fadeWhenDone = value; } }
+    public virtual bool WaitForClick { get { return waitForClick; } set { waitForClick = value; } }
 
     /// Stop the dialogue while its writing text
     public virtual void Stop()

@@ -37,6 +37,7 @@
                 transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
                 if (moveWithMap)
                     map.UpdateMap(LocationProvider.CurrentLocation.LatitudeLongitude);
+
             }
         }
 

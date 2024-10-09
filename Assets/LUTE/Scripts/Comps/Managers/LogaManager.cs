@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using LoGaCulture.LUTE.Logs;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ using UnityEngine;
 [RequireComponent(typeof(GlobalVariables))]
 [RequireComponent(typeof(LogManager))]
 [RequireComponent(typeof(ConnectionManager))]
+[RequireComponent(typeof(MapLayerChanger))]
 #if UNITY_5_3_OR_NEWER
 [RequireComponent(typeof(SaveManager))]
 [RequireComponent(typeof(SaveLog))]
-
 #endif
 public class LogaManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class LogaManager : MonoBehaviour
     public GlobalVariables GlobalVariables { get; private set; }
     public LogManager LogManager { get; private set; }
     public ConnectionManager ConnectionManager { get; private set; }
+    public MapLayerChanger MapLayerChanger { get; private set; }
 #if UNITY_5_3_OR_NEWER
     public SaveManager SaveManager { get; private set; }
     public SaveLog SaveLog { get; private set; }
@@ -40,6 +42,7 @@ public class LogaManager : MonoBehaviour
         GlobalVariables = GetComponent<GlobalVariables>();
         LogManager = GetComponent<LogManager>();
         ConnectionManager = GetComponent<ConnectionManager>();
+        MapLayerChanger = GetComponent<MapLayerChanger>();
 #if UNITY_5_3_OR_NEWER
         SaveManager = GetComponent<SaveManager>();
         SaveLog = GetComponent<SaveLog>();

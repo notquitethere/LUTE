@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8b390f3c4aefc449a402000dca6e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  frictionCoefficient: 1
+  rotationSpeed: 15
+  frictionCoefficient: 0.99
   rotateX: 1
   rotateY: 0
-  allowSpin: 0
+  allowSpin: 1
 --- !u!65 &8356391914327395702
 BoxCollider:
   m_ObjectHideFlags: 0

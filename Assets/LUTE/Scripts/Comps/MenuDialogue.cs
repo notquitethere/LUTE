@@ -12,6 +12,7 @@ public class MenuDialogue : MonoBehaviour
     [SerializeField] protected bool autoSelectFirstButton = false;
     [SerializeField] protected TextMeshProUGUI textDisplay; //this needs to be on a new button class
     [SerializeField] protected CanvasGroup canvasGroup;
+    [SerializeField] protected AudioClip clickSound;
 
     protected Button[] cachedButtons;
     protected Slider cachedSlider;
@@ -276,6 +277,11 @@ public class MenuDialogue : MonoBehaviour
                 // Use a coroutine to call the node on the next frame
                 // Have to use the engine gameobject as this menu is now inactive
                 engine.StartCoroutine(CallNode(node));
+            }
+
+            if (clickSound != null)
+            {
+                LogaManager.Instance.SoundManager.PlayMusic(clickSound, false, 0, 0);
             }
         };
 

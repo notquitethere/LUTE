@@ -140,7 +140,11 @@ public class TextWriter : MonoBehaviour
                 if (displayRoutine != null)
                     StopCoroutine(displayRoutine);
                 isTyping = false;
-                DialogueBox.GetDialogueBox().FadeWhenDone = true;
+                if (DialogueBox.GetDialogueBox() != null && DialogueBox.GetDialogueBox().FadeWhenDone)
+                {
+                    DialogueBox.GetDialogueBox().FadeWhenDone = true;
+                    DialogueBox.GetDialogueBox().WaitForClick = false;
+                }
                 onComplete?.Invoke();
             }
         }

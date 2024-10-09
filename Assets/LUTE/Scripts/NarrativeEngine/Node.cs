@@ -391,6 +391,7 @@ public class Node : MonoBehaviour
 
         //force idle here so other orders that rely on node not executing are informed this frame rather than next
         ReturnToIdle();
+        ShouldCancel = true;
     }
 
 
