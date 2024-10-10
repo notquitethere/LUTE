@@ -4518,7 +4518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: allowTilting
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7232196700971736188, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: allowZooming
@@ -7160,6 +7160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536473}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536474}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -13627,7 +13630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f99f6d968d6a0b4d9077bbe7cc219d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Options
+  text: options
   hideThisOption: 0
 --- !u!114 &1034535996
 MonoBehaviour:
@@ -15079,7 +15082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1823.5854
+    x: -1822.5854
     y: -675.93884
     width: 90
     height: 40
@@ -15117,15 +15120,15 @@ MonoBehaviour:
   textToAdd: 'Credits:
 
 
-    Music By: DJ Apples
+    Artwork and Content: Alberto
 
 
-    Artwork By: Banana Bob
+    Functionality: Jack
+    Brett
 
 
-    Code
-    By: Bog Man (Bog Games  Ltd.)'
-  textAlignment: 514
+    In Association with Bournemouth University and the National Trust'
+  textAlignment: 1026
   buttonAction:
     m_PersistentCalls:
       m_Calls: []
@@ -25700,7 +25703,7 @@ MonoBehaviour:
   itemId: 0
   orderList:
   - {fileID: 1034536467}
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 1034536474}
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
@@ -25847,6 +25850,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentNode: {fileID: 1034536471}
+  waitForFrames: 1
+--- !u!114 &1034536474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 1034536466}
   waitForFrames: 1
 --- !u!1001 &1055749599
 PrefabInstance:
