@@ -159,6 +159,7 @@ public class SoundManager : MonoBehaviour
                     audioSourceMusic.volume = startVolume;
                 });
         }
+        audioSourceMusic.clip = null;
     }
 
     public virtual void PauseMusic()

@@ -232,6 +232,7 @@ MonoBehaviour:
   characterImage: {fileID: 626753300295012200}
   fitTextWithImage: 0
   allowClickAnywhere: 0
+  buttonToProgress: 0
 --- !u!114 &3741067383219618717
 MonoBehaviour:
   m_ObjectHideFlags: 0

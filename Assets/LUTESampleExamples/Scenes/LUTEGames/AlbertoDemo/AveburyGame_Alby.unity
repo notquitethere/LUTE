@@ -25656,10 +25656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68adc50dca9fa0941ab31b0c5210c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: e0d69799e3057de4ba1877f9d9a34763, type: 3}
+  musicClip: {fileID: 8300000, guid: 0c611cf3d9e29964fb303c6d8460dffe, type: 3}
   atTime: 0
   loop: 1
-  fadeDuration: 1.5
+  fadeDuration: 0.75
 --- !u!114 &1034536460
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -25672,7 +25672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ec0f76c4d9f1746a7877953b4c14e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1.5
+  fadeDuration: 1
 --- !u!114 &1034536466
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -28861,6 +28861,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 192618785}
+    - target: {fileID: 3405058802546516696, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
+      propertyPath: beepSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405058802546516696, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
+      propertyPath: beepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0f5779e9778b044e89741c419f8dd98, type: 3}
+    - target: {fileID: 3405058802546516696, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
+      propertyPath: beepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba3c9cdb459d3e146b842c73adaf6548, type: 3}
+    - target: {fileID: 3405058802546516696, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
+      propertyPath: beepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d6a4810e8f2d564892e23541331fdc3, type: 3}
     - target: {fileID: 6309333995028514880, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
       propertyPath: m_Pivot.x
       value: 0
