@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Mapbox.Map;
 using UnityEngine;
 
 [OrderInfo("Map",
@@ -27,5 +24,10 @@ public class ToggleMap : Order
     public override string GetSummary()
     {
         return setSize ? "Resizes on enable to: " + _size : "does not resize on enable";
+    }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(216, 228, 170, 255);
     }
 }

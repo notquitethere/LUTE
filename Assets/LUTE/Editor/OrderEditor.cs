@@ -1,7 +1,7 @@
-using UnityEditor;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditorInternal;
+using UnityEngine;
 
 [CustomEditor(typeof(Order), true)]
 public class OrderEditor : Editor
@@ -124,41 +124,80 @@ public class OrderEditor : Editor
         GUILayout.EndVertical();
     }
 
+
     public virtual void DrawOrderGUI()
     {
         Order t = target as Order;
 
-        // Code below was copied from here
-        // http://answers.unity3d.com/questions/550829/how-to-add-a-script-field-in-custom-inspector.html
-
-        // Users should not be able to change the MonoScript for the node using the usual Script field.
-        // Doing so could cause node.orderList to contain null entries.
-        // To avoid this we manually display all properties, except for m_Script.
-        // This also allows us to control the order in which properties are displayed.
-
+        // Update the serialized object before making changes
         serializedObject.Update();
         SerializedProperty iterator = serializedObject.GetIterator();
         bool enterChildren = true;
+
         while (iterator.NextVisible(enterChildren))
         {
             enterChildren = false;
+
+            // Skip the MonoScript field, as usual
             if (iterator.name == "m_Script")
             {
                 continue;
             }
 
+            // Manually handle the "layers" array property
+            if (iterator.name == "layers")
+            {
+                // Add a field to modify the array size
+                int newArraySize = EditorGUILayout.IntField("Number of Layers", iterator.arraySize);
+                if (newArraySize == 0)
+                {
+                    newArraySize = 1;
+                }
+
+                // Check if the array size has been modified
+                if (newArraySize != iterator.arraySize)
+                {
+                    // Update the array size
+                    iterator.arraySize = newArraySize;
+                }
+
+                // Loop through each element in the "layers" array
+                for (int i = 0; i < iterator.arraySize; i++)
+                {
+                    // Get the specific element at index i
+                    SerializedProperty layerElement = iterator.GetArrayElementAtIndex(i);
+
+                    // Find the _layerProperty of the element and draw it
+                    SerializedProperty layerProperty = layerElement.FindPropertyRelative("_layerProperty");
+
+                    // Draw the _layerProperty field for this element
+                    if (layerProperty != null)
+                    {
+                        EditorGUILayout.PropertyField(layerProperty, new GUIContent($"Layer {i + 1} Property"), true);
+                    }
+                }
+
+                // Continue to the next property after handling "layers"
+                continue;
+            }
+
+            // Check if the property should be visible based on custom conditions
             if (!t.IsPropertyVisible(iterator.name))
             {
                 continue;
             }
 
-            if (iterator.isArray && t.IsReorderableArray(iterator.name))
+            // Check if the property is an array or generic type, and handle it as a ReorderableList if necessary
+            if ((iterator.isArray || iterator.propertyType == SerializedPropertyType.Generic) && t.IsReorderableArray(iterator.name))
             {
                 ReorderableList reorderableList = null;
-                reoderableLists.TryGetValue(iterator.displayName, out reorderableList);
-                if (reorderableList == null)
+
+                // Try to find an existing ReorderableList for this property
+                if (!reoderableLists.TryGetValue(iterator.displayName, out reorderableList))
                 {
                     var locSerProp = iterator.Copy();
+
+                    // Initialize the ReorderableList for the array or generic property
                     reorderableList = new ReorderableList(serializedObject, locSerProp, true, false, true, true)
                     {
                         drawHeaderCallback = (Rect rect) =>
@@ -167,25 +206,129 @@ public class OrderEditor : Editor
                         },
                         drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
                         {
-                            EditorGUI.PropertyField(rect, locSerProp.GetArrayElementAtIndex(index));
+                            SerializedProperty element = locSerProp.GetArrayElementAtIndex(index);
+                            EditorGUI.PropertyField(rect, element, GUIContent.none, true);
                         },
                         elementHeightCallback = (int index) =>
                         {
-                            return EditorGUI.GetPropertyHeight(locSerProp.GetArrayElementAtIndex(index), null, true);
+                            SerializedProperty element = locSerProp.GetArrayElementAtIndex(index);
+                            return EditorGUI.GetPropertyHeight(element, null, true);
                         }
                     };
 
+                    // Cache the ReorderableList for later reuse
                     reoderableLists.Add(iterator.displayName, reorderableList);
                 }
+
+                // Draw the ReorderableList
                 reorderableList.DoLayoutList();
             }
             else
             {
+                // For all other properties, draw them as usual
                 EditorGUILayout.PropertyField(iterator, true, new GUILayoutOption[0]);
             }
         }
+
+        // Apply any modified properties to the serialized object
         serializedObject.ApplyModifiedProperties();
     }
+
+
+    //public virtual void DrawOrderGUI()
+    //    {
+    //        Order t = target as Order;
+
+    //        // Code below was copied from here
+    //        // http://answers.unity3d.com/questions/550829/how-to-add-a-script-field-in-custom-inspector.html
+
+    //        // Users should not be able to change the MonoScript for the node using the usual Script field.
+    //        // Doing so could cause node.orderList to contain null entries.
+    //        // To avoid this we manually display all properties, except for m_Script.
+    //        // This also allows us to control the order in which properties are displayed.
+
+    //        serializedObject.Update();
+    //        SerializedProperty iterator = serializedObject.GetIterator();
+    //        bool enterChildren = true;
+    //        while (iterator.NextVisible(enterChildren))
+    //        {
+    //            enterChildren = false;
+    //            if (iterator.name == "  m_Script")
+    //            {
+    //                continue;
+    //            }
+
+    //            if (iterator.name == "layers")
+    //            {
+    //                // Add a field to modify the array size
+    //                int newArraySize = EditorGUILayout.IntField("Number of Layers", iterator.arraySize);
+
+    //                // Check if the array size has been modified
+    //                if (newArraySize != iterator.arraySize)
+    //                {
+    //                    // Update the array size
+    //                    iterator.arraySize = newArraySize;
+    //                }
+
+    //                // Loop through each element in the array
+    //                for (int i = 0; i < iterator.arraySize; i++)
+    //                {
+    //                    // Get the specific element at index i
+    //                    SerializedProperty layerElement = iterator.GetArrayElementAtIndex(i);
+
+    //                    // Find the _layerProperty of the element and draw it
+    //                    SerializedProperty layerProperty = layerElement.FindPropertyRelative("_layerProperty");
+
+    //                    // Draw the _layerProperty field for this element
+    //                    if (layerProperty != null)
+    //                    {
+    //                        EditorGUILayout.PropertyField(layerProperty, new GUIContent($"Layer {i + 1} Property"), true);
+    //                    }
+    //                }
+    //            }
+
+    //            if (!t.IsPropertyVisible(iterator.name))
+    //            {
+    //                continue;
+    //            }
+
+    //            if ((iterator.isArray || iterator.propertyType == SerializedPropertyType.Generic) && t.IsReorderableArray(iterator.name))
+    //            {
+    //                ReorderableList reorderableList = null;
+    //                reoderableLists.TryGetValue(iterator.displayName, out reorderableList);
+    //                if (reorderableList == null)
+    //                {
+    //                    var locSerProp = iterator.Copy();
+    //                    reorderableList = new ReorderableList(serializedObject, locSerProp, true, false, true, true)
+    //                    {
+    //                        drawHeaderCallback = (Rect rect) =>
+    //                        {
+    //                            EditorGUI.LabelField(rect, locSerProp.displayName);
+    //                        },
+    //                        drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
+    //                        {
+    //                            SerializedProperty element = locSerProp.GetArrayElementAtIndex(index);
+    //                            EditorGUI.PropertyField(rect, element, GUIContent.none, true);
+    //                        },
+    //                        elementHeightCallback = (int index) =>
+    //                        {
+    //                            SerializedProperty element = locSerProp.GetArrayElementAtIndex(index);
+    //                            return EditorGUI.GetPropertyHeight(element, null, true);
+    //                        }
+    //                    };
+
+    //                    reoderableLists.Add(iterator.displayName, reorderableList);
+    //                }
+    //                reorderableList.DoLayoutList();
+    //            }
+    //            else
+    //            {
+    //                EditorGUILayout.PropertyField(iterator, true, new GUILayoutOption[0]);
+    //            }
+
+    //        }
+    //        serializedObject.ApplyModifiedProperties();
+    //    }
 
     public static void ObjectField<T>(SerializedProperty property, GUIContent label, GUIContent nullLabel, List<T> objectList) where T : Object
     {

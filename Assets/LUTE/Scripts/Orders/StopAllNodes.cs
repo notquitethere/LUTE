@@ -20,8 +20,6 @@ namespace LoGaCulture.LUTE
                 Continue();
             }
 
-            Debug.Log("stopping");
-
             engine.StopAllNodes();
             Continue();
         }
