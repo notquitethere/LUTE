@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 [OrderInfo("Menu",
@@ -14,11 +15,23 @@ public class PopupMenu : Order
     [SerializeField] protected Popup popupWindow;
     [Tooltip("If true, the popup icon will be displayed, otherwise it will be hidden")]
     [SerializeField] protected bool showIcon = true;
+    [Tooltip("The feedback to play when the button is clicked")]
+    [SerializeField] protected MMFeedbacks buttonFeedback;
+    [Tooltip("If true, the popup menu will be redrawn each time it is opened")]
+    [SerializeField] protected bool allowRedraw = false;
 
     public Popup SetPopupWindow { get { return popupWindow; } set { popupWindow = value; } }
 
+    private bool drawn = false;
+
     public override void OnEnter()
     {
+        if (drawn && !allowRedraw)
+        {
+            Continue();
+            return;
+        }
+
         if (setPopupMenuIcon != null)
         {
             PopupIcon.ActivePopupIcon = setPopupMenuIcon;
@@ -45,6 +58,7 @@ public class PopupMenu : Order
             popupIcon.SetPopupWindow(popupWindow);
             UnityEngine.Events.UnityAction action = () =>
 {
+    buttonFeedback?.PlayFeedbacks();
     popupWindow.OpenClose();
 };
             popupIcon.SetAction(action);
@@ -55,6 +69,8 @@ public class PopupMenu : Order
             }
         }
         popupIcon.MoveToNextOption();
+
+        drawn = true;
 
         Continue();
     }

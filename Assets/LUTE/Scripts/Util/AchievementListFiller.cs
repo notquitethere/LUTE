@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using LoGaCulture.LUTE;
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using System.Collections.Generic;
 using UnityEngine;
 
 //Fill the achievement list with the achievements from the database
@@ -10,6 +10,7 @@ public class AchievementListFiller : MonoBehaviour
     [SerializeField] protected MMAchievementList achievementList;
     [SerializeField] protected AchievementItem achievementItem;
     [SerializeField] protected Transform scrollRect;
+    [SerializeField] protected MMFeedbacks closeFeedback;
 
     public static AchievementListFiller ActiveList;
     //public static List<MMAchievement> achievements = new List<MMAchievement>();
@@ -42,7 +43,7 @@ public class AchievementListFiller : MonoBehaviour
         //    }
         //}
         PostcardAchievementList postcardAchievementList = null;
-        if(achievementList is PostcardAchievementList)
+        if (achievementList is PostcardAchievementList)
         {
             postcardAchievementList = achievementList as PostcardAchievementList;
         }
@@ -109,9 +110,14 @@ public class AchievementListFiller : MonoBehaviour
         return ActiveList;
     }
 
-    public virtual void ShowList()
+    public virtual void ShowList(bool show = true)
     {
         canvas = GetComponent<Canvas>();
         canvas.enabled = !canvas.enabled;
+
+        if (!show)
+        {
+            closeFeedback?.PlayFeedbacks();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 [OrderInfo("Achievements",
@@ -14,10 +15,12 @@ public class AchievementMenu : Order
     [SerializeField] protected AchievementListFiller setList;
     [Tooltip("If true, the popup icon will be displayed, otherwise it will be hidden")]
     [SerializeField] protected bool showIcon = true;
+    [Tooltip("The feedbacks to play when the button is clicked")]
+    [SerializeField] protected MMFeedbacks buttonFeedback;
 
     public override void OnEnter()
     {
-        if(setList != null)
+        if (setList != null)
         {
             AchievementListFiller.ActiveList = setList;
         }
@@ -51,6 +54,7 @@ public class AchievementMenu : Order
         UnityEngine.Events.UnityAction action = () =>
         {
             list.ShowList();
+            buttonFeedback?.PlayFeedbacks();
         };
 
         popupIcon.SetAction(action);

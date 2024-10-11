@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,7 +168,7 @@ public class Popup : MonoBehaviour
     /// Adds the option to the list of displayed options. Calls a Node when selected
     /// Will cause the Menu to become visible if it is not already visible
     /// <returns><c>true</c>, if the option was added successfully.</returns>
-    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool closeMenuOnSelect)
+    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool closeMenuOnSelect, MMFeedbacks feedback = null)
     {
         var node = targetNode;
         UnityEngine.Events.UnityAction action = delegate
@@ -187,6 +188,7 @@ public class Popup : MonoBehaviour
                     OpenClose();
                 }
             }
+            feedback?.PlayFeedbacks();
         };
 
         return AddOption(text, interactable, hideOption, action);

@@ -139,6 +139,7 @@ public class SoundManager : MonoBehaviour
         {
             // Immediately stop the music if no fade-out duration
             audioSourceMusic.Stop();
+            audioSourceMusic.clip = null;
         }
         else
         {
@@ -157,9 +158,9 @@ public class SoundManager : MonoBehaviour
                     audioSourceMusic.Stop();
                     // Optionally reset the volume back to the starting volume (if you'll play new music later)
                     audioSourceMusic.volume = startVolume;
+                    audioSourceMusic.clip = null;
                 });
         }
-        audioSourceMusic.clip = null;
     }
 
     public virtual void PauseMusic()

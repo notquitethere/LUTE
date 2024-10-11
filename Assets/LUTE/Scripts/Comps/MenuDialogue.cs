@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Linq;
@@ -12,7 +13,6 @@ public class MenuDialogue : MonoBehaviour
     [SerializeField] protected bool autoSelectFirstButton = false;
     [SerializeField] protected TextMeshProUGUI textDisplay; //this needs to be on a new button class
     [SerializeField] protected CanvasGroup canvasGroup;
-    [SerializeField] protected AudioClip clickSound;
 
     protected Button[] cachedButtons;
     protected Slider cachedSlider;
@@ -247,7 +247,7 @@ public class MenuDialogue : MonoBehaviour
     /// Adds the option to the list of displayed options. Calls a Node when selected
     /// Will cause the Menu to become visible if it is not already visible
     /// <returns><c>true</c>, if the option was added successfully.</returns>
-    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu)
+    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu, MMFeedbacks feedback = null)
     {
         var node = targetNode;
         UnityEngine.Events.UnityAction action = delegate
@@ -278,11 +278,7 @@ public class MenuDialogue : MonoBehaviour
                 // Have to use the engine gameobject as this menu is now inactive
                 engine.StartCoroutine(CallNode(node));
             }
-
-            if (clickSound != null)
-            {
-                LogaManager.Instance.SoundManager.PlayMusic(clickSound, false, 0, 0);
-            }
+            feedback?.PlayFeedbacks();
         };
 
         return AddOption(text, interactable, hideOption, action);

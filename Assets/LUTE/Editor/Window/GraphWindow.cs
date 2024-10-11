@@ -508,6 +508,8 @@ public class GraphWindow : EventWindow
                 }
         }
 
+        storyEngine.Groups.Clear();
+
         for (int i = 0; i < storyEngine.Groups.Count; i++)
         {
             var groupedNode = storyEngine.Groups[i].GroupedNodes;

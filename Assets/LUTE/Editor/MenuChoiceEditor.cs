@@ -12,6 +12,7 @@ public class MenuChoiceEditor : OrderEditor
     protected SerializedProperty setMenuDialogProp;
     protected SerializedProperty hideThisOptionProp;
     protected SerializedProperty closeMenuOnSelectProp;
+    protected SerializedProperty buttonFeedbackProp;
 
     public override void OnEnable()
     {
@@ -25,6 +26,7 @@ public class MenuChoiceEditor : OrderEditor
         setMenuDialogProp = serializedObject.FindProperty("setMenuDialogue");
         hideThisOptionProp = serializedObject.FindProperty("hideThisOption");
         closeMenuOnSelectProp = serializedObject.FindProperty("closeMenuOnSelect");
+        buttonFeedbackProp = serializedObject.FindProperty("buttonFeedback");
     }
 
     public override void DrawOrderGUI()
@@ -59,6 +61,7 @@ public class MenuChoiceEditor : OrderEditor
         EditorGUILayout.PropertyField(setMenuDialogProp);
         EditorGUILayout.PropertyField(hideThisOptionProp);
         EditorGUILayout.PropertyField(closeMenuOnSelectProp);
+        EditorGUILayout.PropertyField(buttonFeedbackProp);
 
         serializedObject.ApplyModifiedProperties();
     }

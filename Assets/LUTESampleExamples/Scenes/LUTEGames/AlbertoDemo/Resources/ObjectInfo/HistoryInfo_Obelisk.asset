@@ -22,4 +22,4 @@ MonoBehaviour:
   stopAudioOnClose: 1
   objectIcon: {fileID: 21300000, guid: 9a0241ed2963f1b46a3b822b04ca82ef, type: 3}
   spinningObject: {fileID: 2344481177358540255, guid: ecd424435913a584dacaaf5993bd87ce, type: 3}
-  unlocked: 1
+  unlocked: 0

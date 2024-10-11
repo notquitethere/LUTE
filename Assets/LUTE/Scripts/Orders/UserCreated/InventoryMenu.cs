@@ -21,7 +21,7 @@ public class InventoryMenu : Order
         if (inventory == null)
         {
             inventory = Inventory.FindInventory("MainInventory", "Player1");
-            if(inventory == null)
+            if (inventory == null)
             {
                 Continue();
                 return;
@@ -38,7 +38,7 @@ public class InventoryMenu : Order
         {
             if (customButtonIcon != null)
             {
-            popupIcon.SetIcon(customButtonIcon);
+                popupIcon.SetIcon(customButtonIcon);
             }
         }
         if (showIcon)
@@ -48,11 +48,11 @@ public class InventoryMenu : Order
 
         UnityEngine.Events.UnityAction action = () =>
         {
-        InventoryInputManager inventoryInputManager = inventory.GetComponentInChildren<InventoryInputManager>();
-        if (inventoryInputManager != null)
-        {
-        inventoryInputManager.ToggleInventory();
-        }
+            InventoryInputManager inventoryInputManager = inventory.GetComponentInChildren<InventoryInputManager>();
+            if (inventoryInputManager != null)
+            {
+                inventoryInputManager.ToggleInventory();
+            }
         };
         popupIcon.SetAction(action);
         popupIcon.MoveToNextOption();
@@ -60,8 +60,8 @@ public class InventoryMenu : Order
         Continue();
     }
 
-        public override string GetSummary()
-        {
+    public override string GetSummary()
+    {
         return "Creates a button which will toggle the inventory on/off (rather than using a nested button in popups)";
-        }
+    }
 }
