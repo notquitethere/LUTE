@@ -17,7 +17,7 @@ MonoBehaviour:
     shows the Obelisk before it's destruction. Placed to the side of the oldest building
     ever build in Avebury, The Obelisk significance were manifested in it's size
     and position.
-  shortDescription: A lone pillar was once standing here, marking an ancient gathering
+  shortDescription: A lone pillar was once standing here, marking an ancient gathering.
   voiceOverClip: {fileID: 8300000, guid: 744d09109a63f004fa2e484c72e86b35, type: 3}
   stopAudioOnClose: 1
   objectIcon: {fileID: 21300000, guid: 9a0241ed2963f1b46a3b822b04ca82ef, type: 3}
