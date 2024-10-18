@@ -508,10 +508,13 @@ public class GraphWindow : EventWindow
                 }
         }
 
-        storyEngine.Groups.Clear();
-
         for (int i = 0; i < storyEngine.Groups.Count; i++)
         {
+            if (storyEngine.Groups[i] == null)
+                continue;
+            if (storyEngine.Groups[i].GroupedNodes == null)
+                continue;
+
             var groupedNode = storyEngine.Groups[i].GroupedNodes;
             try
             {
@@ -2506,6 +2509,11 @@ public class GraphWindow : EventWindow
         var groups = new List<Group>();
         for (int i = 0; i < storyEngine.Groups.Count; i++)
         {
+            if (storyEngine.Groups[i] == null)
+                continue;
+            if (storyEngine.Groups[i].GroupedNodes == null)
+                continue;
+
             var group = storyEngine.Groups[i];
             var rect = group._NodeRect;
             rect.position += storyEngine.ScrollPos;
@@ -3076,6 +3084,10 @@ public class GraphWindow : EventWindow
                         //check to see if the node is already grouped - if it is then we can ungroup it
                         foreach (var group in storyEngine.Groups)
                         {
+                            if (group == null)
+                                continue;
+                            if (group == null)
+                                continue;
                             if (group.GroupedNodes.Contains(hitNode))
                             {
                                 menu.AddItem(new GUIContent("Ungroup"), false, () => UngroupNode(hitNode));
