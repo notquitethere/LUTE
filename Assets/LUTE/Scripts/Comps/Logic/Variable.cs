@@ -36,15 +36,16 @@ public enum SetOperator
 
 public enum VariableScope
 {
-    /// <summary> Can only be accessed by commands in the same Flowchart. </summary>
+    /// <summary> Can only be accessed by commands in the same Engine. </summary>
     Private,
-    /// <summary> Can be accessed from any command in any Flowchart. </summary>
+    /// <summary> Can be accessed from any command in any Engine. </summary>
     Public,
     /// <summary> Creates and/or references a global variable of that name, all variables of this name and scope share the same underlying variable and exist for the duration of the instance of Unity.</summary>
     Global,
 }
 
 // Helper class for variable info attribute - used to display variable info in the inspector
+// Sealed class means it cannot be inherited from
 public sealed class VariableInfoAttribute : System.Attribute
 {
     //Note do not use "isPreviewedOnly:true", it causes the script to fail to load without errors shown
@@ -92,7 +93,7 @@ public sealed class VariablePropertyAttribute : PropertyAttribute
 public abstract class Variable : MonoBehaviour
 {
     [SerializeField] protected VariableScope scope;
-    [SerializeField] protected string key;
+    [SerializeField] protected string key = "";
 
     public virtual VariableScope Scope
     {
@@ -158,7 +159,7 @@ public abstract class BaseVariable<T> : Variable
     {
         get
         {
-            if (scope == VariableScope.Global || scope == VariableScope.Public || Application.isPlaying)
+            if (scope != VariableScope.Global || !Application.isPlaying)
             {
                 return this.value;
             }
@@ -175,7 +176,7 @@ public abstract class BaseVariable<T> : Variable
             }
             else
             {
-                globalStaticRef.value = value;
+                globalStaticRef.Value = value;
             }
         }
     }
