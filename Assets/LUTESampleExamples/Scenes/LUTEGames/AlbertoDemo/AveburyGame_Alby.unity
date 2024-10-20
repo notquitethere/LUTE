@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 295400433}
   - component: {fileID: 295400432}
   - component: {fileID: 295400431}
+  - component: {fileID: 295400434}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -754,6 +755,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295400429}
   m_CullTransparentMesh: 1
+--- !u!114 &295400434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295400429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &311036237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1048216135904596194, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -1768,54 +1784,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
   m_PrefabInstance: {fileID: 1034535571}
   m_PrefabAsset: {fileID: 0}
---- !u!28 &717105078
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 2
-  m_Height: 2
-  m_CompleteImageSize: 20
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 2
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 20
-  _typelessdata: d8e2dcffd8e2dcffd8e2dcffd8e2dcffd8e2dcff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &718382287
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,11 +4121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2724433759428673845, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 89.18
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 2724433759428673845, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -581.1
+      value: -581
       objectReference: {fileID: 0}
     - target: {fileID: 2795554468617990063, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5345,7 +5313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 1
+      value: 0.7300001
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -5369,11 +5337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 2415.6687
+      value: 2571.2898
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: -260.69757
+      value: -149.0288
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -5465,7 +5433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[10]
@@ -7856,9 +7824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2360.0068
-    y: -628.97656
-    width: 117
+    x: -180.00684
+    y: 1475.0234
+    width: 117.5799
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -7913,7 +7881,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2490.2642
     y: 191.8825
-    width: 115
+    width: 115.75342
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -8059,7 +8027,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2827.0967
     y: 404.1095
-    width: 130
+    width: 130.3653
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8205,9 +8173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2359.9556
-    y: -550.0935
-    width: 157
+    x: -179.95557
+    y: 1553.9065
+    width: 158.67578
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -8283,7 +8251,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2300.0154
     y: 492.93793
-    width: 151
+    width: 152.28308
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8356,7 +8324,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2281.376
     y: 423.35184
-    width: 113
+    width: 112.10045
     height: 40
   nodeName: Maji - Start
   nodeDescription: Basic building block of a narrative engine
@@ -8491,7 +8459,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2299.057
     y: 547.8179
-    width: 158
+    width: 158.67578
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8585,7 +8553,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2295.7695
     y: 682.06824
-    width: 158
+    width: 158.67578
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8730,7 +8698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2455.4263
     y: 817.31573
-    width: 157
+    width: 157.76254
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8960,7 +8928,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2135.7705
     y: 731.7484
-    width: 157
+    width: 157.76254
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9110,7 +9078,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2456.581
     y: 731.6356
-    width: 157
+    width: 157.76254
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9455,7 +9423,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2324.8723
     y: 613.2307
-    width: 209
+    width: 209.81734
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -9713,7 +9681,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2137.8699
     y: 827.1635
-    width: 157
+    width: 157.76254
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9788,7 +9756,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2278.3076
     y: 905.4398
-    width: 107
+    width: 107.53424
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -9826,7 +9794,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1723.7631
     y: 904.4663
-    width: 117
+    width: 118.49314
     height: 40
   nodeName: Finley - End
   nodeDescription: Basic building block of a narrative engine
@@ -10029,7 +9997,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1624.8242
     y: 828.58887
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Finley - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10240,7 +10208,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1884.9585
     y: 833.4124
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Finley - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10408,7 +10376,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1634.9955
     y: 735.4428
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Finley - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10608,7 +10576,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1885.0342
     y: 735.59375
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Finley - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10760,7 +10728,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1758.1277
     y: 673.3568
-    width: 168
+    width: 169.63469
     height: 40
   nodeName: Finley - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10868,7 +10836,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1766.0017
     y: 599.885
-    width: 181
+    width: 183.33331
     height: 40
   nodeName: Finley - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10997,7 +10965,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1762.0469
     y: 535.1405
-    width: 168
+    width: 169.63469
     height: 40
   nodeName: Finley - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11147,7 +11115,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1761.362
     y: 477.905
-    width: 170
+    width: 172.37442
     height: 40
   nodeName: Finley - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11242,7 +11210,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1737.3699
     y: 417.01187
-    width: 123
+    width: 123.05935
     height: 40
   nodeName: Finley - Start
   nodeDescription: Basic building block of a narrative engine
@@ -11519,7 +11487,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2772.2034
     y: 512.431
-    width: 176
+    width: 177.85387
     height: 40
   nodeName: DrWebb - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11722,7 +11690,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 238.36023
     y: 1817.6587
-    width: 128
+    width: 129.45204
     height: 40
   nodeName: DrWebb - End
   nodeDescription: Basic building block of a narrative engine
@@ -11817,7 +11785,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2776.4458
     y: 608.7217
-    width: 179
+    width: 180.59358
     height: 40
   nodeName: DrWebb - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11935,7 +11903,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2774.4893
     y: 560.68787
-    width: 181
+    width: 183.33331
     height: 40
   nodeName: DrWebb - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11976,7 +11944,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2773.8145
     y: 653.00684
-    width: 179
+    width: 180.59358
     height: 40
   nodeName: DrWebb - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -12474,7 +12442,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 215.41711
     y: 1662.2424
-    width: 178
+    width: 179.68034
     height: 40
   nodeName: DrWebb - 6th Dialogue
   nodeDescription: Dialogue to fire with boolean
@@ -12773,7 +12741,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2771.1016
     y: 697.6225
-    width: 178
+    width: 179.68034
     height: 40
   nodeName: DrWebb - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13007,7 +12975,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 391.29724
     y: 1734.3163
-    width: 178
+    width: 179.68034
     height: 40
   nodeName: DrWebb - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13210,7 +13178,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 52.4032
     y: 1725.8923
-    width: 178
+    width: 179.68034
     height: 40
   nodeName: DrWebb - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13303,7 +13271,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2994.5217
     y: 960.0809
-    width: 183
+    width: 185.1598
     height: 40
   nodeName: DrWebb2 - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13430,7 +13398,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2221.5737
     y: 266.48712
-    width: 162
+    width: 163.242
     height: 40
   nodeName: Unlock Tutorial One
   nodeDescription: Basic building block of a narrative engine
@@ -13470,7 +13438,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2042.7891
     y: 270.94876
-    width: 164
+    width: 165.06848
     height: 40
   nodeName: Unlock Tutorial Two
   nodeDescription: Basic building block of a narrative engine
@@ -14174,7 +14142,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2614.6924
     y: 189.8678
-    width: 120
+    width: 122.14611
     height: 40
   nodeName: Pause Menu
   nodeDescription: Basic building block of a narrative engine
@@ -14308,7 +14276,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2612.5806
     y: 278.0417
-    width: 113
+    width: 113.92693
     height: 40
   nodeName: Main Menu
   nodeDescription: Basic building block of a narrative engine
@@ -14415,7 +14383,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2777.121
     y: 284.8678
-    width: 70
+    width: 70.091324
     height: 40
   nodeName: Exit
   nodeDescription: Basic building block of a narrative engine
@@ -14625,7 +14593,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2798.2183
     y: 1076.8129
-    width: 135
+    width: 136.75798
     height: 40
   nodeName: DrWebb2 - End
   nodeDescription: Basic building block of a narrative engine
@@ -15308,7 +15276,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0.3100586
     y: 1887.8354
-    width: 224
+    width: 226.25569
     height: 40
   nodeName: DrWebb2 - 1st Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -15418,7 +15386,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2030.6687
     y: 191.19757
-    width: 140
+    width: 139.49771
     height: 40
   nodeName: Prefix Text Start
   nodeDescription: Basic building block of a narrative engine
@@ -15674,7 +15642,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2781.5854
     y: 192.06116
-    width: 90
+    width: 90.18265
     height: 40
   nodeName: Credits
   nodeDescription: Basic building block of a narrative engine
@@ -15795,7 +15763,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2780.5854
     y: 240.8847
-    width: 109
+    width: 109.36072
     height: 40
   nodeName: Disclaimer
   nodeDescription: Basic building block of a narrative engine
@@ -15853,7 +15821,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1237.5237
     y: 838.03564
-    width: 176
+    width: 176.94061
     height: 40
   nodeName: Katrine  - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -15912,7 +15880,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1210.9498
     y: 900.5459
-    width: 123
+    width: 123.972595
     height: 40
   nodeName: Katrine - End
   nodeDescription: Basic building block of a narrative engine
@@ -16456,7 +16424,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1088.4777
     y: 737.3407
-    width: 176
+    width: 176.94061
     height: 40
   nodeName: Katrine  - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16624,7 +16592,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1411.0171
     y: 737.2611
-    width: 176
+    width: 176.94061
     height: 40
   nodeName: Katrine  - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16779,7 +16747,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1256.4688
     y: 658.2442
-    width: 177
+    width: 177.85387
     height: 40
   nodeName: Katrine  - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16941,7 +16909,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1258.1803
     y: 589.6705
-    width: 190
+    width: 191.55249
     height: 40
   nodeName: Katrine  - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17125,7 +17093,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1245.9542
     y: 529.54803
-    width: 177
+    width: 177.85387
     height: 40
   nodeName: Katrine  - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17309,7 +17277,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1237.926
     y: 473.31006
-    width: 179
+    width: 180.59358
     height: 40
   nodeName: Katrine  - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17405,7 +17373,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1213.5287
     y: 417.3818
-    width: 129
+    width: 128.5388
     height: 40
   nodeName: Katrine - Start
   nodeDescription: Basic building block of a narrative engine
@@ -17444,7 +17412,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2562.253
     y: 1505.4775
-    width: 163
+    width: 164.15524
     height: 40
   nodeName: Clara - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17507,7 +17475,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2243.0813
     y: 1584.5864
-    width: 163
+    width: 164.15524
     height: 40
   nodeName: Clara - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17566,7 +17534,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2374.45
     y: 1680.8584
-    width: 113
+    width: 113.92693
     height: 40
   nodeName: Clara - End
   nodeDescription: Basic building block of a narrative engine
@@ -17777,7 +17745,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2563.2483
     y: 1593.4548
-    width: 163
+    width: 164.15524
     height: 40
   nodeName: Clara - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18415,7 +18383,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2249.244
     y: 1507.737
-    width: 163
+    width: 164.15524
     height: 40
   nodeName: Clara - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18601,7 +18569,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2408.9229
     y: 1423.5195
-    width: 164
+    width: 165.06848
     height: 40
   nodeName: Clara - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18798,7 +18766,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2416.504
     y: 1352.2756
-    width: 177
+    width: 178.7671
     height: 40
   nodeName: Clara - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18961,7 +18929,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2410.8354
     y: 1290.812
-    width: 164
+    width: 165.06848
     height: 40
   nodeName: Clara - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19058,7 +19026,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2413.1995
     y: 1214.7671
-    width: 166
+    width: 167.8082
     height: 40
   nodeName: Clara - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19152,7 +19120,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2389.7485
     y: 1147.7079
-    width: 119
+    width: 118.49314
     height: 40
   nodeName: Clara - Start
   nodeDescription: Basic building block of a narrative engine
@@ -19191,7 +19159,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1808.3354
     y: 1269.8044
-    width: 168
+    width: 169.63469
     height: 40
   nodeName: Henry - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19234,7 +19202,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1811.159
     y: 1346.2411
-    width: 168
+    width: 169.63469
     height: 40
   nodeName: Henry - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19276,7 +19244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1779.45
     y: 1678.3584
-    width: 117
+    width: 118.49314
     height: 40
   nodeName: Henry - End
   nodeDescription: Basic building block of a narrative engine
@@ -19312,7 +19280,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1968.0195
     y: 1586.0112
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Henry - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19526,7 +19494,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1975.848
     y: 1458.2786
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Henry - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -20293,7 +20261,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1810.1995
     y: 1200.9436
-    width: 170
+    width: 172.37442
     height: 40
   nodeName: Henry - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -20389,7 +20357,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1789.2944
     y: 1135.9056
-    width: 123
+    width: 123.05935
     height: 40
   nodeName: Henry - Start
   nodeDescription: Basic building block of a narrative engine
@@ -20465,7 +20433,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1636.5494
     y: 1457.0911
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Henry - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -21490,7 +21458,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1627.6163
     y: 1581.9623
-    width: 167
+    width: 168.72144
     height: 40
   nodeName: Henry - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -21712,9 +21680,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2127.5364
-    y: -729.169
-    width: 190
+    x: 52.463623
+    y: 1374.831
+    width: 191.55249
     height: 40
   nodeName: Unlock Tutorial Three 1 1
   nodeDescription: Basic building block of a narrative engine
@@ -22111,7 +22079,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1866.3145
     y: 269.316
-    width: 172
+    width: 173.28766
     height: 40
   nodeName: Unlock Tutorial Three
   nodeDescription: Basic building block of a narrative engine
@@ -22283,9 +22251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -732.74414
-    y: 2311.5283
-    width: 122
+    x: -332.74414
+    y: 2327.5283
+    width: 123.972595
     height: 40
   nodeName: Angela - End
   nodeDescription: Basic building block of a narrative engine
@@ -22520,9 +22488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -910.2324
-    y: 2194.4363
-    width: 172
+    x: -510.23242
+    y: 2210.4363
+    width: 174.2009
     height: 40
   nodeName: Angela - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -22612,9 +22580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -765.1211
-    y: 2078.232
-    width: 172
+    x: -365.1211
+    y: 2094.232
+    width: 174.2009
     height: 40
   nodeName: Angela - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23051,7 +23019,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.69745
     y: 2117.1777
-    width: 182
+    width: 184.24655
     height: 40
   nodeName: Angela - 6th Dialogue 2
   nodeDescription: Basic building block of a narrative engine
@@ -23274,9 +23242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -970.97424
-    y: 2003.589
-    width: 172
+    x: -570.97424
+    y: 2019.589
+    width: 174.2009
     height: 40
   nodeName: Angela - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23428,9 +23396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -765.3165
-    y: 1957.3428
-    width: 173
+    x: -365.31653
+    y: 1973.3428
+    width: 175.11414
     height: 40
   nodeName: Angela - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23567,9 +23535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -770.60986
-    y: 1814.3381
-    width: 173
+    x: -370.60986
+    y: 1830.3381
+    width: 175.11414
     height: 40
   nodeName: Angela - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23661,9 +23629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -775.27747
-    y: 1738.3632
-    width: 175
+    x: -375.27747
+    y: 1754.3632
+    width: 177.85387
     height: 40
   nodeName: Angela - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23787,9 +23755,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -749.6703
-    y: 1669.6575
-    width: 128
+    x: -349.6703
+    y: 1685.6575
+    width: 128.5388
     height: 40
   nodeName: Angela - Start
   nodeDescription: Basic building block of a narrative engine
@@ -24068,9 +24036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -566.11035
-    y: 2001.2354
-    width: 172
+    x: -166.11035
+    y: 2017.2354
+    width: 174.2009
     height: 40
   nodeName: Angela - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -24349,9 +24317,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -768.0011
-    y: 1894.0913
-    width: 183
+    x: -368.0011
+    y: 1910.0913
+    width: 185.1598
     height: 40
   nodeName: Angela - 3.5rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -24526,9 +24494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -593.51086
-    y: 2199.5015
-    width: 172
+    x: -193.51086
+    y: 2215.5015
+    width: 174.2009
     height: 40
   nodeName: Angela - 9th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -25100,7 +25068,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2659.2869
     y: 960.3973
-    width: 188
+    width: 190.63925
     height: 40
   nodeName: DrWebb2 - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -25718,7 +25686,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.154907
     y: 1799.8627
-    width: 182
+    width: 182.42007
     height: 40
   nodeName: DrWebb2 - Start (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -26170,7 +26138,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2800.4312
     y: 860.30304
-    width: 141
+    width: 141.32419
     height: 40
   nodeName: DrWebb2 - Start
   nodeDescription: Basic building block of a narrative engine
@@ -26331,9 +26299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2380.2444
-    y: -734.11163
-    width: 211
+    x: -200.24438
+    y: 1369.8884
+    width: 213.47029
     height: 40
   nodeName: JB Custom Location Updater
   nodeDescription: Basic building block of a narrative engine
@@ -26399,9 +26367,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2087.5283
-    y: -647.2543
-    width: 122
+    x: 92.47168
+    y: 1456.7457
+    width: 123.05935
     height: 40
   nodeName: Layer Cycler
   nodeDescription: Basic building block of a narrative engine
@@ -26490,9 +26458,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1887.2726
-    y: -730.908
-    width: 80
+    x: 292.72742
+    y: 1373.092
+    width: 81.050224
     height: 40
   nodeName: Node
   nodeDescription: Basic building block of a narrative engine
@@ -26543,7 +26511,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2271.5737
     y: 141.19757
-    width: 627.2593
+    width: 628.5469
     height: 219.75119
   nodeName: Location Unlocking
   nodeDescription: Basic building block of a narrative engine
@@ -26603,7 +26571,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2831.5854
     y: 139.8678
-    width: 506.3213
+    width: 507.0747
     height: 235
   nodeName: 'Menu Items '
   nodeDescription: Basic building block of a narrative engine
@@ -26665,7 +26633,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2826.4458
     y: 462.43103
-    width: 283.34424
+    width: 285.2898
     height: 325.19147
   nodeName: Initial Tutorial
   nodeDescription: Basic building block of a narrative engine
@@ -26715,13 +26683,13 @@ MonoBehaviour:
     x: -1597.5667
     y: 143.03821
     width: 125
-    height: 130
+    height: 127.67122
   labelText: Unlocks locations based on the tutorial states & ensures that the map
     and prefix text  will appear on first play.
   labelStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2061617812}
+      m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
@@ -26805,13 +26773,13 @@ MonoBehaviour:
     x: -1440.5667
     y: 458.0382
     width: 125
-    height: 160
+    height: 156.89496
   labelText: These dialogues will only appear if the tutorials have been completed.
     Once they have been completed, the rest of the game locations will be revelaed!
   labelStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 717105078}
+      m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
@@ -26972,9 +26940,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -760.6687
-    y: 518.6976
-    width: 89
+    x: -80.6687
+    y: 1278.6975
+    width: 90.18265
     height: 40
   nodeName: Node 1
   nodeDescription: Basic building block of a narrative engine
@@ -27105,6 +27073,10 @@ PrefabInstance:
     - target: {fileID: 5453896668789114138, guid: df0a1de0c57f50141a712c7e8b2b2d91, type: 3}
       propertyPath: m_Name
       value: LocationInfoPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453896668789114138, guid: df0a1de0c57f50141a712c7e8b2b2d91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603472770286031685, guid: df0a1de0c57f50141a712c7e8b2b2d91, type: 3}
       propertyPath: m_Camera
@@ -28691,12 +28663,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 678804591115064433, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678804591115064433, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 678804591115064433, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678804591115064433, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: -0.0007324219
       objectReference: {fileID: 0}
     - target: {fileID: 923658320040941386, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_Pivot.y
@@ -28706,9 +28686,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -750.00006
       objectReference: {fileID: 0}
+    - target: {fileID: 1237375457154995142, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237375457154995142, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 121
+      objectReference: {fileID: 0}
     - target: {fileID: 1624396809082135176, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_Name
       value: DefaultTextInfoPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624396809082135176, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829207434567489923, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_AnchorMax.x
@@ -28730,10 +28722,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2504665780660200188, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504665780660200188, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_margin.y
+      value: 80.42
+      objectReference: {fileID: 0}
     - target: {fileID: 2854579154409327051, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 192618785}
+    - target: {fileID: 3875063028929002427, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1756
+      objectReference: {fileID: 0}
     - target: {fileID: 4534440696140356569, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -28774,6 +28778,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4620313341644160081, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6399682113329002018, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28785,6 +28793,18 @@ PrefabInstance:
     - target: {fileID: 6399682113329002018, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969866533764511297, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969866533764511297, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969866533764511297, guid: 631ef434b5539b54182a5566b4da18ee, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29252,6 +29272,7 @@ GameObject:
   - component: {fileID: 1914542875}
   - component: {fileID: 1914542874}
   - component: {fileID: 1914542873}
+  - component: {fileID: 1914542876}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -29373,6 +29394,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914542871}
   m_CullTransparentMesh: 1
+--- !u!114 &1914542876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914542871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1923842485
 GameObject:
   m_ObjectHideFlags: 0
@@ -29689,54 +29725,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 790, y: 590}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!28 &2061617812
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 2
-  m_Height: 2
-  m_CompleteImageSize: 20
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 2
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 20
-  _typelessdata: d8e2dcffd8e2dcffd8e2dcffd8e2dcffd8e2dcff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &2081397609
 GameObject:
   m_ObjectHideFlags: 1
@@ -30070,9 +30058,117 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1818381435260786508, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_text
+      value: Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSize
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236027725045643314, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481426661231236506, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a32adc99db6104fdebad0ae11907ea82, type: 3}
+    - target: {fileID: 2481426661231236506, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2599170188222348353, guid: 0355c158a7155284db74485629f99c61, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.84705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877252840392600283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177914621594068667, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341972656883614503, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341972656883614503, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341972656883614503, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_text
+      value: Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSize
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103003950371235139, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 5432095001085506560, guid: 0355c158a7155284db74485629f99c61, type: 3}
       propertyPath: m_AnchorMax.y
@@ -30089,6 +30185,34 @@ PrefabInstance:
     - target: {fileID: 5432095001085506560, guid: 0355c158a7155284db74485629f99c61, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_text
+      value: Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSize
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046270302002537087, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 6594570409472096780, guid: 0355c158a7155284db74485629f99c61, type: 3}
       propertyPath: m_Pivot.x
@@ -30170,9 +30294,233 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_text
+      value: Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSize
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679574962009002572, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852537830498642729, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015077224125685271, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Spacing
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051129798499368932, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a32adc99db6104fdebad0ae11907ea82, type: 3}
+    - target: {fileID: 7051129798499368932, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7520512354614723890, guid: 0355c158a7155284db74485629f99c61, type: 3}
       propertyPath: m_Name
       value: MenuMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520512354614723890, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.84705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07c84562c94cf4aaf802ae84f25de0b0, type: 3}
+    - target: {fileID: 7789169869688567722, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f0468ad3ca6b748958074ee4a538e93d, type: 3}
+    - target: {fileID: 7962524630617477079, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a32adc99db6104fdebad0ae11907ea82, type: 3}
+    - target: {fileID: 7962524630617477079, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.84705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537608548582899877, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.84705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728426302126059670, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a32adc99db6104fdebad0ae11907ea82, type: 3}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915359481853954283, guid: 0355c158a7155284db74485629f99c61, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30302,6 +30650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox_Alberto
       objectReference: {fileID: 0}
+    - target: {fileID: 6875071444668596171, guid: 8be6048bc203b7242ba9e5e896cdf336, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30335,6 +30687,10 @@ PrefabInstance:
     - target: {fileID: 2205289510571520907, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_Name
       value: ObjectInfoPanel_alberto
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205289510571520907, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2653958491984466701, guid: ecbc705784ae4514295ca214bcad8ba0, type: 3}
       propertyPath: m_AnchorMax.x
