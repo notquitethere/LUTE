@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -32,6 +30,6 @@ public class LogicEnd : Order
 
     public override Color GetButtonColour()
     {
-        return Color.cyan;
+        return new Color32(230, 181, 188, 255);
     }
 }

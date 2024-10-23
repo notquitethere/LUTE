@@ -274,6 +274,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &76710396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76710397}
+  - component: {fileID: 76710398}
+  m_Layer: 0
+  m_Name: Location-Based Dialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76710397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76710396}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034535575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76710398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76710396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43699f528a486d145b6b5e945d20648e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collection:
+  - {fileID: 1034535861}
+  - {fileID: 1034535858}
+  - {fileID: 1034535853}
+  - {fileID: 1034535849}
+  - {fileID: 1034535845}
+  - {fileID: 1034535838}
+  - {fileID: 1034535831}
+  - {fileID: 1034535825}
+  - {fileID: 1034535817}
+  - {fileID: 1034535809}
+  - {fileID: 1034536112}
+  - {fileID: 1034536109}
+  - {fileID: 1034536103}
+  - {fileID: 1034536097}
+  - {fileID: 1034536092}
+  - {fileID: 1034536087}
+  - {fileID: 1034536081}
+  - {fileID: 1034536060}
+  - {fileID: 1034536062}
 --- !u!1 &155039058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1787,7 @@ GameObject:
   - component: {fileID: 670595383}
   - component: {fileID: 670595384}
   m_Layer: 0
-  m_Name: Unlinked_Group
+  m_Name: Menu Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3877,7 +3941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceType
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceType
@@ -3925,7 +3989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _imagery._layerProperty.sourceOptions.layerSource.Id
-      value: mapbox.satellite
+      value: mapbox://styles/mapbox/satellite-streets-v10
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: _terrain._layerProperty.sourceOptions.layerSource.Id
@@ -5308,32 +5372,40 @@ PrefabInstance:
       value: A demo game showcasing core features.
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: labelTint.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: labelTint.b
-      value: 0.8627451
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: labelTint.g
-      value: 0.8862745
+      value: 0.78083223
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: labelTint.r
-      value: 0.84705883
+      value: 0.48406905
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 2415.6687
+      value: 2768.938
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: -260.69757
+      value: 41.291626
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: nodeViewHeight
+      value: 744
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: groups.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: groups.Array.data[0]
@@ -5356,12 +5428,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1034536479}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: groups.Array.data[5]
+      value: 
+      objectReference: {fileID: 1034536489}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.size
-      value: 16
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: groupnames.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: showHandlerInfoOnGraph
@@ -5416,8 +5492,20 @@ PrefabInstance:
       value: Location Unlocking
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: groupnames.Array.data[3]
+      value: Menu Components
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: groupnames.Array.data[4]
+      value: Dr Webb Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: groupnames.Array.data[5]
+      value: Location-Based Dialogues
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[10]
@@ -5442,55 +5530,119 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: variables.Array.data[15]
       value: 
+      objectReference: {fileID: 1034536488}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[16]
+      value: 
       objectReference: {fileID: 1034536476}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[17]
+      value: 
+      objectReference: {fileID: 1034536497}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[18]
+      value: 
+      objectReference: {fileID: 1034536496}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[19]
+      value: 
+      objectReference: {fileID: 1034536495}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[20]
+      value: 
+      objectReference: {fileID: 1034536498}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[21]
+      value: 
+      objectReference: {fileID: 1034536507}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: variables.Array.data[22]
+      value: 
+      objectReference: {fileID: 1034536517}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034536486}
+      objectReference: {fileID: 1034536494}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 1034535888}
+      objectReference: {fileID: 1034535858}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 1034535883}
+      objectReference: {fileID: 1034535853}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 1034535889}
+      objectReference: {fileID: 1034535849}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[4]
       value: 
-      objectReference: {fileID: 1034535925}
+      objectReference: {fileID: 1034535845}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[5]
       value: 
-      objectReference: {fileID: 1034536057}
+      objectReference: {fileID: 1034535838}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[6]
       value: 
-      objectReference: {fileID: 1034535767}
+      objectReference: {fileID: 1034535831}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[7]
       value: 
-      objectReference: {fileID: 1034535795}
+      objectReference: {fileID: 1034535825}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[8]
       value: 
-      objectReference: {fileID: 1034535805}
+      objectReference: {fileID: 1034535817}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[9]
       value: 
-      objectReference: {fileID: 1034535808}
+      objectReference: {fileID: 1034535809}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[10]
+      value: 
+      objectReference: {fileID: 1034536112}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[11]
+      value: 
+      objectReference: {fileID: 1034536109}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[12]
+      value: 
+      objectReference: {fileID: 1034536103}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[13]
+      value: 
+      objectReference: {fileID: 1034536097}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[14]
+      value: 
+      objectReference: {fileID: 1034536092}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[15]
+      value: 
+      objectReference: {fileID: 1034536087}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[16]
+      value: 
+      objectReference: {fileID: 1034536081}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[17]
+      value: 
+      objectReference: {fileID: 1034536060}
+    - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      propertyPath: selectedNodes.Array.data[18]
+      value: 
+      objectReference: {fileID: 1034536062}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 1034536487}
+      objectReference: {fileID: 1034536520}
     - target: {fileID: 8647909171326844323, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5776,6 +5928,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9018275813414471455, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1932107277}
+    - targetCorrespondingSourceObject: {fileID: 9018275813414471455, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76710397}
     - targetCorrespondingSourceObject: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 742807565}
@@ -7642,15 +7797,6 @@ PrefabInstance:
       addedObject: {fileID: 1034536478}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034536480}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034536483}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034536482}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034536486}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -7661,6 +7807,108 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536487}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536489}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536488}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536491}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536490}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536492}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536493}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536494}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536497}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536496}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536495}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536498}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536505}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536504}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536503}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536501}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536502}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536500}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536499}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536506}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536509}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536508}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536510}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536507}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536513}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536512}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536511}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536514}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536516}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536515}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536517}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536518}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536519}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536520}
+    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1034536521}
     - targetCorrespondingSourceObject: {fileID: 1704565878801981367, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192618782}
@@ -7847,8 +8095,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customButtonIcon: {fileID: 21300000, guid: 53d730aba6cc75a448e5094c794b80bd, type: 3}
   setIconButton: {fileID: 0}
-  inventory: {fileID: 722612698}
   showIcon: 1
+  buttonFeedback: {fileID: 0}
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  inventory: {fileID: 722612698}
 --- !u!114 &1034535599
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7863,8 +8115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2490.2642
-    y: 191.8825
+    x: -2509.2642
+    y: 180.8825
     width: 115
     height: 40
   nodeName: Menu Items
@@ -7933,9 +8185,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customButtonIcon: {fileID: 21300000, guid: 4f8bf5b672858b447801748c33406026, type: 3}
   setIconButton: {fileID: 0}
-  setList: {fileID: 0}
   showIcon: 1
   buttonFeedback: {fileID: 1510745987}
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  setList: {fileID: 0}
 --- !u!114 &1034535645
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8009,8 +8264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2827.0967
-    y: 404.1095
+    x: -2304.0967
+    y: 266.1095
     width: 130
     height: 40
   nodeName: Start Dialogue
@@ -8102,6 +8357,8 @@ MonoBehaviour:
   text: Hi Katrine, nice to meet you
   description: 
   targetNode: {fileID: 1034535703}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8233,8 +8490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2300.0154
-    y: 492.93793
+    x: -1912.0154
+    y: 201.93793
     width: 151
     height: 40
   nodeName: Maji 2nd Dialogue
@@ -8306,8 +8563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2281.376
-    y: 423.35184
+    x: -1906.376
+    y: 134.35184
     width: 113
     height: 40
   nodeName: Maji - Start
@@ -8322,12 +8579,12 @@ MonoBehaviour:
   isGrouped: 0
   groupIndex: -1
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 1
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
-  targetKeyNode: {fileID: 0}
+  targetKeyNode: {fileID: 1034535925}
   showDesc: 0
   saveable: 1
   NodeComplete: 0
@@ -8379,6 +8636,8 @@ MonoBehaviour:
   text: Hey Maji thanks a lot, likewise.
   description: 
   targetNode: {fileID: 1034535748}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8400,6 +8659,8 @@ MonoBehaviour:
   text: Indeed.
   description: 
   targetNode: {fileID: 1034535755}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8421,6 +8682,8 @@ MonoBehaviour:
   text: Yes, I would love to.
   description: 
   targetNode: {fileID: 1034535755}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8441,8 +8704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2299.057
-    y: 547.8179
+    x: -1911.0569
+    y: 256.81787
     width: 158
     height: 40
   nodeName: Maji - 3rd Dialogue
@@ -8515,6 +8778,8 @@ MonoBehaviour:
   text: Fascinating!
   description: 
   targetNode: {fileID: 1034535795}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8535,8 +8800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2295.7695
-    y: 682.06824
+    x: -1907.7695
+    y: 391.06824
     width: 158
     height: 40
   nodeName: Maji - 4th Dialogue
@@ -8680,8 +8945,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2455.4263
-    y: 817.31573
+    x: -2023.4263
+    y: 532.31573
     width: 157
     height: 40
   nodeName: Maji - 7th Dialogue
@@ -8724,6 +8989,8 @@ MonoBehaviour:
   text: Ceremonial purposes
   description: 
   targetNode: {fileID: 1034535767}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8745,6 +9012,8 @@ MonoBehaviour:
   text: Residential purposes
   description: 
   targetNode: {fileID: 1034535805}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8766,6 +9035,8 @@ MonoBehaviour:
   text: Ceremonial purposes
   description: 
   targetNode: {fileID: 1034535767}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8787,6 +9058,8 @@ MonoBehaviour:
   text: Residential purpose
   description: 
   targetNode: {fileID: 1034535805}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8910,8 +9183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2135.7705
-    y: 731.7484
+    x: -1797.7705
+    y: 467.7484
     width: 157
     height: 40
   nodeName: Maji - 6th Dialogue
@@ -8952,6 +9225,8 @@ MonoBehaviour:
   text: Around 50
   description: 
   targetNode: {fileID: 1034535775}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -8973,6 +9248,8 @@ MonoBehaviour:
   text: Around 200
   description: 
   targetNode: {fileID: 1034535780}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -9060,8 +9337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2456.581
-    y: 731.6356
+    x: -2030.581
+    y: 467.63562
     width: 157
     height: 40
   nodeName: Maji - 5th Dialogue
@@ -9317,6 +9594,8 @@ MonoBehaviour:
   text: I didn't know that!
   description: 
   targetNode: {fileID: 1034535759}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -9405,8 +9684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2324.8723
-    y: 613.2307
+    x: -1936.8723
+    y: 322.2307
     width: 209
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
@@ -9663,8 +9942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2137.8699
-    y: 827.1635
+    x: -1811.8699
+    y: 528.1635
     width: 157
     height: 40
   nodeName: Maji - 8th Dialogue
@@ -9738,8 +10017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2278.3076
-    y: 905.4398
+    x: -1888.3076
+    y: 584.4398
     width: 107
     height: 40
   nodeName: Maji - End
@@ -9757,7 +10036,7 @@ MonoBehaviour:
   tint: {r: 0.493948, g: 0.7341111, b: 0.9433962, a: 1}
   useCustomTint: 1
   hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
+  targetUnlockNode: {fileID: 1034536489}
   targetKeyNode: {fileID: 0}
   showDesc: 0
   saveable: 1
@@ -9776,8 +10055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1723.7631
-    y: 904.4663
+    x: -1333.7631
+    y: 790.9979
     width: 117
     height: 40
   nodeName: Finley - End
@@ -9786,10 +10065,10 @@ MonoBehaviour:
   itemId: 0
   orderList: []
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -9979,8 +10258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1624.8242
-    y: 828.58887
+    x: -1235.8242
+    y: 722.1205
     width: 167
     height: 40
   nodeName: Finley - 8th Dialogue
@@ -9997,10 +10276,10 @@ MonoBehaviour:
   - {fileID: 1034535811}
   - {fileID: 1034535810}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10190,8 +10469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1884.9585
-    y: 833.4124
+    x: -1489.9585
+    y: 735.20984
     width: 167
     height: 40
   nodeName: Finley - 7th Dialogue
@@ -10208,10 +10487,10 @@ MonoBehaviour:
   - {fileID: 1034535819}
   - {fileID: 1034535818}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10235,6 +10514,8 @@ MonoBehaviour:
   text: Metal tools and textiles
   description: 
   targetNode: {fileID: 1034535817}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10256,6 +10537,8 @@ MonoBehaviour:
   text: Animal bones, flint tools and pottery sherds
   description: 
   targetNode: {fileID: 1034535825}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10358,8 +10641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1634.9955
-    y: 735.4428
+    x: -1240.9955
+    y: 666.9744
     width: 167
     height: 40
   nodeName: Finley - 6th Dialogue
@@ -10374,10 +10657,10 @@ MonoBehaviour:
   - {fileID: 1034535827}
   - {fileID: 1034535826}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10401,6 +10684,8 @@ MonoBehaviour:
   text: Metal tools and textiles
   description: 
   targetNode: {fileID: 1034535817}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10422,6 +10707,8 @@ MonoBehaviour:
   text: Animal bones, flint tools and pottery sherds
   description: 
   targetNode: {fileID: 1034535825}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10558,8 +10845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1885.0342
-    y: 735.59375
+    x: -1491.0342
+    y: 667.12537
     width: 167
     height: 40
   nodeName: Finley - 5th Dialogue
@@ -10574,10 +10861,10 @@ MonoBehaviour:
   - {fileID: 1034535833}
   - {fileID: 1034535832}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10601,6 +10888,8 @@ MonoBehaviour:
   text: Wooden posts
   description: 
   targetNode: {fileID: 1034535831}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10622,6 +10911,8 @@ MonoBehaviour:
   text: Standing Stones
   description: 
   targetNode: {fileID: 1034535838}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10710,8 +11001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1758.1277
-    y: 673.3568
+    x: -1364.1277
+    y: 604.8884
     width: 168
     height: 40
   nodeName: Finley - 4th Dialogue
@@ -10724,10 +11015,10 @@ MonoBehaviour:
   - {fileID: 1034535840}
   - {fileID: 1034535839}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10818,8 +11109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1766.0017
-    y: 599.885
+    x: -1373.2676
+    y: 531.4166
     width: 181
     height: 40
   nodeName: Finley - 3.5nd Dialogue
@@ -10832,10 +11123,10 @@ MonoBehaviour:
   - {fileID: 1034535847}
   - {fileID: 1034535868}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -10859,6 +11150,8 @@ MonoBehaviour:
   text: That must've been back breaking!
   description: 
   targetNode: {fileID: 1034535849}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -10947,8 +11240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1762.0469
-    y: 535.1405
+    x: -1368.0469
+    y: 467.93793
     width: 168
     height: 40
   nodeName: Finley - 3rd Dialogue
@@ -10962,16 +11255,16 @@ MonoBehaviour:
   - {fileID: 1034535850}
   - {fileID: 1034535863}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
-  showDesc: 1
+  showDesc: 0
   saveable: 0
   NodeComplete: 0
 --- !u!114 &1034535854
@@ -10989,6 +11282,8 @@ MonoBehaviour:
   text: I'm all ears
   description: 
   targetNode: {fileID: 1034535853}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11010,6 +11305,8 @@ MonoBehaviour:
   text: Sure!
   description: 
   targetNode: {fileID: 1034535853}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11097,8 +11394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1761.362
-    y: 477.905
+    x: -1367.362
+    y: 409.43665
     width: 170
     height: 40
   nodeName: Finley - 2nd Dialogue
@@ -11112,10 +11409,10 @@ MonoBehaviour:
   - {fileID: 1034535855}
   - {fileID: 1034535854}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535657}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -11139,6 +11436,8 @@ MonoBehaviour:
   text: Hi Finley, nice to meet you!
   description: 
   targetNode: {fileID: 1034535858}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11192,8 +11491,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1737.3699
-    y: 417.01187
+    x: -1343.3699
+    y: 348.54352
     width: 123
     height: 40
   nodeName: Finley - Start
@@ -11203,9 +11502,10 @@ MonoBehaviour:
   orderList:
   - {fileID: 1034535860}
   - {fileID: 1034535859}
+  - {fileID: 1034536491}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
   nodeLocation: {fileID: 1034535657}
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -11265,6 +11565,8 @@ MonoBehaviour:
   text: What a hard job!
   description: 
   targetNode: {fileID: 1034535849}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11469,8 +11771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2772.2034
-    y: 512.431
+    x: -2325.2034
+    y: 489.43103
     width: 176
     height: 40
   nodeName: DrWebb - 1st Dialogue
@@ -11545,6 +11847,8 @@ MonoBehaviour:
   text: Hi Dr Webb!
   description: 
   targetNode: {fileID: 1034535888}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11714,6 +12018,8 @@ MonoBehaviour:
   text: How do I talk to them?
   description: 
   targetNode: {fileID: 1034535889}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11767,8 +12073,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2776.4458
-    y: 608.7217
+    x: -2323.4458
+    y: 598.7217
     width: 179
     height: 40
   nodeName: DrWebb - 3rd Dialogue
@@ -11811,6 +12117,8 @@ MonoBehaviour:
   text: Maybe this one?
   description: 
   targetNode: {fileID: 1034535883}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11832,6 +12140,8 @@ MonoBehaviour:
   text: Alright, let's try this one.
   description: 
   targetNode: {fileID: 1034535883}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -11885,8 +12195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2774.4893
-    y: 560.68787
+    x: -2324.4893
+    y: 542.68787
     width: 181
     height: 40
   nodeName: DrWebb - 2nd Dialogue
@@ -11926,8 +12236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2773.8145
-    y: 653.00684
+    x: -2324.8145
+    y: 647.00684
     width: 179
     height: 40
   nodeName: DrWebb - 4th Dialogue
@@ -11966,6 +12276,8 @@ MonoBehaviour:
   text: Yes, I see it.
   description: 
   targetNode: {fileID: 1034535925}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -12466,6 +12778,8 @@ MonoBehaviour:
   text: By reaching an Orange Circle and Tapping on it.
   description: 
   targetNode: {fileID: 1034535939}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -12723,8 +13037,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2771.1016
-    y: 697.6225
+    x: -2323.1016
+    y: 703.6225
     width: 178
     height: 40
   nodeName: DrWebb - 5th Dialogue
@@ -12747,7 +13061,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
-  targetUnlockNode: {fileID: 0}
+  targetUnlockNode: {fileID: 1034535750}
   targetKeyNode: {fileID: 0}
   showDesc: 0
   saveable: 0
@@ -13203,6 +13517,8 @@ MonoBehaviour:
   text: Tapping on an Orange Circle anytime.
   description: 
   targetNode: {fileID: 1034535933}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -13253,8 +13569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2994.5217
-    y: 960.0809
+    x: -2966.673
+    y: 1251.2202
     width: 183
     height: 40
   nodeName: DrWebb2 - 1st Dialogue
@@ -13380,8 +13696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2221.5737
-    y: 266.48712
+    x: -2866.2292
+    y: -352.36176
     width: 162
     height: 40
   nodeName: Unlock Tutorial One
@@ -13420,8 +13736,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2042.7891
-    y: 270.94876
+    x: -2687.4446
+    y: -347.9001
     width: 164
     height: 40
   nodeName: Unlock Tutorial Two
@@ -14124,8 +14440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2614.6924
-    y: 189.8678
+    x: -2633.6924
+    y: 178.8678
     width: 120
     height: 40
   nodeName: Pause Menu
@@ -14258,8 +14574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2612.5806
-    y: 278.0417
+    x: -2631.5806
+    y: 267.0417
     width: 113
     height: 40
   nodeName: Main Menu
@@ -14365,8 +14681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2777.121
-    y: 284.8678
+    x: -2796.121
+    y: 273.8678
     width: 70
     height: 40
   nodeName: Exit
@@ -14575,8 +14891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2798.2183
-    y: 1076.8129
+    x: -2770.3696
+    y: 1367.9521
     width: 135
     height: 40
   nodeName: DrWebb2 - End
@@ -15368,8 +15684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2030.6687
-    y: 191.19757
+    x: -2675.3242
+    y: -427.6512
     width: 140
     height: 40
   nodeName: Prefix Text Start
@@ -15624,8 +15940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2781.5854
-    y: 192.06116
+    x: -2800.5854
+    y: 181.06116
     width: 90
     height: 40
   nodeName: Credits
@@ -15745,8 +16061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2780.5854
-    y: 240.8847
+    x: -2799.5854
+    y: 229.8847
     width: 109
     height: 40
   nodeName: Disclaimer
@@ -15803,8 +16119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1237.5237
-    y: 838.03564
+    x: -891.5237
+    y: 741.56726
     width: 176
     height: 40
   nodeName: Katrine  - 8th Dialogue
@@ -15820,10 +16136,10 @@ MonoBehaviour:
   - {fileID: 1034536063}
   - {fileID: 1034536061}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -15862,8 +16178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1210.9498
-    y: 900.5459
+    x: -858.9498
+    y: 815.0775
     width: 123
     height: 40
   nodeName: Katrine - End
@@ -15872,10 +16188,10 @@ MonoBehaviour:
   itemId: 0
   orderList: []
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -16250,6 +16566,8 @@ MonoBehaviour:
   text: Spiritual Cerimonies
   description: 
   targetNode: {fileID: 1034536060}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16271,6 +16589,8 @@ MonoBehaviour:
   text: Gatherings or Special events
   description: 
   targetNode: {fileID: 1034536060}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16406,8 +16726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1088.4777
-    y: 737.3407
+    x: -762.47766
+    y: 667.8723
     width: 176
     height: 40
   nodeName: Katrine  - 6th Dialogue
@@ -16422,10 +16742,10 @@ MonoBehaviour:
   - {fileID: 1034536076}
   - {fileID: 1034536075}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -16449,6 +16769,8 @@ MonoBehaviour:
   text: Spiritual Cerimonies
   description: 
   targetNode: {fileID: 1034536060}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16470,6 +16792,8 @@ MonoBehaviour:
   text: Gatherings or Special events
   description: 
   targetNode: {fileID: 1034536060}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16574,8 +16898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1411.0171
-    y: 737.2611
+    x: -1029.0171
+    y: 671.7927
     width: 176
     height: 40
   nodeName: Katrine  - 5th Dialogue
@@ -16590,10 +16914,10 @@ MonoBehaviour:
   - {fileID: 1034536083}
   - {fileID: 1034536082}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -16617,6 +16941,8 @@ MonoBehaviour:
   text: A full circle of stones
   description: 
   targetNode: {fileID: 1034536081}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16638,6 +16964,8 @@ MonoBehaviour:
   text: A box of stones
   description: 
   targetNode: {fileID: 1034536087}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16729,8 +17057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1256.4688
-    y: 658.2442
+    x: -889.46875
+    y: 590.7758
     width: 177
     height: 40
   nodeName: Katrine  - 4th Dialogue
@@ -16745,10 +17073,10 @@ MonoBehaviour:
   - {fileID: 1034536089}
   - {fileID: 1034536088}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -16891,8 +17219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1258.1803
-    y: 589.6705
+    x: -891.1803
+    y: 522.2021
     width: 190
     height: 40
   nodeName: Katrine  - 3.5nd Dialogue
@@ -16906,10 +17234,10 @@ MonoBehaviour:
   - {fileID: 1034536072}
   - {fileID: 1034536093}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -16933,6 +17261,8 @@ MonoBehaviour:
   text: I didn't know about this
   description: 
   targetNode: {fileID: 1034536097}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -16954,6 +17284,8 @@ MonoBehaviour:
   text: That sounds intriguing!
   description: 
   targetNode: {fileID: 1034536097}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -17075,8 +17407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1245.9542
-    y: 529.54803
+    x: -878.9542
+    y: 462.07965
     width: 177
     height: 40
   nodeName: Katrine  - 3rd Dialogue
@@ -17090,10 +17422,10 @@ MonoBehaviour:
   - {fileID: 1034536099}
   - {fileID: 1034536098}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -17117,6 +17449,8 @@ MonoBehaviour:
   text: The floor is yours.
   description: 
   targetNode: {fileID: 1034536103}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -17138,6 +17472,8 @@ MonoBehaviour:
   text: Sure, that would be great.
   description: 
   targetNode: {fileID: 1034536103}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -17259,8 +17595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1237.926
-    y: 473.31006
+    x: -870.926
+    y: 405.8417
     width: 179
     height: 40
   nodeName: Katrine  - 2nd Dialogue
@@ -17275,10 +17611,10 @@ MonoBehaviour:
   - {fileID: 1034536105}
   - {fileID: 1034536104}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
-  nodeLocation: {fileID: 1034535656}
+  nodeLocation: {fileID: 0}
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   hoverStartTime: 0
@@ -17302,6 +17638,8 @@ MonoBehaviour:
   text: Hi Katrine, nice to meet you!
   description: 
   targetNode: {fileID: 1034536109}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -17355,8 +17693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1213.5287
-    y: 417.3818
+    x: -853.5287
+    y: 349.91345
     width: 129
     height: 40
   nodeName: Katrine - Start
@@ -17367,9 +17705,10 @@ MonoBehaviour:
   - {fileID: 1034536111}
   - {fileID: 1034536074}
   - {fileID: 1034536110}
+  - {fileID: 1034536490}
   eventHandler: {fileID: 0}
-  isGrouped: 0
-  groupIndex: -1
+  isGrouped: 1
+  groupIndex: 5
   repeatable: 1
   nodeLocation: {fileID: 1034535656}
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -17437,6 +17776,8 @@ MonoBehaviour:
   text: It was a marker for property boundaries
   description: 
   targetNode: {fileID: 1034536115}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -17707,6 +18048,8 @@ MonoBehaviour:
   text: It was used for making an important site
   description: 
   targetNode: {fileID: 1034536125}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18188,6 +18531,8 @@ MonoBehaviour:
   text: "If you know something about the Obelisk, it\u2019s a yes!"
   description: 
   targetNode: {fileID: 1034536169}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18209,6 +18554,8 @@ MonoBehaviour:
   text: It was a marker for property boundaries
   description: 
   targetNode: {fileID: 1034536115}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18230,6 +18577,8 @@ MonoBehaviour:
   text: It was used for making an important site
   description: 
   targetNode: {fileID: 1034536125}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18408,6 +18757,8 @@ MonoBehaviour:
   text: Around 3 meters
   description: 
   targetNode: {fileID: 1034536149}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18429,6 +18780,8 @@ MonoBehaviour:
   text: Around 6 meters
   description: 
   targetNode: {fileID: 1034536113}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18791,6 +19144,8 @@ MonoBehaviour:
   text: "That\u2019s fascinating!\r\n"
   description: 
   targetNode: {fileID: 1034536161}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -18955,6 +19310,8 @@ MonoBehaviour:
   text: Nice to meet you Clara.
   description: 
   targetNode: {fileID: 1034536166}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -19049,6 +19406,8 @@ MonoBehaviour:
 '
   description: 
   targetNode: {fileID: 1034536169}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -19526,6 +19885,8 @@ MonoBehaviour:
   text: They did! All his teeth were all sitting there!
   description: 
   targetNode: {fileID: 1034536271}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -19547,6 +19908,8 @@ MonoBehaviour:
   text: Yes they did! They found his Scissors!
   description: 
   targetNode: {fileID: 1034536191}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20031,6 +20394,8 @@ MonoBehaviour:
   text: "I didn\u2019t know this stone had such a history!"
   description: 
   targetNode: {fileID: 1034536173}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20189,6 +20554,8 @@ MonoBehaviour:
   text: "That\u2019s a wild story!"
   description: 
   targetNode: {fileID: 1034536173}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20286,6 +20653,8 @@ MonoBehaviour:
   text: "Hi Henry! \nWhat\u2019s the story?"
   description: 
   targetNode: {fileID: 1034536232}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20395,6 +20764,8 @@ MonoBehaviour:
   text: They found misterious stones!
   description: 
   targetNode: {fileID: 1034536238}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20465,6 +20836,8 @@ MonoBehaviour:
   text: They did! All his teeth were all sitting there!
   description: 
   targetNode: {fileID: 1034536271}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20486,6 +20859,8 @@ MonoBehaviour:
   text: Yes they did! They found his Scissors!
   description: 
   targetNode: {fileID: 1034536191}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -20862,6 +21237,8 @@ MonoBehaviour:
   text: They found a skeleton of a Barber Surgeon
   description: 
   targetNode: {fileID: 1034536204}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -22061,8 +22438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -1866.3145
-    y: 269.316
+    x: -2510.9702
+    y: -349.53284
     width: 172
     height: 40
   nodeName: Unlock Tutorial Three
@@ -22118,7 +22495,7 @@ MonoBehaviour:
   conditions:
   - compareOperator: 0
     anyVariable:
-      variable: {fileID: 1034536272}
+      variable: {fileID: 0}
       data:
         integerData:
           integerRef: {fileID: 0}
@@ -22605,6 +22982,8 @@ MonoBehaviour:
   text: They did! All his teeth were all sitting there!
   description: 
   targetNode: {fileID: 0}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -22626,6 +23005,8 @@ MonoBehaviour:
   text: Yes they did! They found his Scissors!
   description: 
   targetNode: {fileID: 0}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23051,6 +23432,8 @@ MonoBehaviour:
   text: They used heavy tools and hammers to break them up
   description: 
   targetNode: {fileID: 1034536310}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23072,6 +23455,8 @@ MonoBehaviour:
   text: They heated the stones with fires and cooled them with water
   description: 
   targetNode: {fileID: 1034536310}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23271,6 +23656,8 @@ MonoBehaviour:
   text: "I can\u2019t believe they\u2019d do that to the stones!"
   description: 
   targetNode: {fileID: 1034536373}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23292,6 +23679,8 @@ MonoBehaviour:
   text: "That\u2019s incredible! People used them like that?"
   description: 
   targetNode: {fileID: 1034536338}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23560,6 +23949,8 @@ MonoBehaviour:
   text: Nice meeting you Angela
   description: 
   targetNode: {fileID: 1034536353}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23652,6 +24043,8 @@ MonoBehaviour:
   text: Definitely!
   description: 
   targetNode: {fileID: 1034536360}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23779,6 +24172,8 @@ MonoBehaviour:
   text: They used heavy tools and hammers to break them up
   description: 
   targetNode: {fileID: 1034536310}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -23800,6 +24195,8 @@ MonoBehaviour:
   text: They heated the stones with fires and cooled them with water
   description: 
   targetNode: {fileID: 1034536310}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -24131,6 +24528,8 @@ MonoBehaviour:
   text: How did they broke them?
   description: 
   targetNode: {fileID: 1034536345}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -24344,6 +24743,8 @@ MonoBehaviour:
   text: Have been destoryed?!
   description: 
   targetNode: {fileID: 1034536382}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -24365,6 +24766,8 @@ MonoBehaviour:
   text: Making tools and weapons
   description: 
   targetNode: {fileID: 1034536401}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -24458,6 +24861,8 @@ MonoBehaviour:
   text: Building houses and walls in the village
   description: 
   targetNode: {fileID: 1034536300}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -24756,6 +25161,8 @@ MonoBehaviour:
   text: How do I inspect Replicas?
   description: 
   targetNode: {fileID: 1034535943}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -25050,8 +25457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2659.2869
-    y: 960.3973
+    x: -2631.4382
+    y: 1251.5366
     width: 188
     height: 40
   nodeName: DrWebb2 - 2nd Dialogue
@@ -25717,6 +26124,8 @@ MonoBehaviour:
   text: Not really
   description: 
   targetNode: {fileID: 1034536421}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -25738,6 +26147,8 @@ MonoBehaviour:
   text: How do I inspect Replicas?
   description: 
   targetNode: {fileID: 1034535943}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
@@ -26120,8 +26531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2800.4312
-    y: 860.30304
+    x: -2772.5825
+    y: 1151.4424
     width: 141
     height: 40
   nodeName: DrWebb2 - Start
@@ -26386,6 +26797,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ed9036b3271854990b1ac91820f5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customButtonIcon: {fileID: 21300000, guid: 4839e5756d0b38f4cbf95d9297de01de, type: 3}
+  setIconButton: {fileID: 0}
+  showIcon: 1
+  buttonFeedback: {fileID: 0}
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
   layers:
   - _layerProperty:
       sourceType: 6
@@ -26426,8 +26844,6 @@ MonoBehaviour:
         useRetina: 1
         useCompression: 0
         useMipMap: 0
-  customButtonIcon: {fileID: 21300000, guid: 4839e5756d0b38f4cbf95d9297de01de, type: 3}
-  showIcon: 1
 --- !u!114 &1034536473
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -26493,10 +26909,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2271.5737
-    y: 141.19757
-    width: 627.2593
-    height: 219.75119
+    x: -2916.2292
+    y: -477.6512
+    width: 627.25903
+    height: 219.75113
   nodeName: Location Unlocking
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
@@ -26537,7 +26953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 2
-  key: Unlinked_Group
+  key: Menu Components
   value: {fileID: 670595384}
 --- !u!114 &1034536477
 MonoBehaviour:
@@ -26553,11 +26969,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2831.5854
-    y: 139.8678
+    x: -2850.5854
+    y: 128.8678
     width: 506.3213
     height: 235
-  nodeName: 'Menu Items '
+  nodeName: Menu Components
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 0
@@ -26567,8 +26983,8 @@ MonoBehaviour:
   groupIndex: -1
   repeatable: 0
   nodeLocation: {fileID: 0}
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
+  tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.48235294}
+  useCustomTint: 1
   hoverStartTime: 0
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
@@ -26599,7 +27015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 2
-  key: Linked_Group
+  key: Dr Webb Tutorial
   value: {fileID: 1932107278}
 --- !u!114 &1034536479
 MonoBehaviour:
@@ -26615,11 +27031,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2826.4458
-    y: 462.43103
-    width: 283.34424
-    height: 325.19147
-  nodeName: Initial Tutorial
+    x: -2375.2034
+    y: 439.43103
+    width: 281.7141
+    height: 354.19147
+  nodeName: Dr Webb Tutorial
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 0
@@ -26647,216 +27063,6 @@ MonoBehaviour:
   nodesToComplete: []
   totalNodesToComplete: 1
   updatedGroupNodes: 0
---- !u!114 &1034536480
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be523a2ad79cc4143b7f1002f5188df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tint: {r: 0.84705883, g: 0.8862745, b: 0.8627451, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  labelRect:
-    serializedVersion: 2
-    x: -1597.5667
-    y: 143.03821
-    width: 125
-    height: 130
-  labelText: Unlocks locations based on the tutorial states & ensures that the map
-    and prefix text  will appear on first play.
-  labelStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &1034536482
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be523a2ad79cc4143b7f1002f5188df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tint: {r: 0.84705883, g: 0.8862745, b: 0.8627451, a: 1}
-  useCustomTint: 0
-  itemId: 1
-  labelRect:
-    serializedVersion: 2
-    x: -1440.5667
-    y: 458.0382
-    width: 125
-    height: 160
-  labelText: These dialogues will only appear if the tutorials have been completed.
-    Once they have been completed, the rest of the game locations will be revelaed!
-  labelStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 1
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &1034536483
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0edd3be99a3bc342a2936f413f54c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  start:
-    serializedVersion: 2
-    x: -1608.5667
-    y: 144.03821
-    width: 65
-    height: 65
-  end:
-    serializedVersion: 2
-    x: -1771.5667
-    y: 191.03821
-    width: 65
-    height: 65
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
-  lineWidth: 1
-  startSelected: 0
 --- !u!114 &1034536484
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -26924,8 +27130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -760.6687
-    y: 518.6976
+    x: -355.49152
+    y: 525.55835
     width: 89
     height: 40
   nodeName: Node 1
@@ -26966,6 +27172,1513 @@ MonoBehaviour:
   feedback: {fileID: 0}
   persistentItem: 0
   addIfAlreadyInInventory: 1
+--- !u!114 &1034536488
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c346d0bc9648d934895f307a59c3e739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 2
+  key: Location-Based Dialogues
+  value: {fileID: 76710398}
+--- !u!114 &1034536489
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987ded0257f8a5840adbda6a07728704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1541.0342
+    y: 298.54352
+    width: 1004.5565
+    height: 606.534
+  nodeName: Location-Based Dialogues
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList: []
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 0.8980392, b: 0.8509804, a: 0.33333334}
+  useCustomTint: 1
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 1034535808}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+  groupedNodes:
+  - {fileID: 1034535861}
+  - {fileID: 1034535858}
+  - {fileID: 1034535853}
+  - {fileID: 1034535849}
+  - {fileID: 1034535845}
+  - {fileID: 1034535838}
+  - {fileID: 1034535831}
+  - {fileID: 1034535825}
+  - {fileID: 1034535817}
+  - {fileID: 1034535809}
+  - {fileID: 1034536112}
+  - {fileID: 1034536109}
+  - {fileID: 1034536103}
+  - {fileID: 1034536097}
+  - {fileID: 1034536092}
+  - {fileID: 1034536087}
+  - {fileID: 1034536081}
+  - {fileID: 1034536060}
+  - {fileID: 1034536062}
+  setNodesToComplete: 0
+  nodesToComplete: []
+  totalNodesToComplete: 1
+  updatedGroupNodes: 0
+--- !u!114 &1034536490
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 1034536050}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536491
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 1034536050}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536492
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be523a2ad79cc4143b7f1002f5188df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tint: {r: 0.48406905, g: 0.78083223, b: 0.9245283, a: 1}
+  useCustomTint: 0
+  itemId: 1
+  labelRect:
+    serializedVersion: 2
+    x: -1119.835
+    y: 128.56647
+    width: 125
+    height: 190
+  labelText: These dialogues will vary depending on the choices you have made during
+    the second tutorial with Maji. They will only been shown once the tutorial with
+    Dr Webb and Maji have been completed in full.
+  labelStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 1
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!114 &1034536493
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be523a2ad79cc4143b7f1002f5188df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tint: {r: 0.48406905, g: 0.78083223, b: 0.9245283, a: 1}
+  useCustomTint: 0
+  itemId: 2
+  labelRect:
+    serializedVersion: 2
+    x: -2835.938
+    y: 367.70837
+    width: 125
+    height: 100
+  labelText: Menu Nodes that help players navigate during the initital stages of
+    the game
+  labelStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 1
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!114 &1034536494
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1453.938
+    y: 132.70837
+    width: 164
+    height: 40
+  nodeName: Conditional Example
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 1034536505}
+  - {fileID: 1034536504}
+  - {fileID: 1034536503}
+  - {fileID: 1034536502}
+  - {fileID: 1034536501}
+  - {fileID: 1034536500}
+  - {fileID: 1034536506}
+  - {fileID: 1034536499}
+  - {fileID: 1034536509}
+  - {fileID: 1034536508}
+  - {fileID: 1034536510}
+  - {fileID: 1034536513}
+  - {fileID: 1034536512}
+  - {fileID: 1034536519}
+  - {fileID: 1034536516}
+  - {fileID: 1034536518}
+  - {fileID: 1034536511}
+  - {fileID: 1034536514}
+  - {fileID: 1034536520}
+  eventHandler: {fileID: 1034536521}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1034536495
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: PlayerLevel
+  value: 6
+--- !u!114 &1034536496
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: XPThreshold
+  value: 0
+--- !u!114 &1034536497
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: PlayerXP
+  value: 60
+--- !u!114 &1034536498
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbdf225c9326e64390f838c1277c906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: WizardDefeated
+  value: 1
+--- !u!114 &1034536499
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  characterPortrait: {fileID: 0}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: Keep going to gain the strength to progress!
+  typingSpeed: 0.04
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 0
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
+  useButtonToProgress: 0
+--- !u!114 &1034536500
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc9dad2db248d64ea3568bb855de5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536501
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c5e2a4320adb74084eb35b388136c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 8023f8552c837fd4ca58ddfe65df1b38, type: 2}
+  amount: 1
+  feedback: {fileID: 0}
+  persistentItem: 0
+  addIfAlreadyInInventory: 1
+--- !u!114 &1034536502
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: If player is over a certain limit then they can access the restricted
+    areas
+--- !u!114 &1034536503
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 5
+    anyVariable:
+      variable: {fileID: 1034536495}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 5
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536504
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8617880b8f3d3a34a9815383c6d112d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable:
+    variable: {fileID: 1034536497}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 50
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  setOperator: 2
+  var: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536505
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 0
+    anyVariable:
+      variable: {fileID: 1034536498}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 1
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536506
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: Players cannot gain access to the restricted area below level 5
+--- !u!114 &1034536507
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: PlayerHealth
+  value: 100
+--- !u!114 &1034536508
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc9dad2db248d64ea3568bb855de5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536509
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b319c96f49b7a49b87135a6e3241c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536510
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8617880b8f3d3a34a9815383c6d112d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable:
+    variable: {fileID: 1034536507}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 50
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  setOperator: 3
+  var: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536511
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b319c96f49b7a49b87135a6e3241c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536512
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: Typically the player will lose a life if the health reaches below
+    zero
+--- !u!114 &1034536513
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 4
+    anyVariable:
+      variable: {fileID: 1034536507}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536514
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b319c96f49b7a49b87135a6e3241c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536515
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: Var
+  value: 0
+--- !u!114 &1034536516
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38f47b6de1de4baa9eb142b211426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyOrAllCondition: 0
+  conditions:
+  - compareOperator: 4
+    anyVariable:
+      variable: {fileID: 1034536517}
+      data:
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        locationData:
+          locationRef: {fileID: 0}
+          locationVal: {fileID: 0}
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        nodeCollectionData:
+          nodeCollectionRef: {fileID: 0}
+          nodeCollectionVal: {fileID: 0}
+          total: 0
+        nodeData:
+          nodeRef: {fileID: 0}
+          nodeVal: {fileID: 0}
+        inventoryData:
+          inventoryRef: {fileID: 0}
+          inventoryVal: {fileID: 0}
+          item: {fileID: 0}
+        diceData:
+          diceRef: {fileID: 0}
+          diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+  compareOperator: 0
+  anyVariable:
+    variable: {fileID: 0}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  variable: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  locationData:
+    locationRef: {fileID: 0}
+    locationVal: {fileID: 0}
+  collectionData:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 0}
+  nodeCollectionData:
+    nodeCollectionRef: {fileID: 0}
+    nodeCollectionVal: {fileID: 0}
+    total: 0
+  nodeData:
+    nodeRef: {fileID: 0}
+    nodeVal: {fileID: 0}
+  inventoryData:
+    inventoryRef: {fileID: 0}
+    inventoryVal: {fileID: 0}
+    item: {fileID: 0}
+  diceData:
+    diceRef: {fileID: 0}
+    diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536517
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aeff3f899d2b241aee42662a1770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: PlayerLives
+  value: 0
+--- !u!114 &1034536518
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: Typically the game is over if no lives are left
+--- !u!114 &1034536519
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8617880b8f3d3a34a9815383c6d112d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable:
+    variable: {fileID: 1034536517}
+    data:
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 1
+      locationData:
+        locationRef: {fileID: 0}
+        locationVal: {fileID: 0}
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      nodeCollectionData:
+        nodeCollectionRef: {fileID: 0}
+        nodeCollectionVal: {fileID: 0}
+        total: 0
+      nodeData:
+        nodeRef: {fileID: 0}
+        nodeVal: {fileID: 0}
+      inventoryData:
+        inventoryRef: {fileID: 0}
+        inventoryVal: {fileID: 0}
+        item: {fileID: 0}
+      diceData:
+        diceRef: {fileID: 0}
+        diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+  setOperator: 3
+  var: {fileID: 0}
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1034536520
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b319c96f49b7a49b87135a6e3241c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034536521
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034535572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 1034536494}
+  waitForFrames: 1
 --- !u!1001 &1055749599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29415,7 +31128,7 @@ GameObject:
   - component: {fileID: 1932107277}
   - component: {fileID: 1932107278}
   m_Layer: 0
-  m_Name: Linked_Group
+  m_Name: Dr Webb Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

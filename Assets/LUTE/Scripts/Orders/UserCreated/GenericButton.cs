@@ -20,11 +20,28 @@ public class GenericButton : Order
     [SerializeField] protected UnityEngine.Events.UnityEvent buttonEvent;
     public override void OnEnter()
     {
+        var popupIcon = SetupButton();
+
+        // Add additional functionality to button event
+        UnityAction extendedAction = () =>
+        {
+            // Call the original button event
+            buttonEvent.Invoke();
+            // Play the feedbacks
+            buttonFeedback?.PlayFeedbacks();
+        };
+
+        SetAction(popupIcon, extendedAction.Invoke);
+
+        Continue();
+    }
+
+    protected virtual PopupIcon SetupButton()
+    {
         if (setIconButton != null)
         {
             PopupIcon.ActivePopupIcon = setIconButton;
         }
-
         var popupIcon = PopupIcon.GetPopupIcon();
         if (popupIcon != null)
         {
@@ -38,18 +55,18 @@ public class GenericButton : Order
             popupIcon.SetActive(true);
         }
 
-        // Add additional functionality to button event
-        UnityAction extendedAction = () =>
-        {
-            // Call the original button event
-            buttonEvent.Invoke();
-            // Play the feedbacks
-            buttonFeedback?.PlayFeedbacks();
-        };
+        return popupIcon;
+    }
 
-        popupIcon.SetAction(extendedAction.Invoke);
-        popupIcon.MoveToNextOption();
-        Continue();
+    protected virtual void SetAction(PopupIcon popup, UnityAction action)
+    {
+        if (popup == null || action == null)
+        {
+            return;
+        }
+
+        popup.SetAction(action);
+        popup.MoveToNextOption();
     }
 
     public override string GetSummary()

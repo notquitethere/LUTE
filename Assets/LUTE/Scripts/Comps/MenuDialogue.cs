@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -226,6 +227,8 @@ public class MenuDialogue : MonoBehaviour
             CachedOptionToggles[i].gameObject.SetActive(false);
         }
 
+        canvasGroup.alpha = 0;
+
         if (usingSetDialogue && closeMenu)
         {
             usingSetDialogue = false;
@@ -247,7 +250,7 @@ public class MenuDialogue : MonoBehaviour
     /// Adds the option to the list of displayed options. Calls a Node when selected
     /// Will cause the Menu to become visible if it is not already visible
     /// <returns><c>true</c>, if the option was added successfully.</returns>
-    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu, MMFeedbacks feedback = null)
+    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu, MMFeedbacks feedback = null, bool justContinue = false, UnityAction continueAction = null, bool showNextChoice = false, int orderIndex = -1, Node parentNode = null)
     {
         var node = targetNode;
         UnityEngine.Events.UnityAction action = delegate
@@ -268,15 +271,33 @@ public class MenuDialogue : MonoBehaviour
                     dialogueBox.FadeWhenDone = false;
                 }
             }
-            if (node != null)
+
+            if (justContinue)
             {
-                var engine = node.GetEngine();
-                if (hideMenu)
-                    GetCanvasGroup().alpha = 0;
-                //gameObject.SetActive(false);
-                // Use a coroutine to call the node on the next frame
-                // Have to use the engine gameobject as this menu is now inactive
-                engine.StartCoroutine(CallNode(node));
+                if (parentNode != null && orderIndex >= 0)
+                {
+                    // We must use the order index provided to execute the order in the list after this choice
+                    var nextOrder = parentNode.OrderList[orderIndex + 1];
+                    if (nextOrder != null)
+                    {
+                        nextOrder.Execute();
+                        parentNode.JumpToOrderIndex = orderIndex + 1;
+                    }
+                }
+            }
+
+            if (!justContinue)
+            {
+                if (node != null)
+                {
+                    var engine = node.GetEngine();
+                    if (hideMenu)
+                        GetCanvasGroup().alpha = 0;
+                    //gameObject.SetActive(false);
+                    // Use a coroutine to call the node on the next frame
+                    // Have to use the engine gameobject as this menu is now inactive
+                    engine.StartCoroutine(CallNode(node));
+                }
             }
             feedback?.PlayFeedbacks();
         };

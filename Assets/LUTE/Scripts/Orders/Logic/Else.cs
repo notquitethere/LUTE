@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [OrderInfo("Logic",
@@ -36,6 +34,6 @@ public class Else : Order
 
     public override Color GetButtonColour()
     {
-        return Color.cyan;
+        return new Color32(0, 176, 176, 255);
     }
 }

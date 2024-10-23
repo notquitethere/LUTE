@@ -1,4 +1,3 @@
-using Unity.XR.CoreUtils.Datums;
 using UnityEngine;
 using static BooleanVariable;
 using static FloatVariable;
@@ -50,6 +49,11 @@ public class SetVariable : Order, ISerializationCallbackReceiver
         desc += variable.GetDataDescription();
 
         return desc;
+    }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(247, 231, 206, 255);
     }
 
     public override bool HasReference(Variable variable)

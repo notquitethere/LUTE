@@ -55,9 +55,11 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected LocationStatus locationStatus = LocationStatus.Unvisited;
 
         [Tooltip("The node that is related to this location - please be precise with naming.")]
-        [SerializeField] protected string nodeComplete; // Potential to replace this with node type but is tricky using SO!
+        [HideInInspector]
+        [SerializeField] protected string nodeComplete;
         [Tooltip("The node to execute when marker is clicked")]
-        [SerializeField] protected string executeNode; // The node to execute when marker is clicked - could convert into node type property
+        [HideInInspector]
+        [SerializeField] protected string executeNode;
         [Tooltip("Whether the location can be interacted with or not (using mouse, touch etc. input)")]
         [SerializeField] protected bool interactable = true;
         [SerializeField] protected bool saveInfo = true; // Whether the location info should be saved or not
@@ -65,6 +67,7 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected bool indepedentMarkerUpdating;
         [Tooltip("Whether the location can be clicked without a location evaluated fully by player")]
         [SerializeField] protected bool allowClickWithoutLocation;
+
 
         public LocationStatus _LocationStatus
         {

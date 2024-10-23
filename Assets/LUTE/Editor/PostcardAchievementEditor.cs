@@ -41,7 +41,7 @@ namespace LoGaCulture.LUTE
                         if (triggerNode)
                         {
                             // Handle the triggerNode property
-                            var engine = BasicFlowEngine.CachedEngines[0];
+                            var engine = UnityEngine.Object.FindObjectOfType<BasicFlowEngine>();
                             if (engine != null)
                             {
                                 var nodes = engine.GetComponents<Node>();

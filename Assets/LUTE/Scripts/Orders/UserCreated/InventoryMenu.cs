@@ -5,16 +5,10 @@ using UnityEngine;
               "InventoryMenu",
               "Creates a button which will toggle the inventory on/off (rather than using a nested button in popups)")]
 [AddComponentMenu("")]
-public class InventoryMenu : Order
+public class InventoryMenu : GenericButton
 {
-    [Tooltip("Custom icon to display for this menu")]
-    [SerializeField] protected Sprite customButtonIcon;
-    [Tooltip("A custom popup class to use to display this menu - if one is in the scene it will be used instead")]
-    [SerializeField] protected PopupIcon setIconButton;
     [Tooltip("The inventory to toggle")]
     [SerializeField] protected Inventory inventory;
-    [Tooltip("If true, the popup icon will be displayed, otherwise it will be hidden")]
-    [SerializeField] protected bool showIcon = true;
 
     public override void OnEnter()
     {
@@ -28,23 +22,7 @@ public class InventoryMenu : Order
             }
         }
 
-        if (setIconButton != null)
-        {
-            PopupIcon.ActivePopupIcon = setIconButton;
-        }
-
-        var popupIcon = PopupIcon.GetPopupIcon();
-        if (popupIcon != null)
-        {
-            if (customButtonIcon != null)
-            {
-                popupIcon.SetIcon(customButtonIcon);
-            }
-        }
-        if (showIcon)
-        {
-            popupIcon.SetActive(true);
-        }
+        var popupIcon = SetupButton();
 
         UnityEngine.Events.UnityAction action = () =>
         {
@@ -54,8 +32,8 @@ public class InventoryMenu : Order
                 inventoryInputManager.ToggleInventory();
             }
         };
-        popupIcon.SetAction(action);
-        popupIcon.MoveToNextOption();
+
+        SetAction(popupIcon, action);
 
         Continue();
     }

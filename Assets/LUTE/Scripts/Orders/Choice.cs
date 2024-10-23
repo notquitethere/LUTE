@@ -1,5 +1,6 @@
 using MoreMountains.Feedbacks;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [OrderInfo("Narrative",
@@ -15,6 +16,10 @@ public class Choice : Order
     [SerializeField] protected string description = "";
     [Tooltip("Node to execute when this option is selected")]
     [SerializeField] public Node targetNode;
+    [Tooltip("If true, the choice will continue to the order in the list after this option is selected rather than executing the target node")]
+    [SerializeField] protected bool justContinue = false;
+    [Tooltip("If true, the next choice in the order list will be displayed after this choice is called")]
+    [SerializeField] protected bool showNextChoice = false;
     [Tooltip("Hide this option if the target node has been executed previously")]
     [SerializeField] protected bool hideIfVisited;
     [Tooltip("If false, the menu option will be displayed but will not be selectable")]
@@ -32,11 +37,20 @@ public class Choice : Order
 
     public MenuDialogue SetMenuDialogue { get { return setMenuDialogue; } set { setMenuDialogue = value; } }
 
+    private bool hasExecuted = false;
+
     public override void OnEnter()
     {
         //go through the list of orders to determine if one is a popup 
         //we can then determine if we need to set the menu dialogue or to popup menu
         //if we are a popup choice, we don't need to set the menu dialogue
+
+        if (hasExecuted)
+        {
+            Continue();
+            ParentNode.Stop();
+            return;
+        }
 
         var orders = ParentNode.OrderList;
         if (orders.Count > 0)
@@ -64,11 +78,44 @@ public class Choice : Order
             {
                 menu.SetActive(true);
 
-                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback);
+                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback, justContinue, Continue, showNextChoice, OrderIndex, ParentNode);
             }
 
-            Continue();
+            // could have a boolean of show next choice where we find next choice in order list and call it. then those choices would need to store an index of their position in the order list (order index) and we could just call the next one in the list
+
+            if (justContinue)
+            {
+                if (showNextChoice)
+                {
+                    //var nextChoice = ParentNode.OrderList.Find(x => x is Choice && x != this);
+                    //if (nextChoice != null)
+                    //{
+                    //    nextChoice.Execute();
+                    //}
+
+                    int currentIndex = ParentNode.OrderList.IndexOf(this);  // Get the current index of 'this'
+                    if (currentIndex != -1) // Ensure 'this' is found in the list
+                    {
+                        // Search from the next index to the end of the list
+                        var nextChoice = ParentNode.OrderList
+                            .Skip(currentIndex + 1)  // Skip current index to start searching after 'this'
+                            .FirstOrDefault(x => x is Choice);
+
+                        if (nextChoice != null)
+                        {
+                            nextChoice.Execute();
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                Continue();
+            }
         }
+
+        hasExecuted = true;
     }
 
     public virtual void SetMenuChoice(Popup popup)
@@ -89,7 +136,7 @@ public class Choice : Order
 
     public override string GetSummary()
     {
-        if (targetNode == null)
+        if (targetNode == null && justContinue == false)
         {
             return "Error: No target node selected";
         }
@@ -97,6 +144,11 @@ public class Choice : Order
         if (text == "")
         {
             return "Error: No button text selected";
+        }
+
+        if (justContinue)
+        {
+            return "Choice continues to next Order in list";
         }
 
         return text + " : " + targetNode._NodeName;

@@ -838,6 +838,7 @@ MonoBehaviour:
   customButtonIcon: {fileID: 21300000, guid: 5e06a4f9a236917438c8161c57807201, type: 3}
   setIconButton: {fileID: 0}
   showIcon: 1
+  buttonFeedback: {fileID: 0}
   buttonEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1108,11 +1109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.x
-      value: -25813.072
+      value: -25767.951
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: scrollPos.y
-      value: -25048.61
+      value: -24958.367
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: hideComponents
@@ -1168,12 +1169,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedOrders.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 949217780}
+      objectReference: {fileID: 949217800}
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -1217,7 +1218,7 @@ PrefabInstance:
     - target: {fileID: 259267083496140413, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 949217803}
     - target: {fileID: 491454960197904109, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       propertyPath: repeatable
       value: 0
@@ -2703,6 +2704,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8861555758513075961, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
       insertIndex: -1
       addedObject: {fileID: 949217782}
+    - targetCorrespondingSourceObject: {fileID: 8861555758513075961, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949217800}
+    - targetCorrespondingSourceObject: {fileID: 8861555758513075961, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949217802}
+    - targetCorrespondingSourceObject: {fileID: 8861555758513075961, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949217803}
+    - targetCorrespondingSourceObject: {fileID: 8861555758513075961, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949217801}
   m_SourcePrefab: {fileID: 100100000, guid: 4e5ad4b6faa38e14fbd27f0bbe609644, type: 3}
 --- !u!114 &949217692 stripped
 MonoBehaviour:
@@ -2789,6 +2802,8 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
+  useButtonToProgress: 0
 --- !u!114 &949217714
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2928,6 +2943,7 @@ MonoBehaviour:
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
 --- !u!114 &949217739
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2956,11 +2972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: Backup
-  value: 51.428826172972, -1.86004591772835
-  locationSprite: {fileID: 21300000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
-  locationDisabled: 0
+  value: {fileID: 0}
 --- !u!114 &949217741
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2975,11 +2987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: NewLocation
-  value: .853941938378517, -1.85394193837851
-  locationSprite: {fileID: 21300000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
-  locationDisabled: 0
+  value: {fileID: 0}
 --- !u!114 &949217742
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3062,6 +3070,8 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  allowClickAnywhere: 0
+  useButtonToProgress: 0
 --- !u!114 &949217762
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3076,11 +3086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: LocationTest
-  value: 51.4268749856913, -1.85751494482382
-  locationSprite: {fileID: 21300000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
-  locationDisabled: 0
+  value: {fileID: 0}
 --- !u!114 &949217780
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3133,6 +3139,7 @@ MonoBehaviour:
   customButtonIcon: {fileID: 21300008, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   setIconButton: {fileID: 0}
   showIcon: 1
+  buttonFeedback: {fileID: 0}
   buttonEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3162,6 +3169,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentNode: {fileID: 949217780}
   waitForFrames: 1
+--- !u!114 &949217800
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781823814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 26767.951
+    y: 25282.758
+    width: 91.46341
+    height: 40
+  nodeName: Node 3
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 949217802}
+  - {fileID: 949217803}
+  - {fileID: 949217801}
+  eventHandler: {fileID: 0}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &949217801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781823814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c5e2a4320adb74084eb35b388136c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: e64c3c3cfca296e4cb034df9b22b0bb3, type: 2}
+  amount: 1
+  feedback: {fileID: 0}
+  persistentItem: 0
+  addIfAlreadyInInventory: 1
+--- !u!114 &949217802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781823814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c5e2a4320adb74084eb35b388136c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 68457a98ecdbbb94ab7e1d537e86c777, type: 2}
+  amount: 1
+  feedback: {fileID: 0}
+  persistentItem: 0
+  addIfAlreadyInInventory: 1
+--- !u!114 &949217803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781823814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c5e2a4320adb74084eb35b388136c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: f616bf3b3f9aab147978084315f7bbf9, type: 2}
+  amount: 1
+  feedback: {fileID: 0}
+  persistentItem: 0
+  addIfAlreadyInInventory: 1
 --- !u!1 &991332990
 GameObject:
   m_ObjectHideFlags: 0

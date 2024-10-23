@@ -63,4 +63,9 @@ public class AddItem : Order
         //you can use this to return a summary of the order which is displayed in the inspector of the order
         return item != null ? "Adding " + amount + " " + item.ItemName + "(s)" : "Error: No item set";
     }
+
+    public override Color GetButtonColour()
+    {
+        return new Color32(184, 210, 235, 255);
+    }
 }

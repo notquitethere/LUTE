@@ -13,6 +13,8 @@ public class ChoiceEditor : OrderEditor
     protected SerializedProperty hideThisOptionProp;
     protected SerializedProperty closeMenuOnSelectProp;
     protected SerializedProperty buttonFeedbackProp;
+    protected SerializedProperty justContinueProp;
+    protected SerializedProperty showNextChoiceProp;
 
     public override void OnEnable()
     {
@@ -27,6 +29,8 @@ public class ChoiceEditor : OrderEditor
         hideThisOptionProp = serializedObject.FindProperty("hideThisOption");
         closeMenuOnSelectProp = serializedObject.FindProperty("closeMenuOnSelect");
         buttonFeedbackProp = serializedObject.FindProperty("buttonFeedback");
+        justContinueProp = serializedObject.FindProperty("justContinue");
+        showNextChoiceProp = serializedObject.FindProperty("showNextChoice");
     }
 
     public override void DrawOrderGUI()
@@ -62,6 +66,8 @@ public class ChoiceEditor : OrderEditor
         EditorGUILayout.PropertyField(hideThisOptionProp);
         EditorGUILayout.PropertyField(closeMenuOnSelectProp);
         EditorGUILayout.PropertyField(buttonFeedbackProp);
+        EditorGUILayout.PropertyField(justContinueProp);
+        EditorGUILayout.PropertyField(showNextChoiceProp);
 
         serializedObject.ApplyModifiedProperties();
     }
