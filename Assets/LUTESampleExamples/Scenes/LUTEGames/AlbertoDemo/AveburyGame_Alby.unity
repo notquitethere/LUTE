@@ -622,6 +622,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0973709683afc8b49b81c6eeed1e4c3f, type: 3}
+--- !u!28 &285560099
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 2
+  m_Height: 2
+  m_CompleteImageSize: 20
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 2
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 20
+  _typelessdata: d8e2dcffd8e2dcffd8e2dcffd8e2dcffd8e2dcff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &295400429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,6 +1827,54 @@ MonoBehaviour:
   - {fileID: 1034536006}
   - {fileID: 1034536053}
   - {fileID: 1034536057}
+--- !u!28 &679811256
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 2
+  m_Height: 2
+  m_CompleteImageSize: 20
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 2
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 20
+  _typelessdata: d8e2dcffd8e2dcffd8e2dcffd8e2dcffd8e2dcff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!224 &706016277 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5629702598201669410, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -5313,7 +5409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: zoom
-      value: 0.7300001
+      value: 0.58000004
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: demoMapMode
@@ -5337,11 +5433,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.x
-      value: 2571.2898
+      value: 2485.8164
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: scrollPos.y
-      value: -149.0288
+      value: -879.1281
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: hideComponents
@@ -5466,7 +5562,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1034536486}
+      objectReference: {fileID: 1034536166}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedNodes.Array.data[1]
       value: 
@@ -5506,7 +5602,7 @@ PrefabInstance:
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: selectedOrders.Array.data[0]
       value: 
-      objectReference: {fileID: 1034536487}
+      objectReference: {fileID: 0}
     - target: {fileID: 8647909171326844323, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6680,9 +6776,6 @@ PrefabInstance:
       addedObject: {fileID: 1034536097}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1034536096}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1034536095}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
@@ -6960,9 +7053,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536140}
-    - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1034536139}
     - targetCorrespondingSourceObject: {fileID: 1480580420229521923, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1034536138}
@@ -7826,7 +7916,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -180.00684
     y: 1475.0234
-    width: 117.5799
+    width: 111.53845
     height: 40
   nodeName: Introduction
   nodeDescription: Shows an corresponding info panel based on the node it came from
@@ -7881,7 +7971,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2490.2642
     y: 191.8825
-    width: 115.75342
+    width: 112.82051
     height: 40
   nodeName: Menu Items
   nodeDescription: Basic building block of a narrative engine
@@ -8027,7 +8117,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2827.0967
     y: 404.1095
-    width: 130.3653
+    width: 124.35896
     height: 40
   nodeName: Start Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8175,7 +8265,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -179.95557
     y: 1553.9065
-    width: 158.67578
+    width: 149.99998
     height: 40
   nodeName: Katrine - The Cove
   nodeDescription: Basic building block of a narrative engine
@@ -8251,7 +8341,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2300.0154
     y: 492.93793
-    width: 152.28308
+    width: 143.58972
     height: 40
   nodeName: Maji 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8324,7 +8414,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2281.376
     y: 423.35184
-    width: 112.10045
+    width: 110.25641
     height: 40
   nodeName: Maji - Start
   nodeDescription: Basic building block of a narrative engine
@@ -8459,7 +8549,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2299.057
     y: 547.8179
-    width: 158.67578
+    width: 151.28204
     height: 40
   nodeName: Maji - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8553,7 +8643,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2295.7695
     y: 682.06824
-    width: 158.67578
+    width: 151.28204
     height: 40
   nodeName: Maji - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8698,7 +8788,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2455.4263
     y: 817.31573
-    width: 157.76254
+    width: 149.99998
     height: 40
   nodeName: Maji - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -8928,7 +9018,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2135.7705
     y: 731.7484
-    width: 157.76254
+    width: 149.99998
     height: 40
   nodeName: Maji - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9078,7 +9168,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2456.581
     y: 731.6356
-    width: 157.76254
+    width: 149.99998
     height: 40
   nodeName: Maji - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9423,7 +9513,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2324.8723
     y: 613.2307
-    width: 209.81734
+    width: 198.71793
     height: 40
   nodeName: Maji - 3.5rd Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -9681,7 +9771,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2137.8699
     y: 827.1635
-    width: 157.76254
+    width: 149.99998
     height: 40
   nodeName: Maji - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -9756,7 +9846,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2278.3076
     y: 905.4398
-    width: 107.53424
+    width: 103.846146
     height: 40
   nodeName: Maji - End
   nodeDescription: Basic building block of a narrative engine
@@ -9794,7 +9884,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1723.7631
     y: 904.4663
-    width: 118.49314
+    width: 111.53845
     height: 40
   nodeName: Finley - End
   nodeDescription: Basic building block of a narrative engine
@@ -9950,8 +10040,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: Not quite! The artifacts found were animal bones, flint tools and pottery
-    shards.
+  storyText: Not quite! Some of the artifacts were animal bones, flint tools and
+    pottery shards.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -9997,7 +10087,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1624.8242
     y: 828.58887
-    width: 168.72144
+    width: 157.69229
     height: 40
   nodeName: Finley - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10161,8 +10251,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: 'Exactly right! The excavations revealed animal bones, flint tools and
-    pottery shards. '
+  storyText: 'Exactly right! The excavations revealed some animal bones, flint tools
+    and pottery shards. '
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10208,7 +10298,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1884.9585
     y: 833.4124
-    width: 168.72144
+    width: 157.69229
     height: 40
   nodeName: Finley - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10376,7 +10466,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1634.9955
     y: 735.4428
-    width: 168.72144
+    width: 157.69229
     height: 40
   nodeName: Finley - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10576,7 +10666,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1885.0342
     y: 735.59375
-    width: 168.72144
+    width: 157.69229
     height: 40
   nodeName: Finley - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10662,8 +10752,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: 'First question: What was originally found around the inner edge of
-    the Henge?'
+  storyText: 'First question: What originally lined the inner edge of the Henge?'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10728,7 +10817,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1758.1277
     y: 673.3568
-    width: 169.63469
+    width: 158.97435
     height: 40
   nodeName: Finley - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10770,8 +10859,9 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: Excavations have revealed artefacts, like flint tools, animal bones
-    and pottery sherds, indicating that the site was used for significant activities.
+  storyText: Excavations have not revealed very many artefacts, like flint tools,
+    animal bones and pottery sherds, indicating that the site was used for significant
+    activities.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10836,7 +10926,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1766.0017
     y: 599.885
-    width: 183.33331
+    width: 170.51282
     height: 40
   nodeName: Finley - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -10899,7 +10989,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "It\u2019 a massive earthwork that surround the circle of stone and
+  storyText: "It\u2019 a massive earthwork that surrounds the circle of stone and
     it\u2019s a distinctive element of the landscape of Avebury. "
   typingSpeed: 0.04
   extendPrevious: 0
@@ -10933,8 +11023,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Right... So! As you can see from \u2026 literally everywhere around
-    Avebury, the Henge is a big structure."
+  storyText: "Right... So! As you can see from \u2026 everywhere around Avebury,
+    the Henge is a big structure."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -10965,7 +11055,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1762.0469
     y: 535.1405
-    width: 169.63469
+    width: 158.97435
     height: 40
   nodeName: Finley - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11115,7 +11205,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1761.362
     y: 477.905
-    width: 172.37442
+    width: 160.25641
     height: 40
   nodeName: Finley - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11210,7 +11300,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1737.3699
     y: 417.01187
-    width: 123.05935
+    width: 117.94871
     height: 40
   nodeName: Finley - Start
   nodeDescription: Basic building block of a narrative engine
@@ -11250,7 +11340,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Believe it or now, the Henge has been constructed around 2600 BC and
+  storyText: "Believe it or not, the Henge has been constructed around 2600 BC and
     is as old as the Great Pyramid of Giza!\u201D"
   typingSpeed: 0.04
   extendPrevious: 0
@@ -11339,7 +11429,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "It\u2019s a replica of a picture of time long past, lots of people
-    worked hard to preserve these Henge."
+    worked hard to preserve this Henge."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -11373,7 +11463,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "It\u2019s a replica of a picture of time long past, lots of people
-    worked hard to preserve these Henge."
+    worked hard to preserve this Henge."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -11487,7 +11577,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2772.2034
     y: 512.431
-    width: 177.85387
+    width: 170.51282
     height: 40
   nodeName: DrWebb - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11690,7 +11780,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 238.36023
     y: 1817.6587
-    width: 129.45204
+    width: 124.35896
     height: 40
   nodeName: DrWebb - End
   nodeDescription: Basic building block of a narrative engine
@@ -11785,7 +11875,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2776.4458
     y: 608.7217
-    width: 180.59358
+    width: 171.79486
     height: 40
   nodeName: DrWebb - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11903,7 +11993,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2774.4893
     y: 560.68787
-    width: 183.33331
+    width: 173.0769
     height: 40
   nodeName: DrWebb - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -11944,7 +12034,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2773.8145
     y: 653.00684
-    width: 180.59358
+    width: 171.79486
     height: 40
   nodeName: DrWebb - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -12442,7 +12532,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 215.41711
     y: 1662.2424
-    width: 179.68034
+    width: 170.51282
     height: 40
   nodeName: DrWebb - 6th Dialogue
   nodeDescription: Dialogue to fire with boolean
@@ -12741,7 +12831,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2771.1016
     y: 697.6225
-    width: 179.68034
+    width: 170.51282
     height: 40
   nodeName: DrWebb - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -12975,7 +13065,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 391.29724
     y: 1734.3163
-    width: 179.68034
+    width: 170.51282
     height: 40
   nodeName: DrWebb - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13178,7 +13268,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 52.4032
     y: 1725.8923
-    width: 179.68034
+    width: 170.51282
     height: 40
   nodeName: DrWebb - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13271,7 +13361,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2994.5217
     y: 960.0809
-    width: 185.1598
+    width: 176.92307
     height: 40
   nodeName: DrWebb2 - 1st Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -13398,7 +13488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2221.5737
     y: 266.48712
-    width: 163.242
+    width: 153.84613
     height: 40
   nodeName: Unlock Tutorial One
   nodeDescription: Basic building block of a narrative engine
@@ -13438,7 +13528,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2042.7891
     y: 270.94876
-    width: 165.06848
+    width: 156.41025
     height: 40
   nodeName: Unlock Tutorial Two
   nodeDescription: Basic building block of a narrative engine
@@ -14142,7 +14232,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2614.6924
     y: 189.8678
-    width: 122.14611
+    width: 116.66666
     height: 40
   nodeName: Pause Menu
   nodeDescription: Basic building block of a narrative engine
@@ -14276,7 +14366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2612.5806
     y: 278.0417
-    width: 113.92693
+    width: 110.25641
     height: 40
   nodeName: Main Menu
   nodeDescription: Basic building block of a narrative engine
@@ -14383,7 +14473,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2777.121
     y: 284.8678
-    width: 70.091324
+    width: 69.23077
     height: 40
   nodeName: Exit
   nodeDescription: Basic building block of a narrative engine
@@ -14593,7 +14683,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2798.2183
     y: 1076.8129
-    width: 136.75798
+    width: 130.76923
     height: 40
   nodeName: DrWebb2 - End
   nodeDescription: Basic building block of a narrative engine
@@ -15276,7 +15366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0.3100586
     y: 1887.8354
-    width: 226.25569
+    width: 215.3846
     height: 40
   nodeName: DrWebb2 - 1st Dialogue (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -15386,7 +15476,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2030.6687
     y: 191.19757
-    width: 139.49771
+    width: 135.89743
     height: 40
   nodeName: Prefix Text Start
   nodeDescription: Basic building block of a narrative engine
@@ -15642,7 +15732,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2781.5854
     y: 192.06116
-    width: 90.18265
+    width: 88.46153
     height: 40
   nodeName: Credits
   nodeDescription: Basic building block of a narrative engine
@@ -15763,7 +15853,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2780.5854
     y: 240.8847
-    width: 109.36072
+    width: 106.41025
     height: 40
   nodeName: Disclaimer
   nodeDescription: Basic building block of a narrative engine
@@ -15821,7 +15911,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1237.5237
     y: 838.03564
-    width: 176.94061
+    width: 166.66666
     height: 40
   nodeName: Katrine  - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -15880,7 +15970,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1210.9498
     y: 900.5459
-    width: 123.972595
+    width: 117.94871
     height: 40
   nodeName: Katrine - End
   nodeDescription: Basic building block of a narrative engine
@@ -16377,8 +16467,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: Not quite! The Cove is a box , not a full circle. It sits within a full
-    circle, that itself sits within an even larger circle.
+  storyText: Not quite! The Cove a three-sided box of stones, not a full circle.
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -16424,7 +16513,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1088.4777
     y: 737.3407
-    width: 176.94061
+    width: 166.66666
     height: 40
   nodeName: Katrine  - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16546,7 +16635,7 @@ MonoBehaviour:
   storyText: 'Correct! That was easy.
 
     Born as a Trio of stones, The Cove is
-    a box, a piece of the grand mystery that surrounds Avebury.'
+    a three-sided box of stones, a piece of the grand mystery that surrounds Avebury.'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -16592,7 +16681,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1411.0171
     y: 737.2611
-    width: 176.94061
+    width: 166.66666
     height: 40
   nodeName: Katrine  - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16651,7 +16740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: A box of stones
+  text: A three-sided box of stones
   description: 
   targetNode: {fileID: 1034536087}
   hideIfVisited: 0
@@ -16747,7 +16836,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1256.4688
     y: 658.2442
-    width: 177.85387
+    width: 167.9487
     height: 40
   nodeName: Katrine  - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -16807,9 +16896,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "As previously said, there was a third Megalith here. \nWe theorize
-    it was angled towards the centre of the cove, similarly to the other two big
-    stones. "
+  storyText: 'As previously said, there was a third Megalith here. '
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -16859,40 +16946,6 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
   allowClickAnywhere: 0
   useButtonToProgress: 0
---- !u!114 &1034536096
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 366376642}
-  characterPortrait: {fileID: 21300000, guid: 7f3abbdcc524ec249ac8b70c47bc0c46, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: I mean, if you also think that most of the stone structure is buried
-    underground, you should get the scale and importance of this place.
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
-  allowClickAnywhere: 0
-  useButtonToProgress: 0
 --- !u!114 &1034536097
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -16909,14 +16962,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1258.1803
     y: 589.6705
-    width: 191.55249
+    width: 179.48717
     height: 40
   nodeName: Katrine  - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 0
   orderList:
-  - {fileID: 1034536096}
   - {fileID: 1034536095}
   - {fileID: 1034536094}
   - {fileID: 1034536072}
@@ -17093,7 +17145,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1245.9542
     y: 529.54803
-    width: 177.85387
+    width: 167.9487
     height: 40
   nodeName: Katrine  - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17277,7 +17329,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1237.926
     y: 473.31006
-    width: 180.59358
+    width: 169.23076
     height: 40
   nodeName: Katrine  - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17373,7 +17425,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1213.5287
     y: 417.3818
-    width: 128.5388
+    width: 124.35896
     height: 40
   nodeName: Katrine - Start
   nodeDescription: Basic building block of a narrative engine
@@ -17412,7 +17464,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2562.253
     y: 1505.4775
-    width: 164.15524
+    width: 155.1282
     height: 40
   nodeName: Clara - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17475,7 +17527,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2243.0813
     y: 1584.5864
-    width: 164.15524
+    width: 155.1282
     height: 40
   nodeName: Clara - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17534,7 +17586,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2374.45
     y: 1680.8584
-    width: 113.92693
+    width: 108.97435
     height: 40
   nodeName: Clara - End
   nodeDescription: Basic building block of a narrative engine
@@ -17677,8 +17729,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "Not quite! \nThe Obelisk\u2019s purpose is thought to be related to
-    position marking, specifically The Obelisk was standing right next to the first
-    house built in Avebury."
+    position marking, specifically The Obelisk was standing next to what scholars
+    believe are traces of a very old structure. "
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -17720,7 +17772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: It was used for making an important site
+  text: It was used for marking an important site
   description: 
   targetNode: {fileID: 1034536125}
   hideIfVisited: 0
@@ -17745,7 +17797,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2563.2483
     y: 1593.4548
-    width: 164.15524
+    width: 155.1282
     height: 40
   nodeName: Clara - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -17907,8 +17959,8 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Exactly right! \nThe Obelisk is believed to have been used to mark
-    the position of the first house built in Avebury. "
+  storyText: "Exactly right! \nIs believed that The Obelisk have been used to mark
+    the position of a gathering or ceremonial site."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18086,40 +18138,6 @@ MonoBehaviour:
   setDialogueBox: {fileID: 0}
   allowClickAnywhere: 0
   useButtonToProgress: 0
---- !u!114 &1034536139
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034535572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 2031458022}
-  characterPortrait: {fileID: 21300000, guid: a035b6a7a5fd0f84badccd8e27bf6c8d, type: 3}
-  characterName: 
-  characterNameColour:
-    serializedVersion: 2
-    rgba: 0
-  storyText: "More precisely, the hypothesis is that the building was in fact, the
-    oldest building built here, the origin and cove of Avebury\r."
-  typingSpeed: 0.04
-  extendPrevious: 0
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  fadeWhenDone: 0
-  allowLineSkip: 1
-  waitForClick: 1
-  timeToWait: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setDialogueBox: {fileID: 0}
-  allowClickAnywhere: 0
-  useButtonToProgress: 0
 --- !u!114 &1034536140
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -18139,8 +18157,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "It\u2019s believed that the Obelisk was used for gatherings or ceremonial
-    rituals, historians and archaeologists have found evidence of structures standing
-    on the side of the obelisk."
+    rituals, historians and archaeologists have found evidence of ancient structures
+    near the obelisk."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18173,8 +18191,9 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "It\u2019s believed that locals have shattered it and used it's pieces
-    as construction materials for the houses that once stood here in the area."
+  storyText: "It\u2019s believed that people once shattered it and used it's pieces
+    as construction materials for the houses that once stood here in the area, these
+    events have occurred a long time ago."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18243,7 +18262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622c24c531374345ab7bd27b01406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: It was used for making an important site
+  text: It was used for marking an important site
   description: 
   targetNode: {fileID: 1034536125}
   hideIfVisited: 0
@@ -18383,7 +18402,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2249.244
     y: 1507.737
-    width: 164.15524
+    width: 155.1282
     height: 40
   nodeName: Clara - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18569,7 +18588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2408.9229
     y: 1423.5195
-    width: 165.06848
+    width: 156.41025
     height: 40
   nodeName: Clara - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18697,10 +18716,10 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: 'Oh god, sorry for dumping all this stuff on you.
+  storyText: 'By the way, sorry for dumping all this stuff on you.
 
-    The history behind
-    this place is fascinating.'
+    The history
+    behind this place is fascinating.'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18733,9 +18752,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: "Right? \nImagine, from that single house, these people have decided
-    to erect stones around it, ensuring the biggest one was standing next to it,
-    The Obelisk."
+  storyText: 'Right? '
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18766,7 +18783,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2416.504
     y: 1352.2756
-    width: 178.7671
+    width: 167.9487
     height: 40
   nodeName: Clara - 3.5nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18865,7 +18882,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "It\u2019s difficult to imagine I know, but here, there was an \u201CObelisk\u201D,
-    the largest standing stone in Avebury."
+    the tallest  stone in Avebury."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -18927,9 +18944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2410.8354
+    x: -2412.5596
     y: 1290.812
-    width: 165.06848
+    width: 156.41025
     height: 40
   nodeName: Clara - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -18941,7 +18958,6 @@ MonoBehaviour:
   - {fileID: 1034536163}
   - {fileID: 1034536141}
   - {fileID: 1034536140}
-  - {fileID: 1034536139}
   - {fileID: 1034536162}
   eventHandler: {fileID: 0}
   isGrouped: 0
@@ -19026,7 +19042,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2413.1995
     y: 1214.7671
-    width: 167.8082
+    width: 157.69229
     height: 40
   nodeName: Clara - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19118,9 +19134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2389.7485
-    y: 1147.7079
-    width: 118.49314
+    x: -2388.0244
+    y: 1145.9838
+    width: 115.384605
     height: 40
   nodeName: Clara - Start
   nodeDescription: Basic building block of a narrative engine
@@ -19159,7 +19175,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1808.3354
     y: 1269.8044
-    width: 169.63469
+    width: 160.25641
     height: 40
   nodeName: Henry - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19202,7 +19218,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1811.159
     y: 1346.2411
-    width: 169.63469
+    width: 160.25641
     height: 40
   nodeName: Henry - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19244,7 +19260,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1779.45
     y: 1678.3584
-    width: 118.49314
+    width: 112.82051
     height: 40
   nodeName: Henry - End
   nodeDescription: Basic building block of a narrative engine
@@ -19280,7 +19296,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1968.0195
     y: 1586.0112
-    width: 168.72144
+    width: 158.97435
     height: 40
   nodeName: Henry - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19494,7 +19510,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1975.848
     y: 1458.2786
-    width: 168.72144
+    width: 158.97435
     height: 40
   nodeName: Henry - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -19915,7 +19931,7 @@ MonoBehaviour:
     rgba: 0
   storyText: 'I found you!
 
-    Mom told me you were around this rock.'
+    Mum told me you were around this rock.'
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -20175,7 +20191,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "I\u2019m Henry, a local with a keen eye for a tale, and this stone
-    right here\u2014well, it\u2019s got a doozy of a story."
+    right here\u2014well, it\u2019s got quite of a story."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -20230,7 +20246,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   storyText: "Ah, you\u2019ll like this one. They call it the Barber Surgeon\u2019s
-    Stone. Back in 1320, they say a barber-surgeon came to Avebury to work."
+    Stone. May moons ago, a barber-surgeon came to Avebury to work."
   typingSpeed: 0.04
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
@@ -20261,7 +20277,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1810.1995
     y: 1200.9436
-    width: 172.37442
+    width: 161.53845
     height: 40
   nodeName: Henry - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -20357,7 +20373,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1789.2944
     y: 1135.9056
-    width: 123.05935
+    width: 119.23076
     height: 40
   nodeName: Henry - Start
   nodeDescription: Basic building block of a narrative engine
@@ -20433,7 +20449,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1636.5494
     y: 1457.0911
-    width: 168.72144
+    width: 158.97435
     height: 40
   nodeName: Henry - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -21342,7 +21358,7 @@ MonoBehaviour:
   characterNameColour:
     serializedVersion: 2
     rgba: 0
-  storyText: 'Mom is coming!!
+  storyText: 'Mum is coming!!
 
     BYEEEEEEEEEEEE'
   typingSpeed: 0.04
@@ -21458,7 +21474,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1627.6163
     y: 1581.9623
-    width: 168.72144
+    width: 158.97435
     height: 40
   nodeName: Henry - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -21682,7 +21698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 52.463623
     y: 1374.831
-    width: 191.55249
+    width: 180.76921
     height: 40
   nodeName: Unlock Tutorial Three 1 1
   nodeDescription: Basic building block of a narrative engine
@@ -22079,7 +22095,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1866.3145
     y: 269.316
-    width: 173.28766
+    width: 162.8205
     height: 40
   nodeName: Unlock Tutorial Three
   nodeDescription: Basic building block of a narrative engine
@@ -22253,7 +22269,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -332.74414
     y: 2327.5283
-    width: 123.972595
+    width: 116.66666
     height: 40
   nodeName: Angela - End
   nodeDescription: Basic building block of a narrative engine
@@ -22490,7 +22506,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -510.23242
     y: 2210.4363
-    width: 174.2009
+    width: 162.8205
     height: 40
   nodeName: Angela - 8th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -22582,7 +22598,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -365.1211
     y: 2094.232
-    width: 174.2009
+    width: 162.8205
     height: 40
   nodeName: Angela - 7th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23019,7 +23035,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 41.69745
     y: 2117.1777
-    width: 184.24655
+    width: 171.79486
     height: 40
   nodeName: Angela - 6th Dialogue 2
   nodeDescription: Basic building block of a narrative engine
@@ -23244,7 +23260,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -570.97424
     y: 2019.589
-    width: 174.2009
+    width: 162.8205
     height: 40
   nodeName: Angela - 5th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23398,7 +23414,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -365.31653
     y: 1973.3428
-    width: 175.11414
+    width: 164.10255
     height: 40
   nodeName: Angela - 4th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23537,7 +23553,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -370.60986
     y: 1830.3381
-    width: 175.11414
+    width: 164.10255
     height: 40
   nodeName: Angela - 3rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23631,7 +23647,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -375.27747
     y: 1754.3632
-    width: 177.85387
+    width: 165.38461
     height: 40
   nodeName: Angela - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -23757,7 +23773,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -349.6703
     y: 1685.6575
-    width: 128.5388
+    width: 123.07691
     height: 40
   nodeName: Angela - Start
   nodeDescription: Basic building block of a narrative engine
@@ -24038,7 +24054,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -166.11035
     y: 2017.2354
-    width: 174.2009
+    width: 162.8205
     height: 40
   nodeName: Angela - 6th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -24319,7 +24335,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -368.0011
     y: 1910.0913
-    width: 185.1598
+    width: 173.0769
     height: 40
   nodeName: Angela - 3.5rd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -24496,7 +24512,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -193.51086
     y: 2215.5015
-    width: 174.2009
+    width: 162.8205
     height: 40
   nodeName: Angela - 9th Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -25068,7 +25084,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2659.2869
     y: 960.3973
-    width: 190.63925
+    width: 179.48717
     height: 40
   nodeName: DrWebb2 - 2nd Dialogue
   nodeDescription: Basic building block of a narrative engine
@@ -25686,7 +25702,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.154907
     y: 1799.8627
-    width: 182.42007
+    width: 175.64102
     height: 40
   nodeName: DrWebb2 - Start (Copy)
   nodeDescription: Basic building block of a narrative engine
@@ -26138,7 +26154,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2800.4312
     y: 860.30304
-    width: 141.32419
+    width: 137.17947
     height: 40
   nodeName: DrWebb2 - Start
   nodeDescription: Basic building block of a narrative engine
@@ -26301,7 +26317,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -200.24438
     y: 1369.8884
-    width: 213.47029
+    width: 201.28203
     height: 40
   nodeName: JB Custom Location Updater
   nodeDescription: Basic building block of a narrative engine
@@ -26369,7 +26385,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 92.47168
     y: 1456.7457
-    width: 123.05935
+    width: 116.66666
     height: 40
   nodeName: Layer Cycler
   nodeDescription: Basic building block of a narrative engine
@@ -26460,7 +26476,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 292.72742
     y: 1373.092
-    width: 81.050224
+    width: 78.205124
     height: 40
   nodeName: Node
   nodeDescription: Basic building block of a narrative engine
@@ -26511,7 +26527,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2271.5737
     y: 141.19757
-    width: 628.5469
+    width: 618.07983
     height: 219.75119
   nodeName: Location Unlocking
   nodeDescription: Basic building block of a narrative engine
@@ -26571,7 +26587,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2831.5854
     y: 139.8678
-    width: 507.0747
+    width: 504.14185
     height: 235
   nodeName: 'Menu Items '
   nodeDescription: Basic building block of a narrative engine
@@ -26633,7 +26649,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -2826.4458
     y: 462.43103
-    width: 285.2898
+    width: 275.85693
     height: 325.19147
   nodeName: Initial Tutorial
   nodeDescription: Basic building block of a narrative engine
@@ -26683,13 +26699,13 @@ MonoBehaviour:
     x: -1597.5667
     y: 143.03821
     width: 125
-    height: 127.67122
+    height: 110.51281
   labelText: Unlocks locations based on the tutorial states & ensures that the map
     and prefix text  will appear on first play.
   labelStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 285560099}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
@@ -26773,13 +26789,13 @@ MonoBehaviour:
     x: -1440.5667
     y: 458.0382
     width: 125
-    height: 156.89496
+    height: 152.8205
   labelText: These dialogues will only appear if the tutorials have been completed.
     Once they have been completed, the rest of the game locations will be revelaed!
   labelStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 679811256}
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
@@ -26942,7 +26958,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -80.6687
     y: 1278.6975
-    width: 90.18265
+    width: 87.17948
     height: 40
   nodeName: Node 1
   nodeDescription: Basic building block of a narrative engine

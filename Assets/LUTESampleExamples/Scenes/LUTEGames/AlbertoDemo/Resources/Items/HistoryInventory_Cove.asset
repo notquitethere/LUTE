@@ -33,7 +33,7 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Lithography - Mysterious Box
+  ItemName: Image - Mysterious Box
   ShortDescription: 
   Description: 
   Icon: {fileID: 21300000, guid: d3a7ceb0575e52940a174d4d01794cbc, type: 3}

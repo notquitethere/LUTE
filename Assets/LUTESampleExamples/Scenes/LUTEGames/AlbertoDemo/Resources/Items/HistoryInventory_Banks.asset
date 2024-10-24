@@ -33,7 +33,7 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Picture - Digging the Bank
+  ItemName: Picture - Digging the Ditch
   ShortDescription: 
   Description: 
   Icon: {fileID: 21300000, guid: 355a496e14938bb4899f5d63b3fd48d8, type: 3}
