@@ -355,7 +355,7 @@ public class Node : MonoBehaviour
         string saveDesc = System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy");
 
         var saveManager = LogaManager.Instance.SaveManager;
-        saveManager.AddSavePoint(saveName, saveDesc);
+        saveManager.AddSavePoint(saveName, saveDesc, false);
     }
 
     //when we need to know if a node has been completed we can use a simple if to determine the state based on the node

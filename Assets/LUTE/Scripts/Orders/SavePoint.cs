@@ -84,17 +84,17 @@ public class SavePoint : Order
 
     public override void OnEnter()
     {
-        if(autoSave)
-        {        
+        if (autoSave)
+        {
             var saveManager = LogaManager.Instance.SaveManager;
-            
-            saveManager.AddSavePoint(SavePointKey, SavePointDescription);
+
+            saveManager.AddSavePoint(SavePointKey, SavePointDescription, false);
 
             if (fireEvent)
             {
                 SavePointLoaded.NotifyEventHandlers(SavePointKey);
             }
-        }   
+        }
 
         Continue();
     }
@@ -119,7 +119,7 @@ public class SavePoint : Order
 
     public override bool IsPropertyVisible(string propertyName)
     {
-        if(propertyName == "customKey" && (keyMode != KeyMode.Custom && keyMode != KeyMode.NodeNameAndCustom))
+        if (propertyName == "customKey" && (keyMode != KeyMode.Custom && keyMode != KeyMode.NodeNameAndCustom))
         {
             return false;
         }

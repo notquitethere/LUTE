@@ -1,14 +1,14 @@
-[OrderInfo("Menu", "Music Slider", "Displays a slider in a menu to adjust the music volume")]
+[OrderInfo("Menu", "Music Option Slider", "Displays a slider in a menu to adjust the music volume")]
 public class MusicSlider : OptionSlider
 {
-    private void Awake()
+    private void Start()
     {
         if (sliderLabel.Length <= 0)
         {
             sliderLabel = "music volume";
         }
 
-        targetFloat = LogaManager.Instance.SoundManager.GetVolume();
+        targetFloat = LogaManager.Instance.SoundManager.GetVolume(SoundManager.AudioType.Music);
 
         hideOption = (hideIfMoved && targetFloat < 0) || hideThisOption;
     }
@@ -44,7 +44,7 @@ public class MusicSlider : OptionSlider
 
                 UnityEngine.Events.UnityAction<float> action = (float value) =>
                 {
-                    LogaManager.Instance.SoundManager.SetAudioVolume(value, 0, null);
+                    LogaManager.Instance.SoundManager.SetAudioVolume(value, 0, null, SoundManager.AudioType.Music);
                 };
 
                 menu.AddOptionSlider(interactable, targetFloat, hideOption, action, sliderLabel);
@@ -60,7 +60,7 @@ public class MusicSlider : OptionSlider
         {
             UnityEngine.Events.UnityAction<float> action = (float value) =>
             {
-                LogaManager.Instance.SoundManager.SetAudioVolume(value, 0, null);
+                LogaManager.Instance.SoundManager.SetAudioVolume(value, 0, null, SoundManager.AudioType.Music);
             };
 
             popup.AddOptionSlider(interactable, targetFloat, hideOption, action, sliderLabel);

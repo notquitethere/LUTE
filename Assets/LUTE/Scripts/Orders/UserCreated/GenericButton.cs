@@ -18,6 +18,7 @@ public class GenericButton : Order
     [SerializeField] protected MMFeedbacks buttonFeedback;
     [Tooltip("The event to call when the button is clicked")]
     [SerializeField] protected UnityEngine.Events.UnityEvent buttonEvent;
+    [SerializeField] protected AudioClip buttonSound;
     public override void OnEnter()
     {
         var popupIcon = SetupButton();
@@ -64,6 +65,14 @@ public class GenericButton : Order
         {
             return;
         }
+
+        action += () =>
+        {
+            if (buttonSound != null)
+            {
+                LogaManager.Instance.SoundManager.PlaySound(buttonSound, -1);
+            }
+        };
 
         popup.SetAction(action);
         popup.MoveToNextOption();

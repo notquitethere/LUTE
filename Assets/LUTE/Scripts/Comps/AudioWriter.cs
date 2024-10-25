@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,43 +16,20 @@ public class AudioWriter : MonoBehaviour, IWriterListener
     protected virtual void Awake()
     {
         // Need to do this in Awake rather than Start due to init order issues
-        if (targetAudioSource == null)
-        {
-            targetAudioSource = GetComponent<AudioSource>();
-            if (targetAudioSource == null)
-            {
-                targetAudioSource = gameObject.AddComponent<AudioSource>();
-            }
-        }
 
-        targetAudioSource.volume = 0f;
-    }
-
-    protected virtual void Update()
-    {
-        targetAudioSource.volume = Mathf.MoveTowards(targetAudioSource.volume, targetVolume, Time.deltaTime * 5f);
+        targetAudioSource = LogaManager.Instance.SoundManager.GetSFXSource();
     }
 
     public virtual void OnGlyph()
     {
         if (playBeeps && beepSounds.Count > 0)
         {
-            if (!targetAudioSource.isPlaying)
+            if (nextBeepTime < Time.realtimeSinceStartup)
             {
-                if (nextBeepTime < Time.realtimeSinceStartup)
-                {
-                    targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count)];
-
-                    if (targetAudioSource.clip != null)
-                    {
-                        targetAudioSource.loop = false;
-                        targetVolume = volume;
-                        targetAudioSource.Play();
-
-                        float extend = targetAudioSource.clip.length;
-                        nextBeepTime = Time.realtimeSinceStartup + extend;
-                    }
-                }
+                targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count)];
+                LogaManager.Instance.SoundManager.PlaySound(beepSounds[Random.Range(0, beepSounds.Count)], -1);
+                float extend = targetAudioSource.clip.length;
+                nextBeepTime = Time.realtimeSinceStartup + extend;
             }
         }
     }

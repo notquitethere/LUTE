@@ -15,6 +15,7 @@ public class ChoiceEditor : OrderEditor
     protected SerializedProperty buttonFeedbackProp;
     protected SerializedProperty justContinueProp;
     protected SerializedProperty showNextChoiceProp;
+    protected SerializedProperty buttonSoundProp;
 
     public override void OnEnable()
     {
@@ -31,6 +32,7 @@ public class ChoiceEditor : OrderEditor
         buttonFeedbackProp = serializedObject.FindProperty("buttonFeedback");
         justContinueProp = serializedObject.FindProperty("justContinue");
         showNextChoiceProp = serializedObject.FindProperty("showNextChoice");
+        buttonSoundProp = serializedObject.FindProperty("buttonSound");
     }
 
     public override void DrawOrderGUI()
@@ -66,6 +68,7 @@ public class ChoiceEditor : OrderEditor
         EditorGUILayout.PropertyField(hideThisOptionProp);
         EditorGUILayout.PropertyField(closeMenuOnSelectProp);
         EditorGUILayout.PropertyField(buttonFeedbackProp);
+        EditorGUILayout.PropertyField(buttonSoundProp);
         EditorGUILayout.PropertyField(justContinueProp);
         EditorGUILayout.PropertyField(showNextChoiceProp);
 

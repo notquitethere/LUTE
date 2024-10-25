@@ -4,6 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class OptionSetting
+{
+    public enum OptionType
+    {
+        Generic,
+        Audio
+    }
+
+    [SerializeField] protected OptionType type;
+    [SerializeField] protected float musicVolume;
+    [SerializeField] protected float sfxVolume;
+
+    public OptionType Type { get { return type; } set { type = value; } }
+    public float MusicVolume { get { return musicVolume; } set { musicVolume = value; } }
+    public float SFXVolume { get { return sfxVolume; } set { sfxVolume = value; } }
+}
+
+[System.Serializable]
 public class IntVar
 {
     [SerializeField] protected string key;
@@ -123,6 +141,7 @@ public class LocationInfoVar
 public class EngineData
 {
     [SerializeField] protected string engineName;
+    [SerializeField] protected List<OptionSetting> optionSettings = new List<OptionSetting>();
     [SerializeField] protected List<IntVar> intVars = new List<IntVar>();
     [SerializeField] protected List<BoolVar> boolVars = new List<BoolVar>();
     [SerializeField] protected List<FloatVar> floatVars = new List<FloatVar>();
@@ -134,6 +153,7 @@ public class EngineData
 
     public string EngineName { get { return engineName; } set { engineName = value; } }
 
+    public List<OptionSetting> OptionSettings { get { return optionSettings; } set { optionSettings = value; } }
     public List<IntVar> IntVars { get { return intVars; } set { intVars = value; } }
     public List<BoolVar> BoolVars { get { return boolVars; } set { boolVars = value; } }
     public List<FloatVar> FloatVars { get { return floatVars; } set { floatVars = value; } }
@@ -143,117 +163,134 @@ public class EngineData
     public List<ObjectInfoVar> ObjectInfoVars { get { return objectInfoVars; } set { objectInfoVars = value; } }
     public List<LocationInfoVar> LocationInfoVars { get { return locationInfoVars; } set { locationInfoVars = value; } }
 
-    public static EngineData Encode(BasicFlowEngine engine)
+    public static EngineData Encode(BasicFlowEngine engine, bool settingsOnly)
     {
         var engineData = new EngineData();
         engineData.EngineName = engine.name;
 
-        // save all the completition states on the nodes
-        var nodes = engine.GetComponents<Node>();
-        foreach (Node node in nodes)
+        // Save settings here
+        foreach (var setting in engine.OptionSettings)
         {
-            if (node != null && node.Saveable)
+            switch (setting)
             {
-                var d = new NodeVar();
-                d.State = node.CheckExecutionState();
-                d.Completed = node.NodeComplete;
-                d.Name = node._NodeName;
-                engineData.NodeVars.Add(d);
+                case OptionSetting.OptionType.Audio:
+                    var audioSetting = new OptionSetting();
+                    audioSetting.Type = OptionSetting.OptionType.Audio;
+                    audioSetting.MusicVolume = LogaManager.Instance.SoundManager.GetVolume(SoundManager.AudioType.Music);
+                    audioSetting.SFXVolume = LogaManager.Instance.SoundManager.GetVolume(SoundManager.AudioType.SoundEffect);
+                    engineData.OptionSettings.Add(audioSetting);
+                    break;
             }
         }
 
-        for (int i = 0; i < engine.Variables.Count; i++)
-        {
-            var v = engine.Variables[i];
-
-            var intVariable = v as IntegerVariable;
-            if (intVariable != null)
+        if (!settingsOnly)
+        { // save all the completition states on the nodes
+            var nodes = engine.GetComponents<Node>();
+            foreach (Node node in nodes)
             {
-                var d = new IntVar();
-                d.Key = intVariable.Key;
-                d.Value = intVariable.Value;
-                engineData.IntVars.Add(d);
-            }
-
-            var boolVariable = v as BooleanVariable;
-            if (boolVariable != null)
-            {
-                var d = new BoolVar();
-                d.Key = boolVariable.Key;
-                d.Value = boolVariable.Value;
-                engineData.BoolVars.Add(d);
-            }
-
-            var floatVariable = v as FloatVariable;
-            if (floatVariable != null)
-            {
-                var d = new FloatVar();
-                d.Key = floatVariable.Key;
-                d.Value = floatVariable.Value;
-                engineData.FloatVars.Add(d);
-            }
-
-            var stringVariable = v as StringVariable;
-            if (stringVariable != null)
-            {
-                var d = new StringVar();
-                d.Key = stringVariable.Key;
-                d.Value = stringVariable.Value;
-                engineData.StringVars.Add(d);
-            }
-        }
-
-        var postcards = engine.GetComponents<Postcard>();
-        foreach (Postcard postcard in postcards)
-        {
-            if (postcard != null)
-            {
-                var d = new PostcardVar();
-                d.Postcard = postcard;
-                d.Name = postcard.PostcardName;
-                d.Desc = postcard.PostcardDesc;
-                d.Creator = postcard.PostcardCreator;
-                d.Total = postcard.TotalStickers;
-                d.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
-
-                var originalStickers = postcard.stickers;
-
-                foreach (var original in originalStickers)
+                if (node != null && node.Saveable)
                 {
-                    if (original != null)
-                    {
-                        var newStickerVar = new PostcardVar.StickerVar();
-                        newStickerVar.Name = original.StickerName;
-                        newStickerVar.Desc = original.StickerDescription;
-                        newStickerVar.Type = original.StickerType;
-                        newStickerVar.Image = original.StickerImage;
-                        newStickerVar.Position = original.StickerPosition;
-                        newStickerVar.StickerScale = original.StickerScale;
-                        newStickerVar.StickerRot = original.StickerRotation;
+                    var d = new NodeVar();
+                    d.State = node.CheckExecutionState();
+                    d.Completed = node.NodeComplete;
+                    d.Name = node._NodeName;
+                    engineData.NodeVars.Add(d);
+                }
+            }
 
-                        d.StickerVars.Add(newStickerVar);
-                    }
+            for (int i = 0; i < engine.Variables.Count; i++)
+            {
+                var v = engine.Variables[i];
+
+                var intVariable = v as IntegerVariable;
+                if (intVariable != null)
+                {
+                    var d = new IntVar();
+                    d.Key = intVariable.Key;
+                    d.Value = intVariable.Value;
+                    engineData.IntVars.Add(d);
                 }
 
-                engineData.PostcardVars.Add(d);
+                var boolVariable = v as BooleanVariable;
+                if (boolVariable != null)
+                {
+                    var d = new BoolVar();
+                    d.Key = boolVariable.Key;
+                    d.Value = boolVariable.Value;
+                    engineData.BoolVars.Add(d);
+                }
+
+                var floatVariable = v as FloatVariable;
+                if (floatVariable != null)
+                {
+                    var d = new FloatVar();
+                    d.Key = floatVariable.Key;
+                    d.Value = floatVariable.Value;
+                    engineData.FloatVars.Add(d);
+                }
+
+                var stringVariable = v as StringVariable;
+                if (stringVariable != null)
+                {
+                    var d = new StringVar();
+                    d.Key = stringVariable.Key;
+                    d.Value = stringVariable.Value;
+                    engineData.StringVars.Add(d);
+                }
             }
-        }
 
-        foreach (var item in Resources.FindObjectsOfTypeAll<BaseInfo>())
-        {
-            var d = new ObjectInfoVar();
-            d.ObjectName = item.ObjectName;
-            d.Unlocked = item.Unlocked;
-            engineData.ObjectInfoVars.Add(d);
-        }
+            var postcards = engine.GetComponents<Postcard>();
+            foreach (Postcard postcard in postcards)
+            {
+                if (postcard != null)
+                {
+                    var d = new PostcardVar();
+                    d.Postcard = postcard;
+                    d.Name = postcard.PostcardName;
+                    d.Desc = postcard.PostcardDesc;
+                    d.Creator = postcard.PostcardCreator;
+                    d.Total = postcard.TotalStickers;
+                    d.StickerVars = new List<PostcardVar.StickerVar>(postcard.StickerVars);
 
-        foreach (var item in engine.GetComponents<LocationVariable>())
-        {
-            var d = new LocationInfoVar();
-            d.LocationID = item.Value.infoID;
-            d.LocationStatus = item.Value._LocationStatus;
-            d.LocationName = item.Value.Name;
-            engineData.LocationInfoVars.Add(d);
+                    var originalStickers = postcard.stickers;
+
+                    foreach (var original in originalStickers)
+                    {
+                        if (original != null)
+                        {
+                            var newStickerVar = new PostcardVar.StickerVar();
+                            newStickerVar.Name = original.StickerName;
+                            newStickerVar.Desc = original.StickerDescription;
+                            newStickerVar.Type = original.StickerType;
+                            newStickerVar.Image = original.StickerImage;
+                            newStickerVar.Position = original.StickerPosition;
+                            newStickerVar.StickerScale = original.StickerScale;
+                            newStickerVar.StickerRot = original.StickerRotation;
+
+                            d.StickerVars.Add(newStickerVar);
+                        }
+                    }
+
+                    engineData.PostcardVars.Add(d);
+                }
+            }
+
+            foreach (var item in Resources.FindObjectsOfTypeAll<BaseInfo>())
+            {
+                var d = new ObjectInfoVar();
+                d.ObjectName = item.ObjectName;
+                d.Unlocked = item.Unlocked;
+                engineData.ObjectInfoVars.Add(d);
+            }
+
+            foreach (var item in engine.GetComponents<LocationVariable>())
+            {
+                var d = new LocationInfoVar();
+                d.LocationID = item.Value.infoID;
+                d.LocationStatus = item.Value._LocationStatus;
+                d.LocationName = item.Value.Name;
+                engineData.LocationInfoVars.Add(d);
+            }
         }
 
         return engineData;
@@ -261,6 +298,18 @@ public class EngineData
 
     public static void Decode(EngineData engineData)
     {
+        for (int i = 0; i < engineData.OptionSettings.Count; i++)
+        {
+            var optionSetting = engineData.OptionSettings[i];
+            switch (optionSetting.Type)
+            {
+                case OptionSetting.OptionType.Audio:
+                    LogaManager.Instance.SoundManager.GetAudioSource().volume = optionSetting.MusicVolume;
+                    LogaManager.Instance.SoundManager.GetSFXSource().volume = optionSetting.SFXVolume;
+                    break;
+            }
+        }
+
         var go = GameObject.Find(engineData.EngineName);
         if (go == null)
         {

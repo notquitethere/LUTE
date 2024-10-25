@@ -29,6 +29,9 @@ public class MenuChoice : Order
     protected bool isPopupChoice = false;
     [Tooltip("Feedback to play when the button is selected")]
     [SerializeField] MMFeedbacks buttonFeedback;
+    [SerializeField] protected AudioClip buttonSound;
+    [Tooltip("If true, the settings will be saved when this option is selected")]
+    [SerializeField] protected bool saveSettings;
 
     public MenuDialogue SetMenuDialogue { get { return setMenuDialogue; } set { setMenuDialogue = value; } }
 
@@ -64,7 +67,7 @@ public class MenuChoice : Order
             {
                 menu.SetActive(true);
 
-                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback);
+                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback, false, null, false, -1, null, buttonSound, saveSettings);
             }
         }
         Continue();
@@ -74,7 +77,7 @@ public class MenuChoice : Order
     {
         if (popup != null)
         {
-            popup.AddOption(text, interactable, hideIfVisited, targetNode, closeMenuOnSelect, buttonFeedback);
+            popup.AddOption(text, interactable, hideIfVisited, targetNode, closeMenuOnSelect, buttonFeedback, buttonSound, saveSettings);
         }
     }
 

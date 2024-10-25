@@ -108,6 +108,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     [SerializeField] protected int version = 0; // Default to 0 to always trigger an update for older versions.
     [SerializeField] protected int sidesOfDie = 6;
     [SerializeField] protected List<Postcard> postcards = new List<Postcard>();
+    [SerializeField] protected List<OptionSetting.OptionType> optionSettings = new List<OptionSetting.OptionType>();
 
     public virtual string Description { get { return description; } }
     public virtual List<Order> SelectedOrders { get { return selectedOrders; } }
@@ -151,6 +152,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
     public int Version { set { version = value; } }
     public int SidesOfDie { get { return sidesOfDie; } set { sidesOfDie = value; } }
     public List<Postcard> Postcards { get { return postcards; } }
+    public List<OptionSetting.OptionType> OptionSettings { get { return optionSettings; } }
 
     protected static bool eventSystemPresent;
     protected StringSubstituter stringSubstituer;

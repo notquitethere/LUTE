@@ -39,7 +39,7 @@ namespace LoGaCulture.LUTE
                         newPanel.UnlockInfo();
                         objectInfo.Unlocked = true;
                         var saveManager = LogaManager.Instance.SaveManager;
-                        saveManager.AddSavePoint("ObjectInfo" + objectInfo.ObjectName, "A list of historical info to be stored " + System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy"));
+                        saveManager.AddSavePoint("ObjectInfo" + objectInfo.ObjectName, "A list of historical info to be stored " + System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy"), false);
                     }
                     if (createNewPanel)
                     {

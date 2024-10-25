@@ -250,7 +250,7 @@ public class MenuDialogue : MonoBehaviour
     /// Adds the option to the list of displayed options. Calls a Node when selected
     /// Will cause the Menu to become visible if it is not already visible
     /// <returns><c>true</c>, if the option was added successfully.</returns>
-    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu, MMFeedbacks feedback = null, bool justContinue = false, UnityAction continueAction = null, bool showNextChoice = false, int orderIndex = -1, Node parentNode = null)
+    public virtual bool AddOption(string text, bool interactable, bool hideOption, Node targetNode, bool hideMenu, MMFeedbacks feedback = null, bool justContinue = false, UnityAction continueAction = null, bool showNextChoice = false, int orderIndex = -1, Node parentNode = null, AudioClip buttonSound = null, bool saveSettings = false)
     {
         var node = targetNode;
         UnityEngine.Events.UnityAction action = delegate
@@ -299,7 +299,19 @@ public class MenuDialogue : MonoBehaviour
                     engine.StartCoroutine(CallNode(node));
                 }
             }
+            if (buttonSound != null)
+            {
+                LogaManager.Instance.SoundManager.PlaySound(buttonSound, -1);
+            }
             feedback?.PlayFeedbacks();
+
+            if (saveSettings)
+            {
+                string saveDesc = System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy");
+
+                var saveManager = LogaManager.Instance.SaveManager;
+                saveManager.AddSavePoint("OptionSettingsSave", saveDesc, false);
+            }
         };
 
         return AddOption(text, interactable, hideOption, action);

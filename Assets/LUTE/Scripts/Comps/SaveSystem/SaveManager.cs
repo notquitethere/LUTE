@@ -12,7 +12,7 @@ public class SaveManager : MonoBehaviour
 {
     protected static SaveHistory saveHistory = new SaveHistory();
 
-    public static string SAVE_DIRECTORY  { get { return Application.persistentDataPath + "/LUTESaves/"; } }
+    public static string SAVE_DIRECTORY { get { return Application.persistentDataPath + "/LUTESaves/"; } }
 
     private static string GetFullFilePath(string saveDataKey)
     {
@@ -46,7 +46,7 @@ public class SaveManager : MonoBehaviour
     protected virtual bool WriteSaveHistory(string saveDataKey)
     {
         var historyData = JsonUtility.ToJson(saveHistory, true);
-        if(!string.IsNullOrEmpty(historyData))
+        if (!string.IsNullOrEmpty(historyData))
         {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
             PlayerPrefs.SetString(saveDataKey, historyData);
@@ -113,7 +113,7 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void LoadSaveGame(string saveDataKey, bool customPoint, string customPointID)
     {
-        if(ReadSaveHistory(saveDataKey))
+        if (ReadSaveHistory(saveDataKey))
         {
             saveHistory.ClearRewoundSavePoints();
 
@@ -151,7 +151,7 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(mode == LoadSceneMode.Additive)
+        if (mode == LoadSceneMode.Additive)
         {
             return;
         }
@@ -184,7 +184,7 @@ public class SaveManager : MonoBehaviour
 
     public string StartScene { get; set; }
 
-    public virtual int TotalSavePoints{ get { return saveHistory.TotalSavePoints; } }
+    public virtual int TotalSavePoints { get { return saveHistory.TotalSavePoints; } }
 
     public virtual int TotalRewoundSavePoints { get { return saveHistory.TotalRewoundSavePoints; } }
 
@@ -222,15 +222,15 @@ public class SaveManager : MonoBehaviour
         return System.IO.File.Exists(fullPath);
 #endif // UNITY_WEBPLAYER || UNITY_WEBGL
     }
-    public virtual void AddSavePoint(string savePointKey, string savePointDescription)
+    public virtual void AddSavePoint(string savePointKey, string savePointDescription, bool settingsOnly)
     {
-        saveHistory.AddSavePoint(savePointKey, savePointDescription);
+        saveHistory.AddSavePoint(savePointKey, savePointDescription, settingsOnly);
         SaveManagerSignals.DoSavePointAdded(savePointKey, savePointDescription);
     }
 
     public virtual void RewindSavePoint()
     {
-        if(saveHistory.TotalSavePoints > 0)
+        if (saveHistory.TotalSavePoints > 0)
         {
             //Cannot rewind as we are at the first save point
             if (saveHistory.TotalSavePoints > 1)

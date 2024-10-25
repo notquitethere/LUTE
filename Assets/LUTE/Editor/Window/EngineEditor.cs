@@ -1,8 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 [CustomEditor(typeof(BasicFlowEngine))]
 public class EngineEditor : Editor
@@ -19,6 +16,7 @@ public class EngineEditor : Editor
     protected SerializedProperty showHandlerInfoProp;
     protected SerializedProperty annotationBoolProp;
     protected SerializedProperty labelTintProp;
+    protected SerializedProperty optionSettingsProp;
 
     protected virtual void OnEnable()
     {
@@ -36,6 +34,7 @@ public class EngineEditor : Editor
         showHandlerInfoProp = serializedObject.FindProperty("showHandlerInfoOnGraph");
         annotationBoolProp = serializedObject.FindProperty("showAnnotations");
         labelTintProp = serializedObject.FindProperty("labelTint");
+        optionSettingsProp = serializedObject.FindProperty("optionSettings");
 
         variableListAdaptor = new VariableListAdaptor(variablesProp, target as BasicFlowEngine);
 
@@ -60,6 +59,7 @@ public class EngineEditor : Editor
         EditorGUILayout.PropertyField(hideComponentsProp);
         EditorGUILayout.PropertyField(showHandlerInfoProp);
         EditorGUILayout.PropertyField(demoModeProp);
+        EditorGUILayout.PropertyField(optionSettingsProp);
 
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();

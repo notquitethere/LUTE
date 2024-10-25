@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// Serializable container for a Save Point's data. 
 /// All data is stored as strings, and the only concrete game class it depends on is the SaveData component.
@@ -31,13 +31,13 @@ public class SavePointData
     public List<SaveDataItem> SaveDataItems { get { return saveDataItems; } }
 
     /// Encodes a new Save Point to data and converts it to JSON text format.
-    public static string Encode(string _savePointKey, string _savePointDesc, string _sceneName)
+    public static string Encode(string _savePointKey, string _savePointDesc, string _sceneName, bool settingsOnly)
     {
         var savePointData = Create(_savePointKey, _savePointDesc, _sceneName);
         var saveData = GameObject.FindObjectOfType<SaveData>();
-        if(saveData != null)
+        if (saveData != null)
         {
-            saveData.Encode(savePointData.saveDataItems);
+            saveData.Encode(savePointData.saveDataItems, settingsOnly);
         }
         return JsonUtility.ToJson(savePointData, true);
     }

@@ -11,12 +11,12 @@ public class SaveData : MonoBehaviour
     [Tooltip("List of engine objects in which its variables will be encoded and saved - only integer is currently supported")]
     [SerializeField] protected List<BasicFlowEngine> engines = new List<BasicFlowEngine>();
 
-    public virtual void Encode(List<SaveDataItem> saveDataItems)
+    public virtual void Encode(List<SaveDataItem> saveDataItems, bool settingsOnly)
     {
         for (int i = 0; i < engines.Count; i++)
         {
             var engine = engines[i];
-            var engineData = EngineData.Encode(engine);
+            var engineData = EngineData.Encode(engine, settingsOnly);
 
             var saveDataItem = SaveDataItem.Create(EngineDataKey, JsonUtility.ToJson(engineData));
             saveDataItems.Add(saveDataItem);

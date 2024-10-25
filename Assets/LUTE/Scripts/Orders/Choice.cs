@@ -34,6 +34,7 @@ public class Choice : Order
     protected bool isPopupChoice = false;
     [Tooltip("Feedback to play when the button is selected")]
     [SerializeField] MMFeedbacks buttonFeedback;
+    [SerializeField] protected AudioClip buttonSound;
 
     public MenuDialogue SetMenuDialogue { get { return setMenuDialogue; } set { setMenuDialogue = value; } }
 
@@ -78,7 +79,7 @@ public class Choice : Order
             {
                 menu.SetActive(true);
 
-                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback, justContinue, Continue, showNextChoice, OrderIndex, ParentNode);
+                menu.AddOption(text, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback, justContinue, Continue, showNextChoice, OrderIndex, ParentNode, buttonSound);
             }
 
             // could have a boolean of show next choice where we find next choice in order list and call it. then those choices would need to store an index of their position in the order list (order index) and we could just call the next one in the list
@@ -122,7 +123,7 @@ public class Choice : Order
     {
         if (popup != null)
         {
-            popup.AddOption(text, interactable, hideIfVisited, targetNode, closeMenuOnSelect, buttonFeedback);
+            popup.AddOption(text, interactable, hideIfVisited, targetNode, closeMenuOnSelect, buttonFeedback, buttonSound);
         }
     }
 

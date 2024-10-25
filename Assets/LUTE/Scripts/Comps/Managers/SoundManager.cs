@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public enum AudioType
+    {
+        Music,
+        SoundEffect
+    }
+
+
     protected AudioSource audioSourceMusic;
+    protected AudioSource audioSourceSoundEffect;
 
     void Reset()
     {
         int audioSourceCount = this.GetComponents<AudioSource>().Length;
         for (int i = 0; i < 3 - audioSourceCount; i++)
             gameObject.AddComponent<AudioSource>();
-
     }
 
     protected virtual void Awake()
@@ -17,6 +24,7 @@ public class SoundManager : MonoBehaviour
         Reset();
         AudioSource[] audioSources = GetComponents<AudioSource>();
         audioSourceMusic = audioSources[0];
+        audioSourceSoundEffect = audioSources[1];
     }
     protected virtual void Start()
     {
@@ -60,6 +68,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public virtual void PlaySound(AudioClip soundClip, float volume)
+    {
+        if (volume <= 0)
+        {
+            // we can override the slider settings if we want to
+            volume = audioSourceSoundEffect.volume;
+        }
+        audioSourceSoundEffect.PlayOneShot(soundClip, volume);
+    }
+
     public virtual void SetAudioPitch(float pitch, float duration, System.Action onComplete)
     {
         if (Mathf.Approximately(duration, 0f))
@@ -86,24 +104,27 @@ public class SoundManager : MonoBehaviour
                 }
             });
     }
-    public virtual void SetAudioVolume(float volume, float duration, System.Action onComplete)
+    public virtual void SetAudioVolume(float volume, float duration, System.Action onComplete, AudioType audioType)
     {
+        // Eventually switch with cases for different audio types (if needed)
+        AudioSource audioSource = audioType == AudioType.Music ? audioSourceMusic : audioSourceSoundEffect;
+
         if (Mathf.Approximately(duration, 0f))
         {
             if (onComplete != null)
             {
                 onComplete();
             }
-            audioSourceMusic.volume = volume;
+            audioSource.volume = volume;
             return;
         }
 
         LeanTween.value(gameObject,
-            audioSourceMusic.volume,
+            audioSource.volume,
             volume,
             duration).setOnUpdate((v) =>
             {
-                audioSourceMusic.volume = v;
+                audioSource.volume = v;
             }).setOnComplete(() =>
             {
                 if (onComplete != null)
@@ -168,9 +189,9 @@ public class SoundManager : MonoBehaviour
         audioSourceMusic.Pause();
     }
 
-    public virtual float GetVolume()
+    public virtual float GetVolume(AudioType audioType)
     {
-        return audioSourceMusic.volume;
+        return audioType == AudioType.Music ? audioSourceMusic.volume : audioSourceSoundEffect.volume;
     }
 
     public virtual AudioSource GetAudioSource()
@@ -179,5 +200,12 @@ public class SoundManager : MonoBehaviour
             return null;
 
         return audioSourceMusic;
+    }
+
+    public virtual AudioSource GetSFXSource()
+    {
+        if ((audioSourceSoundEffect == null))
+            return null;
+        return audioSourceSoundEffect;
     }
 }

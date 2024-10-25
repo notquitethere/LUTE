@@ -152,7 +152,7 @@ namespace LoGaCulture.LUTE
                             locVar.Value._LocationStatus = locationInfo._LocationStatus;
 
                             var saveManager = LogaManager.Instance.SaveManager;
-                            saveManager.AddSavePoint("ObjectInfo" + locationInfo.Name, "A list of location info to be stored " + System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy"));
+                            saveManager.AddSavePoint("ObjectInfo" + locationInfo.Name, "A list of location info to be stored " + System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy"), false);
                         }
                     }
                 }
