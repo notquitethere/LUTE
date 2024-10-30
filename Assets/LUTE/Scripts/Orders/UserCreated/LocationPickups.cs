@@ -15,14 +15,14 @@ public class LocationPickups : Order
     [Tooltip("Whether or not to show the item pickup card (if false the item wil be picked up automatically)")]
     [SerializeField] protected bool showPickupCard = true;
     [Tooltip("Where this item will be placed on the map")]
-    [SerializeField] protected LocationVariable itemLocation;
+    [SerializeField] protected LocationData itemLocation;
     [Tooltip("The item that will actually be picked up")]
     [SerializeField] protected InventoryItem item;
     [Tooltip("How many of the item will be picked up")]
     [SerializeField] protected int itemsQuantitiy;
     public override void OnEnter()
     {
-        LocationItemPickup.CreateItem(null, item, itemsQuantitiy, pickupFeedback, showPrompt, showPickupCard, itemLocation, ParentNode);
+        LocationItemPickup.CreateItem(null, item, itemsQuantitiy, pickupFeedback, showPrompt, showPickupCard, itemLocation.locationRef, ParentNode);
         Continue();
     }
 

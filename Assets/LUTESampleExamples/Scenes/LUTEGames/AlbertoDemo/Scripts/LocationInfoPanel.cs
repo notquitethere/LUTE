@@ -116,10 +116,10 @@ namespace LoGaCulture.LUTE
             {
                 LocationInfo = info;
             }
-            if (LocationInfo.objectInfo != null)
-            {
-                SetInfo(LocationInfo.objectInfo);
-            }
+            //if (LocationInfo.objectInfo != null)
+            //{
+            //    SetInfo(LocationInfo.objectInfo);
+            //}
         }
     }
 }

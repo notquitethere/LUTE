@@ -1,31 +1,40 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 namespace LoGaCulture.LUTE
 {
-    [CustomEditor(typeof(LUTELocationInfo))]
+    //[CustomEditor(typeof(LUTELocationInfo))]
     public class LUTELocationInfoEditor : Editor
     {
         protected SerializedProperty nodeCompleteProp;
         protected SerializedProperty executeNodeProp;
 
-        public void OnEnable()
+        protected SerializedProperty nodeProp;
+        public SerializedProperty engineProp;
+
+
+        protected void OnEnable()
         {
             nodeCompleteProp = serializedObject.FindProperty("nodeComplete");
             executeNodeProp = serializedObject.FindProperty("executeNode");
-
+            nodeProp = serializedObject.FindProperty("testNode");
+            engineProp = serializedObject.FindProperty("targetEngine");
         }
 
         public override void OnInspectorGUI()
         {
-            serializedObject.Update();
-
             var locationInfo = target as LUTELocationInfo;
+
+            base.OnInspectorGUI();
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(engineProp);
 
             var engine = FindObjectOfType<BasicFlowEngine>();
 
-            base.OnInspectorGUI();
+            serializedObject.Update();
 
             if (engine != null)
             {
@@ -74,6 +83,16 @@ namespace LoGaCulture.LUTE
             }
 
             serializedObject.ApplyModifiedProperties();
+
+
+        }
+        private void GetAllChildObjects(GameObject parent, List<GameObject> allObjects)
+        {
+            foreach (Transform child in parent.transform)
+            {
+                allObjects.Add(child.gameObject);
+                GetAllChildObjects(child.gameObject, allObjects);
+            }
         }
     }
 }

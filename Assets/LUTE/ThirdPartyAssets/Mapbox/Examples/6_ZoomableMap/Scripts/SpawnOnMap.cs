@@ -231,7 +231,6 @@
                     visitedRadiusColour = location.Value.visitedRadiusColour,
                     completedRadiusColour = location.Value.completedRadiusColour,
                     IndependentMarkerUpdating = location.Value.IndependentMarkerUpdating,
-                    ObjectInfo = location.Value.ObjectInfo,
                     AllowClickWithoutLocation = location.Value.AllowClickWithoutLocation
                 };
 

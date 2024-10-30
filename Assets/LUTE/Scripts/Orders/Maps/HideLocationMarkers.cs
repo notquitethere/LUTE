@@ -8,7 +8,7 @@ using UnityEngine;
 public class HideLocationMarkers : Order
 {
     [Tooltip("The locations of the markers to hide.")]
-    [SerializeField] protected LocationVariable[] locations;
+    [SerializeField] protected LocationData[] locations;
 
     private SpawnOnMap map;
 
@@ -44,10 +44,10 @@ public class HideLocationMarkers : Order
 
     private void HideLocations()
     {
-        foreach (LocationVariable location in locations)
+        foreach (LocationData location in locations)
         {
-            if (location != null)
-                map.HideLocationMarker(location);
+            if (location.locationRef != null)
+                map.HideLocationMarker(location.locationRef);
         }
     }
 

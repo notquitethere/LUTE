@@ -12,13 +12,13 @@ namespace LoGaCulture.LUTE
     public class UpdateLocationInfo : Order
     {
         [Tooltip("The location to update.")]
-        [SerializeField] protected LocationVariable location;
+        [SerializeField] protected LocationData location;
         [Tooltip("The status to update the location to.")]
         [SerializeField] protected LUTELocationInfo.LocationStatus status;
 
         public override void OnEnter()
         {
-            if (location == null || location.Value == null)
+            if (location.locationRef == null || location.Value == null)
             {
                 Continue();
                 return;
@@ -37,7 +37,7 @@ namespace LoGaCulture.LUTE
 
         public override string GetSummary()
         {
-            return location == null ? "Error: No location selected" : "Updates " + location.Value.name + " to " + status;
+            return location.locationRef == null ? "Error: No location selected" : "Updates " + location.Value.name + " to " + status;
         }
     }
 }

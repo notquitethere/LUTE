@@ -18,27 +18,28 @@ namespace LoGaCulture.LUTE
         [Tooltip("The image that will be used to render the marker.")]
         [SerializeField] protected SpriteRenderer spriteRenderer;
         [Tooltip("The image that will be used to render the marker radius.")]
-        [SerializeField] protected SpriteRenderer radiusRendererPrefab;
+        [SerializeField] protected SpriteRenderer radiusSpriteRenderer;
         [Tooltip("The text mesh that will be used to render the marker label")]
         [SerializeField] protected TextMesh textMesh;
         [Tooltip("The feedback to play when the location is completed.")]
         [SerializeField] protected MMFeedbacks completeFeedback;
 
         public TextMesh TextMesh { get => textMesh; set => textMesh = value; }
-        public SpriteRenderer RadiusRenderer { get => radiusRendererPrefab; set => radiusRendererPrefab = value; }
+        public SpriteRenderer RadiusRenderer { get => radiusSpriteRenderer; set => radiusSpriteRenderer = value; }
         public GameObject RadiusObject { get; set; }
 
-        public SpriteRenderer markerRadius;
+        private SpriteRenderer markerRadius;
 
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!locationInfo.Interactable)
                 return;
-            // this will work but if we used a provided node it could make life easier!
+
+            var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
+
             if (engine != null && !string.IsNullOrEmpty(locationInfo.ExecuteNode))
             {
                 // First we must ensure that the player is a location
-                var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
                 if (locVar.Evaluate(ComparisonOperator.Equals, null))
                 {
                     // We are at the right location so we can execute the node
@@ -49,23 +50,30 @@ namespace LoGaCulture.LUTE
                 }
             }
 
-            if (locationInfo.AllowClickWithoutLocation)
+            if (locationInfo.AllowClickWithoutLocation && !string.IsNullOrEmpty(locationInfo.ExecuteNode))
             {
-                var locVar = engine.GetComponents<LocationVariable>().FirstOrDefault(x => x.Value.infoID == locationInfo.infoID);
                 if (locVar == null)
                     return;
 
+                // We can click on the location without requiring the player to be at the location
+                // This will trigger the execute node if it is set
+                engine.ExecuteNode(locationInfo.ExecuteNode);
+
+
+                /// Old code used for alberto demo - must ensure we reinstate at some point ///
                 // If the location is completed or we click without being at the location
-                if (locationInfo._LocationStatus == LUTELocationInfo.LocationStatus.Completed || !locVar.Evaluate(ComparisonOperator.Equals, null))
-                {
-                    LocationInfoPanel newPanel = LocationInfoPanel.GetLocationInfoPanel();
-                    if (newPanel != null)
-                    {
-                        newPanel.SetLocationInfo(locationInfo);
-                        newPanel.ToggleMenu();
-                    }
-                }
+                //if (locationInfo._LocationStatus == LUTELocationInfo.LocationStatus.Completed || !locVar.Evaluate(ComparisonOperator.Equals, null))
+                //{
+                //    LocationInfoPanel newPanel = LocationInfoPanel.GetLocationInfoPanel();
+                //    if (newPanel != null)
+                //    {
+                //        newPanel.SetLocationInfo(locationInfo);
+                //        newPanel.ToggleMenu();
+                //    }
+                //}
             }
+
+            LocationServiceSignals.DoLocationClicked(locVar);
         }
 
         protected void OnEnable()
@@ -140,7 +148,9 @@ namespace LoGaCulture.LUTE
             if (location.Value.infoID == locationInfo.infoID)
             {
                 if (locationInfo._LocationStatus != LUTELocationInfo.LocationStatus.Completed)
+                {
                     locationInfo._LocationStatus = LUTELocationInfo.LocationStatus.Visited;
+                }
                 // Everytime we visit a location we should save the info
                 if (locationInfo.SaveInfo)
                 {

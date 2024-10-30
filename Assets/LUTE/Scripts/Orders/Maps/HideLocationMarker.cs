@@ -7,10 +7,10 @@ using UnityEngine;
 public class HideLocationMarker : Order
 {
     [Tooltip("The location of the marker to hide.")]
-    [SerializeField] protected LocationVariable location;
+    [SerializeField] protected LocationData location;
     public override void OnEnter()
     {
-        if (location == null)
+        if (location.locationRef == null)
         {
             Continue();
             return;
@@ -38,13 +38,13 @@ public class HideLocationMarker : Order
             Continue();
             return;
         }
-        map.HideLocationMarker(location);
+        map.HideLocationMarker(location.locationRef);
     }
 
     public override string GetSummary()
     {
-        if (location != null)
-            return "Hides location marker at: " + location?.Key;
+        if (location.locationRef != null)
+            return "Hides location marker at: " + location.locationRef?.Key;
 
         return "Error: No location provided.";
     }

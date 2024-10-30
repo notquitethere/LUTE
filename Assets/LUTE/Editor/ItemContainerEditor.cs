@@ -1,6 +1,4 @@
 using UnityEditor;
-using MoreMountains.InventoryEngine;
-using System.Linq;
 
 [CustomEditor(typeof(LocationPickups))]
 public class ItemContainerEditor : OrderEditor
@@ -38,32 +36,33 @@ public class ItemContainerEditor : OrderEditor
         EditorGUILayout.PropertyField(feedbackProp);
         EditorGUILayout.PropertyField(showPromptProp);
         EditorGUILayout.PropertyField(showCardProp);
+        EditorGUILayout.PropertyField(itemLocProp);
 
-        var locationVars = engine.GetComponents<LocationVariable>();
-        for (int i = 0; i < locationVars.Length; i++)
-        {
-            if (locationVars[i] == itemLocProp.objectReferenceValue as LocationVariable)
-            {
-                locationVarIndex = i;
-            }
-        }
+        //var locationVars = engine.GetComponents<LocationVariable>();
+        //for (int i = 0; i < locationVars.Length; i++)
+        //{
+        //    if (locationVars[i] == itemLocProp.objectReferenceValue as LocationVariable)
+        //    {
+        //        locationVarIndex = i;
+        //    }
+        //}
 
-        locationVarIndex = EditorGUILayout.Popup("Location", locationVarIndex, locationVars.Select(x => x.Key).ToArray());
-        if (locationVars.Length > 0)
-            itemLocProp.objectReferenceValue = locationVars[locationVarIndex];
+        //locationVarIndex = EditorGUILayout.Popup("Location", locationVarIndex, locationVars.Select(x => x.Key).ToArray());
+        //if (locationVars.Length > 0)
+        //    itemLocProp.objectReferenceValue = locationVars[locationVarIndex];
 
-        var items = ContainerCardEditor.GetAllInstances<InventoryItem>();
-        for (int j = 0; j < items.Length; j++)
-        {
-            if (items[j] == itemProp.objectReferenceValue as InventoryItem)
-            {
-                itemIndex = j;
-            }
-        }
+        //var items = ContainerCardEditor.GetAllInstances<InventoryItem>();
+        //for (int j = 0; j < items.Length; j++)
+        //{
+        //    if (items[j] == itemProp.objectReferenceValue as InventoryItem)
+        //    {
+        //        itemIndex = j;
+        //    }
+        //}
 
         //Create a drop down list based on the items in the project
-        itemIndex = EditorGUILayout.Popup("Item to Add", itemIndex, items.Select(x => x.name).ToArray());
-        itemProp.objectReferenceValue = items[itemIndex];
+        //itemIndex = EditorGUILayout.Popup("Item to Add", itemIndex, items.Select(x => x.name).ToArray());
+        //itemProp.objectReferenceValue = items[itemIndex];
 
         EditorGUILayout.PropertyField(itemQuantProp);
 

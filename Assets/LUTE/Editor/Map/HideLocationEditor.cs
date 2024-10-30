@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEditor;
 
-[CustomEditor(typeof(HideLocationMarker))]
+//[CustomEditor(typeof(HideLocationMarker))]
 public class HideLocationEditor : OrderEditor
 {
     protected SerializedProperty locationProp;

@@ -7,7 +7,7 @@ using UnityEngine;
 public class ShowLocationMarker : Order
 {
     [Tooltip("The location of the marker to show.")]
-    [SerializeField] protected LocationVariable location;
+    [SerializeField] protected LocationData location;
     public override void OnEnter()
     {
         var engine = GetEngine();
@@ -26,20 +26,20 @@ public class ShowLocationMarker : Order
             return;
         }
 
-        if (location == null)
+        if (location.locationRef == null)
         {
             Continue();
             return;
         }
 
-        map.ShowLocationMarker(location);
+        map.ShowLocationMarker(location.locationRef);
         Continue();
     }
 
     public override string GetSummary()
     {
-        if (location != null)
-            return "Shows location marker at: " + location?.Key;
+        if (location.locationRef != null)
+            return "Shows location marker at: " + location.locationRef?.Key;
 
         return "Error: No location provided.";
     }

@@ -8,7 +8,7 @@ using UnityEngine;
 public class ShowLocationMarkers : Order
 {
     [Tooltip("The locations of the markers to reveal.")]
-    [SerializeField] protected LocationVariable[] locations;
+    [SerializeField] protected LocationData[] locations;
 
     private SpawnOnMap map;
     public override void OnEnter()
@@ -43,10 +43,10 @@ public class ShowLocationMarkers : Order
 
     private void ShowLocations()
     {
-        foreach (LocationVariable location in locations)
+        foreach (LocationData location in locations)
         {
-            if (location != null)
-                map.ShowLocationMarker(location);
+            if (location.locationRef != null)
+                map.ShowLocationMarker(location.locationRef);
         }
     }
 

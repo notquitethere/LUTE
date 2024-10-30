@@ -5,8 +5,8 @@ using UnityEngine;
 namespace LoGaCulture.LUTE
 {
     [Serializable]
-    [CreateAssetMenu(menuName = "LUTE/Location Information")]
-    public class LUTELocationInfo : ScriptableObject
+    [CreateAssetMenu(menuName = "LUTE/Location Information_Alberto")]
+    public class LUTELocationInfo_Alberto : LUTELocationInfo
     {
         [Serializable]
         public enum LocationStatus
@@ -21,7 +21,7 @@ namespace LoGaCulture.LUTE
         [Header("Location Info")]
         [Tooltip("The coordinates of the location in the format 'latitude, longitude'")]
         public string Position;
-
+        //public Vector2d Position; // ensure that references to this are replaced using the method below
         [Header("Location Display")]
         [Tooltip("The name of the location")]
         public string Name;
@@ -43,29 +43,30 @@ namespace LoGaCulture.LUTE
         public Color visitedRadiusColour = LogaConstants.defaultRadiusColour;
         [Tooltip("The colour of the radius of the location when completed")]
         public Color completedRadiusColour = LogaConstants.defaultRadiusColour;
-
         [Header("Location Settings")]
         [Tooltip("Whether or not this location can be used (can be set with location failure handling)")]
         public bool locationDisabled = false;
+        [Tooltip("The info related to this panel")]
+        public ObjectInfo objectInfo;
 
         [Tooltip("The amount to increase the radius of the location by ")]
         [SerializeField] protected float radiusIncrease = 0.0f;
+
+        [SerializeField] protected LocationStatus locationStatus = LocationStatus.Unvisited;
+
+        [Tooltip("The node that is related to this location - please be precise with naming.")]
+        [HideInInspector]
+        [SerializeField] protected string nodeComplete;
+        [Tooltip("The node to execute when marker is clicked")]
+        [HideInInspector]
+        [SerializeField] protected string executeNode;
         [Tooltip("Whether the location can be interacted with or not (using mouse, touch etc. input)")]
         [SerializeField] protected bool interactable = true;
-        [Tooltip("Whether the location info should be saved or not")]
-        [SerializeField] protected bool saveInfo = true;
+        [SerializeField] protected bool saveInfo = true; // Whether the location info should be saved or not
         [Tooltip("Whether the marker should update independently of any related nodes")]
         [SerializeField] protected bool indepedentMarkerUpdating;
         [Tooltip("Whether the location can be clicked without a location evaluated fully by player")]
         [SerializeField] protected bool allowClickWithoutLocation;
-        [SerializeField] protected LocationStatus locationStatus = LocationStatus.Unvisited;
-
-        [Header("Node Location Settings")]
-        [Tooltip("The node that will trigger this location to be completed once the node itself completes.")]
-        [SerializeField] protected string nodeComplete;
-        [Tooltip("The node to execute when marker is clicked")]
-        [SerializeField] protected string executeNode;
-
 
 
         public LocationStatus _LocationStatus
@@ -103,6 +104,11 @@ namespace LoGaCulture.LUTE
         {
             get { return indepedentMarkerUpdating; }
             set { indepedentMarkerUpdating = value; }
+        }
+        public ObjectInfo ObjectInfo
+        {
+            get { return objectInfo; }
+            set { objectInfo = value; }
         }
         public bool AllowClickWithoutLocation
         {
