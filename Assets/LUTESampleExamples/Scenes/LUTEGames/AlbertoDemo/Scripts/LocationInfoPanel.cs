@@ -29,8 +29,8 @@ namespace LoGaCulture.LUTE
 
         protected void Update()
         {
-            // Grouping the null checks for clarity.
-            if (LocationInfo == null || ObjectInfo == null || infoImage == null || titleText == null || bodyText == null || statusText == null)
+            // Grouping the null checks for clarity
+            if (LocationInfo == null || infoImage == null || titleText == null || bodyText == null || statusText == null)
             {
                 return;
             }
@@ -50,23 +50,29 @@ namespace LoGaCulture.LUTE
                     break;
 
                 case LUTELocationInfo.LocationStatus.Visited:
-                    sprite = ObjectInfo.ObjectIcon;
+                    //sprite = ObjectInfo.ObjectIcon;
+                    sprite = LocationInfo.LocationImage;
                     color = partialTint;
-                    title = ObjectInfo.ObjectName;
+                    //title = ObjectInfo.ObjectName;
+                    title = LocationInfo.DisplayName;
                     status = "Status: Partially Discovered";
 
                     // Ensure fullText is valid before substring calculation
-                    string fullText = ObjectInfo.ShortDescription ?? string.Empty;
+                    //string fullText = ObjectInfo.ShortDescription ?? string.Empty;
+                    string fullText = LocationInfo.Description ?? string.Empty;
                     int lengthToShow = (int)(fullText.Length * partialTextLength);
                     lengthToShow = Mathf.Clamp(lengthToShow, 0, fullText.Length); // Ensure valid substring length
                     body = fullText.Substring(0, lengthToShow) + "...";
                     break;
 
                 case LUTELocationInfo.LocationStatus.Completed:
-                    sprite = ObjectInfo.ObjectIcon;
-                    title = ObjectInfo.ObjectName;
+                    //sprite = ObjectInfo.ObjectIcon;
+                    sprite = LocationInfo.LocationImage;
+                    //title = ObjectInfo.ObjectName;
+                    title = LocationInfo.DisplayName;
                     status = "Status: Fully Discovered";
-                    body = ObjectInfo.ShortDescription;
+                    //body = ObjectInfo.ShortDescription;
+                    body = LocationInfo.Description;
                     break;
             }
 
@@ -83,6 +89,10 @@ namespace LoGaCulture.LUTE
             if (ActiveLocationInfoPanel == null)
             {
                 GameObject prefab = Resources.Load<GameObject>("Prefabs/LocationInfoPanel");
+                if (CustomLocationPrefab != null)
+                {
+                    prefab = CustomLocationPrefab.gameObject;
+                }
                 if (prefab != null)
                 {
                     GameObject go = Instantiate(prefab);

@@ -31,6 +31,9 @@ namespace LoGaCulture.LUTE
         public static ObjectInfoPanel ActiveInfoPanel;
         public static LocationInfoPanel ActiveLocationInfoPanel;
 
+        [HideInInspector]
+        public static LocationInfoPanel CustomLocationPrefab;
+
         public static ObjectInfoPanel GetInfoPanel()
         {
             if (ActiveInfoPanel == null)

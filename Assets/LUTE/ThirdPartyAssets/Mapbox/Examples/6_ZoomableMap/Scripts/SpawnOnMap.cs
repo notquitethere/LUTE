@@ -158,7 +158,17 @@
         private void ProcessNodeLocation(Node node)
         {
             if (node.NodeLocation != null)
+            {
                 AddUniqueLocation(node.NodeLocation);
+            }
+            else
+            {
+                LocationClickEventHandler handler = node._EventHandler as LocationClickEventHandler;
+                if (handler != null)
+                {
+                    AddUniqueLocation(handler.Location.locationRef);
+                }
+            }
         }
 
         private void ProcessNodeOrders(Node node)

@@ -5,7 +5,6 @@ namespace LoGaCulture.LUTE
     {
         public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
         }
     }
 }

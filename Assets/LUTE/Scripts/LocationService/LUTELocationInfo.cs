@@ -60,6 +60,14 @@ namespace LoGaCulture.LUTE
         [SerializeField] protected bool allowClickWithoutLocation;
         [SerializeField] protected LocationStatus locationStatus = LocationStatus.Unvisited;
 
+        [Header("Location Info Panel")]
+        [Tooltip("The sprite to display on the locatio info panel")]
+        [SerializeField] protected Sprite infoImage;
+        [Tooltip("The display name of the location to display on a location info panel")]
+        [SerializeField] protected string displayName;
+        [Tooltip("The description of the location to display on a location info panel")]
+        [SerializeField] protected string description;
+
         [Header("Node Location Settings")]
         [Tooltip("The node that will trigger this location to be completed once the node itself completes.")]
         [SerializeField] protected string nodeComplete;
@@ -108,6 +116,24 @@ namespace LoGaCulture.LUTE
         {
             get { return allowClickWithoutLocation; }
             set { allowClickWithoutLocation = value; }
+        }
+
+        public Sprite LocationImage
+        {
+            get { return infoImage; }
+            set { infoImage = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+        public string DisplayName
+        {
+            get { return displayName; }
+            set { displayName = value; }
         }
 
         protected virtual void Awake()

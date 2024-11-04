@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -997,7 +998,16 @@ public class GraphWindow : EventWindow
 
         List<Order> locationOrders = new List<Order>();
         groupNode.GetLocationOrders(ref locationOrders);
-        if (groupNode.NodeLocation != null || locationOrders.Count > 0)
+
+        bool locationFound = false;
+
+        if (groupNode._EventHandler != null && groupNode._EventHandler.GetType() == typeof(LocationClickEventHandler))
+        {
+            var handler = groupNode._EventHandler as LocationClickEventHandler;
+            locationFound = handler.Location.locationRef != null;
+        }
+
+        if (groupNode.NodeLocation != null || locationOrders.Count > 0 || locationFound)
         {
             // Draw a small icon to show that the node has a location in the top right corner of the node
             Rect rect = new Rect(groupNode._NodeRect);
@@ -1619,7 +1629,13 @@ public class GraphWindow : EventWindow
         {
             locationFound = true;
         }
-        else
+        else if (node._EventHandler != null && node._EventHandler.GetType() == typeof(LocationClickEventHandler))
+        {
+            var handler = node._EventHandler as LocationClickEventHandler;
+            locationFound = handler.Location.locationRef != null;
+        }
+
+        if (!locationFound)
         {
             foreach (var order in node.OrderList)
             {

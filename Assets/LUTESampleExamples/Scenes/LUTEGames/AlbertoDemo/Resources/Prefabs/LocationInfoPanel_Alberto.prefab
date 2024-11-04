@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7186922257395689936}
   - component: {fileID: 8547775485631656371}
   m_Layer: 5
-  m_Name: LocationInfoPanel
+  m_Name: LocationInfoPanel_Alberto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

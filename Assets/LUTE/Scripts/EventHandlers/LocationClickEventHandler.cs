@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace LoGaCulture.LUTE
@@ -22,6 +23,27 @@ namespace LoGaCulture.LUTE
         [Tooltip("Whether to update the location marker when the node is completed.")]
         [SerializeField] protected bool updateLocationMarkerOnComplete;
 
+        public bool AutoTrigger
+        {
+            get { return autoTrigger; }
+            set { autoTrigger = value; }
+        }
+        public bool RequiresPress
+        {
+            get { return requiresPress; }
+            set { requiresPress = value; }
+        }
+        public bool RequiresLocation
+        {
+            get { return requiresLocation; }
+            set { requiresLocation = value; }
+        }
+
+        public LocationData Location
+        {
+            get { return location; }
+        }
+
         private void OnEnable()
         {
             LocationServiceSignals.OnLocationClicked += OnLocationClicked;
@@ -38,31 +60,33 @@ namespace LoGaCulture.LUTE
             requiresPress = autoTrigger ? false : requiresPress;
             requiresLocation = autoTrigger ? true : requiresLocation;
 
-            // does not seem required?
             if (autoTrigger)
             {
-                parentNode.NodeLocation = location.locationRef;
+                if (location.Value != null)
+                    parentNode.NodeLocation = location.locationRef;
             }
             else
             {
                 parentNode.NodeLocation = null;
             }
-            // does not seem required?
-            if (updateLocationMarkerOnComplete)
-            {
-                location.Value.NodeComplete = parentNode._NodeName;
-            }
-            else
-            {
-                location.Value.NodeComplete = location.Value.NodeComplete;
-            }
 
-            if (autoTrigger)
+            if (location.Value != null)
             {
-                bool locationMet = location.locationRef.Evaluate(ComparisonOperator.Equals, this.location.Value);
-                if (locationMet)
+                if (updateLocationMarkerOnComplete)
                 {
-                    ExecuteNode();
+                    location.Value.NodeComplete = parentNode._NodeName;
+                }
+
+                if (EditorApplication.isPlaying)
+                {
+                    if (autoTrigger)
+                    {
+                        bool locationMet = location.locationRef.Evaluate(ComparisonOperator.Equals, this.location.Value);
+                        if (locationMet)
+                        {
+                            ExecuteNode();
+                        }
+                    }
                 }
             }
         }
