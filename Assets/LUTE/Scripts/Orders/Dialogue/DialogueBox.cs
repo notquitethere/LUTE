@@ -36,6 +36,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     public virtual Image CharacterImage { get { return characterImage; } }
 
     protected TextWriter writer;
+    protected AudioWriter audioWriter;
     protected CanvasGroup canvasGroup;
     protected bool fadeWhenDone = true;
     protected bool waitForClick = true;
@@ -134,6 +135,21 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         return canvasGroup;
     }
 
+    public virtual AudioWriter GetWriterAudio()
+    {
+        if (audioWriter != null)
+        {
+            return audioWriter;
+        }
+
+        audioWriter = GetComponent<AudioWriter>();
+        if (audioWriter == null)
+        {
+            audioWriter = gameObject.AddComponent<AudioWriter>();
+        }
+        return audioWriter;
+    }
+
     protected virtual void Start()
     {
         // Dialogue always starts invisible, will be faded in when writing starts
@@ -165,7 +181,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
     protected virtual void UpdateAlpha()
     {
-        if (GetWriter().IsTyping())
+        if (GetWriter().IsTyping)
         {
             targetAlpha = 1f;
             fadeCoolDownTimer = 0.1f;
@@ -348,17 +364,27 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
             continueButton.gameObject.SetActive(true);
         }
 
-        StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone, allowClickAnywhere, useButton));
+        //StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone, allowClickAnywhere, useButton));
     }
 
-    public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false, bool useButton = false)
+    /// <summary>
+    /// Write a line of story text to the Dialogue box. Must be started as a coroutine.
+    /// </summary>
+    /// <param name="text">The text to display.</param>
+    /// <param name="clearPrevious">Clear any previous text in the Say Dialog.</param>
+    /// <param name="waitForInput">Wait for player input before continuing once text is written.</param>
+    /// <param name="fadeWhenDone">Fade out the Say Dialog when writing and player input has finished.</param>
+    /// <param name="stopVoiceover">Stop any existing voiceover audio before writing starts.</param>
+    /// <param name="voiceOverClip">Voice over audio clip to play.</param>
+    /// <param name="onComplete">Callback to execute when writing and player input have finished.</param>
+    public virtual IEnumerator DoDialogue(string text, bool clearPrevious, bool waitForInput, bool fadeWhenDone, bool stopVoiceover, bool waitForVO, AudioClip voiceOverClip, Action onComplete)
     {
-        var tw = GetWriter();
+        var writer = GetWriter();
 
-        if (writer.IsTyping() || writer.IsWaitingForInput)
+        if (writer.IsTyping || writer.IsWaitingForInput)
         {
-            tw.Stop();
-            while (writer.IsTyping() || writer.IsWaitingForInput)
+            writer.Stop();
+            while (writer.IsTyping || writer.IsWaitingForInput)
             {
                 yield return null;
             }
@@ -378,19 +404,63 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         gameObject.SetActive(true);
 
         this.fadeWhenDone = fadeWhenDone;
-        this.waitForClick = waitForClick;
 
-        // AudioClip SFX = null;
-        // if (VOClip != null)
-        // {
-        //     //play voiceover clip
-        // }
+        AudioClip SFXClip = null;
+        if (voiceOverClip != null)
+        {
+            AudioWriter wa = GetWriterAudio();
+            wa.OnVoiceover(voiceOverClip);
+        }
+        else if (speakingCharacter != null)
+        {
+            SFXClip = speakingCharacter.SoundEffect;
+        }
 
-        //get the ui text component
-        var displayText = GetTextDisplay();
+        writer.AttachedAudioWriter = audioWriter;
 
-        tw.WriteText(storyText, displayText, onComplete, typingSpeed, waitTime, skipLine, waitForClick, allowClickAnywhere);
+        yield return StartCoroutine(writer.Write(text, clearPrevious, waitForInput, stopVoiceover, waitForVO, SFXClip, onComplete));
     }
+
+    //public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false, bool useButton = false)
+    //{
+    //    var tw = GetWriter();
+
+    //    if (writer.IsTyping() || writer.IsWaitingForInput)
+    //    {
+    //        tw.Stop();
+    //        while (writer.IsTyping() || writer.IsWaitingForInput)
+    //        {
+    //            yield return null;
+    //        }
+    //    }
+
+    //    if (closeOtherDialogues)
+    //    {
+    //        for (int i = 0; i < activeDialogueBoxes.Count; i++)
+    //        {
+    //            var db = activeDialogueBoxes[i];
+    //            if (db.gameObject != gameObject)
+    //            {
+    //                db.SetActive(false);
+    //            }
+    //        }
+    //    }
+    //    gameObject.SetActive(true);
+
+    //    this.fadeWhenDone = fadeWhenDone;
+    //    this.waitForClick = waitForClick;
+
+    //    // AudioClip SFX = null;
+    //    // if (VOClip != null)
+    //    // {
+    //    //     //play voiceover clip
+    //    // }
+
+    //    //get the ui text component
+    //    var displayText = GetTextDisplay();
+
+    //    tw.WriteText(storyText, displayText, onComplete, typingSpeed, waitTime, skipLine, waitForClick, allowClickAnywhere);
+    //}
 
     public virtual bool FadeWhenDone { get { return fadeWhenDone; } set { fadeWhenDone = value; } }
     public virtual bool WaitForClick { get { return waitForClick; } set { waitForClick = value; } }

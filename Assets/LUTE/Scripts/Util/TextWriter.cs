@@ -1,8 +1,17 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+
+public enum WriterState
+{
+    Invalid,
+    Start,
+    Pause,
+    Resume,
+    End,
+}
 
 public class TextWriter : MonoBehaviour
 {
@@ -20,6 +29,15 @@ public class TextWriter : MonoBehaviour
     private bool waitForClick;
     private bool allowClickAnywhere = false;
     private Action onComplete;
+
+    protected TextAdapter textAdapter = new TextAdapter();
+
+    public bool IsTyping { get { return IsTyping; } }
+
+    protected int visibleCharacterCount = 0;
+    protected int readAheadStartIndex = 0;
+    public AudioWriter AttachedAudioWriter { get; set; }
+
 
     protected virtual void OnEnable()
     {
@@ -45,6 +63,16 @@ public class TextWriter : MonoBehaviour
         }
     }
 
+    protected virtual void NotifyStart(AudioClip clip)
+    {
+        WriterSignals.DoWriterState(this, WriterState.Start);
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnStart(clip);
+        }
+    }
+
     protected virtual void NotifyGlyph()
     {
         for (int i = 0; i < writerListeners.Count; i++)
@@ -54,74 +82,118 @@ public class TextWriter : MonoBehaviour
         }
     }
 
-    public void WriteText(
-        string text,
-        TextMeshProUGUI textUI,
-        Action onComplete,
-        float typingSpeed,
-        float waitTime,
-        bool skipLine,
-        bool waitForClick,
-        bool allowClickAnywhere = false
-    )
+    /// <summary>
+    /// Writes text using a typewriter effect to a UI text object.
+    /// </summary>
+    /// <param name="text">Text to be written</param>
+    /// <param name="clear">If true clears the previous text.</param>
+    /// <param name="waitForInput">Writes the text and then waits for player input before calling onComplete.</param>
+    /// <param name="stopAudio">Stops any currently playing audioclip.</param>
+    /// <param name="waitForVO">Wait for the Voice over to complete before proceeding</param>
+    /// <param name="clip">Audio clip to play when text starts writing.</param>
+    /// <param name="onComplete">Callback to call when writing is finished.</param>
+    public virtual IEnumerator Write(string text, bool clear, bool waitForInput, bool stopAudio, bool waitForVO, AudioClip clip, System.Action onComplete)
     {
-        this.onComplete = onComplete;
-        this.allowSkippingLine = skipLine;
-        this.waitForClick = waitForClick;
-        this.allowClickAnywhere = allowClickAnywhere;
-        if (displayRoutine != null)
-            StopCoroutine(displayRoutine);
-        displayRoutine = StartCoroutine(DisplayText(text, textUI, onComplete, waitTime, typingSpeed));
-    }
-
-    public IEnumerator DisplayText(string text, TextMeshProUGUI textUI, Action onComplete, float waitTime, float typingSpeed = 0.04f)
-    {
-        isTyping = true;
-
-        textUI.text = "";
-
-        //can hide your continue icon here if need be
-
-        bool addingRichText = false;
-
-        foreach (char c in text)
+        if (clear)
         {
-            if (clicked)
-            {
-                textUI.text = text;
-                clicked = false;
-                break;
-            }
-            NotifyGlyph();
-            if (c == '<' || addingRichText)
-            {
-                addingRichText = true;
-                textUI.text += c;
-                if (c == '>')
-                {
-                    addingRichText = false;
-                }
-            }
-            else
-            {
-                textUI.text += c;
-                yield return new WaitForSeconds(typingSpeed);
-            }
+            textAdapter.Text = "";
+            visibleCharacterCount = 0;
         }
 
-        //can show your continue icon here if need be
-
-        isTyping = false;
-
-        if (!waitForClick)
+        if (!textAdapter.HasTextObject())
         {
-            yield return new WaitForSeconds(waitTime);
-            if (onComplete != null)
-            {
-                onComplete();
-            }
+            yield break;
         }
+
+        NotifyStart(clip);
+
+        string tokenText = TextVariationHandler.SelectVariations(text);
+
+        if (waitForInput)
+        {
+            tokenText += "{wi}";
+        }
+
+        if (waitForVO)
+        {
+            tokenText += "{wvo}";
+        }
+
+        //List<TextTagToken> tokens = TextTagParser.Tokenize(tokenText);
+
+        gameObject.SetActive(true);
+        //yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete));
+
     }
+
+    //public void WriteText(
+    //    string text,
+    //    TextMeshProUGUI textUI,
+    //    Action onComplete,
+    //    float typingSpeed,
+    //    float waitTime,
+    //    bool skipLine,
+    //    bool waitForClick,
+    //    bool allowClickAnywhere = false
+    //)
+    //{
+    //    this.onComplete = onComplete;
+    //    this.allowSkippingLine = skipLine;
+    //    this.waitForClick = waitForClick;
+    //    this.allowClickAnywhere = allowClickAnywhere;
+    //    if (displayRoutine != null)
+    //        StopCoroutine(displayRoutine);
+    //    displayRoutine = StartCoroutine(DisplayText(text, textUI, onComplete, waitTime, typingSpeed));
+    //}
+
+    //public IEnumerator DisplayText(string text, TextMeshProUGUI textUI, Action onComplete, float waitTime, float typingSpeed = 0.04f)
+    //{
+    //    isTyping = true;
+
+    //    textUI.text = "";
+
+    //    //can hide your continue icon here if need be
+
+    //    bool addingRichText = false;
+
+    //    foreach (char c in text)
+    //    {
+    //        if (clicked)
+    //        {
+    //            textUI.text = text;
+    //            clicked = false;
+    //            break;
+    //        }
+    //        NotifyGlyph();
+    //        if (c == '<' || addingRichText)
+    //        {
+    //            addingRichText = true;
+    //            textUI.text += c;
+    //            if (c == '>')
+    //            {
+    //                addingRichText = false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            textUI.text += c;
+    //            yield return new WaitForSeconds(typingSpeed);
+    //        }
+    //    }
+
+    //    //can show your continue icon here if need be
+
+    //    isTyping = false;
+
+    //    if (!waitForClick)
+    //    {
+    //        yield return new WaitForSeconds(waitTime);
+    //        if (onComplete != null)
+    //        {
+    //            onComplete();
+    //        }
+    //    }
+    //}
 
     private void OnWriterClick()
     {
@@ -177,8 +249,6 @@ public class TextWriter : MonoBehaviour
             }
         }
     }
-
-    public bool IsTyping() => isTyping;
 
     public void Stop()
     {

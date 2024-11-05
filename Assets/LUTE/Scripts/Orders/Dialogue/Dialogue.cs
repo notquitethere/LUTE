@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using UnityEngine;
 
 [OrderInfo("Narrative",
@@ -73,6 +74,8 @@ public class Dialogue : Order
             return;
         }
 
+        var engine = GetEngine();
+
         dialogueBox.SetStoryText(storyText);
 
         dialogueBox.SetActive(true);
@@ -80,11 +83,23 @@ public class Dialogue : Order
         dialogueBox.SetCharacter(character);
         dialogueBox.SetCharacterImage(characterPortrait);
 
-        // dialogueBox.SetCharacterImage(characterPortrait);
-        // dialogueBox.SetCharacterName(characterName, characterNameColour);
 
         string displayText = storyText;
-        //using the text above, we can use active custom tags to change the text (e.g. <color=red>red text</color>) -- TO DO
+
+        var activeCustomTags = CustomTag.activeCustomTags;
+        for (int i = 0; i < activeCustomTags.Count; i++)
+        {
+            var ct = activeCustomTags[i];
+            displayText = displayText.Replace(ct.TagStartSymbol, ct.ReplaceTagStartWith);
+            // If the tag has an end symbol and a replacement for it, we replace it
+            if (ct.TagEndSymbol != "" && ct.ReplaceTagEndWith != "")
+            {
+                displayText = displayText.Replace(ct.TagEndSymbol, ct.ReplaceTagEndWith);
+            }
+        }
+
+        string subbedText = engine.SubstituteVariables(displayText);
+
 
         //lastly, we display the text in the box and when the action is complete, we continue
         dialogueBox.StartDialogue(typingSpeed, timeToWait, allowLineSkip, waitForClick, fadeWhenDone, delegate

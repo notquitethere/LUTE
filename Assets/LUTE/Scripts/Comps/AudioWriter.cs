@@ -12,6 +12,10 @@ public class AudioWriter : MonoBehaviour, IWriterListener
 
     protected float nextBeepTime;
     protected float targetVolume = 0f;
+    // True when a voiceover clip is playing
+    protected bool playingVoiceover = false;
+
+    public bool IsPlayingVoiceOver { get { return playingVoiceover; } }
 
     protected virtual void Awake()
     {
@@ -32,5 +36,26 @@ public class AudioWriter : MonoBehaviour, IWriterListener
                 nextBeepTime = Time.realtimeSinceStartup + extend;
             }
         }
+    }
+
+    public virtual void OnVoiceover(AudioClip voiceoverClip)
+    {
+        if (targetAudioSource == null)
+        {
+            return;
+        }
+
+        playingVoiceover = true;
+
+        targetAudioSource.volume = volume;
+        targetVolume = volume;
+        targetAudioSource.loop = false;
+        targetAudioSource.clip = voiceoverClip;
+        targetAudioSource.Play();
+    }
+
+    public void OnStart(AudioClip audioClip)
+    {
+        throw new System.NotImplementedException();
     }
 }
