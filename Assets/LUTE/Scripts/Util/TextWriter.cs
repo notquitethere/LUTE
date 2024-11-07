@@ -2,6 +2,10 @@ using LoGaCulture.LUTE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public enum WriterState
@@ -13,43 +17,100 @@ public enum WriterState
     End,
 }
 
-public class TextWriter : MonoBehaviour
+public class TextWriter : MonoBehaviour, IDialoguenputListener
 {
-    //need to hook this up properly
+    [Tooltip("Gameobject containing a Text, Inout Field or Text Mesh object to write to")]
+    [SerializeField] protected GameObject targetTextObject;
+
+    [Tooltip("Gameobject to punch when the punch tags are displayed. If none is set, the main camera will shake instead.")]
+    [SerializeField] protected GameObject punchObject;
+
+    [Tooltip("Writing characters per second")]
+    [SerializeField] protected float writingSpeed = 60;
+
+    [Tooltip("Pause duration for punctuation characters")]
+    [SerializeField] protected float punctuationPause = 0.25f;
+
+    [SerializeField] protected bool doReadAheadText = true;
+
+    [Tooltip("Write one word at a time rather one character at a time")]
+    [SerializeField] protected bool writeWholeWords = false;
+
+    [Tooltip("Click while text is writing to finish writing immediately")]
+    [SerializeField] protected bool instantComplete = true;
+
+    [Tooltip("Color of text that has not been revealed yet")]
+    [SerializeField] protected Color hiddenTextColor = new Color(1, 1, 1, 0);
+
+    [Tooltip("Force the target text object to use Rich Text mode so text color and alpha appears correctly")]
+    [SerializeField] protected bool forceRichText = true;
+
+    public AudioWriter AttachedAudioWriter { get; set; }
+
+    // This property is true when the writer is waiting for user input to continue
     public virtual bool IsWaitingForInput { get { return isWaitingForInput; } }
+    public virtual bool Paused { get; set; }
+    public int WordTokensFound { get; protected set; }
+    public virtual int WordTokensProcessed
+    {
+        get { return wordTokensProcessed; }
+        protected set
+        {
+            if (wordTokensProcessed < WordTokensFound && value >= WordTokensFound)
+            {
+                NotifyAllWordsWritten();
+            }
+            wordTokensProcessed = value;
+        }
+    }
 
     protected bool isWaitingForInput;
     protected List<IWriterListener> writerListeners = new List<IWriterListener>();
 
-
-    private Coroutine displayRoutine;
-    private bool allowSkippingLine = false;
-    private bool clicked = false;
-    private bool isTyping;
-    private bool waitForClick;
-    private bool allowClickAnywhere = false;
-    private Action onComplete;
+    protected StringBuilder openString = new StringBuilder(256);
+    protected StringBuilder closeString = new StringBuilder(256);
+    protected StringBuilder leftString = new StringBuilder(1024);
+    protected StringBuilder rightString = new StringBuilder(1024);
+    protected StringBuilder outputString = new StringBuilder(1024);
+    protected StringBuilder readAheadString = new StringBuilder(1024);
 
     protected TextAdapter textAdapter = new TextAdapter();
 
-    public bool IsTyping { get { return IsTyping; } }
+    protected bool boldActive = false;
+    protected bool italicActive = false;
+    protected bool colorActive = false;
+    protected string colorText = "";
+    protected bool linkActive = false;
+    protected string linkText = string.Empty;
+    protected bool sizeActive = false;
+    protected float sizeValue = 16f;
+    protected bool exitFlag;
+    protected bool inputFlag;
+    protected float currentPunctuationPause;
+    protected string hiddenColorOpen = "";
+    protected string hiddenColorClose = "";
+
+    protected float currentWritingSpeed;
+    protected int wordTokensProcessed;
+    protected bool isTyping;
+
+    public bool IsTyping { get { return isTyping; } }
 
     protected int visibleCharacterCount = 0;
     protected int readAheadStartIndex = 0;
-    public AudioWriter AttachedAudioWriter { get; set; }
 
-
-    protected virtual void OnEnable()
-    {
-        LoGaCulture.LUTE.WriterSignals.OneWriterClick += OnWriterClick;
-    }
-    protected virtual void OnDisable()
-    {
-        LoGaCulture.LUTE.WriterSignals.OneWriterClick -= OnWriterClick;
-    }
+    private Node curNode;
 
     protected virtual void Awake()
     {
+        GameObject go = targetTextObject;
+        if (go == null)
+        {
+            go = gameObject;
+        }
+
+        textAdapter.InitFromGameObject(go);
+
         // Cache the list of child writer listeners
         var allComponents = GetComponentsInChildren<Component>();
         for (int i = 0; i < allComponents.Length; i++)
@@ -60,6 +121,27 @@ public class TextWriter : MonoBehaviour
             {
                 writerListeners.Add(writerListener);
             }
+        }
+
+        CacheHiddenColorStrings();
+    }
+
+    protected virtual void Start()
+    {
+        if (forceRichText)
+        {
+            textAdapter.ForceRichText();
+        }
+    }
+
+    protected virtual void NotifyInput()
+    {
+        WriterSignals.DoWriterInput(this);
+
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnInput();
         }
     }
 
@@ -73,8 +155,21 @@ public class TextWriter : MonoBehaviour
         }
     }
 
+    protected virtual void NotifyEnd(bool stopAudio)
+    {
+        WriterSignals.DoWriterState(this, WriterState.End);
+
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnEnd(stopAudio);
+        }
+    }
+
     protected virtual void NotifyGlyph()
     {
+        WriterSignals.DoWriterGlyph(this);
+
         for (int i = 0; i < writerListeners.Count; i++)
         {
             var writerListener = writerListeners[i];
@@ -92,7 +187,7 @@ public class TextWriter : MonoBehaviour
     /// <param name="waitForVO">Wait for the Voice over to complete before proceeding</param>
     /// <param name="clip">Audio clip to play when text starts writing.</param>
     /// <param name="onComplete">Callback to call when writing is finished.</param>
-    public virtual IEnumerator Write(string text, bool clear, bool waitForInput, bool stopAudio, bool waitForVO, AudioClip clip, System.Action onComplete)
+    public virtual IEnumerator Write(string text, bool clear, bool waitForInput, bool stopAudio, bool waitForVO, AudioClip clip, System.Action onComplete, float newSpeed = 40, Node parentNode = null)
     {
         if (clear)
         {
@@ -119,143 +214,850 @@ public class TextWriter : MonoBehaviour
             tokenText += "{wvo}";
         }
 
-        //List<TextTagToken> tokens = TextTagParser.Tokenize(tokenText);
+        List<TextTagToken> tokens = TextTagParser.Tokenise(tokenText);
 
         gameObject.SetActive(true);
-        //yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete));
 
+        writingSpeed = newSpeed;
+
+        if (parentNode != null)
+        {
+            curNode = parentNode;
+        }
+
+        yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete));
     }
 
-    //public void WriteText(
-    //    string text,
-    //    TextMeshProUGUI textUI,
-    //    Action onComplete,
-    //    float typingSpeed,
-    //    float waitTime,
-    //    bool skipLine,
-    //    bool waitForClick,
-    //    bool allowClickAnywhere = false
-    //)
-    //{
-    //    this.onComplete = onComplete;
-    //    this.allowSkippingLine = skipLine;
-    //    this.waitForClick = waitForClick;
-    //    this.allowClickAnywhere = allowClickAnywhere;
-    //    if (displayRoutine != null)
-    //        StopCoroutine(displayRoutine);
-    //    displayRoutine = StartCoroutine(DisplayText(text, textUI, onComplete, waitTime, typingSpeed));
-    //}
-
-    //public IEnumerator DisplayText(string text, TextMeshProUGUI textUI, Action onComplete, float waitTime, float typingSpeed = 0.04f)
-    //{
-    //    isTyping = true;
-
-    //    textUI.text = "";
-
-    //    //can hide your continue icon here if need be
-
-    //    bool addingRichText = false;
-
-    //    foreach (char c in text)
-    //    {
-    //        if (clicked)
-    //        {
-    //            textUI.text = text;
-    //            clicked = false;
-    //            break;
-    //        }
-    //        NotifyGlyph();
-    //        if (c == '<' || addingRichText)
-    //        {
-    //            addingRichText = true;
-    //            textUI.text += c;
-    //            if (c == '>')
-    //            {
-    //                addingRichText = false;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            textUI.text += c;
-    //            yield return new WaitForSeconds(typingSpeed);
-    //        }
-    //    }
-
-    //    //can show your continue icon here if need be
-
-    //    isTyping = false;
-
-    //    if (!waitForClick)
-    //    {
-    //        yield return new WaitForSeconds(waitTime);
-    //        if (onComplete != null)
-    //        {
-    //            onComplete();
-    //        }
-    //    }
-    //}
-
-    private void OnWriterClick()
+    protected virtual IEnumerator ProcessTokens(List<TextTagToken> tokens, bool stopAudio, System.Action onComplete)
     {
-        if (allowClickAnywhere)
-            return;
+        // Reset default control members
+        boldActive = false;
+        italicActive = false;
+        colorActive = false;
+        sizeActive = false;
+        colorText = "";
+        sizeValue = 16f;
+        currentWritingSpeed = writingSpeed;
+        currentPunctuationPause = punctuationPause;
+        WordTokensFound = tokens.Count(x => x.type == TokenType.Words);
+        WordTokensProcessed = 0;
 
-        if (isTyping)
+        exitFlag = false;
+        isTyping = true;
+
+        // Iterate tough all tokens
+        TokenType previousTokenType = TokenType.Invalid;
+
+        for (int i = 0; i < tokens.Count; i++)
         {
-            if (allowSkippingLine)
-                clicked = true;
+            while (Paused)
+            {
+                yield return null;
+            }
+
+            var token = tokens[i];
+
+            WriterSignals.DoTextTagToken(this, token, i, tokens.Count);
+
+            // Read ahead to include any words that are further ahead in the list
+            if (doReadAheadText && !textAdapter.SupportsHiddenCharacters())
+            {
+                readAheadString.Length = 0;
+                for (int j = i + 1; j < tokens.Count; ++j)
+                {
+                    var readAheadToken = tokens[j];
+                    if (readAheadToken.type == TokenType.Words && readAheadToken.paramList.Count == 1)
+                    {
+                        readAheadString.Append(readAheadToken.paramList[0]);
+                    }
+                    else if (readAheadToken.type == TokenType.WaitForInputAndClear)
+                    {
+                        // Do nothing
+                        break;
+                    }
+                }
+            }
+
+            switch (token.type)
+            {
+                case TokenType.Words:
+                    yield return StartCoroutine(WriteWords(token.paramList, previousTokenType));
+                    WordTokensProcessed++;
+                    break;
+                case TokenType.BoldStart:
+                    boldActive = true;
+                    break;
+                case TokenType.BoldEnd:
+                    boldActive = false;
+                    break;
+
+                case TokenType.ItalicStart:
+                    italicActive = true;
+                    break;
+
+                case TokenType.ItalicEnd:
+                    italicActive = false;
+                    break;
+
+                case TokenType.ColorStart:
+                    if (CheckParamCount(token.paramList, 1))
+                    {
+                        colorActive = true;
+                        colorText = token.paramList[0];
+                    }
+                    break;
+
+                case TokenType.ColorEnd:
+                    colorActive = false;
+                    break;
+
+                case TokenType.LinkStart:
+                    if (CheckParamCount(token.paramList, 1))
+                    {
+                        linkActive = true;
+                        linkText = token.paramList[0];
+                    }
+                    break;
+
+                case TokenType.LinkEnd:
+                    linkActive = false;
+                    break;
+
+                case TokenType.SizeStart:
+                    if (TryGetSingleParam(token.paramList, 0, 16f, out sizeValue))
+                    {
+                        sizeActive = true;
+                    }
+                    break;
+
+                case TokenType.SizeEnd:
+                    sizeActive = false;
+                    break;
+
+                case TokenType.Wait:
+                    yield return StartCoroutine(DoWait(token.paramList));
+                    break;
+
+                case TokenType.WaitForInputNoClear:
+                    yield return StartCoroutine(DoWaitForInput(false));
+                    break;
+
+                case TokenType.WaitForInputAndClear:
+                    yield return StartCoroutine(DoWaitForInput(true));
+                    break;
+
+                case TokenType.WaitForVoiceOver:
+                    yield return StartCoroutine(DoWaitVO());
+                    break;
+
+                case TokenType.WaitOnPunctuationStart:
+                    TryGetSingleParam(token.paramList, 0, punctuationPause, out currentPunctuationPause);
+                    break;
+
+                case TokenType.WaitOnPunctuationEnd:
+                    currentPunctuationPause = punctuationPause;
+                    break;
+
+                case TokenType.Clear:
+                    textAdapter.Text = "";
+                    break;
+
+                case TokenType.SpeedStart:
+                    TryGetSingleParam(token.paramList, 0, writingSpeed, out currentWritingSpeed);
+                    break;
+
+                case TokenType.SpeedEnd:
+                    currentWritingSpeed = writingSpeed;
+                    break;
+
+                case TokenType.Exit:
+                    exitFlag = true;
+                    break;
+                case TokenType.VerticalPunch:
+                    {
+                        float vintensity;
+                        float time;
+                        TryGetSingleParam(token.paramList, 0, 10.0f, out vintensity);
+                        TryGetSingleParam(token.paramList, 1, 0.5f, out time);
+                        Punch(new Vector3(0, vintensity, 0), time);
+                    }
+                    break;
+                case TokenType.HorizontalPunch:
+                    {
+                        float hintensity;
+                        float time;
+                        TryGetSingleParam(token.paramList, 0, 10.0f, out hintensity);
+                        TryGetSingleParam(token.paramList, 1, 0.5f, out time);
+                        Punch(new Vector3(hintensity, 0, 0), time);
+                    }
+                    break;
+                case TokenType.Punch:
+                    {
+                        float intensity;
+                        float time;
+                        TryGetSingleParam(token.paramList, 0, 10.0f, out intensity);
+                        TryGetSingleParam(token.paramList, 1, 0.5f, out time);
+                        Punch(new Vector3(intensity, intensity, 0), time);
+                    }
+                    break;
+
+                case TokenType.Flash:
+                    float flashDuration;
+                    TryGetSingleParam(token.paramList, 0, 0.2f, out flashDuration);
+                    Flash(flashDuration);
+                    break;
+                case TokenType.Audio:
+                    {
+                        AudioSource audioSource = null;
+                        if (CheckParamCount(token.paramList, 1))
+                        {
+                            audioSource = FindAudio(token.paramList[0]);
+                        }
+                        if (audioSource != null)
+                        {
+                            audioSource.PlayOneShot(audioSource.clip);
+                        }
+                    }
+                    break;
+                case TokenType.AudioLoop:
+                    {
+                        AudioSource audioSource = null;
+                        if (CheckParamCount(token.paramList, 1))
+                        {
+                            audioSource = FindAudio(token.paramList[0]);
+                        }
+                        if (audioSource != null)
+                        {
+                            audioSource.Play();
+                            audioSource.loop = true;
+                        }
+                    }
+                    break;
+                case TokenType.AudioPause:
+                    {
+                        AudioSource audioSource = null;
+                        if (CheckParamCount(token.paramList, 1))
+                        {
+                            audioSource = FindAudio(token.paramList[0]);
+                        }
+                        if (audioSource != null)
+                        {
+                            audioSource.Pause();
+                        }
+                    }
+                    break;
+                case TokenType.AudioStop:
+                    {
+                        AudioSource audioSource = null;
+                        if (CheckParamCount(token.paramList, 1))
+                        {
+                            audioSource = FindAudio(token.paramList[0]);
+                        }
+                        if (audioSource != null)
+                        {
+                            audioSource.Stop();
+                        }
+                    }
+                    break;
+                case TokenType.VariableCondition:
+                    {
+                        // E.g. {vc=varName,varValue[TRUE|FALSE]}
+                        string varName;
+                        string varValue;
+                        TryGetSingleParam(token.paramList, 0, "", out varName);
+                        TryGetSingleParam(token.paramList, 1, "", out varValue);
+                        string conditionText = "{varc=" + varName + "," + "Bob" + "[" + "correct" + "|" + "incorrect" + "]}";
+                        Debug.Log("Condition Text: " + conditionText);
+                        CheckCondition(conditionText);
+                    }
+                    break;
+            }
+
+            previousTokenType = token.type;
+
+            if (exitFlag)
+            {
+                break;
+            }
+        }
+
+        inputFlag = false;
+        exitFlag = false;
+        isWaitingForInput = false;
+        isTyping = false;
+
+        NotifyEnd(stopAudio);
+
+        if (onComplete != null)
+        {
+            onComplete();
+        }
+    }
+
+    protected virtual void CheckCondition(string conditionText)
+    {
+        if (curNode == null) return;
+
+        // Pattern to match {varc=VariableName,Value[TRUE_BRANCH|FALSE_BRANCH]}
+        var pattern = new Regex(@"^\{varc=([^,]+),([^[]+)\[([^\|]+)\|([^\]]+)\]\}$");
+        var match = pattern.Match(conditionText);
+
+        if (!match.Success)
+        {
+            throw new ArgumentException("Condition format is invalid. Expected format: {varc=VariableName,Value[TRUE_BRANCH|FALSE_BRANCH]}");
+        }
+
+        // Extract matched groups
+        string variableName = match.Groups[1].Value.Trim();     // VariableName
+        string valueToCompare = match.Groups[2].Value.Trim();   // Value to compare (e.g., "Bob")
+        string trueBranch = match.Groups[3].Value.Trim();       // TRUE_BRANCH (e.g., "correct!")
+        string falseBranch = match.Groups[4].Value.Trim();      // FALSE_BRANCH (e.g., "incorrect!")
+
+        // Retrieve the variable from curNode's engine
+        var v = curNode.GetEngine().GetVariable(variableName);
+
+        if (v == null)
+        {
+            throw new InvalidOperationException($"Variable '{variableName}' does not exist.");
+        }
+
+        bool conditionMet = false;
+
+        // Switch based on the variable's actual type
+        switch (v.GetValue())
+        {
+            case string s:
+                // String comparison
+                Debug.Log($"Comparing '{s}' to '{valueToCompare}'");
+                conditionMet = s.Equals(valueToCompare, StringComparison.OrdinalIgnoreCase);
+                break;
+
+            case int i:
+                // Integer comparison
+                if (int.TryParse(valueToCompare, out int intCompareValue))
+                {
+                    conditionMet = i == intCompareValue;
+                }
+                else
+                {
+                    throw new ArgumentException("Provided value is not a valid integer for comparison.");
+                }
+                break;
+
+            case float f:
+                // Float comparison
+                if (float.TryParse(valueToCompare, out float floatCompareValue))
+                {
+                    conditionMet = Math.Abs(f - floatCompareValue) < 0.0001; // Small tolerance for float comparison
+                }
+                else
+                {
+                    throw new ArgumentException("Provided value is not a valid float for comparison.");
+                }
+                break;
+
+            case bool b:
+                // Boolean comparison
+                if (bool.TryParse(valueToCompare, out bool boolCompareValue))
+                {
+                    conditionMet = b == boolCompareValue;
+                }
+                else
+                {
+                    throw new ArgumentException("Provided value is not a valid boolean for comparison.");
+                }
+                break;
+
+            default:
+                throw new InvalidOperationException($"Unsupported variable type: {v.GetValue().GetType()}");
+        }
+
+        // Execute the appropriate branch based on the condition
+        if (conditionMet)
+        {
+            ProceedToIndex(trueBranch);  // Correct path
         }
         else
         {
-            if (waitForClick)
+            ProceedToIndex(falseBranch); // Incorrect path
+        }
+    }
+
+    // This method handles proceeding to the specified branch
+    private void ProceedToIndex(string branch)
+    {
+        // Implement the navigation or logic to handle the specified branch
+        Debug.Log($"Proceeding to: {branch}");
+    }
+
+
+
+    protected virtual IEnumerator WriteWords(List<string> paramList, TokenType previousTokenType)
+    {
+        // Words can only have one parameter
+        if (!CheckParamCount(paramList, 1))
+        {
+            yield break;
+        }
+
+        // Ensure correct new line handling
+        string param = paramList[0].Replace("\\n", "\n");
+
+        // Trim whitespace after any clear tags
+        if (previousTokenType == TokenType.Clear || previousTokenType == TokenType.WaitForInputAndClear)
+        {
+            param = param.TrimStart(' ', '\t', '\r', '\n');
+        }
+
+        // Start with the visible portion of any existing displayed text.
+        string startText = "";
+        if (visibleCharacterCount > 0 &&
+            visibleCharacterCount <= textAdapter.Text.Length)
+        {
+            startText = textAdapter.Text.Substring(0, visibleCharacterCount);
+        }
+
+        // To implement once you use markup (bold, italic etc.)
+        UpdateOpenMarkup();
+        UpdateCloseMarkup();
+
+        if (textAdapter.SupportsHiddenCharacters())
+        {
+            yield return RevealTextWithHiddenCharacters(param, startText);
+        }
+        else
+        {
+            yield return RevealTextWithoutHiddenCharacters(param, startText);
+        }
+    }
+
+    protected virtual void UpdateOpenMarkup()
+    {
+        openString.Length = 0;
+
+        if (textAdapter.SupportsRichText())
+        {
+            if (sizeActive)
             {
-                if (displayRoutine != null)
-                    StopCoroutine(displayRoutine);
-                isTyping = false;
-                if (DialogueBox.GetDialogueBox() != null && DialogueBox.GetDialogueBox().FadeWhenDone)
-                {
-                    DialogueBox.GetDialogueBox().FadeWhenDone = true;
-                    DialogueBox.GetDialogueBox().WaitForClick = false;
-                }
-                onComplete?.Invoke();
+                openString.Append("<size=");
+                openString.Append(sizeValue);
+                openString.Append(">");
+            }
+            if (colorActive)
+            {
+                openString.Append("<color=");
+                openString.Append(colorText);
+                openString.Append(">");
+            }
+            if (linkActive)
+            {
+                openString.Append("<link=");
+                openString.Append(linkText);
+                openString.Append(">");
+            }
+            if (boldActive)
+            {
+                openString.Append("<b>");
+            }
+            if (italicActive)
+            {
+                openString.Append("<i>");
             }
         }
     }
 
-    private void Update()
+    protected virtual void UpdateCloseMarkup()
     {
-        if (!allowClickAnywhere)
-            return;
+        closeString.Length = 0;
 
-        //when a click is detected 
-        //if the text is still typing, skip to the end of the text if allowed
-        //if the text is not typing, continue to the next text if allowed
-        if (Input.GetMouseButtonDown(0)) // this works on android (perhaps not iOS!)
+        if (textAdapter.SupportsRichText())
         {
-            if (isTyping)
+            if (italicActive)
             {
-                if (allowSkippingLine)
-                    clicked = true;
+                closeString.Append("</i>");
             }
-            else
+            if (boldActive)
             {
-                if (waitForClick)
+                closeString.Append("</b>");
+            }
+            if (colorActive)
+            {
+                closeString.Append("</color>");
+            }
+            if (linkActive)
+            {
+                closeString.Append("</link>");
+            }
+            if (sizeActive)
+            {
+                closeString.Append("</size>");
+            }
+        }
+    }
+
+    // Define shared reveal logic in a coroutine
+    private IEnumerator RevealText(int revealLimit, bool writeWholeWords, string param, string startText)
+    {
+        float timeAccumulator = Time.deltaTime;
+        float invWritingSpeed = 1f / currentWritingSpeed;
+
+        while (textAdapter.RevealedCharacters < revealLimit)
+        {
+            if (instantComplete && inputFlag)
+            {
+                textAdapter.RevealedCharacters = textAdapter.CharactersToReveal;
+            }
+
+            textAdapter.RevealedCharacters++;
+            NotifyGlyph();
+
+            if (IsPunctuation(textAdapter.LastRevealedCharacter))
+            {
+                yield return StartCoroutine(DoWait(currentPunctuationPause));
+            }
+
+            if (currentWritingSpeed > 0f)
+            {
+                timeAccumulator -= invWritingSpeed;
+                if (timeAccumulator <= 0f)
                 {
-                    StopCoroutine(displayRoutine);
-                    isTyping = false;
-                    DialogueBox.GetDialogueBox().FadeWhenDone = true;
-                    onComplete?.Invoke();
+                    var waitTime = Mathf.Max(invWritingSpeed, Time.deltaTime);
+                    yield return new WaitForSeconds(waitTime);
+                    timeAccumulator += waitTime;
                 }
             }
         }
+    }
+
+    // Handle the setup logic for hidden character support
+    private IEnumerator RevealTextWithHiddenCharacters(string inputParam, string startText)
+    {
+        yield return null;
+        var startingReveal = Mathf.Min(readAheadStartIndex, textAdapter.CharactersToReveal);
+        PartitionString(writeWholeWords, inputParam, inputParam.Length + 1);
+        ConcatenateString(startText);
+        textAdapter.Text = outputString.ToString();
+
+        NotifyGlyph();
+        textAdapter.RevealedCharacters = startingReveal;
+        yield return null;
+
+        yield return RevealText(Mathf.Min(readAheadStartIndex, textAdapter.CharactersToReveal), writeWholeWords, inputParam, startText);
+    }
+
+    // Handle the setup logic for non-hidden character support
+    private IEnumerator RevealTextWithoutHiddenCharacters(string inputParam, string startText)
+    {
+        for (int i = 0; i < inputParam.Length + 1; ++i)
+        {
+            if (exitFlag)
+            {
+                break;
+            }
+
+            while (Paused)
+            {
+                yield return null;
+            }
+
+            PartitionString(writeWholeWords, inputParam, i);
+            ConcatenateString(startText);
+            textAdapter.Text = outputString.ToString();
+
+            NotifyGlyph();
+
+            if (instantComplete && inputFlag)
+            {
+                continue;
+            }
+
+            if (leftString.Length > 0 && rightString.Length > 0 && IsPunctuation(leftString.ToString(leftString.Length - 1, 1)[0]))
+            {
+                yield return StartCoroutine(DoWait(currentPunctuationPause));
+            }
+
+            yield return RevealText(i + 1, writeWholeWords, inputParam, startText);
+        }
+    }
+
+    private bool CheckParamCount(List<string> paramList, int count)
+    {
+        if (paramList == null)
+        {
+            return false;
+        }
+        if (paramList.Count != count)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    protected virtual bool TryGetSingleParam(List<string> paramList, int index, float defaultValue, out float value)
+    {
+        value = defaultValue;
+        if (paramList.Count > index)
+        {
+            float.TryParse(paramList[index], NumberStyles.Any, CultureInfo.InvariantCulture, out value);
+            return true;
+        }
+        return false;
+    }
+
+    protected virtual bool TryGetSingleParam(List<string> paramList, int index, string defaultValue, out string value)
+    {
+        value = defaultValue;
+        if (paramList.Count > index)
+        {
+            value = paramList[index];
+            return true;
+        }
+        return false;
+    }
+
+
+    protected virtual void PartitionString(bool wholeWords, string inputString, int i)
+    {
+        leftString.Length = 0;
+        rightString.Length = 0;
+
+        // Reached last character
+        leftString.Append(inputString);
+        if (i >= inputString.Length)
+        {
+            return;
+        }
+
+        rightString.Append(inputString);
+
+        if (wholeWords)
+        {
+            // Look ahead to find next whitespace or end of string
+            for (int j = i; j < inputString.Length + 1; ++j)
+            {
+                if (j == inputString.Length || char.IsWhiteSpace(inputString[j]))
+                {
+                    leftString.Length = j;
+                    rightString.Remove(0, j);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            leftString.Remove(i, inputString.Length - i);
+            rightString.Remove(0, i);
+        }
+    }
+
+    protected virtual void ConcatenateString(string startText)
+    {
+        outputString.Length = 0;
+        readAheadStartIndex = int.MaxValue;
+
+        outputString.Append(startText);
+        outputString.Append(openString);
+        outputString.Append(leftString);
+        outputString.Append(closeString);
+
+        // Track how many visible characters are currently displayed so
+        // we can easily extract the visible portion again later.
+        visibleCharacterCount = outputString.Length;
+
+        // Make right hand side text hidden
+        if (textAdapter.SupportsRichText() &&
+            rightString.Length + readAheadString.Length > 0)
+        {
+            // Ensure the hidden color strings are populated
+            if (hiddenColorOpen.Length == 0)
+            {
+                CacheHiddenColorStrings();
+            }
+
+            readAheadStartIndex = outputString.Length;
+
+            outputString.Append(hiddenColorOpen);
+            outputString.Append(rightString);
+            outputString.Append(readAheadString);
+            outputString.Append(hiddenColorClose);
+        }
+    }
+
+    protected virtual void CacheHiddenColorStrings()
+    {
+        // Cache the hidden color string
+        Color32 c = hiddenTextColor;
+        hiddenColorOpen = string.Format("<color=#{0:X2}{1:X2}{2:X2}{3:X2}>", c.r, c.g, c.b, c.a);
+        hiddenColorClose = "</color>";
+    }
+
+    protected virtual IEnumerator DoWait(List<string> paramList)
+    {
+        var param = "";
+        if (paramList.Count == 1)
+        {
+            param = paramList[0];
+        }
+
+        float duration = 1f;
+        if (!float.TryParse(param, NumberStyles.Any, CultureInfo.InvariantCulture, out duration))
+        {
+            duration = 1f;
+        }
+
+        yield return StartCoroutine(DoWait(duration));
+    }
+
+    protected virtual IEnumerator DoWaitVO()
+    {
+        float duration = 0f;
+
+        if (AttachedAudioWriter != null)
+        {
+            duration = AttachedAudioWriter.GetSecondsRemaining();
+        }
+
+        yield return StartCoroutine(DoWait(duration));
+    }
+
+    protected virtual IEnumerator DoWait(float duration)
+    {
+        NotifyPause();
+
+        float timeRemaining = duration;
+        while (timeRemaining > 0f && !exitFlag)
+        {
+            if (instantComplete && inputFlag)
+            {
+                break;
+            }
+
+            timeRemaining -= Time.deltaTime;
+            yield return null;
+        }
+
+        NotifyResume();
+    }
+
+    protected virtual IEnumerator DoWaitForInput(bool clear)
+    {
+        NotifyPause();
+
+        inputFlag = false;
+        isWaitingForInput = true;
+
+        while (!inputFlag && !exitFlag)
+        {
+            yield return null;
+        }
+
+        isWaitingForInput = false;
+        inputFlag = false;
+
+        if (clear)
+        {
+            NotifyEnd(false);
+            textAdapter.Text = "";
+        }
+
+        NotifyResume();
+    }
+
+    protected virtual void NotifyAllWordsWritten()
+    {
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnAllWordsWritten();
+        }
+    }
+
+    protected virtual void NotifyPause()
+    {
+        WriterSignals.DoWriterState(this, WriterState.Pause);
+
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnPause();
+        }
+    }
+
+    protected virtual void NotifyResume()
+    {
+        WriterSignals.DoWriterState(this, WriterState.Resume);
+
+        for (int i = 0; i < writerListeners.Count; i++)
+        {
+            var writerListener = writerListeners[i];
+            writerListener.OnResume();
+        }
+    }
+
+    protected virtual bool IsPunctuation(char character)
+    {
+        return character == '.' ||
+            character == '?' ||
+                character == '!' ||
+                character == ',' ||
+                character == ':' ||
+                character == ';' ||
+                character == ')';
+    }
+
+    protected virtual void Punch(Vector3 axis, float time)
+    {
+        GameObject go = punchObject;
+        if (go == null)
+        {
+            go = Camera.main.gameObject;
+        }
+
+        if (go != null)
+        {
+            iTween.ShakePosition(go, axis, time);
+        }
+    }
+
+    protected virtual void Flash(float duration)
+    {
+        var cameraManager = LogaManager.Instance.CameraManager;
+
+        cameraManager.ScreenFadeTexture = CameraManager.CreateColorTexture(new Color(1f, 1f, 1f, 1f), 32, 32);
+        cameraManager.Fade(1f, duration, delegate
+        {
+            cameraManager.ScreenFadeTexture = CameraManager.CreateColorTexture(new Color(1f, 1f, 1f, 1f), 32, 32);
+            cameraManager.Fade(0f, duration, null);
+        });
+    }
+
+    protected virtual AudioSource FindAudio(string audioObjectName)
+    {
+        GameObject go = GameObject.Find(audioObjectName);
+        if (go == null)
+        {
+            return null;
+        }
+
+        return go.GetComponent<AudioSource>();
     }
 
     public void Stop()
     {
         if (isTyping || isWaitingForInput)
         {
-            StopCoroutine(displayRoutine);
-            isTyping = false;
+            exitFlag = true;
         }
     }
+
+    #region IDialogInputListener implementation
+    public virtual void OnNextLineEvent()
+    {
+        if (isTyping || isWaitingForInput)
+        {
+            inputFlag = true;
+            NotifyInput();
+        }
+    }
+    #endregion
 }

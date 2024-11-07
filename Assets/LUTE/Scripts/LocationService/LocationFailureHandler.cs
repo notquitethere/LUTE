@@ -516,11 +516,11 @@ namespace LoGaCulture.LUTE
                 return null;
             }
 
-            dialogueBox.SetStoryText(message);
-            dialogueBox.SetActive(true);
-            dialogueBox.StartDialogue(0.04f, 1f, true, true, false, delegate
-            {
-            });
+            //dialogueBox.SetStoryText(message);
+            //dialogueBox.SetActive(true);
+            //dialogueBox.StartDialogue(0.04f, 1f, true, true, false, delegate
+            //{
+            //});
             return message;
         }
     }

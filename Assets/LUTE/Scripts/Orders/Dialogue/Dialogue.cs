@@ -18,7 +18,7 @@ public class Dialogue : Order
     [TextArea(5, 10)]
     [SerializeField] protected string storyText = "";
     [Tooltip("Type the text at this speed")]
-    [SerializeField] protected float typingSpeed = 0.04f;
+    [SerializeField] protected float typingSpeed = 40f;
     [Tooltip("Type this text in the previous Dialogue box")]
     [SerializeField] protected bool extendPrevious = false;
     [Tooltip("Voiceover audio to play when writing the text")]
@@ -41,10 +41,8 @@ public class Dialogue : Order
     [SerializeField] protected bool waitForVO = false;
     [Tooltip("Sets the active dialogue box with a reference to a box object in the scene. All story text will now display using this box.")]
     [SerializeField] protected DialogueBox setDialogueBox;
-    [Tooltip("Allow the player to click anywhere to progress the text or force click on the box")]
-    [SerializeField] protected bool allowClickAnywhere = false;
-    [Tooltip("Use a button to progress the text - this button is set on the dialogue box prefab")]
-    [SerializeField] protected bool useButtonToProgress = false;
+    [Tooltip("Show the continue button after the text has finished writing")]
+    [SerializeField] protected bool showButton = true;
 
     protected int executionCount;
 
@@ -62,6 +60,12 @@ public class Dialogue : Order
 
         executionCount++;
 
+        // To implement when using conversation order/feature
+        //if (character != null && character.SetDialogueBox != null)
+        //{
+        //    DialogueBox.ActiveDialogueBox = character.SetDialogueBox;
+        //}
+
         if (setDialogueBox != null)
         {
             DialogueBox.ActiveDialogueBox = setDialogueBox;
@@ -76,13 +80,10 @@ public class Dialogue : Order
 
         var engine = GetEngine();
 
-        dialogueBox.SetStoryText(storyText);
-
         dialogueBox.SetActive(true);
 
         dialogueBox.SetCharacter(character);
         dialogueBox.SetCharacterImage(characterPortrait);
-
 
         string displayText = storyText;
 
@@ -100,12 +101,10 @@ public class Dialogue : Order
 
         string subbedText = engine.SubstituteVariables(displayText);
 
-
-        //lastly, we display the text in the box and when the action is complete, we continue
-        dialogueBox.StartDialogue(typingSpeed, timeToWait, allowLineSkip, waitForClick, fadeWhenDone, delegate
+        dialogueBox.StartDialogue(subbedText, !extendPrevious, waitForClick, fadeWhenDone, stopVoiceover, waitForVO, voiceOverClip, delegate
         {
             Continue();
-        }, allowClickAnywhere, useButtonToProgress);
+        }, typingSpeed, showButton, ParentNode);
     }
 
     public override string GetSummary()

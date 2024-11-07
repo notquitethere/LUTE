@@ -576,6 +576,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         for (int i = 0; i < variables.Count; i++)
         {
             var variable = variables[i];
+
             if (variable != null && variable.Key == key)
             {
                 return variable;
@@ -1248,7 +1249,7 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
                 var variable = variables[j];
                 if (variable == null)
                     continue;
-                if (variable.Scope == VariableScope.Private && variable.Key == key)
+                if (variable.Key == key)
                 {
                     string value = variable.ToString();
                     sb.Replace(match.Value, value);

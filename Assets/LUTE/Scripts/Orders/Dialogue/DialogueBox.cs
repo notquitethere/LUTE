@@ -4,56 +4,92 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
 /// Display story text in a visual novel style Dialogue box.
 /// </summary>
 /// 
-public class DialogueBox : MonoBehaviour, IPointerClickHandler
+public class DialogueBox : MonoBehaviour
 {
-    [Tooltip("The continue button UI object")]
-    [SerializeField] protected Button continueButton;
-    [Tooltip("The text UI object")]
-    [SerializeField] protected TextMeshProUGUI textDisplay;
-    [Tooltip("The name text UI object")]
-    [SerializeField] protected TextMeshProUGUI nameText;
     [Tooltip("Duration to fade dialogue in/out")]
     [SerializeField] protected float fadeDuration = 0.25f;
-    [SerializeField] protected string storyText = "";
+
+    [Tooltip("The continue button UI object")]
+    [SerializeField] protected Button continueButton;
+
+    [Tooltip("The text UI object")]
+    [SerializeField] protected TextMeshProUGUI textDisplay;
+    [Tooltip("TextAdapter will search for appropriate output on this GameObject if storyText is null")]
+    [SerializeField] protected GameObject textDisplayGO;
+    protected TextAdapter storyTextAdapter = new TextAdapter();
+    public virtual string StoryText
+    {
+        get
+        {
+            return storyTextAdapter.Text;
+        }
+        set
+        {
+            storyTextAdapter.Text = value;
+        }
+    }
+
+    [Tooltip("The name text UI object")]
+    [SerializeField] protected TextMeshProUGUI nameText;
+    [Tooltip("TextAdapter will search for appropriate output on this GameObject if nameText is null")]
+    [SerializeField] protected GameObject nameTextGO;
+    protected TextAdapter nameTextAdapter = new TextAdapter();
+    public virtual string NameText
+    {
+        get
+        {
+            return nameTextAdapter.Text;
+        }
+        set
+        {
+            nameTextAdapter.Text = value;
+        }
+    }
+
     [Tooltip("Close any other open dialogue boxes when this one is active")]
     [SerializeField] protected bool closeOtherDialogues;
+
     [Tooltip("The character UI object")]
     [SerializeField] protected Image characterImage;
+
     [Tooltip("Adjust width of story text when Character Image is displayed (to avoid overlapping)")]
     [SerializeField] protected bool fitTextWithImage = true;
-    [Tooltip("Allow clicking anywhere to proceed to next text or make users click the box to progress")]
-    [SerializeField] protected bool allowClickAnywhere = false;
-    [Tooltip("Use a button to progress the text - this button is set on the dialogue box prefab")]
-    [SerializeField] protected bool buttonToProgress = false;
-
-    public virtual Image CharacterImage { get { return characterImage; } }
 
     protected TextWriter writer;
     protected AudioWriter audioWriter;
     protected CanvasGroup canvasGroup;
+
     protected bool fadeWhenDone = true;
     protected bool waitForClick = true;
     protected float targetAlpha = 0f;
     protected float fadeCoolDownTimer = 0f;
+    protected bool showButton;
+
     // Cache active boxes to avoid expensive scene search
     protected static List<DialogueBox> activeDialogueBoxes = new List<DialogueBox>();
+
     protected Sprite currentCharacterImage;
+
+    protected StringSubstituter stringSubstituter = new StringSubstituter();
+
     protected float startStoryTextWidth;
     protected float startStoryTextInset;
+
     protected static Character speakingCharacter;
+
+    public virtual Image CharacterImage { get { return characterImage; } }
 
     public virtual RectTransform StoryTextRectTrans
     {
         get
         {
-            return storyText != null ? textDisplay.rectTransform : textDisplay.GetComponent<RectTransform>();
+            return textDisplay != null ? textDisplay.rectTransform : textDisplayGO.GetComponent<RectTransform>();
         }
     }
 
@@ -63,6 +99,9 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         {
             activeDialogueBoxes.Add(this);
         }
+
+        nameTextAdapter.InitFromGameObject(nameText != null ? nameText.gameObject : nameTextGO);
+        storyTextAdapter.InitFromGameObject(textDisplay != null ? textDisplay.gameObject : textDisplayGO);
     }
 
     protected virtual void OnDestroy()
@@ -85,39 +124,6 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
         return writer;
     }
-
-    protected virtual TextMeshProUGUI GetTextDisplay()
-    {
-        if (textDisplay != null)
-        {
-            return textDisplay;
-        }
-
-        textDisplay = GetComponentInChildren<TextMeshProUGUI>();
-        if (textDisplay == null)
-        {
-            textDisplay = gameObject.AddComponent<TextMeshProUGUI>(); //may need to be added onto a canvas group for correct displaying
-        }
-
-        return textDisplay;
-    }
-
-    //this will conflict with the above method, so we'll comment it out for now
-    // protected virtual TextMeshProUGUI GetTextNameDisplay()
-    // {
-    //     if (nameText != null)
-    //     {
-    //         return nameText;
-    //     }
-
-    //     nameText = GetComponentInChildren<TextMeshProUGUI>();
-    //     if (nameText == null)
-    //     {
-    //         nameText = gameObject.AddComponent<TextMeshProUGUI>(); //may need to be added onto a canvas group for correct displaying
-    //     }
-
-    //     return textDisplay;
-    // }
 
     protected virtual CanvasGroup GetCanvasGroup()
     {
@@ -167,15 +173,25 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
             // Character image is hidden by default.
             SetCharacterImage(null);
         }
+
+        if (NameText == "")
+        {
+            SetCharacterName("", Color.white);
+        }
+        if (currentCharacterImage == null)
+        {
+            // Character image is hidden by default.
+            SetCharacterImage(null);
+        }
     }
 
     protected virtual void LateUpdate()
     {
         UpdateAlpha();
 
-        if (continueButton != null)
+        if (continueButton != null && showButton)
         {
-            //continueButton.gameObject.SetActive(GetWriter().IsWaitingForInput);
+            continueButton.gameObject.SetActive(GetWriter().IsWaitingForInput);
         }
     }
 
@@ -186,7 +202,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
             targetAlpha = 1f;
             fadeCoolDownTimer = 0.1f;
         }
-        else if (!waitForClick && fadeWhenDone && Mathf.Approximately(fadeCoolDownTimer, 0f))
+        else if (fadeWhenDone && Mathf.Approximately(fadeCoolDownTimer, 0f))
         {
             targetAlpha = 0f;
         }
@@ -218,21 +234,13 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
     protected virtual void ClearStoryText()
     {
-        storyText = "";
+        StoryText = "";
     }
 
-    protected virtual void SetButtonClick()
-    {
-        WriterSignals.WriterClick();
-    }
-
-    public virtual void SetStoryText(string text)
-    {
-        storyText = text;
-    }
-
-    /// Currently active Dialogue used to display Say text
+    /// Current active Dialogue used to display Say text
     public static DialogueBox ActiveDialogueBox { get; set; }
+
+    public Character SpeakingCharacter { get { return speakingCharacter; } }
 
     public static DialogueBox GetDialogueBox()
     {
@@ -263,11 +271,42 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         return ActiveDialogueBox;
     }
 
+    /// <summary>
+    /// Stops all active portrait tweens.
+    /// </summary>
+    /// TO DO: implement and add portrait controller
+    //public static void StopPortraitTweens()
+    //{
+    //    // Stop all tweening portraits
+    //    var activeCharacters = Character.ActiveCharacters;
+    //    for (int i = 0; i < activeCharacters.Count; i++)
+    //    {
+    //        var c = activeCharacters[i];
+    //        if (c.State.portraitImage != null)
+    //        {
+    //            if (LeanTween.isTweening(c.State.portraitImage.gameObject))
+    //            {
+    //                LeanTween.cancel(c.State.portraitImage.gameObject, true);
+    //                //PortraitController.SetRectTransform(c.State.portraitImage.rectTransform, c.State.position);
+    //                if (c.State.dimmed == true)
+    //                {
+    //                    c.State.portraitImage.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+    //                }
+    //                else
+    //                {
+    //                    c.State.portraitImage.color = Color.white;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+
     public virtual void SetActive(bool state)
     {
         gameObject.SetActive(state);
     }
 
+    // TO DO: set stage
     public virtual void SetCharacter(Character character)
     {
         if (character == null)
@@ -284,7 +323,6 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-
             string characterName = character.CharacterName;
 
             if (characterName == "")
@@ -318,7 +356,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        if (fitTextWithImage && storyText != null && characterImage.gameObject.activeSelf)
+        if (fitTextWithImage && StoryText != null && characterImage.gameObject.activeSelf)
         {
             if (Mathf.Approximately(startStoryTextWidth, 0f))
             {
@@ -341,30 +379,30 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public virtual void SetCharacterName(string name, Color color)
+    public virtual void SetCharacterName(string name, Color colour)
     {
-        if (color == null)
-            color = Color.black;
-        if (nameText != null)
+        if (NameText != null)
         {
-            nameText.text = name;
-            nameText.color = color;
+            var subbedName = stringSubstituter.SubstituteStrings(name);
+            NameText = subbedName;
+            nameTextAdapter.SetTextColour(colour);
         }
     }
 
-    public virtual void StartDialogue(float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, Action onComplete, bool allowClickAnywhere = false, bool useButton = false)
+    /// <summary>
+    /// Write a line of story text to the Say Dialog. Starts coroutine automatically.
+    /// </summary>
+    /// <param name="text">The text to display.</param>
+    /// <param name="clearPrevious">Clear any previous text in the Say Dialog.</param>
+    /// <param name="waitForInput">Wait for player input before continuing once text is written.</param>
+    /// <param name="fadeWhenDone">Fade out the Say Dialog when writing and player input has finished.</param>
+    /// <param name="stopVoiceover">Stop any existing voiceover audio before writing starts.</param>
+    /// <param name="voiceOverClip">Voice over audio clip to play.</param>
+    /// <param name="onComplete">Callback to execute when writing and player input have finished.</param>
+    public virtual void StartDialogue(string text, bool clearPrevious, bool waitForInput, bool fadeWhenDone, bool stopVoiceover, bool waitForVO, AudioClip voiceOverClip, Action onComplete, float newSpeed = 40, bool showButton = true, Node parentNode = null)
     {
-        buttonToProgress = false;
-        // you may wish to hide your button here also
-        if (useButton && continueButton != null)
-        {
-            buttonToProgress = useButton;
-
-            continueButton.onClick.AddListener(SetButtonClick);
-            continueButton.gameObject.SetActive(true);
-        }
-
-        //StartCoroutine(DoDialogue(onComplete, typingSpeed, waitTime, skipLine, waitForClick, fadeWhenDone, allowClickAnywhere, useButton));
+        this.showButton = showButton;
+        StartCoroutine(DoDialogue(text, clearPrevious, waitForInput, fadeWhenDone, stopVoiceover, waitForVO, voiceOverClip, onComplete, newSpeed, parentNode));
     }
 
     /// <summary>
@@ -377,7 +415,7 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     /// <param name="stopVoiceover">Stop any existing voiceover audio before writing starts.</param>
     /// <param name="voiceOverClip">Voice over audio clip to play.</param>
     /// <param name="onComplete">Callback to execute when writing and player input have finished.</param>
-    public virtual IEnumerator DoDialogue(string text, bool clearPrevious, bool waitForInput, bool fadeWhenDone, bool stopVoiceover, bool waitForVO, AudioClip voiceOverClip, Action onComplete)
+    public virtual IEnumerator DoDialogue(string text, bool clearPrevious, bool waitForInput, bool fadeWhenDone, bool stopVoiceover, bool waitForVO, AudioClip voiceOverClip, Action onComplete, float newSpeed = 40, Node parentNode = null)
     {
         var writer = GetWriter();
 
@@ -418,52 +456,10 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
 
         writer.AttachedAudioWriter = audioWriter;
 
-        yield return StartCoroutine(writer.Write(text, clearPrevious, waitForInput, stopVoiceover, waitForVO, SFXClip, onComplete));
+        yield return StartCoroutine(writer.Write(text, clearPrevious, waitForInput, stopVoiceover, waitForVO, SFXClip, onComplete, newSpeed, parentNode));
     }
 
-    //public virtual IEnumerator DoDialogue(Action onComplete, float typingSpeed, float waitTime, bool skipLine, bool waitForClick, bool fadeWhenDone, bool allowClickAnywhere = false, bool useButton = false)
-    //{
-    //    var tw = GetWriter();
-
-    //    if (writer.IsTyping() || writer.IsWaitingForInput)
-    //    {
-    //        tw.Stop();
-    //        while (writer.IsTyping() || writer.IsWaitingForInput)
-    //        {
-    //            yield return null;
-    //        }
-    //    }
-
-    //    if (closeOtherDialogues)
-    //    {
-    //        for (int i = 0; i < activeDialogueBoxes.Count; i++)
-    //        {
-    //            var db = activeDialogueBoxes[i];
-    //            if (db.gameObject != gameObject)
-    //            {
-    //                db.SetActive(false);
-    //            }
-    //        }
-    //    }
-    //    gameObject.SetActive(true);
-
-    //    this.fadeWhenDone = fadeWhenDone;
-    //    this.waitForClick = waitForClick;
-
-    //    // AudioClip SFX = null;
-    //    // if (VOClip != null)
-    //    // {
-    //    //     //play voiceover clip
-    //    // }
-
-    //    //get the ui text component
-    //    var displayText = GetTextDisplay();
-
-    //    tw.WriteText(storyText, displayText, onComplete, typingSpeed, waitTime, skipLine, waitForClick, allowClickAnywhere);
-    //}
-
     public virtual bool FadeWhenDone { get { return fadeWhenDone; } set { fadeWhenDone = value; } }
-    public virtual bool WaitForClick { get { return waitForClick; } set { waitForClick = value; } }
 
     /// Stop the dialogue while its writing text
     public virtual void Stop()
@@ -477,15 +473,6 @@ public class DialogueBox : MonoBehaviour, IPointerClickHandler
     {
         ClearStoryText();
 
-        // Kill any active write coroutine
         StopAllCoroutines();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (!buttonToProgress)
-        {
-            WriterSignals.WriterClick();
-        }
     }
 }

@@ -1,3 +1,5 @@
+using LoGaCulture.LUTE;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,82 +7,61 @@ using UnityEngine;
 public class DialogueEditor : OrderEditor
 {
     public static bool showTagHelp;
-    public static string DrawTagHelpLabel()
+
+    public static void DrawTagHelpLabel()
     {
-        string tagHelpText = "";
-        tagHelpText = "" +
-                       "\t{b} Bold Text {/b}\n" +
-                       "\t{i} Italic Text {/i}\n" +
-                       "\t{color=red} Color Text (color){/color}\n" +
-                       "\t{size=30} Text size {/size}\n" +
-                       "\n" +
-                       "\t{s}, {s=60} Writing speed (chars per sec){/s}\n" +
-                       "\t{w}, {w=0.5} Wait (seconds)\n" +
-                       "\t{wi} Wait for input\n" +
-                       "\t{wc} Wait for input and clear\n" +
-                       "\t{wvo} Wait for voice over line to complete\n" +
-                       "\t{wp}, {wp=0.5} Wait on punctuation (seconds){/wp}\n" +
-                       "\t{c} Clear\n" +
-                       "\t{x} Exit, advance to the next command without waiting for input\n" +
-                       "\n" +
-                       "\t{vpunch=10,0.5} Vertically punch screen (intensity,time)\n" +
-                       "\t{hpunch=10,0.5} Horizontally punch screen (intensity,time)\n" +
-                       "\t{punch=10,0.5} Punch screen (intensity,time)\n" +
-                       "\t{flash=0.5} Flash screen (duration)\n" +
-                       "\n" +
-                       "\t{audio=AudioObjectName} Play Audio Once\n" +
-                       "\t{audioloop=AudioObjectName} Play Audio Loop\n" +
-                       "\t{audiopause=AudioObjectName} Pause Audio\n" +
-                       "\t{audiostop=AudioObjectName} Stop Audio\n" +
-                       "\n" +
-                       "\t{m=MessageName} Broadcast message\n" +
-                       "\t{$VarName} Substitute variable\n" +
-                       "\n" +
-                       "\t-------- Text Mesh Pro Tags --------\n" +
-                       "\t<align=\"right\"> Right </align> <align=\"center\"> Center </align> <align=\"left\"> Left </align>\n" +
-                       "\t<color=\"red\"> Red </color> <color=#005500> Dark Green </color>\n" +
-                       "\t<alpha=#88> 88 </alpha>\n" +
-                       "\t<i> Italic text </i>\n" +
-                       "\t<b> Bold text </b>\n" +
-                       "\t<cspace=1em> Character spacing </cspace>\n" +
-                       "\t<font=\"FontName\"> Change font </font>\n" +
-                       "\t<font=\"FontName\" material=\"MaterialName\"> Change font and material </font>\n" +
-                       "\t<indent=15%> Indentation </indent>\n" +
-                       "\t<line-height=100%> Line height </line-height>\n" +
-                       "\t<line-indent=15%> Line indentation </line-indent>\n" +
-                       "\t{link=id}link text{/link} <link=id>link text</link>\n" +
-                       "\t<lowercase> Lowercase </lowercase>\n" +
-                       "\t<uppercase> Uppercase </uppercase>\n" +
-                       "\t<smallcaps> Smallcaps </smallcaps>\n" +
-                       "\t<margin=5em> Margin </margin>\n" +
-                       "\t<mark=#ffff00aa> Mark (Highlight) </mark>\n" +
-                       "\t<mspace=2.75em> Monospace </mspace>\n" +
-                       "\t<noparse> <b> </noparse>\n" +
-                       "\t<nobr> Non-breaking spaces </nobr>\n" +
-                       "\t<page> Page break\n" +
-                       "\t<size=50%> Font size </size>\n" +
-                       "\t<space=5em> Horizontal space\n" +
-                       "\t<space=5em> Horizontal space\n" +
-                       "\t<sprite=\"AssetName\" index=0> Sprite\n" +
-                       "\t<s> Strikethrough </s>\n" +
-                       "\t<u> Underline </u>\n" +
-                       "\t<style=\"StyleName\"> Styles </style>\n" +
-                       "\t<sub> Subscript </sub>\n" +
-                       "\t<sup> Superscript </sup>\n" +
-                       "\t<voffset=1em> Vertical offset </voffset>\n" +
-                       "\t<width=60%> Text width </width>\n" +
-                       "\n" +
-                       "\n" + // extra space is to fix the vertical sizing the help box at default inspector width
-                       "\n";
+        string tagText = TextTagParser.GetTagHelp();
 
-
-        float pixelHeight = EditorStyles.miniLabel.CalcHeight(new GUIContent(tagHelpText), EditorGUIUtility.currentViewWidth);
-        EditorGUILayout.SelectableLabel(tagHelpText, GUI.skin.GetStyle("HelpBox"), GUILayout.MinHeight(pixelHeight + 50));
-
-        return tagHelpText;
+        if (CustomTag.activeCustomTags.Count > 0)
+        {
+            List<Transform> activeCustomTagGroup = new List<Transform>();
+            foreach (CustomTag ct in CustomTag.activeCustomTags)
+            {
+                if (ct.transform.parent != null)
+                {
+                    if (!activeCustomTagGroup.Contains(ct.transform.parent.transform))
+                    {
+                        activeCustomTagGroup.Add(ct.transform.parent.transform);
+                    }
+                }
+                else
+                {
+                    activeCustomTagGroup.Add(ct.transform);
+                }
+            }
+            foreach (Transform parent in activeCustomTagGroup)
+            {
+                string tagName = parent.name;
+                string tagStartSymbol = "";
+                string tagEndSymbol = "";
+                CustomTag parentTag = parent.GetComponent<CustomTag>();
+                if (parentTag != null)
+                {
+                    tagName = parentTag.name;
+                    tagStartSymbol = parentTag.TagStartSymbol;
+                    tagEndSymbol = parentTag.TagEndSymbol;
+                }
+                tagText += "\n\n\t" + tagStartSymbol + " " + tagName + " " + tagEndSymbol;
+                foreach (Transform child in parent)
+                {
+                    tagName = child.name;
+                    tagStartSymbol = "";
+                    tagEndSymbol = "";
+                    CustomTag childTag = child.GetComponent<CustomTag>();
+                    if (childTag != null)
+                    {
+                        tagName = childTag.name;
+                        tagStartSymbol = childTag.TagStartSymbol;
+                        tagEndSymbol = childTag.TagEndSymbol;
+                    }
+                    tagText += "\n\t      " + tagStartSymbol + " " + tagName + " " + tagEndSymbol;
+                }
+            }
+        }
+        tagText += "\n";
+        float pixelHeight = EditorStyles.miniLabel.CalcHeight(new GUIContent(tagText), EditorGUIUtility.currentViewWidth);
+        EditorGUILayout.SelectableLabel(tagText, GUI.skin.GetStyle("HelpBox"), GUILayout.MinHeight(pixelHeight));
     }
-
-    public Texture2D blackTex;
 
     protected SerializedProperty characterProp;
     protected SerializedProperty typingSpeedProp;
@@ -94,8 +75,8 @@ public class DialogueEditor : OrderEditor
     protected SerializedProperty waitForClickProp;
     protected SerializedProperty stopVoiceoverProp;
     protected SerializedProperty waitForVOProp;
-    protected SerializedProperty allowClickAnywhereProp;
-    protected SerializedProperty useButtonProp;
+    protected SerializedProperty setBoxProp;
+    protected SerializedProperty showButtonProp;
 
     public override void OnEnable()
     {
@@ -113,18 +94,8 @@ public class DialogueEditor : OrderEditor
         stopVoiceoverProp = serializedObject.FindProperty("stopVoiceover");
         waitForVOProp = serializedObject.FindProperty("waitForVO");
         typingSpeedProp = serializedObject.FindProperty("typingSpeed");
-        allowClickAnywhereProp = serializedObject.FindProperty("allowClickAnywhere");
-        useButtonProp = serializedObject.FindProperty("useButtonToProgress");
-
-        // if (blackTex == null)
-        // {
-        //     blackTex = CustomGUI.CreateBlackTexture();
-        // }
-    }
-
-    protected virtual void OnDisable()
-    {
-        DestroyImmediate(blackTex);
+        setBoxProp = serializedObject.FindProperty("setDialogueBox");
+        showButtonProp = serializedObject.FindProperty("showButton");
     }
 
     public override void DrawOrderGUI()
@@ -169,6 +140,7 @@ public class DialogueEditor : OrderEditor
 
         EditorGUILayout.PropertyField(storyTextProp);
         EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PropertyField(extendPreviousProp);
         GUILayout.FlexibleSpace();
         if (GUILayout.Button(new GUIContent("Tag Help", "View available rich text tags"), new GUIStyle(EditorStyles.miniButton)))
         {
@@ -176,25 +148,18 @@ public class DialogueEditor : OrderEditor
         }
         EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.PropertyField(typingSpeedProp);
-
-        EditorGUILayout.BeginHorizontal();
-
-        EditorGUILayout.PropertyField(extendPreviousProp);
-
-        GUILayout.FlexibleSpace();
-
-        EditorGUILayout.EndHorizontal();
-
-
         if (showTagHelp)
         {
             DrawTagHelpLabel();
         }
+
+        EditorGUILayout.PropertyField(typingSpeedProp);
+
         EditorGUILayout.Separator();
 
         EditorGUILayout.PropertyField(voiceOverClipProp,
                                       new GUIContent("Voice Over Clip", "Voice over audio to play when the text is displayed"));
+        EditorGUILayout.PropertyField(setBoxProp);
 
         EditorGUILayout.PropertyField(showAlwaysProp);
 
@@ -203,23 +168,11 @@ public class DialogueEditor : OrderEditor
             EditorGUILayout.PropertyField(showCountProp);
         }
 
-        GUIStyle centeredLabel = new GUIStyle(EditorStyles.label);
-        centeredLabel.alignment = TextAnchor.MiddleCenter;
-        GUIStyle leftButton = new GUIStyle(EditorStyles.miniButtonLeft);
-        leftButton.fontSize = 10;
-        leftButton.font = EditorStyles.toolbarButton.font;
-        GUIStyle rightButton = new GUIStyle(EditorStyles.miniButtonRight);
-        rightButton.fontSize = 10;
-        rightButton.font = EditorStyles.toolbarButton.font;
-
         EditorGUILayout.PropertyField(fadeWhenDoneProp);
         EditorGUILayout.PropertyField(waitForClickProp);
+        EditorGUILayout.PropertyField(showButtonProp);
         EditorGUILayout.PropertyField(stopVoiceoverProp);
         EditorGUILayout.PropertyField(waitForVOProp);
-        if (useButtonProp.boolValue == false)
-            EditorGUILayout.PropertyField(allowClickAnywhereProp);
-        if (allowClickAnywhereProp.boolValue == false)
-            EditorGUILayout.PropertyField(useButtonProp);
 
         if (showPortraits && t.Portrait != null)
         {
