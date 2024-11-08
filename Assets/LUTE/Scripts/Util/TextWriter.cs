@@ -1,11 +1,9 @@
 using LoGaCulture.LUTE;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public enum WriterState
@@ -459,18 +457,6 @@ public class TextWriter : MonoBehaviour, IDialoguenputListener
                         }
                     }
                     break;
-                case TokenType.VariableCondition:
-                    {
-                        // E.g. {vc=varName,varValue[TRUE|FALSE]}
-                        string varName;
-                        string varValue;
-                        TryGetSingleParam(token.paramList, 0, "", out varName);
-                        TryGetSingleParam(token.paramList, 1, "", out varValue);
-                        string conditionText = "{varc=" + varName + "," + "Bob" + "[" + "correct" + "|" + "incorrect" + "]}";
-                        Debug.Log("Condition Text: " + conditionText);
-                        CheckCondition(conditionText);
-                    }
-                    break;
             }
 
             previousTokenType = token.type;
@@ -493,104 +479,6 @@ public class TextWriter : MonoBehaviour, IDialoguenputListener
             onComplete();
         }
     }
-
-    protected virtual void CheckCondition(string conditionText)
-    {
-        if (curNode == null) return;
-
-        // Pattern to match {varc=VariableName,Value[TRUE_BRANCH|FALSE_BRANCH]}
-        var pattern = new Regex(@"^\{varc=([^,]+),([^[]+)\[([^\|]+)\|([^\]]+)\]\}$");
-        var match = pattern.Match(conditionText);
-
-        if (!match.Success)
-        {
-            throw new ArgumentException("Condition format is invalid. Expected format: {varc=VariableName,Value[TRUE_BRANCH|FALSE_BRANCH]}");
-        }
-
-        // Extract matched groups
-        string variableName = match.Groups[1].Value.Trim();     // VariableName
-        string valueToCompare = match.Groups[2].Value.Trim();   // Value to compare (e.g., "Bob")
-        string trueBranch = match.Groups[3].Value.Trim();       // TRUE_BRANCH (e.g., "correct!")
-        string falseBranch = match.Groups[4].Value.Trim();      // FALSE_BRANCH (e.g., "incorrect!")
-
-        // Retrieve the variable from curNode's engine
-        var v = curNode.GetEngine().GetVariable(variableName);
-
-        if (v == null)
-        {
-            throw new InvalidOperationException($"Variable '{variableName}' does not exist.");
-        }
-
-        bool conditionMet = false;
-
-        // Switch based on the variable's actual type
-        switch (v.GetValue())
-        {
-            case string s:
-                // String comparison
-                Debug.Log($"Comparing '{s}' to '{valueToCompare}'");
-                conditionMet = s.Equals(valueToCompare, StringComparison.OrdinalIgnoreCase);
-                break;
-
-            case int i:
-                // Integer comparison
-                if (int.TryParse(valueToCompare, out int intCompareValue))
-                {
-                    conditionMet = i == intCompareValue;
-                }
-                else
-                {
-                    throw new ArgumentException("Provided value is not a valid integer for comparison.");
-                }
-                break;
-
-            case float f:
-                // Float comparison
-                if (float.TryParse(valueToCompare, out float floatCompareValue))
-                {
-                    conditionMet = Math.Abs(f - floatCompareValue) < 0.0001; // Small tolerance for float comparison
-                }
-                else
-                {
-                    throw new ArgumentException("Provided value is not a valid float for comparison.");
-                }
-                break;
-
-            case bool b:
-                // Boolean comparison
-                if (bool.TryParse(valueToCompare, out bool boolCompareValue))
-                {
-                    conditionMet = b == boolCompareValue;
-                }
-                else
-                {
-                    throw new ArgumentException("Provided value is not a valid boolean for comparison.");
-                }
-                break;
-
-            default:
-                throw new InvalidOperationException($"Unsupported variable type: {v.GetValue().GetType()}");
-        }
-
-        // Execute the appropriate branch based on the condition
-        if (conditionMet)
-        {
-            ProceedToIndex(trueBranch);  // Correct path
-        }
-        else
-        {
-            ProceedToIndex(falseBranch); // Incorrect path
-        }
-    }
-
-    // This method handles proceeding to the specified branch
-    private void ProceedToIndex(string branch)
-    {
-        // Implement the navigation or logic to handle the specified branch
-        Debug.Log($"Proceeding to: {branch}");
-    }
-
-
 
     protected virtual IEnumerator WriteWords(List<string> paramList, TokenType previousTokenType)
     {
