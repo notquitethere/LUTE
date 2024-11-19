@@ -34,16 +34,16 @@ namespace LoGaCulture.LUTE
         {
             EditorGUI.BeginChangeCheck();
 
-            if (GUILayout.Button("Generate All from List"))
-            {
-                foreach (var item in VariableScriptGenerator.AllGeneratedVariableTypeClassNames)
-                {
-                    generator.TargetType = generator.types.Where(x => string.Compare(x.Name, item, StringComparison.InvariantCultureIgnoreCase) == 0).First();
-                    generator.Generate();
+            //if (GUILayout.Button("Generate All from List"))
+            //{
+            //    foreach (var item in VariableScriptGenerator.AllGeneratedVariableTypeClassNames)
+            //    {
+            //        generator.TargetType = generator.types.Where(x => string.Compare(x.Name, item, StringComparison.InvariantCultureIgnoreCase) == 0).First();
+            //        generator.Generate();
 
-                    generator = new VariableScriptGenerator();
-                }
-            }
+            //        generator = new VariableScriptGenerator();
+            //    }
+            //}
 
             userInputClassName = EditorGUILayout.TextField("ClassName", userInputClassName);
 

@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using UnityEngine;
 using static BooleanVariable;
 using static FloatVariable;
@@ -77,6 +78,9 @@ public class SetVariable : Order, ISerializationCallbackReceiver
     [Tooltip("String value to compare against")]
     [SerializeField] protected StringData stringData;
 
+    [Tooltip("Sprite value to compare against")]
+    [SerializeField] protected SpriteData spriteData;
+
     public void OnBeforeSerialize()
     {
     }
@@ -108,6 +112,11 @@ public class SetVariable : Order, ISerializationCallbackReceiver
             variable.data.stringData.stringRef = stringData.stringRef;
             variable.data.stringData.stringVal = stringData.stringVal;
             stringData = new StringData();
+        }
+        else if (variable.GetType() == typeof(SpriteVariable) && !spriteData.Equals(new SpriteData()))
+        {
+            variable.data.spriteData = spriteData;
+            spriteData = new SpriteData();
         }
 
         variable = null;

@@ -1,5 +1,6 @@
 //static cache of all variable types which are used by orders designed to work with variables
 //new types created need to be added here and also anyvariable data and variable data pair
+using LoGaCulture.LUTE;
 using System.Collections.Generic;
 using static BooleanVariable;
 using static FloatVariable;
@@ -23,6 +24,7 @@ public static class AllVariableTypes
         typeof(BooleanVariable),
         typeof(FloatVariable),
         typeof(StringVariable),
+        typeof(SpriteVariable),
 
     };
 }
@@ -47,6 +49,7 @@ public partial struct AnyVariableData
     public BooleanData booleanData;
     public FloatData floatData;
     public StringData stringData;
+    public SpriteData spriteData;
 
     public bool HasReference(Variable variable)
     {
@@ -156,6 +159,11 @@ public class AnyVariableAndDataPair
                         var subbedRHS = anyVar.variable.GetEngine().SubstituteVariables(anyVar.data.stringData.Value);
                         anyVar.variable.Apply(setOperator, subbedRHS);
                     })},
+                        { typeof(SpriteVariable),
+                new TypeActions( "spriteData",
+                    (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.spriteData.Value); },
+                    (anyVar) => anyVar.data.spriteData.GetDescription(),
+                    (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.spriteData.Value)) },
     };
 
     public bool HasReference(Variable variable)

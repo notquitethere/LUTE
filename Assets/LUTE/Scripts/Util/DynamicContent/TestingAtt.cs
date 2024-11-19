@@ -6,6 +6,5 @@ namespace LoGaCulture.LUTE
     {
         [LUTECustomProp]
         public int normalField;
-        public float normalField2;
     }
 }

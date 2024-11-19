@@ -12,32 +12,33 @@ namespace LoGaCulture.LUTE
             var fieldType = fieldInfo.FieldType;
 
             // Call your desired method to process the field value and type
-            CustomMethod(fieldType, property);
+            CreateDropdown(fieldType, property);
 
             // Draw the default property field
             EditorGUI.PropertyField(position, property, label, true);
         }
 
-        private static void CustomMethod(Type type, SerializedProperty property)
+        private static void CreateDropdown(Type type, SerializedProperty property)
         {
-            // using the generate var window code you would do:
+            VariableScriptGenerator generator = new VariableScriptGenerator();
 
-            // generator.targetType = the field type
-            //if (generator.ExistingGeneratedClass == null)
+            generator.TargetType = type;
 
-            //try
-            //{
-            //    generator.Generate();
-            //    EditorUtility.DisplayProgressBar("Generating " + userInputClassName, "Importing Scripts", 0);
-            //    AssetDatabase.Refresh();
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.LogWarning(e.Message);
-            //    //throw e;
-            //}
-            //generator = new VariableScriptGenerator();
-            //EditorUtility.ClearProgressBar();
+            if (generator.ExistingGeneratedClass == null)
+            {
+                try
+                {
+                    generator.Generate();
+                    EditorUtility.DisplayProgressBar("Generating " + type.Name, "Importing Scripts", 0);
+                    AssetDatabase.Refresh();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning(e.Message);
+                }
+                generator = new VariableScriptGenerator();
+                EditorUtility.ClearProgressBar();
+            }
 
             // draw dropdown based on new or exisiting variable type using flow engine to get vars
 
@@ -45,17 +46,7 @@ namespace LoGaCulture.LUTE
             // If we choose <none> then the value is null
             // Wheter or not we should replace the field entirely is up to you or if we add the dropdown and have the OG field
 
-            string result = type switch
-            {
-                var t when t == typeof(int) => "Type is int",
-                var t when t == typeof(string) => "Type is string",
-                var t when t == typeof(float) => "Type is float",
-                _ => $"Unhandled type: {type}"
-            };
-
             // set value of property based on the type ensuring variable value type matches
-
-            Debug.Log(result);
         }
     }
 }

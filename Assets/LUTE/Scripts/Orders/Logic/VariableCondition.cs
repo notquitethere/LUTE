@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -206,9 +207,7 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
     [VariableProperty(AllVariableTypes.VariableAny.Any)]
     [SerializeField] protected Variable variable;
 
-    [Tooltip("Integer value to compare against")]
     [SerializeField] protected IntegerData integerData;
-    [Tooltip("Location Vector2 value to compare against")]
     [SerializeField] protected LocationData locationData;
     [SerializeField] protected CollectionData collectionData;
     [SerializeField] protected NodeCollectionData nodeCollectionData;
@@ -218,6 +217,8 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
     [SerializeField] protected BooleanData booleanData;
     [SerializeField] protected FloatData floatData;
     [SerializeField] protected StringData stringData;
+    [SerializeField] protected SpriteData spriteData;
+
 
     void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
@@ -279,6 +280,11 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
                 anyVariable.data.stringData.stringRef = stringData.stringRef;
                 anyVariable.data.stringData.stringVal = stringData.stringVal;
                 stringData = new StringData();
+            }
+            else if (variable.GetType() == typeof(SpriteVariable) && !spriteData.Equals(new SpriteData()))
+            {
+                anyVariable.data.spriteData = spriteData;
+                spriteData = new SpriteData();
             }
             //moved to new anyvar storage, clear legacy.
             variable = null;
