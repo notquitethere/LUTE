@@ -1,9 +1,9 @@
-using UnityEngine;
-using UnityEditor;
 using System;
-using UnityEditorInternal;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine;
 
 public class VariableListAdaptor
 {
@@ -83,7 +83,7 @@ public class VariableListAdaptor
     {
         int index = list.index;
         Variable variable = this[index].objectReferenceValue as Variable;
-        if(variable.GetType() == typeof(LocationVariable))
+        if (variable.GetType() == typeof(LocationVariable))
         {
             var locVar = variable as LocationVariable;
             MapboxControls.RemoveLocation(locVar);
@@ -155,7 +155,7 @@ public class VariableListAdaptor
 
     public void DrawItem(Rect position, int index, bool selected, bool focused)
     {
-        Variable variable = GetVarAt(index);// this[index].objectReferenceValue as Variable;
+        Variable variable = GetVarAt(index);
 
         if (variable == null)
         {
@@ -225,7 +225,7 @@ public class VariableListAdaptor
         string key = variable.Key;
         VariableScope scope = variable.Scope;
 
-        // To access properties in a monobehavior, you have to new a SerializedObject
+        // To access properties in a monobehavior, you have to have a new SerializedObject
         // http://answers.unity3d.com/questions/629803/findrelativeproperty-never-worked-for-me-how-does.html
         SerializedObject variableObject = new SerializedObject(variable);
 

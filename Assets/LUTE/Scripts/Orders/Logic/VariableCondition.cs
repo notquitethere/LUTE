@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text;
-using Unity.XR.CoreUtils.Datums;
 using UnityEngine;
 using static BooleanVariable;
 using static FloatVariable;
@@ -150,7 +149,14 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
 
     public override bool HasReference(Variable variable)
     {
-        return anyVariable.HasReference(variable);
+        bool hasReference = false;
+
+        foreach (var condition in conditions)
+        {
+            hasReference |= condition.AnyVariable.HasReference(variable);
+        }
+
+        return hasReference;
     }
 
     public override LocationVariable ReferencesLocation()
@@ -173,20 +179,20 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
         }
     }
 
-    // #if UNITY_EDITOR
-    //         protected override void RefreshVariableCache()
-    //         {
-    //             base.RefreshVariableCache();
+#if UNITY_EDITOR
+    protected override void RefreshVariableCache()
+    {
+        base.RefreshVariableCache();
 
-    //             if (conditions != null)
-    //             {
-    //                 foreach (var item in conditions)
-    //                 {
-    //                     item.AnyVariable.RefreshVariableCacheHelper(GetEngine(), ref referencedVariables);
-    //                 }
-    //             }
-    //         }
-    // #endif
+        if (conditions != null)
+        {
+            foreach (var item in conditions)
+            {
+                item.AnyVariable.RefreshVariableCacheHelper(GetEngine(), ref referencedVariables);
+            }
+        }
+    }
+#endif
 
     #region backwards compat
 
@@ -253,7 +259,7 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
                 anyVariable.data.inventoryData = inventoryData;
                 inventoryData = new InventoryData();
             }
-            else if(variable.GetType() == typeof(DiceVariable) && !diceData.Equals(new DiceData()))
+            else if (variable.GetType() == typeof(DiceVariable) && !diceData.Equals(new DiceData()))
             {
                 anyVariable.data.diceData = diceData;
                 diceData = new DiceData();

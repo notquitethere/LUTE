@@ -257,13 +257,16 @@ public abstract class Order : MonoBehaviour
         return null;
     }
 
-#if UNITY_EDITOR
-    protected List<Variable> referencedVariables = new List<Variable>();
-    /// Called by unity when script is loaded or its data changed by editor
     public virtual void OnValidate()
     {
+#if UNITY_EDITOR
+
         RefreshVariableCache();
+#endif
     }
+
+#if UNITY_EDITOR
+    protected List<Variable> referencedVariables = new List<Variable>();
     //used by var list adapter to highlight variables 
     public bool IsVariableReferenced(Variable variable)
     {

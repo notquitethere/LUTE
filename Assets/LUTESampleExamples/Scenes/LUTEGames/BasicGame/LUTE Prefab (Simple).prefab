@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Dr. Hippo
-  nameColour: {r: 0.48584908, g: 0.76196724, b: 1, a: 1}
+  nameColour: {r: 0, g: 0, b: 0, a: 1}
   characterSound: {fileID: 0}
   characterPortraits:
   - {fileID: 21300000, guid: 62bcc73c99db2a941a94c29efbe11cfd, type: 3}
@@ -195,9 +195,15 @@ GameObject:
   - component: {fileID: 970735932355097871}
   - component: {fileID: 4303630939233821233}
   - component: {fileID: 4806665123537749153}
-  - component: {fileID: 9041250745754362898}
   - component: {fileID: 8546888014584424483}
   - component: {fileID: 4625199466079868497}
+  - component: {fileID: 2289231673283463332}
+  - component: {fileID: 6363775969722646444}
+  - component: {fileID: 2441088386621236996}
+  - component: {fileID: 1768313403328401993}
+  - component: {fileID: 4780102058866328054}
+  - component: {fileID: 5938737523902059406}
+  - component: {fileID: 6807831381683500122}
   m_Layer: 0
   m_Name: Flow Engine
   m_TagString: Untagged
@@ -239,10 +245,12 @@ MonoBehaviour:
   hideComponents: 1
   localizationId: 
   selectedOrders: []
-  selectedNodes: []
+  selectedNodes:
+  - {fileID: 4303630939233821233}
   nodeViewHeight: 370
   hideOrders: []
-  variables: []
+  variables:
+  - {fileID: 6363775969722646444}
   variablesExpanded: 1
   variablesScrollPos: {x: 0, y: 0}
   mapLocations: []
@@ -254,10 +262,11 @@ MonoBehaviour:
   showAnnotations: 1
   labelTint: {r: 1, g: 0.8980392, b: 0.8509804, a: 1}
   zoom: 1
-  scrollPos: {x: -25085.725, y: -24636.637}
+  scrollPos: {x: -25082.725, y: -24635.637}
   version: 1
   sidesOfDie: 6
   postcards: []
+  optionSettings: 
   groupnames: []
 --- !u!114 &970735932355097871
 MonoBehaviour:
@@ -288,16 +297,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25936.725
     y: 24861.137
-    width: 80
+    width: 77
     height: 40
-  nodeName: Node
+  nodeName: Start
   nodeDescription: Basic building block of a narrative engine
   groupDescription: A series of nodes that can be executed as a group
   itemId: 0
   orderList:
   - {fileID: 4806665123537749153}
   - {fileID: 8546888014584424483}
-  eventHandler: {fileID: 9041250745754362898}
+  eventHandler: {fileID: 2289231673283463332}
   isGrouped: 0
   groupIndex: -1
   repeatable: 0
@@ -322,40 +331,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 7903432468059836635}
-  characterPortrait: {fileID: 21300000, guid: dc359a51ef5d87843ad6fa5857b030e5, type: 3}
+  character: {fileID: 3516479801692450084}
+  characterPortrait: {fileID: 21300000, guid: 62bcc73c99db2a941a94c29efbe11cfd, type: 3}
   characterName: 
   characterNameColour:
     serializedVersion: 2
     rgba: 0
   storyText: Hello and welcome to a basic game! You can add more orders to this node
     or create your own - use our Wiki page for more info and tips!
-  typingSpeed: 0.04
+  typingSpeed: 40
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   allowLineSkip: 1
   waitForClick: 1
   timeToWait: 1
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
---- !u!114 &9041250745754362898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159015562283511075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentNode: {fileID: 4303630939233821233}
-  waitForFrames: 1
+  showButton: 1
 --- !u!114 &8546888014584424483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +367,11 @@ MonoBehaviour:
   customButtonIcon: {fileID: 21300000, guid: 0958bf3dd415e974e90f978b50a845ee, type: 3}
   setIconButton: {fileID: 0}
   showIcon: 1
+  buttonFeedback: {fileID: 0}
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonSound: {fileID: 0}
 --- !u!114 &4625199466079868497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +462,159 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &2289231673283463332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38c0eb32b6f8e6488f591c0813b73db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 4303630939233821233}
+  waitForFrames: 1
+--- !u!114 &6363775969722646444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6b6fee47fe44e48b3fa567bf2412cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: CentralAvebury
+  value: {fileID: 11400000, guid: cc513bee3419fb8479cf8a44617fd6cb, type: 2}
+--- !u!114 &2441088386621236996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 26080.725
+    y: 24866.637
+    width: 149
+    height: 40
+  nodeName: Location Example
+  nodeDescription: Just showing how a node can be triggered using a location event
+    handler
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList:
+  - {fileID: 5938737523902059406}
+  - {fileID: 6807831381683500122}
+  - {fileID: 4780102058866328054}
+  eventHandler: {fileID: 1768313403328401993}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 1
+  nodeLocation: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
+--- !u!114 &1768313403328401993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff5d05b32c24db409e01e50a2be8298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 2441088386621236996}
+  location:
+    locationRef: {fileID: 6363775969722646444}
+    locationVal: {fileID: 0}
+  requiresPress: 1
+  autoTrigger: 0
+  requiresLocation: 1
+  triggerWhenAtLocation: 0
+  updateLocationMarkerOnComplete: 1
+--- !u!114 &4780102058866328054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d6b77eb00dafe45bc66ef633cccddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 3516479801692450084}
+  characterPortrait: {fileID: 21300000, guid: 62bcc73c99db2a941a94c29efbe11cfd, type: 3}
+  characterName: 
+  characterNameColour:
+    serializedVersion: 2
+    rgba: 0
+  storyText: '[!You pressed a location marker - great job!|You pressed again!|You
+    pressed thrice!]'
+  typingSpeed: 40
+  extendPrevious: 0
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  fadeWhenDone: 1
+  allowLineSkip: 1
+  waitForClick: 1
+  timeToWait: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setDialogueBox: {fileID: 0}
+  showButton: 1
+--- !u!114 &5938737523902059406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: You can press the location marker as many times as you like but we
+    vary the text three times before returning no text
+--- !u!114 &6807831381683500122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159015562283511075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f3e8afed5a7844c8e6a1f590a132c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commenterName: 
+  commentText: This is useful when players return to a location when they are confused
+    - you could even add more complex statements!
 --- !u!1 &1395142573013482607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1616,7 @@ GameObject:
   - component: {fileID: 7761339463285481876}
   - component: {fileID: 6004939561922723501}
   - component: {fileID: 824135985665293608}
+  - component: {fileID: 8911127029601486148}
   m_Layer: 3
   m_Name: MapCameraGame
   m_TagString: Untagged
@@ -1477,14 +1632,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2180560808292063135}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 114.6, z: -67.3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 114.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8713785606454848671}
   m_Father: {fileID: 516969853737560230}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &6004939561922723501
 Camera:
   m_ObjectHideFlags: 0
@@ -1549,6 +1704,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowDistance: 1000
+--- !u!114 &8911127029601486148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180560808292063135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 8
+  m_MaxRayIntersections: 0
 --- !u!1 &2199993585022768122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1780,7 @@ Transform:
   m_GameObject: {fileID: 2253455264506576749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34608158, y: 0.43063557, z: -0.006135093}
+  m_LocalPosition: {x: 0, y: 0.43063557, z: -0.006135093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1880,8 +2051,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3527887650819194427}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34608158, y: 0.43063557, z: -0.006135093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1902,7 +2073,7 @@ MonoBehaviour:
   _options:
     locationOptions:
       latitudeLongitude: 51.42849125, -1.8542195
-      zoom: 15
+      zoom: 16.4
     extentOptions:
       extentType: 1
       defaultExtents:
@@ -1927,7 +2098,7 @@ MonoBehaviour:
       unityTileSize: 100
     loadingTexture: {fileID: 2800000, guid: e2896a92727704803a9c422b043eae89, type: 3}
     tileMaterial: {fileID: 2100000, guid: b9f23e9bce724fa4daac57ecded470b8, type: 2}
-  _initializeOnStart: 0
+  _initializeOnStart: 1
   _imagery:
     _layerProperty:
       sourceType: 1
@@ -2390,6 +2561,12 @@ MonoBehaviour:
   _referenceCameraGame: {fileID: 6004939561922723501}
   _mapManager: {fileID: 78200668557137000}
   _useDegreeMethod: 0
+  allowPanning: 1
+  allowZooming: 1
+  allowTilting: 0
+  minZoomLevel: 0
+  maxZoomLevel: 21
+  sensitivityZ: 2
   _dragStartedOnUI: 0
 --- !u!114 &1772240503842073782
 MonoBehaviour:
@@ -3071,6 +3248,7 @@ MonoBehaviour:
   _deviceLocationProviderAndroid: {fileID: 6837181899039738127}
   _editorLocationProvider: {fileID: 8921129146750982022}
   _transformLocationProvider: {fileID: 6758444268220661170}
+  _playerMapMovement: {fileID: 0}
   _dontDestroyOnLoad: 0
 --- !u!1 &6772602869382312624
 GameObject:
@@ -3538,7 +3716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5375476576259629837}
   m_Layer: 0
-  m_Name: BasicGame
+  m_Name: LUTE Prefab (Simple)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

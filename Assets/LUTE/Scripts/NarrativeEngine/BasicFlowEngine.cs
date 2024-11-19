@@ -620,6 +620,22 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
         return varsFound;
     }
 
+    public Variable GetLocationVariable(LocationData locationData)
+    {
+        for (int i = 0; i < variables.Count; i++)
+        {
+            if (variables[i].GetType() == typeof(LocationVariable))
+            {
+                var locVar = variables[i] as LocationVariable;
+                if (locVar != null && locVar.Value.infoID == locationData.Value.infoID)
+                {
+                    return locVar;
+                }
+            }
+        }
+        return null;
+    }
+
     // Register a new variable with the Engine at runtime
     // The variable should be added as a component on the Engine game object
     public void SetVariable<T>(string key, T newvariable) where T : Variable

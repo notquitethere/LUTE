@@ -51,14 +51,14 @@ public class SetVariable : Order, ISerializationCallbackReceiver
         return desc;
     }
 
+    public override bool HasReference(Variable v)
+    {
+        return variable.HasReference(v);
+    }
+
     public override Color GetButtonColour()
     {
         return new Color32(247, 231, 206, 255);
-    }
-
-    public override bool HasReference(Variable variable)
-    {
-        return false;
     }
 
     [Tooltip("Variable to use in expression.")]
@@ -112,4 +112,16 @@ public class SetVariable : Order, ISerializationCallbackReceiver
 
         variable = null;
     }
+
+#if UNITY_EDITOR
+    protected override void RefreshVariableCache()
+    {
+        base.RefreshVariableCache();
+
+        if (variable != null)
+        {
+            variable.RefreshVariableCacheHelper(GetEngine(), ref referencedVariables);
+        }
+    }
+#endif
 }

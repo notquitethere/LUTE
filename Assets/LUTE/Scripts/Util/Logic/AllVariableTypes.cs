@@ -1,9 +1,6 @@
 //static cache of all variable types which are used by orders designed to work with variables
 //new types created need to be added here and also anyvariable data and variable data pair
 using System.Collections.Generic;
-using Mapbox.Examples;
-using Mapbox.Utils;
-using UnityEngine;
 using static BooleanVariable;
 using static FloatVariable;
 
@@ -166,16 +163,16 @@ public class AnyVariableAndDataPair
         return variable == this.variable || data.HasReference(variable);
     }
 
-    // #if UNITY_EDITOR
-    //     public void RefreshVariableCacheHelper(BasicFlowEngine f, ref List<Variable> referencedVariables)
-    //     {
-    //         if (variable is StringVariable asStringVar && asStringVar != null && !string.IsNullOrEmpty(asStringVar.Value))
-    //             f.DetermineSubstituteVariables(asStringVar.Value, referencedVariables);
+#if UNITY_EDITOR
+    public void RefreshVariableCacheHelper(BasicFlowEngine f, ref List<Variable> referencedVariables)
+    {
+        if (variable is StringVariable asStringVar && asStringVar != null && !string.IsNullOrEmpty(asStringVar.Value))
+            f.DetermineSubstituteVariables(asStringVar.Value, referencedVariables);
 
-    //         if (!string.IsNullOrEmpty(data.stringData.Value))
-    //             f.DetermineSubstituteVariables(data.stringData.Value, referencedVariables);
-    //     }
-    // #endif
+        if (!string.IsNullOrEmpty(data.stringData.Value))
+            f.DetermineSubstituteVariables(data.stringData.Value, referencedVariables);
+    }
+#endif
 
     public string GetDataDescription()
     {

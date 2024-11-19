@@ -1948,6 +1948,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735607
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1979,6 +1981,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735608
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2017,7 +2020,7 @@ MonoBehaviour:
           integerVal: 10
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -2053,7 +2056,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2086,7 +2089,7 @@ MonoBehaviour:
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -2144,6 +2147,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735611
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2187,6 +2191,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735613
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2243,6 +2248,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735616
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2278,6 +2285,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735617
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2301,7 +2309,7 @@ MonoBehaviour:
           integerVal: 10
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -2337,7 +2345,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2370,7 +2378,7 @@ MonoBehaviour:
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -2412,11 +2420,15 @@ MonoBehaviour:
   text: Attack!
   description: 
   targetNode: {fileID: 1492735621}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1492735619
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2444,11 +2456,15 @@ MonoBehaviour:
   text: Run Away!
   description: 
   targetNode: {fileID: 1492735625}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1492735621
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2488,6 +2504,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735622
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2520,6 +2538,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735624
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2552,6 +2571,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735625
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2589,6 +2609,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735626
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2609,7 +2631,7 @@ MonoBehaviour:
         integerVal: 2
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2698,6 +2720,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735630
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2755,6 +2778,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735632
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2787,6 +2812,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735633
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2810,7 +2836,7 @@ MonoBehaviour:
           integerVal: 2
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -2846,7 +2872,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2879,7 +2905,7 @@ MonoBehaviour:
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -2937,6 +2963,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735636
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2981,6 +3008,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1492735638
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3030,6 +3058,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735642
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3065,6 +3095,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735643
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3080,11 +3112,15 @@ MonoBehaviour:
   text: Load Latest
   description: 
   targetNode: {fileID: 1492735642}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1492735644
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3100,11 +3136,15 @@ MonoBehaviour:
   text: New Game
   description: 
   targetNode: {fileID: 1492735605}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1492735645
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3140,6 +3180,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735646
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3175,6 +3217,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1492735649
 MonoBehaviour:
   m_ObjectHideFlags: 2

@@ -48,4 +48,21 @@ public class HideLocationMarker : Order
 
         return "Error: No location provided.";
     }
+
+    public override bool HasReference(Variable variable)
+    {
+        return location.locationRef == variable || base.HasReference(variable);
+    }
+
+#if UNITY_EDITOR
+    protected override void RefreshVariableCache()
+    {
+        base.RefreshVariableCache();
+
+        if (location.locationRef != null)
+        {
+            GetEngine().DetermineSubstituteVariables(location.locationRef.Key, referencedVariables);
+        }
+    }
+#endif
 }
