@@ -251,7 +251,7 @@ namespace LoGaCulture.LUTE
     [VariableInfo(""{3}"", ""{0}""{4})]
     [AddComponentMenu("""")]
 	[System.Serializable]
-	public class {0}Variable : VariableBase<{5}>
+	public class {0}Variable : BaseVariable<{5}>
 	{{ }}
 
 	/// <summary>
@@ -318,7 +318,7 @@ namespace LoGaCulture.LUTE
     [VariableInfo(""{3}"", ""{0}""{4})]
     [AddComponentMenu("""")]
 	[System.Serializable]
-	public class {0}Variable : VariableBase<{5}>
+	public class {0}Variable : BaseVariable<{5}>
 	{{ }}
 }}";
 
@@ -339,7 +339,7 @@ namespace LoGaCulture.LUTE
     // <summary>
     /// Get or Set a property of a {0} component
     /// </summary>
-    [CommandInfo(""Property"",
+    [OrderInfo(""Property"",
                  ""{0}"",
                  ""Get or Set a property of a {0} component"")]
     [AddComponentMenu("""")]
@@ -425,7 +425,7 @@ namespace LoGaCulture.LUTE
     // <summary>
     /// Get or Set a property of a {0} component
     /// </summary>
-    [CommandInfo(""Property"",
+    [OrderInfo(""Property"",
                  ""{0}"",
                  ""Get or Set a property of a {0} component"")]
     [AddComponentMenu("""")]
@@ -533,7 +533,7 @@ namespace LoGaCulture.LUTE
             //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Quaternion), typeof(QuaternionVariable), "ioq"));
             //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Rigidbody2D), typeof(Rigidbody2DVariable), "iorb2d"));
             //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Rigidbody), typeof(RigidbodyVariable), "iorb"));
-            //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Sprite), typeof(SpriteVariable), "iospr"));
+            //helper.AddHandler(new LUTEVariableTypeHelper.TypeHandler(typeof(Sprite), typeof(SpriteVariable), "iospr"));
             helper.AddHandler(new LUTEVariableTypeHelper.TypeHandler(typeof(string), typeof(StringVariable), "ios"));
             //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Texture), typeof(TextureVariable), "iotex"));
             //helper.AddHandler(new FungusVariableTypeHelper.TypeHandler(typeof(Transform), typeof(TransformVariable), "iot"));

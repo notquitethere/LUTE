@@ -143,7 +143,7 @@ namespace LoGaCulture.LUTE
             }
         }
 
-        [MenuItem("Tools/LUTE/Utilities/Generate LUTE Varaible")]
+        [MenuItem(" LUTE/Utilities/Generate LUTE Varaible")]
         public static GenerateVariableWindow ShowWindow()
         {
             var w = GetWindow(typeof(GenerateVariableWindow), true, "Generate LUTE Varaible", true);
