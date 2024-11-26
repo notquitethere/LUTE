@@ -164,7 +164,7 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
     {
         foreach (ConditionExpression condition in conditions)
         {
-            if (condition.AnyVariable.variable.GetType() == typeof(LocationVariable))
+            if (condition.AnyVariable.variable != null && condition.AnyVariable.variable.GetType() == typeof(LocationVariable))
             {
                 return condition.AnyVariable.variable as LocationVariable;
             }

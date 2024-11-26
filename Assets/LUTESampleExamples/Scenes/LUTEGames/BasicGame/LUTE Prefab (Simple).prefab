@@ -245,8 +245,7 @@ MonoBehaviour:
   hideComponents: 1
   localizationId: 
   selectedOrders: []
-  selectedNodes:
-  - {fileID: 4303630939233821233}
+  selectedNodes: []
   nodeViewHeight: 370
   hideOrders: []
   variables:
@@ -262,7 +261,7 @@ MonoBehaviour:
   showAnnotations: 1
   labelTint: {r: 1, g: 0.8980392, b: 0.8509804, a: 1}
   zoom: 1
-  scrollPos: {x: -25082.725, y: -24635.637}
+  scrollPos: {x: -25090.725, y: -24631.637}
   version: 1
   sidesOfDie: 6
   postcards: []
@@ -392,7 +391,7 @@ MonoBehaviour:
     x: 25784.725
     y: 24833.637
     width: 125
-    height: 55
+    height: 115
   labelText: Use this Node to add more Orders or create your own Node to get started
     on creating your own experience!
   labelStyle:
@@ -2051,8 +2050,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3527887650819194427}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34608158, y: 0.43063557, z: -0.006135093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3575,7 +3574,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8037866915662404195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7760043eea2cd452ba7117f2c97e0038, type: 3}
   m_Name: 
@@ -3588,7 +3587,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8037866915662404195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 061d2afb48ace4fd19611279b6cf732f, type: 3}
   m_Name: 

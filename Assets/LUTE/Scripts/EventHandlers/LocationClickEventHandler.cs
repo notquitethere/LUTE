@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace LoGaCulture.LUTE
@@ -77,7 +76,7 @@ namespace LoGaCulture.LUTE
                     location.Value.NodeComplete = parentNode._NodeName;
                 }
 
-                if (EditorApplication.isPlaying)
+                if (Application.isPlaying)
                 {
                     if (autoTrigger)
                     {

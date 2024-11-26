@@ -4,7 +4,22 @@ namespace LoGaCulture.LUTE
 {
     public class TestingAtt : MonoBehaviour
     {
-        [LUTECustomProp]
-        public int normalField;
+        [VariableReference]
+        public Sprite spriteTest;
+
+        [VariableReference(null)]
+        public string stringTest;
+
+        public SpriteRenderer sr;
+
+        protected virtual void Update()
+        {
+            if (sr != null && spriteTest != null)
+            {
+                sr.sprite = spriteTest;
+            }
+
+            Debug.Log(stringTest);
+        }
     }
 }

@@ -75,17 +75,25 @@ public class VariableSelectPopupWindowContent : BasePopupWindowContent
         AddVariable(obj, string.Empty);
     }
 
-    public static void AddVariable(object obj, string suggestedName)
+    public static Variable AddVariable(object obj, string suggestedName)
     {
         System.Type t = obj as System.Type;
         if (t == null)
         {
-            return;
+            return null;
         }
 
         var engine = curEngine != null ? curEngine : GraphWindow.GetEngine();
+
+        if (engine == null)
+        {
+            Debug.LogError("No engine found to add variable to");
+            return null;
+        }
+
         Undo.RecordObject(engine, "Add Variable");
         Variable newVariable = engine.gameObject.AddComponent(t) as Variable;
+
         newVariable.Key = engine.GetUniqueVariableKey(suggestedName);
 
         //if suggested exists, then insert, if not just add
@@ -101,6 +109,8 @@ public class VariableSelectPopupWindowContent : BasePopupWindowContent
 
         // Because this is an async call, we need to force prefab instances to record changes
         PrefabUtility.RecordPrefabInstancePropertyModifications(engine);
+
+        return newVariable;
     }
 
     public static Variable AddVariable(object obj, string suggestedName, LUTELocationInfo location)

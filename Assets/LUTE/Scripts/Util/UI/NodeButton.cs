@@ -34,10 +34,7 @@ namespace LoGaCulture.LUTE
                 return;
             }
 
-            if (targetNode != null)
-            {
-                targetEngine.ExecuteNode(targetNode);
-            }
+            targetEngine.ExecuteNode(targetNode);
         }
     }
 }

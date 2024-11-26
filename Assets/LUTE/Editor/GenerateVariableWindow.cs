@@ -77,7 +77,6 @@ namespace LoGaCulture.LUTE
                 generator.TargetType = null;
             }
 
-
             EditorGUILayout.Space();
 
             if (generator.TargetType == null)

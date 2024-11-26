@@ -1,4 +1,213 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
+
+[Serializable]
+public class PropertyReference
+{
+    [SerializeField]
+    private GameObject targetObject;
+    [SerializeField]
+    private string propertyName;
+    private PropertyInfo cachedProperty;
+
+    public GameObject TargetObject => targetObject;
+    public string PropertyName => propertyName;
+
+    public PropertyReference(GameObject target, string propertyName)
+    {
+        this.targetObject = target;
+        this.propertyName = propertyName;
+
+        // Search through all components for the property
+        FindPropertyInComponents();
+    }
+
+    private object FindPropertyInComponents()
+    {
+        if (targetObject == null) return null;
+
+        // Get all components on the GameObject
+        Component[] components = targetObject.GetComponents<Component>();
+
+        foreach (Component component in components)
+        {
+            if (component == null) continue;
+
+            // Get the type of the component
+            System.Type componentType = component.GetType();
+
+            // Search for the field with the given name
+            FieldInfo field = componentType.GetField(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if (field != null)
+            {
+                // Field found, return its value
+                return field.GetValue(component);
+            }
+        }
+
+        Debug.LogWarning($"Field '{propertyName}' not found on GameObject '{targetObject.name}'.");
+        return null;
+    }
+
+    public void SetValue(object value)
+    {
+        if (targetObject == null)
+        {
+            Debug.LogWarning("Target object is null. Aborting SetValue operation.");
+            return;
+        }
+
+        try
+        {
+            // Get all components on the GameObject
+            Component[] components = targetObject.GetComponents<Component>();
+
+            foreach (Component component in components)
+            {
+                if (component == null) continue;
+
+                try
+                {
+                    // Get the type of the component
+                    System.Type componentType = component.GetType();
+
+                    // Search for the field with the given name
+                    FieldInfo field = componentType.GetField(propertyName,
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+
+                    if (field != null)
+                    {
+                        // Ensure value is compatible with the field type
+                        if (value == null || field.FieldType.IsAssignableFrom(value.GetType()))
+                        {
+                            field.SetValue(component, value);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Type mismatch for field '{propertyName}'. Expected '{field.FieldType}', got '{value?.GetType()}'.");
+                        }
+                    }
+                }
+                catch (Exception fieldEx)
+                {
+                    Debug.LogError($"Error setting field '{propertyName}' in component '{component?.GetType().Name}': {fieldEx.Message}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"An error occurred while setting value for property '{propertyName}' on target object '{targetObject.name}': {ex.Message}");
+        }
+    }
+
+
+    public object GetValue(string propertyName)
+    {
+        if (targetObject == null)
+        {
+            Debug.LogWarning("Target object is null. Aborting GetValue operation.");
+            return null;
+        }
+
+        try
+        {
+            // Get all components on the GameObject
+            Component[] components = targetObject.GetComponents<Component>();
+
+            foreach (Component component in components)
+            {
+                if (component == null) continue;
+
+                try
+                {
+                    // Get the type of the component
+                    System.Type componentType = component.GetType();
+
+                    // Search for the field with the given name
+                    FieldInfo field = componentType.GetField(propertyName,
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+
+                    if (field != null)
+                    {
+                        return field.GetValue(component); // Return the field value
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Error retrieving field '{propertyName}' in component '{component?.GetType().Name}': {ex.Message}");
+                }
+            }
+
+            Debug.LogWarning($"Field '{propertyName}' not found on any components of GameObject '{targetObject.name}'.");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"An error occurred while getting the value of '{propertyName}' on target object '{targetObject.name}': {ex.Message}");
+        }
+
+        return null; // Return null if the field was not found or an error occurred
+    }
+
+
+    // Helper method to get the type of the property
+    public Type GetPropertyType()
+    {
+        return cachedProperty?.PropertyType;
+    }
+
+    // Helper method to get the component type that contains the property
+    public System.Type GetComponentType(string propertyName)
+    {
+        if (targetObject == null)
+        {
+            Debug.LogWarning("Target object is null. Aborting GetComponentType operation.");
+            return null;
+        }
+
+        try
+        {
+            // Get all components on the GameObject
+            Component[] components = targetObject.GetComponents<Component>();
+
+            foreach (Component component in components)
+            {
+                if (component == null) continue;
+
+                try
+                {
+                    // Get the type of the component
+                    System.Type componentType = component.GetType();
+
+                    // Search for the field with the given name
+                    FieldInfo field = componentType.GetField(propertyName,
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+
+                    if (field != null)
+                    {
+                        return componentType; // Return the type of the component
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Error finding field '{propertyName}' in component '{component?.GetType().Name}': {ex.Message}");
+                }
+            }
+
+            Debug.LogWarning($"No component containing field '{propertyName}' was found on GameObject '{targetObject.name}'.");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"An error occurred while getting the component type for '{propertyName}' on target object '{targetObject.name}': {ex.Message}");
+        }
+
+        return null; // Return null if no component was found
+    }
+
+}
 
 // Standard comparison operators.
 public enum ComparisonOperator
@@ -94,6 +303,7 @@ public abstract class Variable : MonoBehaviour
 {
     [SerializeField] protected VariableScope scope;
     [SerializeField] protected string key = "";
+    [SerializeField] protected List<PropertyReference> propertyReferences = new List<PropertyReference>();
 
     public virtual VariableScope Scope
     {
@@ -127,6 +337,49 @@ public abstract class Variable : MonoBehaviour
 
     // Variables are required to be on an engine object so this method is used as a helper
     public virtual BasicFlowEngine GetEngine() { return GetComponent<BasicFlowEngine>(); }
+
+    public virtual object ReturnValue() { return null; }
+
+    // Find by target object and property name
+    // Could use dictionary for faster lookup
+    public PropertyReference FindPropertyReference(GameObject target, string propertyName)
+    {
+        if (target == null || string.IsNullOrEmpty(propertyName))
+            return null;
+
+        return propertyReferences.FirstOrDefault(p =>
+            p.TargetObject == target && p.PropertyName == propertyName);
+    }
+
+    public PropertyReference AddPropertyReference(GameObject target, string propertyName)
+    {
+        var propertyReference = FindPropertyReference(target, propertyName);
+
+        if (propertyReference == null)
+        {
+            propertyReference = new PropertyReference(target, propertyName);
+            propertyReferences.Add(propertyReference);
+        }
+        return propertyReference;
+    }
+
+    public void RemovePropertyReference(GameObject target, string propertyName)
+    {
+        var propertyReference = FindPropertyReference(target, propertyName);
+
+        if (propertyReference != null)
+        {
+            propertyReferences.Remove(propertyReference);
+        }
+    }
+
+    protected virtual void Update()
+    {
+        foreach (var pr in propertyReferences)
+        {
+            pr.SetValue(ReturnValue());
+        }
+    }
 }
 
 // Base class for all variable types - provides a common interface for accessing variable properties which is inherented from above
@@ -277,5 +530,10 @@ public abstract class BaseVariable<T> : Variable
     public override bool SupportsArithmetic(SetOperator setOperator)
     {
         return setOperator == SetOperator.Assign || base.SupportsArithmetic(setOperator);
+    }
+
+    public override object ReturnValue()
+    {
+        return Value;
     }
 }

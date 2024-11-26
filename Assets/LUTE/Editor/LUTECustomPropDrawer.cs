@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,46 +9,171 @@ namespace LoGaCulture.LUTE
     [CustomPropertyDrawer(typeof(LUTECustomPropAttribute))]
     public class LUTECustomPropDrawer : PropertyDrawer
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+
+    }
+
+    [CustomPropertyDrawer(typeof(VariableReferenceAttribute))]
+    public class VariableReferenceDrawer : PropertyDrawer
+    {
+        private VariableScriptGenerator generator = new VariableScriptGenerator();
+
+        // Static dictionary to maintain references across play mode
+        private static Dictionary<Type, List<Variable>> cachedVariables = new Dictionary<Type, List<Variable>>();
+
+        private static void RefreshVariableCache()
         {
-            var fieldType = fieldInfo.FieldType;
+            cachedVariables.Clear();
+            var engines = Resources.FindObjectsOfTypeAll<BasicFlowEngine>();
 
-            // Call your desired method to process the field value and type
-            CreateDropdown(fieldType, property);
-
-            // Draw the default property field
-            EditorGUI.PropertyField(position, property, label, true);
+            foreach (var engine in engines)
+            {
+                var variables = engine.GetComponentsInChildren<Variable>(true);
+                foreach (var variable in variables)
+                {
+                    Type variableType = variable.GetType();
+                    if (!cachedVariables.ContainsKey(variableType))
+                    {
+                        cachedVariables[variableType] = new List<Variable>();
+                    }
+                    cachedVariables[variableType].Add(variable);
+                }
+            }
         }
 
-        private static void CreateDropdown(Type type, SerializedProperty property)
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            VariableScriptGenerator generator = new VariableScriptGenerator();
+            EditorGUI.BeginProperty(position, label, property);
 
-            generator.TargetType = type;
+            var variableRefAttribute = (VariableReferenceAttribute)attribute;
 
-            if (generator.ExistingGeneratedClass == null)
+            // Get original type
+            Type originalType = GetTypeFromManagedReference(property);
+
+            if (originalType == null)
+            {
+                EditorGUI.LabelField(position, "Error: Could not determine type");
+                EditorGUI.EndProperty();
+                return;
+            }
+
+            // Construct variable type name
+            string typeName = originalType.Name;
+
+            string fullTypeName = string.IsNullOrEmpty(variableRefAttribute.Namespace)
+                ? typeName + "Variable"
+                : $"{variableRefAttribute.Namespace}.{typeName}Variable";
+
+            // Find the variable type
+            Type variableType = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .SelectMany(a => a.GetTypes())
+                .FirstOrDefault(t => t.FullName == fullTypeName);
+
+            if (variableType == null)
             {
                 try
                 {
+                    generator.TargetType = originalType;
                     generator.Generate();
-                    EditorUtility.DisplayProgressBar("Generating " + type.Name, "Importing Scripts", 0);
+                    EditorUtility.DisplayProgressBar("Generating " + originalType, "Importing Scripts", 0);
                     AssetDatabase.Refresh();
                 }
                 catch (Exception e)
                 {
                     Debug.LogWarning(e.Message);
+                    //throw e;
                 }
                 generator = new VariableScriptGenerator();
                 EditorUtility.ClearProgressBar();
+
+                //EditorGUI.LabelField(position, $"Error: Type {fullTypeName} not found");
+                //EditorGUI.EndProperty();
+                //return;
             }
 
-            // draw dropdown based on new or exisiting variable type using flow engine to get vars
+            // Ensure cache is populated for runtime use
+            if (variableType != null)
+            {
+                if (!cachedVariables.ContainsKey(variableType) || cachedVariables[variableType].Count == 0)
+                {
+                    RefreshVariableCache();
+                }
 
-            // The dropdown will use the variable keys and when set it will set the value of the field to value of variable
-            // If we choose <none> then the value is null
-            // Wheter or not we should replace the field entirely is up to you or if we add the dropdown and have the OG field
+                // Get variables of the specific type
+                var variables = cachedVariables.ContainsKey(variableType)
+                    ? cachedVariables[variableType].ToArray()
+                    : new Variable[0];
 
-            // set value of property based on the type ensuring variable value type matches
+
+                // Prepare names for popup
+                string[] variableNames = variables
+                    .Select(v => v.Key)
+                    .Prepend("<None>")
+                    .ToArray();
+
+                int currentIndex = 0;
+
+                PropertyReference propRef = null;
+                UnityEngine.Object targetObj = property.serializedObject.targetObject;
+                GameObject relatedGameObject = null;
+
+                if (targetObj is MonoBehaviour monoBehaviour)
+                {
+                    relatedGameObject = monoBehaviour.gameObject;
+                }
+                else
+                {
+                    Debug.LogError("Target object is not a MonoBehaviour, attribute only supports basic objects.");
+                    return;
+                }
+
+                foreach (Variable v in variables)
+                {
+                    propRef = v.FindPropertyReference(relatedGameObject, property.name);
+                    if (propRef != null)
+                    {
+                        currentIndex = Array.IndexOf(variables, v) + 1;
+                        break;
+                    }
+                }
+
+                int previousIndex = currentIndex;
+                int selectedIndex = EditorGUI.Popup(position, label.text, currentIndex, variableNames);
+
+                if (selectedIndex != previousIndex)
+                {
+                    Variable v = selectedIndex > 0 ? variables[selectedIndex - 1] : null;
+                    Variable previousVariable = previousIndex > 0 ? variables[previousIndex - 1] : null;
+
+                    if (v != null)
+                    {
+                        if (previousVariable != null)
+                        {
+                            previousVariable.RemovePropertyReference(relatedGameObject, property.name);
+                        }
+
+                        v.AddPropertyReference(relatedGameObject, property.name);
+                    }
+                }
+
+                EditorGUI.EndProperty();
+            }
+        }
+
+        private Type GetTypeFromManagedReference(SerializedProperty property)
+        {
+            var targetObject = property.serializedObject.targetObject;
+            var field = targetObject.GetType().GetField(property.name,
+                System.Reflection.BindingFlags.Public |
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.FlattenHierarchy);
+            return field?.FieldType;
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            return EditorGUI.GetPropertyHeight(property, label);
         }
     }
 }
