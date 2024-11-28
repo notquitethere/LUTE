@@ -3,114 +3,104 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 [OrderInfo("XR",
               "XRDragInteraction",
-              "")]
+              "Handles XR drag interaction for a specified object.")]
 [AddComponentMenu("")]
 public class XRDragInteraction : Order
 {
+    [SerializeField] private string _objectName;
 
+    private GameObject _gameObjectToDrag;
+    private GameObject _transparentObject;
 
-    public string objectName;
+    [SerializeField] private Material _transparentMaterial;
 
-    private GameObject gameObjectToDrag;
-    private GameObject transparentObject;
-
-    public Material transparentMaterial;
-
-
-    private Vector3 scaleOfObject;
+    private Vector3 _scaleOfObject;
 
     [Tooltip("The offset to spawn the transparent object at")]
-    public Vector3 dragOffset;
+    [SerializeField] private Vector3 _dragOffset;
 
-    //int variable for overlap percentage, make it so it can't go lower than 0 and can't go higher than 100
-    
+    [Tooltip("Minimum overlap percentage required to consider the puzzle solved")]
     [Range(0, 100)]
-    public float minimumOverlapPercentage = 75;
+    [SerializeField] private float _minimumOverlapPercentage = 75f;
 
-
-
-
-    public void OnPuzzleSolved()
+    public override void OnEnter()
     {
+        _gameObjectToDrag = XRObjectManager.Instance.GetObject(_objectName);
+        if (_gameObjectToDrag == null)
+        {
+            Debug.LogError($"GameObject with name '{_objectName}' not found in XRObjectManager.");
+            Continue();
+            return;
+        }
 
-        //Destroy the transparent object
-        Destroy(transparentObject);
+        _scaleOfObject = _gameObjectToDrag.transform.localScale;
 
-        //get the grabInteractable component of the object to drag and disable it
-        XRGrabInteractable grabInteractable = gameObjectToDrag.GetComponent<XRGrabInteractable>();
-        grabInteractable.enabled = false;
-
-
-        Continue();
+        StartDrag();
     }
 
-   
-    
-
-
-    //function that takes in the object to drag, and instantiates a transparent version of it at the drag offset so the user then has to drag the normal object 
-    public void StartDrag()
+    private void StartDrag()
     {
-        //instantiate a transparent version of the object to drag
-        transparentObject = Instantiate(gameObjectToDrag, gameObjectToDrag.transform.position + dragOffset, gameObjectToDrag.transform.rotation);
+        // Instantiate a transparent version of the object to drag
+        _transparentObject = Instantiate(_gameObjectToDrag, _gameObjectToDrag.transform.position + _dragOffset, _gameObjectToDrag.transform.rotation);
+        _transparentObject.name = $"{_gameObjectToDrag.name}_Transparent";
 
-        //transparentObject.transform.localScale = Vector3.Scale(transparentObject.transform.localScale, scaleOfObject);
+        // Set tag to identify it if necessary
+        _gameObjectToDrag.tag = "DragPiece";
 
-        //set tag to Piece so that the overlap detector can detect it
-        gameObjectToDrag.tag = "DragPiece";
+        // Add the OverlapDetector script to the transparent object
+        var overlapDetector = _transparentObject.AddComponent<OverlapDetector>();
+        overlapDetector.minimumOverlapPercentage = _minimumOverlapPercentage;
 
-        //attach the overlap detector script to the transparent object
-        var overlapDetector = transparentObject.AddComponent<OverlapDetector>();
-        overlapDetector.minimumOverlapPercentage = minimumOverlapPercentage;
-        //set the callback function to be the OnPuzzleSolved function
+        // Set the callback function to be the OnPuzzleSolved function
         overlapDetector.PuzzleSolved += OnPuzzleSolved;
 
-        //set the box collider of the transparent object to be a trigger
-        transparentObject.GetComponent<BoxCollider>().isTrigger = true;
+        // Set the collider of the transparent object to be a trigger
+        var collider = _transparentObject.GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.isTrigger = true;
+        }
 
-        //add rigidbody to the transparent object
-        transparentObject.AddComponent<Rigidbody>();
-        Rigidbody rigidbody = transparentObject.GetComponent<Rigidbody>();
+        // Add rigidbody to the transparent object
+        var rigidbody = _transparentObject.AddComponent<Rigidbody>();
         rigidbody.useGravity = false;
         rigidbody.isKinematic = true;
 
-        //go through all the children of the transparent object (children can be nested) and set their materials to transparent
-        foreach (Renderer renderer in transparentObject.GetComponentsInChildren<Renderer>())
+        // Set materials to transparent
+        foreach (Renderer renderer in _transparentObject.GetComponentsInChildren<Renderer>())
         {
             Material[] materials = renderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {
-                materials[i] = transparentMaterial;
+                materials[i] = _transparentMaterial;
             }
             renderer.materials = materials;
         }
-       
-        
-        //transparentObject.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.5f);
-        //set the object to drag to the transparent object
-       // gameObjectToDrag = transparentObject;
     }
 
-    public override void OnEnter()
+    public void OnPuzzleSolved()
     {
+        // Destroy the transparent object
+        if (_transparentObject != null)
+        {
+            Destroy(_transparentObject);
+        }
 
+        // Disable the XRGrabInteractable component of the object to drag
+        if (_gameObjectToDrag != null)
+        {
+            XRGrabInteractable grabInteractable = _gameObjectToDrag.GetComponent<XRGrabInteractable>();
+            if (grabInteractable != null)
+            {
+                grabInteractable.enabled = false;
+            }
+        }
 
-        //instantiaite the object to drag
-        gameObjectToDrag = XRObjectManager.GetObject(objectName);
-        //set the scale of the object to the scale of the object to drag
-        scaleOfObject = gameObjectToDrag.transform.localScale;
-
-
-        //this code gets executed when the order is called
-        StartDrag();
-      //this code gets executed as the order is called
-      //some orders may not lead to another node so you can call continue if you wish to move to the next order after this one   
-      //Continue();
+        Continue();
     }
 
-  public override string GetSummary()
-  {
- //you can use this to return a summary of the order which is displayed in the inspector of the order
-      return "";
-  }
+    public override string GetSummary()
+    {
+        return "Handles XR drag interaction for a specified object.";
+    }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.ARSubsystems;
@@ -7,38 +5,52 @@ using UnityEngine.XR.ARSubsystems;
 [CustomEditor(typeof(ToggleXR))]
 public class ToggleXREditor : OrderEditor
 {
-    protected SerializedProperty toggle;
-
-    protected SerializedProperty planeVisualiser;
-    protected SerializedProperty planeDetectionMode;
-    protected SerializedProperty pointCloudVisualiser;
+    private SerializedProperty _toggle;
+    private SerializedProperty _planeVisualizer;
+    private SerializedProperty _planeDetectionMode;
+    private SerializedProperty _pointCloudVisualizer;
 
     public override void OnEnable()
     {
         base.OnEnable();
 
-        toggle = serializedObject.FindProperty("toggle");
-        
-        planeVisualiser = serializedObject.FindProperty("planeVisualiser");
+        // Find serialized properties
+        _toggle = serializedObject.FindProperty("_toggle");
+        _planeVisualizer = serializedObject.FindProperty("_planeVisualizer");
+        _planeDetectionMode = serializedObject.FindProperty("_planeDetectionMode");
+        _pointCloudVisualizer = serializedObject.FindProperty("_pointCloudVisualizer");
 
-        //if the planeVisualiser property is null, then set it to the default plane visualiser which is "AR Feathered Plane"
-        if (planeVisualiser.objectReferenceValue == null)
+        // Update serialized object before accessing properties
+        serializedObject.Update();
+
+        // Set default plane visualizer if it's null
+        if (_planeVisualizer.objectReferenceValue == null)
         {
-            planeVisualiser.objectReferenceValue = Resources.Load("Prefabs/AR Feathered Plane");
+            _planeVisualizer.objectReferenceValue = Resources.Load<GameObject>("Prefabs/AR Feathered Plane");
+            if (_planeVisualizer.objectReferenceValue == null)
+            {
+                Debug.LogWarning("Default plane visualizer 'AR Feathered Plane' not found in Resources/Prefabs.");
+            }
         }
 
-        planeDetectionMode = serializedObject.FindProperty("planeDetectionMode");
-
-        //set defaulr plane detection mode to horizontal
-        planeDetectionMode.enumValueIndex = 1;
-
-        pointCloudVisualiser = serializedObject.FindProperty("pointCloudVisualiser");
-
-        //if the pointCloudVisualiser property is null, then set it to the default point cloud visualiser which is "AR Point Cloud"
-        if (pointCloudVisualiser.objectReferenceValue == null)
+        // Set default plane detection mode to Horizontal if not set
+        if (_planeDetectionMode.enumValueIndex == -1)
         {
-            pointCloudVisualiser.objectReferenceValue = Resources.Load("Prefabs/AR Point Cloud Debug Visualizer");
+            _planeDetectionMode.enumValueIndex = (int)PlaneDetectionMode.Horizontal;
         }
+
+        // Set default point cloud visualizer if it's null
+        if (_pointCloudVisualizer.objectReferenceValue == null)
+        {
+            _pointCloudVisualizer.objectReferenceValue = Resources.Load<GameObject>("Prefabs/AR Point Cloud Debug Visualizer");
+            if (_pointCloudVisualizer.objectReferenceValue == null)
+            {
+                Debug.LogWarning("Default point cloud visualizer 'AR Point Cloud Debug Visualizer' not found in Resources/Prefabs.");
+            }
+        }
+
+        // Apply modified properties
+        serializedObject.ApplyModifiedProperties();
     }
 
     public override void OnInspectorGUI()
@@ -48,21 +60,21 @@ public class ToggleXREditor : OrderEditor
 
     public override void DrawOrderGUI()
     {
-        ToggleXR t = target as ToggleXR;
-        var engine = (BasicFlowEngine)t.GetEngine();
+        // Update serialized object before making changes
+        serializedObject.Update();
 
-        EditorGUILayout.PropertyField(toggle);
+        // Draw the toggle property
+        EditorGUILayout.PropertyField(_toggle);
 
-       //if toggle is on, show everything else
-       if (toggle.boolValue)
+        // If toggle is true, display additional properties
+        if (_toggle.boolValue)
         {
-            EditorGUILayout.PropertyField(planeVisualiser);
-            EditorGUILayout.PropertyField(planeDetectionMode);
-            EditorGUILayout.PropertyField(pointCloudVisualiser);
+            EditorGUILayout.PropertyField(_planeVisualizer);
+            EditorGUILayout.PropertyField(_planeDetectionMode);
+            EditorGUILayout.PropertyField(_pointCloudVisualizer);
         }
 
-
+        // Apply changes to the serialized object
         serializedObject.ApplyModifiedProperties();
     }
-
 }

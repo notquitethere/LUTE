@@ -1,5 +1,3 @@
-
-//using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -10,40 +8,60 @@ using UnityEngine.XR.ARSubsystems;
 [AddComponentMenu("")]
 public class ToggleXR : Order
 {
+    [SerializeField]
+    private bool _toggle = true;
 
     [SerializeField]
-    public bool toggle = true;
+    private PlaneDetectionMode _planeDetectionMode = PlaneDetectionMode.Horizontal;
 
     [SerializeField]
-    public PlaneDetectionMode planeDetectionMode = PlaneDetectionMode.Horizontal;
-
-
-    [SerializeField]
-    public GameObject planeVisualiser;
+    private GameObject _planeVisualizer;
 
     [SerializeField]
-    public GameObject pointCloudVisualiser;
+    private GameObject _pointCloudVisualizer;
 
     public override void OnEnter()
     {
+        // Get the XRManager instance
+        var xrManager = XRManager.Instance;
 
-        //if the plane visualiser is not null, set it to the plane visualiser of the XR object
-        if (planeVisualiser != null)
+        // Set the plane visualizer if provided
+        // Set the plane visualizer if provided
+        if (_planeVisualizer != null)
         {
-            var planeManager = XRHelper.getXRScript().gameObject.GetComponentInChildren<ARPlaneManager>();
-            planeManager.planePrefab = planeVisualiser;
+            var planeManager = xrManager.GetXRObject()?.GetComponentInChildren<ARPlaneManager>();
+            if (planeManager != null)
+            {
+                planeManager.planePrefab = _planeVisualizer;
+                planeManager.requestedDetectionMode = _planeDetectionMode; 
+            }
+            else
+            {
+                Debug.LogWarning("ARPlaneManager not found in XR object.");
+            }
         }
 
-        //if the point cloud visualiser is not null, set it to the point cloud visualiser of the XR object
-        if (pointCloudVisualiser != null)
+        // Set the point cloud visualizer if provided
+        if (_pointCloudVisualizer != null)
         {
-            var pointCloudManager = XRHelper.getXRScript().gameObject.GetComponentInChildren<ARPointCloudManager>();
-            pointCloudManager.pointCloudPrefab = pointCloudVisualiser;
+            var pointCloudManager = xrManager.GetXRObject()?.GetComponentInChildren<ARPointCloudManager>();
+            if (pointCloudManager != null)
+            {
+                pointCloudManager.pointCloudPrefab = _pointCloudVisualizer;
+            }
+            else
+            {
+                Debug.LogWarning("ARPointCloudManager not found in XR object.");
+            }
         }
-            
-       
+
+        // Toggle XR object
+        xrManager.SetXRActive(_toggle);
+
+        // Continue to the next order
         Continue();
     }
+
 
     public override string GetSummary()
     {
