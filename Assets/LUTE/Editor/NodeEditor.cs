@@ -51,6 +51,7 @@ public class NodeEditor : Editor
         EditorGUILayout.LabelField(descriptionProp.stringValue);
         SerializedProperty allowMultipleExecutes = serializedObject.FindProperty("CanExecuteAgain");
         EditorGUILayout.PropertyField(allowMultipleExecutes);
+
         var node = target as Node;
         if (node._EventHandler != null)
         {

@@ -45,6 +45,7 @@ public class Node : MonoBehaviour
     [SerializeField] protected bool showDesc;
     [Tooltip("If true, the node will be saved when completed (persistent). Useful for ensuring location nodes are save upon completition")]
     [SerializeField] protected bool saveable = false;
+    [SerializeField] protected List<VariableCondition> nodeConditions = new List<VariableCondition>();
 
     protected int jumpToOrderIndex = -1;
     protected ExecutionState executionState;
@@ -341,6 +342,8 @@ public class Node : MonoBehaviour
     private void SetComplete()
     {
         executionState = ExecutionState.Complete;
+
+        Debug.Log("Node " + nodeName + " is complete");
 
         // If saving is allowed then we save the node as complete
         if (saveable)

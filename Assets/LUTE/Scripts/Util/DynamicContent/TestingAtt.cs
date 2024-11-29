@@ -19,7 +19,8 @@ namespace LoGaCulture.LUTE
                 sr.sprite = spriteTest;
             }
 
-            Debug.Log(stringTest);
+            if (!string.IsNullOrEmpty(stringTest))
+                Debug.Log(stringTest);
         }
     }
 }

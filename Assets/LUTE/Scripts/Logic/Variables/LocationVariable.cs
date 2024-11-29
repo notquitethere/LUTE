@@ -163,6 +163,7 @@ public struct LocationData
 
     public string GetDescription()
     {
+        return "";
         if (locationRef == null)
         {
             return locationVal.ToString();

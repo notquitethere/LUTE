@@ -375,9 +375,26 @@ public abstract class Variable : MonoBehaviour
 
     protected virtual void Update()
     {
+
         foreach (var pr in propertyReferences)
         {
-            pr.SetValue(ReturnValue());
+            object value = pr.GetValue(pr.PropertyName);
+            object returnValue = ReturnValue();
+
+            // If the value is null or different to the return value then set the value
+            if (value == null || value != returnValue)
+            {
+                // If the return value is a string then apply text variations
+                // We don't save the varied text return value as the variable's value as this will disrupt the variation system
+                // This will not use rich text tags (like Dialogue Systems) as this is really intended behaviours
+                if (returnValue.GetType() == typeof(string))
+                {
+                    string s = returnValue as string;
+                    string variedText = TextVariationHandler.SelectVariations(s);
+                    Apply(SetOperator.Assign, variedText);
+                }
+                pr.SetValue(ReturnValue());
+            }
         }
     }
 }
