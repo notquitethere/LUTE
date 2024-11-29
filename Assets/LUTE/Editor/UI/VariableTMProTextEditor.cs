@@ -13,7 +13,7 @@ namespace LoGaCulture.LUTE
         {
             base.OnEnable();
 
-            varNameProp = serializedObject.FindProperty("variableName");
+            varNameProp = serializedObject.FindProperty("stringVariable");
         }
 
         protected override void DrawExtraSettings()

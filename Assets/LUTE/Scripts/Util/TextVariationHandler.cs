@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class TextVariationHandler
@@ -36,7 +37,7 @@ public class TextVariationHandler
             if (type == VaryType.Conditional)
             {
                 // Remove the operator prefix from variable name before finding it
-                string cleanVarName = variableName.TrimStart('=', '!', '>', '<');
+                string cleanVarName = variableName.TrimStart('=', '!', '>', '<').TrimEnd('=', '<', '>', '!');
 
                 BasicFlowEngine engine = null;
 
@@ -49,6 +50,8 @@ public class TextVariationHandler
                     engine = GameObject.FindObjectsOfType<BasicFlowEngine>().ToList().Where(x => !x.gameObject.name.Contains("GlobalVariablesEngine")).FirstOrDefault();
                 }
 
+                Debug.Log(cleanVarName);
+
                 var variable = engine?.GetVariable(cleanVarName);
 
                 if (variable == null)
@@ -56,6 +59,8 @@ public class TextVariationHandler
                     return string.Empty;
                 }
 
+                // You can do this here or you could do this at variable level where we parse the string value to the correct type
+                // Either method requires custom handling
                 switch (variable.GetType())
                 {
                     case Type t when t == typeof(StringVariable):
@@ -130,7 +135,7 @@ public class TextVariationHandler
 
         for (int i = 0; i < input.Length; i++)
         {
-            if (i < input.Length - 1 && input[i] == '[' && input[i + 1] == '*')
+            if (i < input.Length - 2 && input[i] == '[' && input[i + 1] == 'i' && input[i + 3] == '$')
             {
                 // Handle conditional statement
                 if (ParseConditional(input, i, out Section conditionalSection))
@@ -219,73 +224,37 @@ public class TextVariationHandler
     {
         section = new Section { type = Section.VaryType.Conditional };
 
-        // Find the end of the conditional statement
-        int endIndex = input.IndexOf(']', startIndex);
-        if (endIndex == -1) return false;
+        // Regular expression to match the new syntax
+        var regex = new Regex(@"\[if\$([^=!<>]+)(!=|==|>=|<=|>|<|=)([^\]]+)\?([^:]+):([^\]]+)\]");
 
-        // Extract the content between [* and ]
-        string content = input.Substring(startIndex + 2, endIndex - (startIndex + 2));
+        var match = regex.Match(input, startIndex);
 
-        // Split into parts: variable=value ? true : false
-        string[] mainParts = content.Split('?');
-        if (mainParts.Length != 2) return false;
+        if (!match.Success)
+            return false;
 
-        // Parse condition part
-        string[] conditionParts = mainParts[0].Trim().Split(',');
-        if (conditionParts.Length != 2) return false;
+        section.variableName = match.Groups[1].Value.Trim();
+        string fullOperator = match.Groups[2].ToString(); // Use ToString() to get full match
+        section.operatorType = ParseOperator(fullOperator);
+        section.compareValue = match.Groups[3].Value.Trim();
+        section.trueResult = match.Groups[4].Value.Trim();
+        section.falseResult = match.Groups[5].Value.Trim();
 
-        // Parse the variable part to determine operator
-        string varPart = conditionParts[0].Trim();
-        ParseOperator(varPart, out string cleanVarName, out ComparisonOperator op);
-
-        section.variableName = cleanVarName;
-        section.operatorType = op;
-        section.compareValue = conditionParts[1].Trim();
-
-        // Parse results part
-        string[] resultParts = mainParts[1].Split(':');
-        if (resultParts.Length != 2) return false;
-
-        section.trueResult = resultParts[0].Trim();
-        section.falseResult = resultParts[1].Trim();
-
-        // Store the entire matched section
-        section.entire = input.Substring(startIndex, endIndex - startIndex + 1);
+        section.entire = match.Value;
 
         return true;
     }
 
-    private static void ParseOperator(string input, out string variableName, out ComparisonOperator op)
+    private static ComparisonOperator ParseOperator(string opString)
     {
-        if (input.StartsWith("!="))
+        switch (opString)
         {
-            op = ComparisonOperator.NotEquals;
-            variableName = input.Substring(2);
-        }
-        else if (input.StartsWith(">="))
-        {
-            op = ComparisonOperator.GreaterThanOrEquals;
-            variableName = input.Substring(2);
-        }
-        else if (input.StartsWith("<="))
-        {
-            op = ComparisonOperator.LessThanOrEquals;
-            variableName = input.Substring(2);
-        }
-        else if (input.StartsWith(">"))
-        {
-            op = ComparisonOperator.GreaterThan;
-            variableName = input.Substring(1);
-        }
-        else if (input.StartsWith("<"))
-        {
-            op = ComparisonOperator.LessThan;
-            variableName = input.Substring(1);
-        }
-        else
-        {
-            op = ComparisonOperator.Equals;
-            variableName = input.TrimStart('=');
+            case "=": return ComparisonOperator.Equals;
+            case "!=": return ComparisonOperator.NotEquals;
+            case ">=": return ComparisonOperator.GreaterThanOrEquals;
+            case "<=": return ComparisonOperator.LessThanOrEquals;
+            case ">": return ComparisonOperator.GreaterThan;
+            case "<": return ComparisonOperator.LessThan;
+            default: throw new ArgumentException("Invalid operator: " + opString);
         }
     }
 
