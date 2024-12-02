@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
@@ -327,12 +328,14 @@ public class MenuDialogue : MonoBehaviour
 
         var button = cachedButtons[nextOptionIndex];
 
-        if (textDisplay == null)
+        TextAdapter textAdapter = new TextAdapter();
+        textAdapter.InitFromGameObject(button.gameObject, true);
+        if (textAdapter.HasTextObject())
         {
-            var textDisplay = GetTextDisplay(button.transform);
+            text = TextVariationHandler.SelectVariations(text);
+
+            textAdapter.Text = text;
         }
-        textDisplay.text = text;
-        textDisplay = null;
 
         //move forward for next call
         nextOptionIndex++;

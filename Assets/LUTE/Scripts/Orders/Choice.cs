@@ -79,7 +79,7 @@ public class Choice : Order
             {
                 menu.SetActive(true);
 
-                string variedText = TextVariationHandler.SelectVariations(text);
+                string variedText = GetEngine().SubstituteVariables(text);
 
                 menu.AddOption(variedText, interactable, hideOption, targetNode, closeMenuOnSelect, buttonFeedback, justContinue, Continue, showNextChoice, OrderIndex, ParentNode, buttonSound);
             }
@@ -90,12 +90,6 @@ public class Choice : Order
             {
                 if (showNextChoice)
                 {
-                    //var nextChoice = ParentNode.OrderList.Find(x => x is Choice && x != this);
-                    //if (nextChoice != null)
-                    //{
-                    //    nextChoice.Execute();
-                    //}
-
                     int currentIndex = ParentNode.OrderList.IndexOf(this);  // Get the current index of 'this'
                     if (currentIndex != -1) // Ensure 'this' is found in the list
                     {
@@ -123,7 +117,7 @@ public class Choice : Order
 
     public virtual void SetMenuChoice(Popup popup)
     {
-        string variedText = TextVariationHandler.SelectVariations(text);
+        string variedText = GetEngine().SubstituteVariables(text);
         if (popup != null)
         {
             popup.AddOption(variedText, interactable, hideIfVisited, targetNode, closeMenuOnSelect, buttonFeedback, buttonSound);

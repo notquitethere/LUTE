@@ -1,6 +1,7 @@
 using LoGaCulture.LUTE;
 using Mapbox.Unity.Location;
 using Mapbox.Utils;
+using System;
 using UnityEngine;
 
 [VariableInfo("", "Location")]
@@ -61,31 +62,36 @@ public class LocationVariable : BaseVariable<LUTELocationInfo>
         var tracker = map.TrackerPos();
         var trackerPos = tracker;
 
-        Vector2d vecVal = Value.LatLongString();
-        var deviceLoc = LocationProvider.CurrentLocation.LatitudeLongitude;
-        if (engine.DemoMapMode)
-        {
-            deviceLoc = trackerPos;
-        }
-        if (deviceLoc == null)
+        if (LocationProvider.CurrentLocation.LatitudeLongitude == null)
         {
             return false;
         }
 
-        var radiusInMeters = LogaConstants.DefaultRadius + Value.RadiusIncrease;
-        float r = 6371000.0f; // Earth radius in meters
+        Vector2d vecVal = Value.LatLongString();
+        var deviceLoc = engine.DemoMapMode ? trackerPos : LocationProvider.CurrentLocation.LatitudeLongitude;
 
-        // Determine distance between target and tracker in radians
-        float dLat = (float)(Mathf.Deg2Rad * (vecVal.x - deviceLoc.x));
-        float dLon = (float)(Mathf.Deg2Rad * (vecVal.y - deviceLoc.y));
+        var radiusInMeters = (LogaConstants.DefaultRadius * 3f) + Value.RadiusIncrease;
 
-        // Haversine formula
-        float a = Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2) +
-            Mathf.Cos((float)(Mathf.Deg2Rad * deviceLoc.x)) * Mathf.Cos((float)(Mathf.Deg2Rad * vecVal.x)) *
-            Mathf.Sin(dLon / 2) * Mathf.Sin(dLon / 2);
+        // Use double for more precision
+        double r = 6371000.0; // Earth radius in meters
 
-        float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
-        float distance = r * c;
+        // Convert to radians
+        double lat1 = deviceLoc.x * Math.PI / 180.0;
+        double lon1 = deviceLoc.y * Math.PI / 180.0;
+        double lat2 = vecVal.x * Math.PI / 180.0;
+        double lon2 = vecVal.y * Math.PI / 180.0;
+
+        // Haversine formula with more precise calculation
+        double dLat = lat2 - lat1;
+        double dLon = lon2 - lon1;
+
+        double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                   Math.Cos(lat1) * Math.Cos(lat2) *
+                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+        double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+
+        double distance = r * c;
 
         return distance <= radiusInMeters;
     }

@@ -25,7 +25,7 @@
 
         private List<LocationMarker> _spawnedObjects;
         private List<LUTELocationInfo> _locationData = new List<LUTELocationInfo>();
-        private float _radiusInMeters = LogaConstants.DefaultRadius / 14f;
+        private float _radiusInMeters = LogaConstants.DefaultRadius;
 
         [SerializeField] public LocationMarker _markerPrefab;
         [SerializeField] public float _spawnScale = 5f;

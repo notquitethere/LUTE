@@ -392,10 +392,8 @@ MonoBehaviour:
   description: A game about Avebury!
   hideComponents: 1
   localizationId: 
-  selectedOrders:
-  - {fileID: 4806665123537749153}
-  selectedNodes:
-  - {fileID: 4303630939233821233}
+  selectedOrders: []
+  selectedNodes: []
   nodeViewHeight: 473
   hideOrders: []
   variables:
@@ -469,6 +467,7 @@ MonoBehaviour:
   targetKeyNode: {fileID: 0}
   showDesc: 0
   saveable: 0
+  nodeConditions: []
   NodeComplete: 0
 --- !u!114 &4806665123537749153
 MonoBehaviour:
@@ -592,6 +591,7 @@ MonoBehaviour:
   targetKeyNode: {fileID: 0}
   showDesc: 0
   saveable: 0
+  nodeConditions: []
   NodeComplete: 0
 --- !u!114 &4780102058866328054
 MonoBehaviour:
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 25983.725
-    y: 25002.637
+    x: 25942.725
+    y: 24983.637
     width: 80
     height: 40
   nodeName: Node
@@ -713,6 +713,7 @@ MonoBehaviour:
   targetKeyNode: {fileID: 0}
   showDesc: 0
   saveable: 0
+  nodeConditions: []
   NodeComplete: 0
 --- !u!114 &7208605965385644007
 MonoBehaviour:
