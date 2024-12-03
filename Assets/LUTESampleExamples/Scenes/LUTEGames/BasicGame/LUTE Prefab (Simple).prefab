@@ -731,7 +731,7 @@ MonoBehaviour:
   _duration: 1
   _targetColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   waitUntilFinished: 1
   durationOLD: 0
   targetColorOLD: {r: 0, g: 0, b: 0, a: 0}

@@ -343,8 +343,6 @@ public class Node : MonoBehaviour
     {
         executionState = ExecutionState.Complete;
 
-        Debug.Log("Node " + nodeName + " is complete");
-
         // If saving is allowed then we save the node as complete
         if (saveable)
         {

@@ -172,7 +172,10 @@ public class MapboxControls : EventWindow
             var locationLength = 200 + "Location: ".Length + currentLocationString.Length * 3;
             float windowWidth = locationLength; // Calculate the width based on the length of the current location string
 
-            locationPopupRect = GUI.Window(0, new Rect(rightClickPos.x, rightClickPos.y, windowWidth, 150), DrawLocationWindow, "Add New Location", currentStyle);
+            currentStyle.padding.top = -20;
+
+            locationPopupRect = GUI.Window(0, new Rect(rightClickPos.x, rightClickPos.y, windowWidth, 150),
+                DrawLocationWindow, "New Location", currentStyle);
         }
         EndWindows();
 
@@ -230,25 +233,25 @@ public class MapboxControls : EventWindow
 
     private void DrawLocationWindow(int id)
     {
+
         // Create a GUI box allowing a custom name and showing current location
         GUILayout.BeginVertical();
-        GUILayout.Space(20);
+        GUILayout.Space(5);
         GUILayout.BeginHorizontal();
         GUILayout.Label("Name: ");
         currentLocationName = EditorGUILayout.TextField(currentLocationName);
         GUILayout.EndHorizontal();
+        GUILayout.Space(5);
         GUILayout.BeginHorizontal();
         GUILayout.Label("Show Name: ");
         currentLocationNameBool = EditorGUILayout.Toggle(currentLocationNameBool);
         GUILayout.EndHorizontal();
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Color: ");
-        locationColor = EditorGUILayout.ColorField(locationColor);
-        GUILayout.EndHorizontal();
+        GUILayout.Space(5);
         GUILayout.BeginHorizontal();
         GUILayout.Label("Icon: ");
         currentLocationSprite = EditorGUILayout.ObjectField(currentLocationSprite, typeof(Sprite), true) as Sprite;
         GUILayout.EndHorizontal();
+        GUILayout.Space(5);
         GUILayout.BeginHorizontal();
         GUILayout.Label("Location: ");
         GUILayout.Label(currentLocationString);
@@ -389,5 +392,14 @@ public class MapboxControls : EventWindow
     static string ReplaceUnderscoresWithSpace(string input)
     {
         return input.Replace('_', ' ');
+    }
+
+    private Texture2D CreateSmoothBackgroundTexture()
+    {
+        Texture2D texture = new Texture2D(1, 1);
+        Color backgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.95f); // Near-black with slight transparency
+        texture.SetPixel(0, 0, backgroundColor);
+        texture.Apply();
+        return texture;
     }
 }

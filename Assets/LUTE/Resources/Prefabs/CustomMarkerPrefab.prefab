@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 8333115561107234584, guid: 9b5cceeaef4cbf5428e63d32049ddb46, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1d57624ebb88a474fa1dfc3995b1a6c4, type: 3}
+      objectReference: {fileID: 21300000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
     - target: {fileID: 8559514904495585917, guid: 9b5cceeaef4cbf5428e63d32049ddb46, type: 3}
       propertyPath: m_Name
       value: LocSprite
