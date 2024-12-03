@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -86,7 +87,7 @@ public class Group : Node
     }
 
     //Remove any relation the group had to the nodes that were inside of it
-    public virtual void DisbandGroup()
+    public virtual void DisbandGroup(BasicFlowEngine engine, int id)
     {
         for (int i = 0; i < groupedNodes.Count; i++)
         {
@@ -121,11 +122,65 @@ public class Group : Node
             {
                 node._EventHandler.ParentNode = null;
 
-                //if in unity editor
 #if UNITY_EDITOR
                 Undo.DestroyObjectImmediate(node._EventHandler);
-                #endif
+#endif
             }
         }
+
+        // remove the name from engine group names
+        engine.groupnames.RemoveAt(id);
+
+        // delete the related variable - better way to do this?
+        var groupVar = engine.Variables.OfType<NodeCollectionVariable>().ToList().Find(x => groupedNodes.All(node => x.Value.Contains(node)));
+
+        if (groupVar != null)
+        {
+            //remove the variable from the list of variables
+            engine.Variables.Remove(groupVar);
+            //destroy the variable component
+            Undo.DestroyObjectImmediate(groupVar);
+        }
+
+        // destroy event handler
+        if (eventHandler != null)
+        {
+            Undo.DestroyObjectImmediate(eventHandler);
+        }
+        // destroy all orders
+        foreach (var order in orderList)
+        {
+            Undo.DestroyObjectImmediate(order);
+        }
+
+        // destroy related game object - better way to do this?
+        var existingGroupObjs = engine.GetComponentsInChildren<NodeCollection>();
+        foreach (NodeCollection groupColl in existingGroupObjs)
+        {
+            //if all nodes in the group obj are equal to the nodes provided here then the group obj already exists
+            if (groupedNodes.All(x => groupColl.Contains(x)))
+            {
+                Undo.DestroyObjectImmediate(groupColl.gameObject);
+                break;
+            }
+        }
+
+        // remove the group from the story engine groups
+        engine.Groups.Remove(this);
+
+        foreach (var group in engine.Groups)
+        {
+            if (group != null)
+            {
+                foreach (var node in group.groupedNodes)
+                {
+                    // Decrement the other grouped nodes so they match when drawing boxes etc.
+                    node.GroupIndex--;
+                }
+            }
+        }
+
+        // destroy this group
+        Undo.DestroyObjectImmediate(this);
     }
 }

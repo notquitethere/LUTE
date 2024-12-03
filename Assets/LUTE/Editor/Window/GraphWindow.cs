@@ -682,27 +682,27 @@ public class GraphWindow : EventWindow
                 Selection.activeObject = storyEngine.GetMap();
             }
 
-            string annotationButton = storyEngine.ShowAnnotations ? "Hide Annotations" : "Show Annotations";
+            //string annotationButton = storyEngine.ShowAnnotations ? "Hide Annotations" : "Show Annotations";
 
-            if (GUILayout.Button(annotationButton, EditorStyles.toolbarButton))
-            {
-                storyEngine.ShowAnnotations = !storyEngine.ShowAnnotations;
-            }
+            //if (GUILayout.Button(annotationButton, EditorStyles.toolbarButton))
+            //{
+            //    storyEngine.ShowAnnotations = !storyEngine.ShowAnnotations;
+            //}
 
-            string annotationBoxString = isDrawingAnnotationBox ? "Stop Drawing Annotation Box" : "Draw Annotation Box";
-            if (GUILayout.Button(annotationBoxString, EditorStyles.toolbarButton))
-            {
-                isDrawingAnnotationBox = !isDrawingAnnotationBox;
-            }
+            //string annotationBoxString = isDrawingAnnotationBox ? "Stop Drawing Annotation Box" : "Draw Annotation Box";
+            //if (GUILayout.Button(annotationBoxString, EditorStyles.toolbarButton))
+            //{
+            //    isDrawingAnnotationBox = !isDrawingAnnotationBox;
+            //}
 
-            if (GUILayout.Button("Clear Annotations", EditorStyles.toolbarButton))
-            {
-                storyEngine.ClearAnnotations();
-                labels.ToList().Clear();
-                annotationLines.ToList().Clear();
-                annotationBoxes.ToList().Clear();
-                UpdateAnnotations();
-            }
+            //if (GUILayout.Button("Clear Annotations", EditorStyles.toolbarButton))
+            //{
+            //    storyEngine.ClearAnnotations();
+            //    labels.ToList().Clear();
+            //    annotationLines.ToList().Clear();
+            //    annotationBoxes.ToList().Clear();
+            //    UpdateAnnotations();
+            //}
 
             GUILayout.FlexibleSpace();
 
@@ -1056,59 +1056,59 @@ public class GraphWindow : EventWindow
     protected void DisbandGroup(Group group, int id)
     {
         //remove the group from the list of storyEngine.Groups as well as any orders and event handlers
-        var _groupedNodes = group.GroupedNodes;
+        //var _groupedNodes = group.GroupedNodes;
 
         if (group.IsMinimised)
         {
             group.IsMinimised = false;
         }
 
-        group.DisbandGroup();
+        group.DisbandGroup(storyEngine, id);
 
-        Group groupComp = storyEngine.GetComponents<Group>().ToList().Find(x => x.GroupedNodes.All(node => _groupedNodes.Any(gn => gn._NodeRect.position == node._NodeRect.position)));
-        var colls = storyEngine.Variables.OfType<NodeCollectionVariable>().ToList().Find(x => _groupedNodes.All(node => x.Value.Contains(node)));
+        //Group groupComp = storyEngine.GetComponents<Group>().ToList().Find(x => x.GroupedNodes.All(node => _groupedNodes.Any(gn => gn._NodeRect.position == node._NodeRect.position)));
+        //var colls = storyEngine.Variables.OfType<NodeCollectionVariable>().ToList().Find(x => _groupedNodes.All(node => x.Value.Contains(node)));
 
-        if (colls != null)
-        {
-            //remove the variable from the list of variables
-            storyEngine.Variables.Remove(colls);
-            //destroy the variable component
-            Undo.DestroyObjectImmediate(colls);
-        }
+        //if (colls != null)
+        //{
+        //    //remove the variable from the list of variables
+        //    storyEngine.Variables.Remove(colls);
+        //    //destroy the variable component
+        //    Undo.DestroyObjectImmediate(colls);
+        //}
 
-        if (groupComp != null)
-        {
-            //remove the event handler from the group
-            if (groupComp._EventHandler != null)
-            {
-                Undo.DestroyObjectImmediate(groupComp._EventHandler);
-            }
-            //remove all orders from the group
-            foreach (var order in groupComp.OrderList)
-            {
-                Undo.DestroyObjectImmediate(order);
-            }
-            //remove the group component from the groupu
-            Undo.DestroyObjectImmediate(groupComp);
-        }
+        //if (groupComp != null)
+        //{
+        //    //remove the event handler from the group
+        //    if (groupComp._EventHandler != null)
+        //    {
+        //        Undo.DestroyObjectImmediate(groupComp._EventHandler);
+        //    }
+        //    //remove all orders from the group
+        //    foreach (var order in groupComp.OrderList)
+        //    {
+        //        Undo.DestroyObjectImmediate(order);
+        //    }
+        //    //remove the group component from the groupu
+        //    Undo.DestroyObjectImmediate(groupComp);
+        //}
 
-        //find and remove the gameobject in the scene
-        var existingGroupObjs = storyEngine.GetComponentsInChildren<NodeCollection>();
-        foreach (NodeCollection groupColl in existingGroupObjs)
-        {
-            //if all nodes in the group obj are equal to the nodes provided here then the group obj already exists
-            if (group.GroupedNodes.All(x => groupColl.Contains(x)))
-            {
-                Undo.DestroyObjectImmediate(groupColl.gameObject);
-                break;
-            }
-        }
-        storyEngine.groupnames.RemoveAt(id);
-        _groupedNodes.Clear();
-        //remove the group from the list of storyEngine.Groups
-        storyEngine.Groups.Remove(group);
+        ////find and remove the gameobject in the scene
+        //var existingGroupObjs = storyEngine.GetComponentsInChildren<NodeCollection>();
+        //foreach (NodeCollection groupColl in existingGroupObjs)
+        //{
+        //    //if all nodes in the group obj are equal to the nodes provided here then the group obj already exists
+        //    if (group.GroupedNodes.All(x => groupColl.Contains(x)))
+        //    {
+        //        Undo.DestroyObjectImmediate(groupColl.gameObject);
+        //        break;
+        //    }
+        //}
+        //storyEngine.groupnames.RemoveAt(id);
+        //_groupedNodes.Clear();
+        ////remove the group from the list of storyEngine.Groups
+        //storyEngine.Groups.Remove(group);
         storyEngine.SelectedNodes.Clear();
-        GameObject.DestroyImmediate(group);
+        //GameObject.DestroyImmediate(group);
         DeselectAllNodes();
     }
 
@@ -1547,12 +1547,14 @@ public class GraphWindow : EventWindow
         var tmpNormTxtCol = nodeStyle.normal.textColor;
         nodeStyle.normal.textColor = brightness >= 0.5 ? Color.black : Color.white;
 
-        if (node.IsGrouped && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
-        {
-            nodeStyle.normal.background = graphics.offTexture;
-            GUI.backgroundColor = graphics.tint;
-            GUI.Box(windowRelativeRect, node._NodeName, nodeStyle);
-        }
+        int groupIndex = node.GroupIndex;
+
+        //if (node.IsGrouped && groupIndex >= 0 && groupIndex < storyEngine.Groups.Count && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
+        //{
+        nodeStyle.normal.background = graphics.offTexture;
+        GUI.backgroundColor = graphics.tint;
+        GUI.Box(windowRelativeRect, node._NodeName, nodeStyle);
+        //}
 
         GUI.backgroundColor = Color.white;
 
@@ -2512,7 +2514,8 @@ public class GraphWindow : EventWindow
 
             if (rect.Contains(point / storyEngine.Zoom) && node is not Group)
             {
-                if (node.IsGrouped && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
+                int groupIndex = node.GroupIndex;
+                if (node.IsGrouped && groupIndex >= 0 && groupIndex < storyEngine.Groups.Count && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
                     return node;
             }
         }
@@ -2836,7 +2839,8 @@ public class GraphWindow : EventWindow
                         var node = nodes[i];
                         if (node != null && !isDrawingAnnotationBox)
                         {
-                            if (node.IsGrouped && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
+                            int groupIndex = node.GroupIndex;
+                            if (node.IsGrouped && groupIndex >= 0 && groupIndex < storyEngine.Groups.Count && storyEngine.Groups[groupIndex] != null && !storyEngine.Groups[node.GroupIndex].IsMinimised || !node.IsGrouped)
                             {
                                 bool doesOverlap = zoomSelectionBox.Overlaps(node._NodeRect);
                                 if (doesOverlap)
@@ -3185,7 +3189,7 @@ public class GraphWindow : EventWindow
                         int groupID = storyEngine.Groups.IndexOf(hitGroup);
                         menu.AddItem(new GUIContent("Ungroup"), false, () => DisbandGroup(hitGroup, groupID));
                         //ensure that the new nodes are added to a new group
-                        menu.AddItem(new GUIContent("Duplicate Group"), false, () => DuplicateGroup(hitGroup.GroupedNodes));
+                        //menu.AddItem(new GUIContent("Duplicate Group"), false, () => DuplicateGroup(hitGroup.GroupedNodes));
                     }
                     else if (hitLabel != null)
                     {
@@ -3221,16 +3225,16 @@ public class GraphWindow : EventWindow
                         {
                             menu.AddDisabledItem(new GUIContent("Paste Node"));
                         }
-                        menu.AddItem(
-                            new GUIContent("Add Label"),
-                            false,
-                            () => AddLabel(mousePosition / storyEngine.Zoom - storyEngine.ScrollPos)
-                        );
-                        menu.AddItem(
-                            new GUIContent("Start Line"),
-                            false,
-                            () => StartLine(rightClickDown / storyEngine.Zoom - storyEngine.ScrollPos)
-                        );
+                        //menu.AddItem(
+                        //    new GUIContent("Add Label"),
+                        //    false,
+                        //    () => AddLabel(mousePosition / storyEngine.Zoom - storyEngine.ScrollPos)
+                        //);
+                        //menu.AddItem(
+                        //    new GUIContent("Start Line"),
+                        //    false,
+                        //    () => StartLine(rightClickDown / storyEngine.Zoom - storyEngine.ScrollPos)
+                        //);
                         menu.AddSeparator("");
                         if (!Application.isPlaying)
                         {

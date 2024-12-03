@@ -128,6 +128,11 @@ public class MapboxControls : EventWindow
                 abstractMap.DisableEditorPreview();
         }
 
+        if (spawnOnMap == null || map == null)
+        {
+            return;
+        }
+
         map._dragStartedOnUI = false;
         spawnOnMap.ClearLocations();
     }
