@@ -1113,6 +1113,12 @@ public class GraphWindow : EventWindow
     //ideally done on the group component rather than here
     private string GetGroupName(Group group)
     {
+        return group._NodeName;
+
+        // Below is old code which will be removed on next patch pass
+        // Seems overly complicated to name a group 
+        // We now stick to using simple group names and getting group names
+
         if (groupInspector != null)
         {
             //if the provided group is equal to group inspector group
@@ -3787,7 +3793,6 @@ public class GraphWindow : EventWindow
             //Finally we can add a context menu using another script
             AddBlueprintContextMenu(BPName);
         }
-
 
         // Destroy the object
         DestroyImmediate(engine.gameObject);
