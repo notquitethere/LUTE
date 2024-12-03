@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 [OrderInfo("XR",
               "XRDragInteraction",
@@ -37,7 +37,7 @@ public class XRDragInteraction : Order
         Destroy(transparentObject);
 
         //get the grabInteractable component of the object to drag and disable it
-        XRGrabInteractable grabInteractable = gameObjectToDrag.GetComponent<XRGrabInteractable>();
+        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable = gameObjectToDrag.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         grabInteractable.enabled = false;
 
 

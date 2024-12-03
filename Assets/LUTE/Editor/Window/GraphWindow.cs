@@ -730,8 +730,6 @@ public class GraphWindow : EventWindow
         GUILayout.EndHorizontal();
 
         DrawVariablesBlock(Event.current);
-        GUILayout.EndHorizontal();
-
     }
 
     private void DrawExecutingNodeIcon(Node n, Rect scriptViewRect, float alpha, GUIStyle style)

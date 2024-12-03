@@ -253,11 +253,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
 
             //if object doesn't have XRGrabInteractable component
-            if (newObject.GetComponent<XRGrabInteractable>() == null)
+            if (newObject.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>() == null)
             {
 
                 //add an XRGrabInteractable component to the object
-                var xrGrabInteractable = newObject.AddComponent<XRGrabInteractable>();
+                var xrGrabInteractable = newObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
             }
 
             //if object doesn't have ARTransformer component

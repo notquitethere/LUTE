@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARFoundation.Samples;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.XR.Interaction.Toolkit;
+
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 [OrderInfo("XR",
@@ -78,7 +78,7 @@ public class PlaceObjectXR : Order
         objectSpawner.objectSpawned -= OnObjectSpawned;
 
         //get the XRGrabInteractable component of the object
-        XRGrabInteractable grabInteractable = obj.GetComponentInChildren<XRGrabInteractable>();
+        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable = obj.GetComponentInChildren<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
         //set the track position, track rotation and track scale to the rotateable , moveable and scaleable variables
         grabInteractable.trackPosition = moveable;
