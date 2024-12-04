@@ -341,14 +341,14 @@ public class GraphWindow : EventWindow
 
         UpdateNodes();
 
-        List<Label> gameLabels = storyEngine.gameObject.GetComponents<Label>().ToList();
-        labels = gameLabels.ToArray();
+        //List<Label> gameLabels = storyEngine.gameObject.GetComponents<Label>().ToList();
+        //labels = gameLabels.ToArray();
 
-        List<AnnotationLine> gameAnnotationLines = storyEngine.gameObject.GetComponents<AnnotationLine>().ToList();
-        annotationLines = gameAnnotationLines.ToArray();
+        //List<AnnotationLine> gameAnnotationLines = storyEngine.gameObject.GetComponents<AnnotationLine>().ToList();
+        //annotationLines = gameAnnotationLines.ToArray();
 
-        List<AnnotationBox> gameAnnotationBoxes = storyEngine.gameObject.GetComponents<AnnotationBox>().ToList();
-        annotationBoxes = gameAnnotationBoxes.ToArray();
+        //List<AnnotationBox> gameAnnotationBoxes = storyEngine.gameObject.GetComponents<AnnotationBox>().ToList();
+        //annotationBoxes = gameAnnotationBoxes.ToArray();
 
         if (variableListAdaptor == null || variableListAdaptor.TargetEngine != storyEngine)
         {
@@ -2619,9 +2619,9 @@ public class GraphWindow : EventWindow
     {
         var hitNode = GetNodeAtPoint(e.mousePosition);
         var hitGroup = GetGroupAtPoint(e.mousePosition);
-        var hitLabel = GetLabelAtPoint(e.mousePosition);
-        var hitLine = GetLineAtPoint(e.mousePosition);
-        var hitBox = GetAnnotatedBoxAtPoint(e.mousePosition);
+        //var hitLabel = GetLabelAtPoint(e.mousePosition);
+        //var hitLine = GetLineAtPoint(e.mousePosition);
+        //var hitBox = GetAnnotatedBoxAtPoint(e.mousePosition);
 
         // Convert Ctrl+Left click to a right click on macOS
         if (Application.platform == RuntimePlatform.OSXEditor)
@@ -2694,24 +2694,24 @@ public class GraphWindow : EventWindow
                         dragGroup = hitGroup;
                         hasDraggedSelected = false;
                     }
-                    else if (hitLabel != null)
-                    {
-                        startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
-                        dragLabel = hitLabel;
-                        hasDraggedSelected = false;
-                    }
-                    else if (hitLine != null)
-                    {
-                        startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
-                        dragLine = hitLine;
-                        hasDraggedSelected = false;
-                    }
-                    else if (hitBox != null)
-                    {
-                        startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
-                        dragBox = hitBox;
-                        hasDraggedSelected = false;
-                    }
+                    //else if (hitLabel != null)
+                    //{
+                    //    startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
+                    //    dragLabel = hitLabel;
+                    //    hasDraggedSelected = false;
+                    //}
+                    //else if (hitLine != null)
+                    //{
+                    //    startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
+                    //    dragLine = hitLine;
+                    //    hasDraggedSelected = false;
+                    //}
+                    //else if (hitBox != null)
+                    //{
+                    //    startDragPosition = e.mousePosition / storyEngine.Zoom - storyEngine.ScrollPos;
+                    //    dragBox = hitBox;
+                    //    hasDraggedSelected = false;
+                    //}
                     else if (
                         !(
                             UnityEditor.Tools.current == Tool.View
@@ -2918,9 +2918,9 @@ public class GraphWindow : EventWindow
     {
         var hitNode = GetNodeAtPoint(e.mousePosition);
         var hitGroup = GetGroupAtPoint(e.mousePosition);
-        var hitLabel = GetLabelAtPoint(e.mousePosition);
-        var hitLine = GetLineAtPoint(e.mousePosition);
-        var hitBox = GetAnnotatedBoxAtPoint(e.mousePosition);
+        //var hitLabel = GetLabelAtPoint(e.mousePosition);
+        //var hitLine = GetLineAtPoint(e.mousePosition);
+        //var hitBox = GetAnnotatedBoxAtPoint(e.mousePosition);
 
         // Convert Ctrl+Left click to a right click on mac
         if (Application.platform == RuntimePlatform.OSXEditor)
@@ -3195,18 +3195,18 @@ public class GraphWindow : EventWindow
                         //ensure that the new nodes are added to a new group
                         //menu.AddItem(new GUIContent("Duplicate Group"), false, () => DuplicateGroup(hitGroup.GroupedNodes));
                     }
-                    else if (hitLabel != null)
-                    {
-                        menu.AddItem(new GUIContent("Delete Label"), false, () => DeleteLabel(hitLabel));
-                    }
-                    else if (hitLine != null)
-                    {
-                        menu.AddItem(new GUIContent("Delete Line"), false, () => DeleteAnnotationLine(hitLine));
-                    }
-                    else if (hitBox != null)
-                    {
-                        menu.AddItem(new GUIContent("Delete Box"), false, () => DeleteAnnotationBox(hitBox));
-                    }
+                    //else if (hitLabel != null)
+                    //{
+                    //    menu.AddItem(new GUIContent("Delete Label"), false, () => DeleteLabel(hitLabel));
+                    //}
+                    //else if (hitLine != null)
+                    //{
+                    //    menu.AddItem(new GUIContent("Delete Line"), false, () => DeleteAnnotationLine(hitLine));
+                    //}
+                    //else if (hitBox != null)
+                    //{
+                    //    menu.AddItem(new GUIContent("Delete Box"), false, () => DeleteAnnotationBox(hitBox));
+                    //}
                     else
                     {
                         DeselectAllNodes();

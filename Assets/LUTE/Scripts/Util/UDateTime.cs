@@ -32,6 +32,7 @@ public class UDateTime : ISerializationCallbackReceiver
     }
 }
 
+// if we implement this PropertyDrawer then we keep the label next to the text field
 #if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(UDateTime))]
 public class UDateTimeDrawer : PropertyDrawer
@@ -39,39 +40,25 @@ public class UDateTimeDrawer : PropertyDrawer
     // Draw the property inside the given rect
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        // Using BeginProperty / EndProperty on the parent property means that
+        // prefab override logic works on the entire property.
         EditorGUI.BeginProperty(position, label, property);
 
         // Draw label
         position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
-        // Get the UDateTime object from the property
-        SerializedProperty dateTimeProp = property.FindPropertyRelative("_dateTime");
-        DateTime dateTime;
-        DateTime.TryParse(dateTimeProp.stringValue, out dateTime);
+        // Don't make child fields be indented
+        var indent = EditorGUI.indentLevel;
+        EditorGUI.indentLevel = 0;
 
-        // Rects for hour and minute dropdowns
-        float fieldWidth = position.width / 2 - 5;
-        Rect hourRect = new Rect(position.x, position.y, fieldWidth, position.height);
-        Rect minuteRect = new Rect(position.x + fieldWidth + 10, position.y, fieldWidth, position.height);
+        // Calculate rects
+        Rect amountRect = new Rect(position.x, position.y, position.width, position.height);
 
-        // Hour and minute arrays for dropdown
-        int[] hours = new int[24];
-        int[] minutes = new int[60];
-        for (int i = 0; i < 24; i++) hours[i] = i;
-        for (int i = 0; i < 60; i++) minutes[i] = i;
+        // Draw fields - passs GUIContent.none to each so they are drawn without labels
+        EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("_dateTime"), GUIContent.none);
 
-        // Create dropdowns for hours and minutes
-        int selectedHour = dateTime.Hour;
-        int selectedMinute = dateTime.Minute;
-
-        selectedHour = EditorGUI.IntPopup(hourRect, selectedHour, Array.ConvertAll(hours, h => h.ToString()), hours);
-        selectedMinute = EditorGUI.IntPopup(minuteRect, selectedMinute, Array.ConvertAll(minutes, m => m.ToString()), minutes);
-
-        // Update the DateTime object with the selected values
-        dateTime = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, selectedHour, selectedMinute, 0);
-
-        // Write the updated dateTime back to the serialized property
-        dateTimeProp.stringValue = dateTime.ToString();
+        // Set indent back to what it was
+        EditorGUI.indentLevel = indent;
 
         EditorGUI.EndProperty();
     }

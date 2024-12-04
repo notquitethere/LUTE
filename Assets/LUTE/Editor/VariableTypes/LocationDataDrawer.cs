@@ -76,7 +76,7 @@ public class LocationDataDrawer : VariableDataDrawer<LocationVariable>
         }
         else if (selectedIndex == 0)
         {
-            result = null; // Null option
+            result = null;
         }
         else
         {
