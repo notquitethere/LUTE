@@ -50,18 +50,27 @@ public class XRManager : MonoBehaviour
             return false;
         }
 
-        // Initialize XR subsystems
         if (XRGeneralSettings.Instance != null)
         {
-            XRGeneralSettings.Instance.Manager.InitializeLoaderSync();
-            if (XRGeneralSettings.Instance.Manager.activeLoader == null)
+            var xrManager = XRGeneralSettings.Instance.Manager;
+
+            // Check if the XR subsystems are already initialized
+            if (xrManager.isInitializationComplete && xrManager.activeLoader != null)
             {
-                Debug.LogError("Initializing XR Failed. Check Editor or Player log for details.");
-                return false;
+                Debug.Log("XR subsystems are already initialized.");
             }
             else
             {
-                XRGeneralSettings.Instance.Manager.StartSubsystems();
+                xrManager.InitializeLoaderSync();
+                if (xrManager.activeLoader == null)
+                {
+                    Debug.LogError("Initializing XR Failed. Check Editor or Player log for details.");
+                    return false;
+                }
+                else
+                {
+                    xrManager.StartSubsystems();
+                }
             }
         }
         else
@@ -91,7 +100,7 @@ public class XRManager : MonoBehaviour
                 _spawnedXRObject.name = "XR";
 
                 // Parent it under XRManager for organization
-                _spawnedXRObject.transform.SetParent(transform);
+                //_spawnedXRObject.transform.SetParent(transform);
             }
         }
 

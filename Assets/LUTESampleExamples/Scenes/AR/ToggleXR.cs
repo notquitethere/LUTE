@@ -26,7 +26,6 @@ public class ToggleXR : Order
         var xrManager = XRManager.Instance;
 
         // Set the plane visualizer if provided
-        // Set the plane visualizer if provided
         if (_planeVisualizer != null)
         {
             var planeManager = xrManager.GetXRObject()?.GetComponentInChildren<ARPlaneManager>();

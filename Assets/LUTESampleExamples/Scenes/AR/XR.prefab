@@ -89,7 +89,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6897532461775425076}
-  - component: {fileID: 8640483006707707394}
   m_Layer: 0
   m_Name: XR
   m_TagString: Untagged
@@ -115,20 +114,6 @@ Transform:
   - {fileID: 641804606036801076}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8640483006707707394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167826975270057157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f05e830a11ea7943ba4eb55c1a908ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xrRig: {fileID: 4305767977646141554}
-  arSession: {fileID: 9081654295273924033}
 --- !u!1 &4305767977646141554
 GameObject:
   m_ObjectHideFlags: 0

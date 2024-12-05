@@ -6,6 +6,7 @@ using UnityEngine.XR.ARFoundation.Samples;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.VisualScripting;
 
 [OrderInfo("XR", "PlaceObjectOnPlane", "")]
 [AddComponentMenu("")]
@@ -109,7 +110,7 @@ public class PlaceObjectXR : Order
             return;
         }
 
-        Debug.Log(planeManager.gameObject);
+        //Debug.Log(planeManager.gameObject);
 
         ObjectSpawner objectSpawner = arObjectInstance.GetComponentInChildren<ObjectSpawner>();
         if (objectSpawner == null)
@@ -141,7 +142,48 @@ public class PlaceObjectXR : Order
         }
         else
         {
-            // If not automatic, set up event handling as needed
+
+            raycastHitEvent.eventRaised += PlaceObjectAt;
+
+        }
+    }
+
+    private void PlaceObjectAt(object sender, ARRaycastHit hitPose)
+    {
+
+        XRObjectManager.Instance.AddObject(m_ObjectName, m_SpawnedObject);
+
+        ObjectSpawner objectSpawner = XRManager.Instance.GetXRObject().GetComponentInChildren<ObjectSpawner>();
+
+        if (objectSpawner != null)
+        {
+            objectSpawner.TrySpawnObject(hitPose.pose.position, Vector3.up);
+
+            raycastHitEvent.eventRaised -= PlaceObjectAt;
+
+            Continue();
+            return;
+
+        }
+
+
+        if (m_SpawnedObject == null)
+        {
+            m_SpawnedObject = Instantiate(m_PrefabToPlace, hitPose.pose.position, hitPose.pose.rotation, hitPose.trackable.transform.parent);
+
+            var interactable = m_SpawnedObject.AddComponent<InteractableARObject>();
+
+            interactable.isScaleable = scaleable;
+            interactable.isMovable = moveable;
+            interactable.isRotatable = rotateable;
+
+          
+            Continue();
+        }
+        else
+        {
+            //m_SpawnedObject.transform.position = hitPose.pose.position;
+            //m_SpawnedObject.transform.parent = hitPose.trackable.transform.parent;
         }
     }
 
@@ -151,8 +193,13 @@ public class PlaceObjectXR : Order
         {
             if (plane.alignment == planeAlignment)
             {
+
+
+                Debug.Log("Placed object on added");
+
+
                 GameObject go = Instantiate(m_PrefabToPlace, plane.transform.position, plane.transform.rotation);
-                go.transform.parent = plane.transform;
+                //go.transform.parent = plane.transform;
 
                 XRObjectManager.Instance.AddObject(m_ObjectName, go);
 
@@ -163,6 +210,27 @@ public class PlaceObjectXR : Order
                 break;
             }
         }
+
+        foreach (var plane in args.updated)
+        {
+            if (plane.alignment == planeAlignment)
+            {
+                Debug.Log("Placed object on updated");
+
+                GameObject go = Instantiate(m_PrefabToPlace, plane.transform.position, plane.transform.rotation);
+                //go.transform.parent = plane.transform;
+
+                XRObjectManager.Instance.AddObject(m_ObjectName, go);
+
+                // Unsubscribe to prevent multiple placements
+                planeManager.planesChanged -= OnPlaneDetected;
+
+                Continue();
+                break;
+            }
+        }
+
+
     }
 
     public override string GetSummary()
