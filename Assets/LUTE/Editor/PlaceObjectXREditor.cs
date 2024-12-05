@@ -71,7 +71,7 @@ public class PlaceObjectXREditor : OrderEditor
         ////name property
         EditorGUILayout.PropertyField(prefabToPlace);
         EditorGUILayout.PropertyField(objectName);
-        //EditorGUILayout.PropertyField(raycastHitProp);
+        EditorGUILayout.PropertyField(raycastHitProp);
         EditorGUILayout.PropertyField(planeAlignment);
         EditorGUILayout.PropertyField(autoPlace);
 

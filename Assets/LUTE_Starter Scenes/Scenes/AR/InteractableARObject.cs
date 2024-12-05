@@ -44,22 +44,22 @@ public class InteractableARObject : MonoBehaviour
 
         //if the object is scaleable, add two buttons on the screen for scaling
 
-        if(isScaleable)
-        {
-            GameObject scaleUpButton = new GameObject("ScaleUpButton");
-            scaleUpButton.transform.parent = this.transform;
-            scaleUpButton.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
-            scaleUpButton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            scaleUpButton.AddComponent<BoxCollider>();
-            scaleUpButton.AddComponent<ScaleUpButton>();
+        //if(isScaleable)
+        //{
+        //    GameObject scaleUpButton = new GameObject("ScaleUpButton");
+        //    scaleUpButton.transform.parent = this.transform;
+        //    scaleUpButton.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
+        //    scaleUpButton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //    scaleUpButton.AddComponent<BoxCollider>();
+        //    scaleUpButton.AddComponent<ScaleUpButton>();
 
-            GameObject scaleDownButton = new GameObject("ScaleDownButton");
-            scaleDownButton.transform.parent = this.transform;
-            scaleDownButton.transform.localPosition = new Vector3(-0.5f, 0.5f, 0);
-            scaleDownButton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            scaleDownButton.AddComponent<BoxCollider>();
-            scaleDownButton.AddComponent<ScaleDownButton>();
-        }
+        //    GameObject scaleDownButton = new GameObject("ScaleDownButton");
+        //    scaleDownButton.transform.parent = this.transform;
+        //    scaleDownButton.transform.localPosition = new Vector3(-0.5f, 0.5f, 0);
+        //    scaleDownButton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //    scaleDownButton.AddComponent<BoxCollider>();
+        //    scaleDownButton.AddComponent<ScaleDownButton>();
+        //}
         
     }
 

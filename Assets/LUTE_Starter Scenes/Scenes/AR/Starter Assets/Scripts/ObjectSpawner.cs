@@ -250,26 +250,32 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
 
-
+            XRGrabInteractable xRGrabInteractable;
 
             //if object doesn't have XRGrabInteractable component
-            if (newObject.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>() == null)
+            if (newObject.GetComponent<XRGrabInteractable>() == null)
             {
 
                 //add an XRGrabInteractable component to the object
-                var xrGrabInteractable = newObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
-            }
+                xRGrabInteractable = newObject.AddComponent<XRGrabInteractable>();
 
-            //if object doesn't have ARTransformer component
-            if (newObject.GetComponent<Transformers.ARTransformer>() == null)
+                
+            }
+            else
             {
-
-                //add an ARTransformer component to the object
-                var arTransformer = newObject.AddComponent<Transformers.ARTransformer>();
-
-                //set the min scale to the current scale of the object
-                arTransformer.minScale = newObject.transform.localScale.x;
+                xRGrabInteractable = newObject.GetComponent<XRGrabInteractable>();
             }
+
+            ////if object doesn't have ARTransformer component
+            //if (newObject.GetComponent<Transformers.ARTransformer>() == null)
+            //{
+
+            //    //add an ARTransformer component to the object
+            //    var arTransformer = newObject.AddComponent<Transformers.ARTransformer>();
+
+            //    //set the min scale to the current scale of the object
+            //    arTransformer.minScale = newObject.transform.localScale.x;
+            //}
 
             //if object doesn't have a rigidbody component
             if (newObject.GetComponent<Rigidbody>() == null)
@@ -280,12 +286,29 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
             var rigidBody = newObject.GetComponent<Rigidbody>();
 
+
+
+
+            //if object doesn't have a collider component
+            if (newObject.GetComponent<Collider>() == null)
+            {
+
+                //add a collider component to the object
+                newObject.AddComponent<BoxCollider>();
+            }
+
+            var collider = newObject.GetComponent<BoxCollider>();
+
+
+            xRGrabInteractable.colliders.Add(collider);
+
+
             rigidBody.useGravity = false;
             //make it kinematic
             rigidBody.isKinematic = true;
 
             //add one to the index for spawning 
-            m_SpawnOptionIndex++;
+            //m_SpawnOptionIndex++;
 
 
 
