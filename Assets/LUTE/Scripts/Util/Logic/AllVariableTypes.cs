@@ -25,6 +25,11 @@ public static class AllVariableTypes
         typeof(FloatVariable),
         typeof(StringVariable),
         typeof(SpriteVariable),
+        typeof(TimeOfDayVariable),
+        typeof(SeasonVariable),
+        typeof(UDateTimeVariable),
+        typeof(UDateVariable),
+        typeof(UTimeVariable),
 
     };
 }
@@ -50,6 +55,11 @@ public partial struct AnyVariableData
     public FloatData floatData;
     public StringData stringData;
     public SpriteData spriteData;
+    public TimeOfDayData timeOfDayData;
+    public SeasonData seasonData;
+    public UDateTimeData uDateTimeData;
+    public UDateData uDateData;
+    public UTimeData uTimeData;
 
     public bool HasReference(Variable variable)
     {
@@ -164,6 +174,31 @@ public class AnyVariableAndDataPair
                     (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.spriteData.Value); },
                     (anyVar) => anyVar.data.spriteData.GetDescription(),
                     (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.spriteData.Value)) },
+                        { typeof(TimeOfDayVariable),
+            new TypeActions( "timeOfDayData",
+                (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.timeOfDayData.Value); },
+                (anyVar) => anyVar.data.timeOfDayData.GetDescription(),
+                (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.timeOfDayData.Value)) },
+                        { typeof(SeasonVariable),
+            new TypeActions( "seasonData",
+                (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.seasonData.Value); },
+                (anyVar) => anyVar.data.seasonData.GetDescription(),
+                (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.seasonData.Value)) },
+                        { typeof(UDateTimeVariable),
+            new TypeActions( "uDateTimeData",
+                (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.uDateTimeData.Value); },
+                (anyVar) => anyVar.data.uDateTimeData.GetDescription(),
+                (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.uDateTimeData.Value)) },
+                        { typeof(UDateVariable),
+            new TypeActions( "uDateData",
+                (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.uDateData.Value); },
+                (anyVar) => anyVar.data.uDateData.GetDescription(),
+                (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.uDateData.Value)) },
+                        { typeof(UTimeVariable),
+            new TypeActions( "uTimeData",
+                (anyVar, compareOperator) => {return anyVar.variable.Evaluate(compareOperator, anyVar.data.uTimeData.Value); },
+                (anyVar) => anyVar.data.uTimeData.GetDescription(),
+                (anyVar, setOperator) => anyVar.variable.Apply(setOperator, anyVar.data.uTimeData.Value)) }
     };
 
     public bool HasReference(Variable variable)

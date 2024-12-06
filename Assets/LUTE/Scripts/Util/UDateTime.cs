@@ -23,14 +23,17 @@ public class UDateTime : ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        DateTime.TryParse(_dateTime, out dateTime);
+        // Use TryParseExact to enforce the specific format during deserialization
+        DateTime.TryParseExact(_dateTime, "dd/MM/yyyy HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out dateTime);
     }
 
     public void OnBeforeSerialize()
     {
-        _dateTime = dateTime.ToString();
+        // Format the DateTime to the specific format during serialization
+        _dateTime = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
     }
 }
+
 
 // if we implement this PropertyDrawer then we keep the label next to the text field
 #if UNITY_EDITOR

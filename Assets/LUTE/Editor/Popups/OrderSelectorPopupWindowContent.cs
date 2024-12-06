@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -135,6 +136,52 @@ public class OrderSelectorPopupWindowContent : BasePopupWindowContent
 
         // Because this is an async call, we need to force prefab instances to record changes
         PrefabUtility.RecordPrefabInstancePropertyModifications(node);
+
+        engine.ClearSelectedOrders();
+        engine.AddSelectedOrder(newOrder);
+    }
+
+    public static void AddOrderCallBack(Type orderType, ConditionalEventHandler handler)
+    {
+        if (handler == null || orderType == null)
+        {
+            return;
+        }
+
+        var engine = handler.ParentNode.GetEngine();
+
+        // Use index of last selected order in list, or end of list if nothing selected.
+        int index = -1;
+        foreach (var order in engine.SelectedOrders)
+        {
+            if (order.OrderIndex + 1 > index)
+            {
+                index = order.OrderIndex + 1;
+            }
+        }
+        if (index == -1)
+            index = handler.Conditions.Count;
+
+        var newOrder = Undo.AddComponent(handler.gameObject, orderType) as Order;
+        engine.AddSelectedOrder(newOrder);
+        //newOrder.ParentNode = handler.ParentNode;
+        newOrder.ItemId = engine.NextItemId();
+
+        //newOrder.OnOrderAdded(node);
+
+        //record undo action here
+
+        if (index < handler.Conditions.Count - 1)
+        {
+            handler.Conditions.Insert(index, newOrder as If);
+        }
+        else
+        {
+            handler.Conditions.Add(newOrder as If);
+        }
+
+        // Because this is an async call, we need to force prefab instances to record changes
+        PrefabUtility.RecordPrefabInstancePropertyModifications(handler);
 
         engine.ClearSelectedOrders();
         engine.AddSelectedOrder(newOrder);

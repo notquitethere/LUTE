@@ -5,11 +5,13 @@ namespace LoGaCulture.LUTE
     public class DateTimeFieldTest : MonoBehaviour
     {
         [SerializeField] protected UDateTime dateTime;
-        [SerializeField] protected UDateTimeData dateTimeVariable;
+        [SerializeField] protected UTime time;
+        [SerializeField] protected UDate date;
+        [SerializeField] protected Season season;
+        [SerializeField] protected TimeOfDay timeOfDay;
+        [SerializeField] protected DaylightCycle daylightCycle;
 
-        protected virtual void Update()
-        {
-            Debug.Log(dateTimeVariable.Value.dateTime + " and the type is: " + dateTimeVariable.Value.dateTime.GetType());
-        }
+        [VariableProperty(typeof(UDateTimeVariable))]
+        [SerializeField] protected UDateTimeVariable test;
     }
 }

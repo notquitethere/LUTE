@@ -1,8 +1,8 @@
-
-using UnityEngine;
-using UnityEditor;
+using LoGaCulture.LUTE;
 using System;
+using UnityEditor;
 using UnityEditorInternal;
+using UnityEngine;
 
 
 public class OrderListAdapter
@@ -37,7 +37,7 @@ public class OrderListAdapter
             orderLabelStyle.alignment = TextAnchor.MiddleLeft;
         }
 
-        if (node != null && node.OrderList.Count == 0 || group != null && group.OrderList.Count == 0)
+        if (node != null && node.OrderList.Count == 0 || group != null && group.OrderList.Count == 0 || handler != null && handler.Conditions.Count == 0)
         {
             EditorGUILayout.HelpBox("Press the add button to add an order to the list...", MessageType.Info);
         }
@@ -53,8 +53,9 @@ public class OrderListAdapter
     protected ReorderableList list;
     protected Node node;
     protected Group group;
+    protected ConditionalEventHandler handler;
     protected GUIStyle summaryStyle, orderLabelStyle;
-
+    protected string overrideName = "";
 
     public SerializedProperty this[int index]
     {
@@ -66,7 +67,7 @@ public class OrderListAdapter
         get { return _arrayProp; }
     }
 
-    public OrderListAdapter(Node _node, SerializedProperty arrayProp, Group group)
+    public OrderListAdapter(Node _node, SerializedProperty arrayProp, Group _group, ConditionalEventHandler _handler = null)
     {
         if (arrayProp == null)
             throw new ArgumentNullException("Array property was null");
@@ -74,7 +75,16 @@ public class OrderListAdapter
             throw new InvalidOperationException("Specified serialised propery is not an array");
         this._arrayProp = arrayProp;
         this.node = _node;
-        this.group = group;
+        this.group = _group;
+        this.handler = _handler;
+
+        if (this.handler != null)
+        {
+            this.overrideName = "Conditions";
+        }
+
+        var t = arrayProp.displayName;
+        Debug.Log(t);
 
         list = new ReorderableList(arrayProp.serializedObject, arrayProp, true, true, false, false);
         list.drawHeaderCallback = DrawHeader;
@@ -100,7 +110,7 @@ public class OrderListAdapter
         if (engine == null)
             return;
 
-        bool isComment = node.GetType() == typeof(Comment);
+        bool isComment = order.GetType() == typeof(Comment);
         // bool isLabel = node.GetType() == typeof(Label);
 
         string summary = order.GetSummary();
@@ -195,7 +205,7 @@ public class OrderListAdapter
         //you then want to handle mouse clicks on the order in the list - adding it if lclick only then removing if ctrl + lclick
         //you can set your label colour of each order depending if it is selected or not
 
-        if(order.ExecutingIconTimer > Time.realtimeSinceStartup)
+        if (order.ExecutingIconTimer > Time.realtimeSinceStartup)
         {
             Rect iconRect = new Rect(orderLabelRect);
             iconRect.x += iconRect.width - orderLabelRect.width - 20;
@@ -207,7 +217,7 @@ public class OrderListAdapter
             float alpha = (order.ExecutingIconTimer - Time.realtimeSinceStartup) / LogaConstants.ExecutingIconFadeTime;
             alpha = Mathf.Clamp01(alpha);
 
-            GUI.color = new Color (1, 1, 1, alpha);
+            GUI.color = new Color(1, 1, 1, alpha);
             GUI.Label(iconRect, LogaEditorResources.PlayBig, new GUIStyle());
 
             GUI.color = storeColor;
@@ -232,7 +242,14 @@ public class OrderListAdapter
     private void DrawHeader(Rect rect)
     {
         if (rect.width < 0) return;
-        EditorGUI.LabelField(rect, new GUIContent("Orders"), EditorStyles.boldLabel);
+
+        string header = "Orders";
+        if (!string.IsNullOrEmpty(overrideName))
+        {
+            header = overrideName;
+        }
+
+        EditorGUI.LabelField(rect, new GUIContent(header), EditorStyles.boldLabel);
     }
 
     private void SelectChanged(ReorderableList list)

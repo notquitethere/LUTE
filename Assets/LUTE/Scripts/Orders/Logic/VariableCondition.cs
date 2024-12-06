@@ -218,7 +218,11 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
     [SerializeField] protected FloatData floatData;
     [SerializeField] protected StringData stringData;
     [SerializeField] protected SpriteData spriteData;
-
+    [SerializeField] protected TimeOfDayData timeOfDayData;
+    [SerializeField] protected SeasonData seasonData;
+    [SerializeField] protected UDateTimeData uDateTimeData;
+    [SerializeField] protected UDateData uDateData;
+    [SerializeField] protected UTimeData uTimeData;
 
     void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
@@ -285,6 +289,31 @@ public abstract class VariableCondition : Condition, ISerializationCallbackRecei
             {
                 anyVariable.data.spriteData = spriteData;
                 spriteData = new SpriteData();
+            }
+            else if (variable.GetType() == typeof(TimeOfDayVariable) && !timeOfDayData.Equals(new TimeOfDayData()))
+            {
+                anyVariable.data.timeOfDayData = timeOfDayData;
+                timeOfDayData = new TimeOfDayData();
+            }
+            else if (variable.GetType() == typeof(SeasonVariable) && !seasonData.Equals(new SeasonData()))
+            {
+                anyVariable.data.seasonData = seasonData;
+                seasonData = new SeasonData();
+            }
+            else if (variable.GetType() == typeof(UDateTimeVariable) && !uDateTimeData.Equals(new UDateTimeData()))
+            {
+                anyVariable.data.uDateTimeData = uDateTimeData;
+                uDateTimeData = new UDateTimeData();
+            }
+            else if (variable.GetType() == typeof(UDateVariable) && !uDateData.Equals(new UDateTimeData()))
+            {
+                anyVariable.data.uDateData = uDateData;
+                uDateTimeData = new UDateTimeData();
+            }
+            else if (variable.GetType() == typeof(UTimeVariable) && !uTimeData.Equals(new UTimeData()))
+            {
+                anyVariable.data.uTimeData = uTimeData;
+                uTimeData = new UTimeData();
             }
             //moved to new anyvar storage, clear legacy.
             variable = null;

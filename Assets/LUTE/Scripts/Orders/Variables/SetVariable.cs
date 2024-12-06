@@ -81,6 +81,9 @@ public class SetVariable : Order, ISerializationCallbackReceiver
     [Tooltip("Sprite value to compare against")]
     [SerializeField] protected SpriteData spriteData;
 
+    [Tooltip("Time of day value to compare against")]
+    [SerializeField] protected TimeOfDayData timeOfDayData;
+
     public void OnBeforeSerialize()
     {
     }
@@ -117,6 +120,11 @@ public class SetVariable : Order, ISerializationCallbackReceiver
         {
             variable.data.spriteData = spriteData;
             spriteData = new SpriteData();
+        }
+        else if (variable.GetType() == typeof(TimeOfDayVariable) && !timeOfDayData.Equals(new TimeOfDayData()))
+        {
+            variable.data.timeOfDayData = timeOfDayData;
+            timeOfDayData = new TimeOfDayData();
         }
 
         variable = null;
