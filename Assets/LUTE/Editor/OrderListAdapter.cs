@@ -1,4 +1,4 @@
-using LoGaCulture.LUTE;
+﻿using LoGaCulture.LUTE;
 using System;
 using UnityEditor;
 using UnityEditorInternal;
@@ -37,9 +37,25 @@ public class OrderListAdapter
             orderLabelStyle.alignment = TextAnchor.MiddleLeft;
         }
 
+        // If collapsed, show an info box and skip drawing the list
+        if (isCollapsed)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("List is collapsed. ", EditorStyles.helpBox, GUILayout.ExpandWidth(true));
+
+            // Draw the toggle button inside the help box
+            if (GUILayout.Button("►", GUILayout.Width(30))) // Small button
+            {
+                isCollapsed = false; // Expand the list
+            }
+            EditorGUILayout.EndHorizontal();
+
+            return;
+        }
+
         if (node != null && node.OrderList.Count == 0 || group != null && group.OrderList.Count == 0 || handler != null && handler.Conditions.Count == 0)
         {
-            EditorGUILayout.HelpBox("Press the add button to add an order to the list...", MessageType.Info);
+            EditorGUILayout.HelpBox(overrideDesc, MessageType.Info);
         }
         else
         {
@@ -55,7 +71,8 @@ public class OrderListAdapter
     protected Group group;
     protected ConditionalEventHandler handler;
     protected GUIStyle summaryStyle, orderLabelStyle;
-    protected string overrideName = "";
+    protected string overrideName = "Orders";
+    protected string overrideDesc = "Press the add button to add an order to the list...";
 
     private bool isCollapsed = false;
 
@@ -83,6 +100,7 @@ public class OrderListAdapter
         if (this.handler != null)
         {
             this.overrideName = "Conditions";
+            this.overrideDesc = "Press the add button to add a condition to the list...";
         }
 
         list = new ReorderableList(arrayProp.serializedObject, arrayProp, true, true, false, false);
@@ -247,13 +265,15 @@ public class OrderListAdapter
     {
         if (rect.width < 0) return;
 
-        // Toggle collapse state with EditorGUI.Foldout
-        isCollapsed = EditorGUI.Foldout(
-            new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
-            isCollapsed,
-            string.IsNullOrEmpty(overrideName) ? "Orders" : overrideName,
-            true
-        );
+        // Adjust rects for the label and button
+        Rect buttonRect = new Rect(rect.x + rect.width - 25, rect.y, 25, rect.height);
+
+        EditorGUI.LabelField(rect, new GUIContent(overrideName));
+
+        if (GUI.Button(buttonRect, isCollapsed ? "►" : "▼"))
+        {
+            isCollapsed = !isCollapsed; // Toggle the collapsed state
+        }
     }
 
     private void SelectChanged(ReorderableList list)

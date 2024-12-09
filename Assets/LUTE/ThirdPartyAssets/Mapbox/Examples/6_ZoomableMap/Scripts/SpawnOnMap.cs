@@ -157,16 +157,25 @@
 
         private void ProcessNodeLocation(Node node)
         {
+            LocationClickEventHandler handler = node._EventHandler as LocationClickEventHandler;
+
             if (node.NodeLocation != null)
             {
                 AddUniqueLocation(node.NodeLocation);
             }
-            else
+            else if (handler != null)
             {
-                LocationClickEventHandler handler = node._EventHandler as LocationClickEventHandler;
-                if (handler != null)
+                AddUniqueLocation(handler.Location.locationRef);
+            }
+            else if (node._EventHandler != null)
+            {
+                if (node._EventHandler.GetType() == typeof(ConditionalEventHandler))
                 {
-                    AddUniqueLocation(handler.Location.locationRef);
+                    var conditionalEventHandler = node._EventHandler as ConditionalEventHandler;
+                    foreach (var condition in conditionalEventHandler.Conditions)
+                    {
+                        ProcessIfOrderLocation(condition);
+                    }
                 }
             }
         }

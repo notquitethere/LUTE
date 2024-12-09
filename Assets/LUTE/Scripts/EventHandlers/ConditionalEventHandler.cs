@@ -105,11 +105,12 @@ namespace LoGaCulture.LUTE
 
         protected virtual void Start()
         {
-            if (Application.isPlaying)
+            if (!Application.isPlaying)
             {
-                if (fireMode == FireMode.Start)
-                    CheckConditions();
+                return;
             }
+            if (fireMode == FireMode.Start)
+                CheckConditions();
         }
 
         protected virtual void CheckConditions()
@@ -149,7 +150,10 @@ namespace LoGaCulture.LUTE
             {
                 if (order != null)
                 {
-                    DestroyImmediate(order);
+                    if (Application.isPlaying)
+                        Destroy(order.gameObject);
+                    else
+                        DestroyImmediate(order);
                 }
             }
         }

@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -451,6 +452,21 @@ public class Node : MonoBehaviour
                         {
                             locationOrders.Add(order);
                         }
+                    }
+                }
+            }
+        }
+        if (eventHandler != null && eventHandler.GetType() == typeof(ConditionalEventHandler))
+        {
+            var conditionalEventHandler = eventHandler as ConditionalEventHandler;
+            foreach (var condition in conditionalEventHandler.Conditions)
+            {
+                var i = condition as If;
+                foreach (var handlerExpression in i.conditions)
+                {
+                    if (handlerExpression.AnyVariable.variable != null && handlerExpression.AnyVariable.variable.GetType() == typeof(LocationVariable))
+                    {
+                        locationOrders.Add(condition);
                     }
                 }
             }

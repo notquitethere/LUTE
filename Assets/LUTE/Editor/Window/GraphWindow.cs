@@ -1643,12 +1643,9 @@ public class GraphWindow : EventWindow
 
         if (!locationFound)
         {
-            foreach (var order in node.OrderList)
-            {
-                locationFound = order.GetOrderLocation() != null;
-                if (locationFound)
-                    break;
-            }
+            List<Order> locationOrders = new List<Order>();
+            node.GetLocationOrders(ref locationOrders);
+            locationFound = locationOrders.Count > 0;
         }
 
         if (locationFound)
