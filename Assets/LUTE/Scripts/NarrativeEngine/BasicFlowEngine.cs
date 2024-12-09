@@ -321,6 +321,15 @@ public class BasicFlowEngine : MonoBehaviour, ISubstitutionHandler
                     found = true;
                     break;
                 }
+                else if (node._EventHandler != null && node._EventHandler.GetType() == typeof(ConditionalEventHandler))
+                {
+                    var handler = node._EventHandler as ConditionalEventHandler;
+                    if (handler.Conditions.Contains(order))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
             }
             if (!found)
             {

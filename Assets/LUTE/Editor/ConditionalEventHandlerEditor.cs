@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -7,9 +8,11 @@ using UnityEngine;
 
 namespace LoGaCulture.LUTE
 {
-    [CustomEditor(typeof(ConditionalEventHandler), true)]
+    [CustomEditor(typeof(ConditionalEventHandler))]
     public class ConditionalEventHandlerEditor : EventHandlerEditor
     {
+        public static List<Action> actionList = new List<Action>();
+
         protected Texture2D addIcon;
         protected Texture2D removeIcon;
         protected Texture2D duplicateIcon;
@@ -38,33 +41,38 @@ namespace LoGaCulture.LUTE
 
             fireMode = serializedObject.FindProperty("fireMode");
             orderListProp = serializedObject.FindProperty("conditions");
-            if (orderListAdapter == null)
-            {
-                Debug.Log("Creating new OrderListAdapter");
-                orderListAdapter = new OrderListAdapter(null, orderListProp, null, target as ConditionalEventHandler);
-            }
+            orderListAdapter = new OrderListAdapter(null, orderListProp, null, target as ConditionalEventHandler);
+
+            var h = target as ConditionalEventHandler;
+
+            OrderSelectorPopupWindowContent.curHandler = h;
         }
 
         protected override void DrawProperties()
         {
-            serializedObject.Update();
-
             var handler = target as ConditionalEventHandler;
+
+            // Execute any queued cut, copy, paste, etc. operations from the prevous GUI update
+            // We need to defer applying these operations until the following update because
+            // the ReorderableList control emits GUI errors if you clear the list in the same frame
+            // as drawing the control (e.g. select all and then delete)
+            if (Event.current.type == EventType.Layout)
+            {
+                foreach (Action action in actionList)
+                {
+                    if (action != null)
+                    {
+                        action();
+                    }
+                }
+                actionList.Clear();
+            }
 
             EditorGUILayout.PropertyField(fireMode, new GUIContent("Fire Mode", "When to check the conditions. Start happens once, update continously checks."));
 
             DrawHandlerToolBar();
 
             handler.UpdateIndentLevels();
-
-            //BUG: the list cannot be reordered in the inspector - see the debugs for the LONG ASS fix
-
-            //also update indent levels in awake and set execution info (see node awake for this)
-            //^not massively important but worth doing (just like below)
-
-            //the condition sanity check requires this too - you need to check if we are using event handler rather than node
-            //and set a new method on the handler (GetPreviousActiveOrderIndent) to get the indent level of the previous active order
-            //there is a couple of other items to check on the condition sanity check too - however because we know the prior order is a condition we do not need to worry too much about these last few points
 
             orderListAdapter.DrawOrderList();
 
@@ -76,8 +84,6 @@ namespace LoGaCulture.LUTE
                     orderListProp.DeleteArrayElementAtIndex(i);
                 }
             }
-
-            serializedObject.ApplyModifiedProperties();
         }
 
         protected void DrawHandlerToolBar()

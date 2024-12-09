@@ -2008,6 +2008,20 @@ public class GraphWindow : EventWindow
             //remove event handler from given node
             if (deleteNode._EventHandler != null)
             {
+                if (deleteNode._EventHandler.GetType() == typeof(ConditionalEventHandler))
+                {
+                    var conditionalHandler = deleteNode._EventHandler as ConditionalEventHandler;
+                    if (conditionalHandler != null)
+                    {
+                        foreach (var condition in conditionalHandler.Conditions)
+                        {
+                            if (condition != null)
+                            {
+                                Undo.DestroyObjectImmediate(condition);
+                            }
+                        }
+                    }
+                }
                 Undo.DestroyObjectImmediate(deleteNode._EventHandler);
             }
 

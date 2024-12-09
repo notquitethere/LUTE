@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEngine;
 
 public class NodeInspectorWindow : ScriptableObject
 {
@@ -78,6 +78,7 @@ public class NodeInspectorEditor : Editor
             DestroyImmediate(nodeEditor);
             nodeEditor = Editor.CreateEditor(node, typeof(NodeEditor)) as NodeEditor;
         }
+
 
         UpdateWindowHeight();
         float width = EditorGUIUtility.currentViewWidth;

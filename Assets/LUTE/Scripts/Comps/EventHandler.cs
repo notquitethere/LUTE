@@ -1,6 +1,5 @@
-using UnityEngine;
-using UnityEngine.Serialization;
 using System;
+using UnityEngine;
 
 public class EventHandlerInfoAttribute : Attribute
 {

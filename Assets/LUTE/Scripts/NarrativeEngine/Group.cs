@@ -85,7 +85,7 @@ public class Group : Node
                 return true;
         }
     }
-
+#if UNITY_EDITOR
     //Remove any relation the group had to the nodes that were inside of it
     public virtual void DisbandGroup(BasicFlowEngine engine, int id)
     {
@@ -122,9 +122,7 @@ public class Group : Node
             {
                 node._EventHandler.ParentNode = null;
 
-#if UNITY_EDITOR
                 Undo.DestroyObjectImmediate(node._EventHandler);
-#endif
             }
         }
 
@@ -133,7 +131,6 @@ public class Group : Node
 
         // delete the related variable - better way to do this?
         var groupVar = engine.Variables.OfType<NodeCollectionVariable>().ToList().Find(x => groupedNodes.All(node => x.Value.Contains(node)));
-
         if (groupVar != null)
         {
             //remove the variable from the list of variables
@@ -164,7 +161,6 @@ public class Group : Node
                 break;
             }
         }
-
         // remove the group from the story engine groups
         engine.Groups.Remove(this);
 
@@ -183,4 +179,5 @@ public class Group : Node
         // destroy this group
         Undo.DestroyObjectImmediate(this);
     }
+#endif
 }

@@ -45,7 +45,6 @@ public class Node : MonoBehaviour
     [SerializeField] protected bool showDesc;
     [Tooltip("If true, the node will be saved when completed (persistent). Useful for ensuring location nodes are save upon completition")]
     [SerializeField] protected bool saveable = false;
-    [SerializeField] protected List<VariableCondition> nodeConditions = new List<VariableCondition>();
 
     protected int jumpToOrderIndex = -1;
     protected ExecutionState executionState;

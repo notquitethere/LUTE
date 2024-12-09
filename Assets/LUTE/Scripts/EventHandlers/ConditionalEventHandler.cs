@@ -7,6 +7,7 @@ namespace LoGaCulture.LUTE
                   "Condition List",
                   "Executes when the list of conditions has been met")]
     [AddComponentMenu("")]
+    [ExecuteInEditMode]
     public class ConditionalEventHandler : EventHandler
     {
         public enum FireMode
@@ -18,13 +19,64 @@ namespace LoGaCulture.LUTE
         [Tooltip("When to check the conditions. Start happens once, update continously checks.")]
         [SerializeField] protected FireMode fireMode = FireMode.Start;
         [Tooltip("The list of conditions to check.")]
-        [SerializeField] protected List<If> conditions = new List<If>();
+        [SerializeField] protected List<Order> conditions = new List<Order>();
+
+        protected bool executionInfoSet = false;
 
         private bool isComplete;
 
-        public List<If> Conditions
+        public virtual List<Order> Conditions
         {
             get { return conditions; }
+        }
+
+        protected virtual void Awake()
+        {
+            SetExecutionInfo();
+        }
+        protected virtual void SetExecutionInfo()
+        {
+            // Give each child order a reference back to its parent block and tell each order its index in the list
+            int index = 0;
+            for (int i = 0; i < conditions.Count; i++)
+            {
+                var order = conditions[i];
+                if (order == null)
+                {
+                    continue;
+                }
+                order.ParentNode = this.ParentNode;
+                order.OrderIndex = index++;
+            }
+
+            UpdateIndentLevels();
+
+            executionInfoSet = true;
+        }
+
+        protected virtual void Update()
+        {
+            if (Application.isPlaying)
+            {
+                if (fireMode == FireMode.Update)
+                    CheckConditions();
+            }
+
+            // The user can modify the order list order while playing in the editor,
+            // so we keep the order indices updated every frame
+            //There's no need to do this in player builds so we compile this bit out for those builds
+#if UNITY_EDITOR
+            int index = 0;
+            for (int i = 0; i < conditions.Count; i++)
+            {
+                var order = conditions[i];
+                if (order == null)// Null entry will be deleted automatically later
+                {
+                    continue;
+                }
+                order.OrderIndex = index++;
+            }
+#endif
         }
 
         public virtual void UpdateIndentLevels()
@@ -53,14 +105,11 @@ namespace LoGaCulture.LUTE
 
         protected virtual void Start()
         {
-            if (fireMode == FireMode.Start)
-                CheckConditions();
-        }
-
-        protected virtual void Update()
-        {
-            if (fireMode == FireMode.Update)
-                CheckConditions();
+            if (Application.isPlaying)
+            {
+                if (fireMode == FireMode.Start)
+                    CheckConditions();
+            }
         }
 
         protected virtual void CheckConditions()
@@ -89,10 +138,20 @@ namespace LoGaCulture.LUTE
             }
         }
 
-
         public override string GetSummary()
         {
             return "This node will execute upon all conditions being met.";
+        }
+
+        protected void OnDestroy()
+        {
+            foreach (Order order in conditions)
+            {
+                if (order != null)
+                {
+                    DestroyImmediate(order);
+                }
+            }
         }
     }
 }

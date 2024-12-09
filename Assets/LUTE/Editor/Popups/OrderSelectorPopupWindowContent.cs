@@ -31,6 +31,7 @@ public class OrderSelectorPopupWindowContent : BasePopupWindowContent
     }
 
     static Node curNode;
+    public static ConditionalEventHandler curHandler;
 
     static protected List<KeyValuePair<Type, OrderInfoAttribute>> filteredAttributes;
 
@@ -141,14 +142,16 @@ public class OrderSelectorPopupWindowContent : BasePopupWindowContent
         engine.AddSelectedOrder(newOrder);
     }
 
-    public static void AddOrderCallBack(Type orderType, ConditionalEventHandler handler)
+    public static void AddOrderCallBack(Type orderType, EventHandler handler)
     {
-        if (handler == null || orderType == null)
+        var newHandler = curHandler;
+
+        if (newHandler == null || orderType == null)
         {
             return;
         }
 
-        var engine = handler.ParentNode.GetEngine();
+        var engine = newHandler.ParentNode.GetEngine();
 
         // Use index of last selected order in list, or end of list if nothing selected.
         int index = -1;
@@ -160,28 +163,25 @@ public class OrderSelectorPopupWindowContent : BasePopupWindowContent
             }
         }
         if (index == -1)
-            index = handler.Conditions.Count;
+            index = newHandler.Conditions.Count;
 
-        var newOrder = Undo.AddComponent(handler.gameObject, orderType) as Order;
+        var newOrder = Undo.AddComponent(newHandler.gameObject, orderType) as Order;
         engine.AddSelectedOrder(newOrder);
-        //newOrder.ParentNode = handler.ParentNode;
         newOrder.ItemId = engine.NextItemId();
-
-        //newOrder.OnOrderAdded(node);
 
         //record undo action here
 
-        if (index < handler.Conditions.Count - 1)
+        if (index < newHandler.Conditions.Count - 1)
         {
-            handler.Conditions.Insert(index, newOrder as If);
+            newHandler.Conditions.Insert(index, newOrder);
         }
         else
         {
-            handler.Conditions.Add(newOrder as If);
+            newHandler.Conditions.Add(newOrder);
         }
 
         // Because this is an async call, we need to force prefab instances to record changes
-        PrefabUtility.RecordPrefabInstancePropertyModifications(handler);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(newHandler);
 
         engine.ClearSelectedOrders();
         engine.AddSelectedOrder(newOrder);

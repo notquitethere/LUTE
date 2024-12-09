@@ -57,6 +57,8 @@ public class OrderListAdapter
     protected GUIStyle summaryStyle, orderLabelStyle;
     protected string overrideName = "";
 
+    private bool isCollapsed = false;
+
     public SerializedProperty this[int index]
     {
         get { return _arrayProp.GetArrayElementAtIndex(index); }
@@ -83,9 +85,6 @@ public class OrderListAdapter
             this.overrideName = "Conditions";
         }
 
-        var t = arrayProp.displayName;
-        Debug.Log(t);
-
         list = new ReorderableList(arrayProp.serializedObject, arrayProp, true, true, false, false);
         list.drawHeaderCallback = DrawHeader;
         list.drawElementCallback = DrawItem;
@@ -96,6 +95,11 @@ public class OrderListAdapter
     {
         // this simply draws the list item (not the actual content that will be edited) - if the inspector is closed then return
         if (rect.width < 0) return;
+
+        if (isCollapsed)
+        {
+            return; // Don't draw elements when collapsed
+        }
 
         Order order = this[index].objectReferenceValue as Order;
 
@@ -243,13 +247,13 @@ public class OrderListAdapter
     {
         if (rect.width < 0) return;
 
-        string header = "Orders";
-        if (!string.IsNullOrEmpty(overrideName))
-        {
-            header = overrideName;
-        }
-
-        EditorGUI.LabelField(rect, new GUIContent(header), EditorStyles.boldLabel);
+        // Toggle collapse state with EditorGUI.Foldout
+        isCollapsed = EditorGUI.Foldout(
+            new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+            isCollapsed,
+            string.IsNullOrEmpty(overrideName) ? "Orders" : overrideName,
+            true
+        );
     }
 
     private void SelectChanged(ReorderableList list)
@@ -257,6 +261,12 @@ public class OrderListAdapter
         Order order = this[list.index].objectReferenceValue as Order;
         var engine = (BasicFlowEngine)order.GetEngine();
         NodeEditor.actionList.Add(delegate
+        {
+            engine.ClearSelectedOrders();
+            engine.AddSelectedOrder(order);
+        });
+
+        ConditionalEventHandlerEditor.actionList.Add(delegate
         {
             engine.ClearSelectedOrders();
             engine.AddSelectedOrder(order);

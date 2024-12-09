@@ -1,3 +1,4 @@
+using LoGaCulture.LUTE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ public class NodeEditor : Editor
     private SerializedProperty orderListProp;
     private Rect lastEventPopupPos, lastCMDpopupPos;
     private int nodeIndex = 0;
+
+    public EventHandlerEditor eventHandlerEditor;
+
 
     protected virtual void OnEnable()
     {
@@ -381,6 +385,7 @@ public class NodeEditor : Editor
     protected virtual void DrawEventHandlerGUI(BasicFlowEngine engine)
     {
         //show all available event handlers in a popup
+        serializedObject.Update();
 
         Node node = target as Node;
         Type currentType = null;
@@ -422,20 +427,19 @@ public class NodeEditor : Editor
 
         if (node._EventHandler != null)
         {
-            EventHandlerEditor eventHandlerEditor = Editor.CreateEditor(node._EventHandler) as EventHandlerEditor;
-            if (eventHandlerEditor != null)
+            if (eventHandlerEditor == null || !node._EventHandler.Equals(eventHandlerEditor.target))
             {
-                EditorGUI.BeginChangeCheck();
-                eventHandlerEditor.DrawInspectorGUI();
-
-                if (EditorGUI.EndChangeCheck())
-                {
-                    //set stale node data here 
-                }
-
                 DestroyImmediate(eventHandlerEditor);
+                if (currentType != typeof(ConditionalEventHandler))
+                    eventHandlerEditor = Editor.CreateEditor(node._EventHandler, typeof(EventHandlerEditor)) as EventHandlerEditor;
+                else
+                    eventHandlerEditor = Editor.CreateEditor(node._EventHandler, typeof(ConditionalEventHandlerEditor)) as ConditionalEventHandlerEditor;
             }
+            if (eventHandlerEditor != null)
+                eventHandlerEditor.DrawInspectorGUI();
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
 
     public static void NodeField(SerializedProperty property, GUIContent label, GUIContent nullLabel, BasicFlowEngine engine, Node currentNode = null)
