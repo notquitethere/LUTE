@@ -5,7 +5,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARFoundation.Samples;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
-using UnityEngine.XR.Interaction.Toolkit;
+
 using Unity.VisualScripting;
 
 [OrderInfo("XR", "PlaceObjectOnPlane", "")]
@@ -64,7 +64,7 @@ public class PlaceObjectXR : Order
 
         objectSpawner.objectSpawned -= OnObjectSpawned;
 
-        XRGrabInteractable grabInteractable = obj.GetComponentInChildren<XRGrabInteractable>();
+        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable = obj.GetComponentInChildren<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grabInteractable != null)
         {
             grabInteractable.trackPosition = moveable;
@@ -207,7 +207,7 @@ public class PlaceObjectXR : Order
                 planeManager.planesChanged -= OnPlaneDetected;
 
                 Continue();
-                break;
+                return;
             }
         }
 
@@ -226,7 +226,7 @@ public class PlaceObjectXR : Order
                 planeManager.planesChanged -= OnPlaneDetected;
 
                 Continue();
-                break;
+                return;
             }
         }
 

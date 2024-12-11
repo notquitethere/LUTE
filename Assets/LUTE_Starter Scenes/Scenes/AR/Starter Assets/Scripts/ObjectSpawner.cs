@@ -250,20 +250,20 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
 
-            XRGrabInteractable xRGrabInteractable;
+            UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable xRGrabInteractable;
 
             //if object doesn't have XRGrabInteractable component
-            if (newObject.GetComponent<XRGrabInteractable>() == null)
+            if (newObject.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>() == null)
             {
 
                 //add an XRGrabInteractable component to the object
-                xRGrabInteractable = newObject.AddComponent<XRGrabInteractable>();
+                xRGrabInteractable = newObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
                 
             }
             else
             {
-                xRGrabInteractable = newObject.GetComponent<XRGrabInteractable>();
+                xRGrabInteractable = newObject.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
             }
 
             ////if object doesn't have ARTransformer component
