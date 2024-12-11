@@ -24,7 +24,7 @@ namespace LoGaCulture.LUTE
 
             EditorGUILayout.PropertyField(spriteVariableProp, new GUIContent("Sprite Variable", "The sprite variable to display instead of sprite."));
 
-            m_Sprite.objectReferenceValue = spriteVariableProp.objectReferenceValue;
+            //m_Sprite.objectReferenceValue = spriteVariableProp.objectReferenceValue;
 
             serializedObject.ApplyModifiedProperties();
         }

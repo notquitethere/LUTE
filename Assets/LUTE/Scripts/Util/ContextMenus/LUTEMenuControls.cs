@@ -19,8 +19,8 @@ namespace LoGaCulture.LUTE
             go = ObjectFactory.CreateGameObject("LUTEText (TMP)");
             ObjectFactory.AddComponent<VariableTMProText>(go);
 #else
-                go = CreateUIElementRoot("LUTEText (TMP)", s_TextElementSize);
-                go.AddComponent<VariableTMProText>();
+                //go = CreateUIElementRoot("LUTEText (TMP)", s_TextElementSize);
+                //go.AddComponent<VariableTMProText>();
 #endif
 
             return go;

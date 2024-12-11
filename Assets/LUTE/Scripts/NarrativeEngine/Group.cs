@@ -139,18 +139,24 @@ public class Group : Node
             //remove the variable from the list of variables
             engine.Variables.Remove(groupVar);
             //destroy the variable component
+#if UNITY_EDITOR
             Undo.DestroyObjectImmediate(groupVar);
+#endif
         }
 
         // destroy event handler
         if (eventHandler != null)
         {
+#if UNITY_EDITOR
             Undo.DestroyObjectImmediate(eventHandler);
+#endif
         }
         // destroy all orders
         foreach (var order in orderList)
         {
+#if UNITY_EDITOR
             Undo.DestroyObjectImmediate(order);
+#endif
         }
 
         // destroy related game object - better way to do this?
@@ -160,7 +166,9 @@ public class Group : Node
             //if all nodes in the group obj are equal to the nodes provided here then the group obj already exists
             if (groupedNodes.All(x => groupColl.Contains(x)))
             {
+#if UNITY_EDITOR
                 Undo.DestroyObjectImmediate(groupColl.gameObject);
+#endif
                 break;
             }
         }
@@ -181,6 +189,8 @@ public class Group : Node
         }
 
         // destroy this group
+#if UNITY_EDITOR
         Undo.DestroyObjectImmediate(this);
+#endif
     }
 }

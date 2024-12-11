@@ -14,62 +14,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateOnReloadScripts: 0
   add:
-    normal: {fileID: 2800000, guid: 6734f22891a51fa4787ffc7702c7b629, type: 3}
+    normal: {fileID: 0}
   add20:
     normal: {fileID: 0}
   cross:
-    normal: {fileID: 2800000, guid: 91b780dd292390c49b16e221bb745632, type: 3}
+    normal: {fileID: 0}
   default100:
-    normal: {fileID: 2800000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
+    normal: {fileID: 0}
   diamond:
-    normal: {fileID: 2800000, guid: 1e4868606be888243b07b3df1e0cbf5f, type: 3}
+    normal: {fileID: 0}
   duplicate:
-    normal: {fileID: 2800000, guid: 19d7b8b8f921b34458beabfca0ea43ea, type: 3}
+    normal: {fileID: 0}
   hamburgerMenu:
-    normal: {fileID: 2800000, guid: 0b69464f1c744eb429b5ce78289ba24a, type: 3}
+    normal: {fileID: 0}
   keyIcon:
-    normal: {fileID: 2800000, guid: 19726cced070f084988c40c2dbecdd6c, type: 3}
+    normal: {fileID: 0}
   lockIcon:
-    normal: {fileID: 2800000, guid: 9d444302ea516894bbb620b3b22a0a6e, type: 3}
+    normal: {fileID: 0}
   maximise:
-    normal: {fileID: 2800000, guid: b1bd6a7c76746b54e829f1839619f769, type: 3}
+    normal: {fileID: 0}
   minimise:
-    normal: {fileID: 2800000, guid: 9e9dd51f065e7dd4291b0f7e4c952b48, type: 3}
+    normal: {fileID: 0}
   progress100:
-    normal: {fileID: 2800000, guid: 82fb92a372784b04db03ee645e87d3f1, type: 3}
+    normal: {fileID: 0}
   remove:
-    normal: {fileID: 2800000, guid: 432d9822191ea3244bdabb883af3541f, type: 3}
+    normal: {fileID: 0}
   undiscovered100:
-    normal: {fileID: 2800000, guid: d8eb571ec3eb8fc46afb6fcd3e64b25f, type: 3}
+    normal: {fileID: 0}
   logaFavicon:
-    normal: {fileID: 2800000, guid: f8cbee2d5a0500f4681c5505739bdb56, type: 3}
+    normal: {fileID: 0}
   logaLogo:
     normal: {fileID: 0}
   logaLogoSquare:
-    normal: {fileID: 2800000, guid: a7ce6afc3073bed489926862aa3e6196, type: 3}
+    normal: {fileID: 0}
   choice_node_off:
-    normal: {fileID: 2800000, guid: 6427040dcc170204c9f77dbcf880f2af, type: 3}
+    normal: {fileID: 0}
   choice_node_on:
-    normal: {fileID: 2800000, guid: f66532f78348c5b4aad4c2107fcb967e, type: 3}
+    normal: {fileID: 0}
   connection_point:
-    normal: {fileID: 2800000, guid: 340513bb3b7f5a7429e0e0618766b1ac, type: 3}
+    normal: {fileID: 0}
   cutePlayOrder:
-    normal: {fileID: 2800000, guid: 077ef2669410be1439044d73604b595b, type: 3}
+    normal: {fileID: 0}
   dottedBox:
-    normal: {fileID: 2800000, guid: 873d1781562ebf94b81695018e363f7e, type: 3}
+    normal: {fileID: 0}
   event_node_off:
-    normal: {fileID: 2800000, guid: cf56557b651f6484c9208b503be9ca71, type: 3}
+    normal: {fileID: 0}
   event_node_on:
-    normal: {fileID: 2800000, guid: 25ac2c088c6d61e4e9c175d07a2491f2, type: 3}
+    normal: {fileID: 0}
   mapIcon:
-    normal: {fileID: 2800000, guid: 0958bf3dd415e974e90f978b50a845ee, type: 3}
+    normal: {fileID: 0}
   order_background:
-    normal: {fileID: 2800000, guid: 3cff51493cd05b345bc696cfdd4ff830, type: 3}
+    normal: {fileID: 0}
   play_big:
-    normal: {fileID: 2800000, guid: 077ef2669410be1439044d73604b595b, type: 3}
+    normal: {fileID: 0}
   process_node_off:
-    normal: {fileID: 2800000, guid: 12ab76f6c3d6b784ab19d848a7b5251a, type: 3}
+    normal: {fileID: 0}
   process_node_on:
-    normal: {fileID: 2800000, guid: 0636a246ac7bbc941ac909792c2fc5d9, type: 3}
+    normal: {fileID: 0}
   stretchedNode:
     normal: {fileID: 0}
