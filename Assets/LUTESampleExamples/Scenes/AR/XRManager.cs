@@ -82,7 +82,7 @@ public class XRManager : MonoBehaviour
         // Load XR prefab from Resources folder
         if (_xrPrefab == null)
         {
-            _xrPrefab = Resources.Load<GameObject>("Prefabs/XR");
+            _xrPrefab = Resources.Load<GameObject>("Prefabs/XR-New");
             if (_xrPrefab == null)
             {
                 Debug.LogError("XR prefab not found in Resources/Prefabs folder.");
@@ -93,11 +93,11 @@ public class XRManager : MonoBehaviour
         // Instantiate XR prefab if not already in the scene
         if (_spawnedXRObject == null)
         {
-            _spawnedXRObject = GameObject.Find("XR");
+            _spawnedXRObject = GameObject.Find("XR-New");
             if (_spawnedXRObject == null)
             {
                 _spawnedXRObject = Instantiate(_xrPrefab);
-                _spawnedXRObject.name = "XR";
+                _spawnedXRObject.name = "XR-New";
 
                 // Parent it under XRManager for organization
                 //_spawnedXRObject.transform.SetParent(transform);
