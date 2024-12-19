@@ -385,8 +385,6 @@ public class NodeEditor : Editor
     protected virtual void DrawEventHandlerGUI(BasicFlowEngine engine)
     {
         //show all available event handlers in a popup
-        serializedObject.Update();
-
         Node node = target as Node;
         Type currentType = null;
         if (node._EventHandler != null)
@@ -439,7 +437,6 @@ public class NodeEditor : Editor
                 eventHandlerEditor.DrawInspectorGUI();
         }
 
-        serializedObject.ApplyModifiedProperties();
     }
 
     public static void NodeField(SerializedProperty property, GUIContent label, GUIContent nullLabel, BasicFlowEngine engine, Node currentNode = null)

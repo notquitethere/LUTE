@@ -4,7 +4,7 @@ using UnityEngine;
 
 [OrderInfo("Adventure",
               "Achievement",
-              "Update an achievement or quest status")]
+              "Update an achievement or quest status. Requires achievement rules child object on the engine.")]
 [AddComponentMenu("")]
 public class Achievement : Order
 {

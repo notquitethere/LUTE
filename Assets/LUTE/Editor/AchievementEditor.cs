@@ -1,3 +1,5 @@
+using MoreMountains.Tools;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +15,8 @@ public class AchievementEditor : OrderEditor
     protected SerializedProperty nodeProp;
     protected SerializedProperty startIndexProp;
     protected SerializedProperty callModeProp;
+
+    protected List<MMAchievement> Achievements;
 
     protected int achievementIndex = 0;
 
@@ -47,7 +51,10 @@ public class AchievementEditor : OrderEditor
             engine = targetEngineProp.objectReferenceValue as BasicFlowEngine;
         }
 
-        var achievements = engine.GetComponentInChildren<AchievementRules>().AchievementList.Achievements;
+        if (engine == null)
+            return;
+
+        var achievements = engine.GetComponentInChildren<AchievementRules>()?.AchievementList.Achievements;
 
         if (achievements == null)
         {
