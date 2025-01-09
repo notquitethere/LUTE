@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/LUTE_Starter Scenes/Scenes/Games/Level Select/LevelSelect.unity
     guid: 3c81d0af60e15a34cb53c5e3b7e1ec83
-  - enabled: 1
+  - enabled: 0
     path: Assets/LUTE_Starter Scenes/Scenes/Games/Demo/Demo.unity
     guid: ebd0ee8f77144eb40abb4a8ac59a1acf
   - enabled: 1
