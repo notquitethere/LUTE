@@ -1,5 +1,6 @@
 using LoGaCulture.LUTE;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -326,6 +327,17 @@ public class NodeEditor : Editor
         //then we draw the order list using a custom script
         orderListAdapter.DrawOrderList();
 
+        // EventType.contextClick doesn't register since we moved the Block Editor to be inside
+        // a GUI Area, no idea why. As a workaround we just check for right click instead.
+        if (Event.current.type == EventType.MouseUp &&
+            Event.current.button == 1)
+        {
+            ShowContextMenu();
+            Event.current.Use();
+        }
+
+        // KEYBOARD SHORTCUTS GO HERE
+
         //last thing to do is delete any null orders from the list (if they have been deleted or renamed)
         for (int i = orderListProp.arraySize - 1; i >= 0; --i)
         {
@@ -520,7 +532,130 @@ public class NodeEditor : Editor
         property.objectReferenceValue = node;
     }
 
-    protected void CutCommand()
+    public virtual void ShowContextMenu()
+    {
+        var node = target as Node;
+        var engine = node.GetEngine();
+
+        if (engine == null)
+        {
+            return;
+        }
+
+        bool showCut = false;
+        bool showCopy = false;
+        bool showDelete = false;
+        bool showPaste = false;
+        bool showPlay = false;
+
+        if (engine.SelectedOrders.Count > 0)
+        {
+            showCut = true;
+            showCopy = true;
+            showDelete = true;
+            if (engine.SelectedOrders.Count == 1 && Application.isPlaying)
+            {
+                showPlay = true;
+            }
+        }
+
+        OrderCopyBuffer orderCopyBuffer = OrderCopyBuffer.GetInstance();
+
+        if (orderCopyBuffer.HasOrders())
+        {
+            showPaste = true;
+        }
+
+        GenericMenu orderMenu = new GenericMenu();
+
+        if (showCut)
+        {
+            orderMenu.AddItem(new GUIContent("Cut"), false, CutOder);
+        }
+        else
+        {
+            orderMenu.AddDisabledItem(new GUIContent("Cut"));
+        }
+
+        if (showCopy)
+        {
+            orderMenu.AddItem(new GUIContent("Copy"), false, CopyOrder);
+        }
+        else
+        {
+            orderMenu.AddDisabledItem(new GUIContent("Copy"));
+        }
+
+        if (showPaste)
+        {
+            orderMenu.AddItem(new GUIContent("Paste"), false, PasteOrder);
+        }
+        else
+        {
+            orderMenu.AddDisabledItem(new GUIContent("Paste"));
+        }
+
+        if (showDelete)
+        {
+            orderMenu.AddItem(new GUIContent("Delete"), false, DeleteOrder);
+        }
+        else
+        {
+            orderMenu.AddDisabledItem(new GUIContent("Delete"));
+        }
+
+        if (showPlay)
+        {
+            orderMenu.AddItem(new GUIContent("Play from selected"), false, PlayOrder);
+            orderMenu.AddItem(new GUIContent("Stop all and play"), false, StopAllPlayOrder);
+        }
+        orderMenu.AddSeparator("");
+
+        orderMenu.AddItem(new GUIContent("Select All"), false, SelectAll);
+        orderMenu.AddItem(new GUIContent("Select None"), false, SelectNone);
+
+        orderMenu.ShowAsContext();
+    }
+
+    protected void SelectAll()
+    {
+        var node = target as Node;
+        var engine = node.GetEngine();
+
+        if (engine == null ||
+            engine.SelectedNode == null)
+        {
+            return;
+        }
+
+        engine.ClearSelectedOrders();
+        Undo.RecordObject(engine, "Select All");
+        foreach (Order order in engine.SelectedNode.OrderList)
+        {
+            engine.AddSelectedOrder(order);
+        }
+
+        Repaint();
+    }
+
+    protected void SelectNone()
+    {
+        var node = target as Node;
+        var engine = node.GetEngine();
+
+        if (engine == null ||
+            engine.SelectedNode == null)
+        {
+            return;
+        }
+
+        Undo.RecordObject(engine, "Select None");
+        engine.ClearSelectedOrders();
+
+        Repaint();
+    }
+
+    protected void CutOder()
     {
         CopyOrder();
         DeleteOrder();
@@ -676,6 +811,41 @@ public class NodeEditor : Editor
         }
 
         Repaint();
+    }
+
+    protected void PlayOrder()
+    {
+        var targetNode = target as Node;
+        var engine = targetNode.GetEngine();
+        Order order = engine.SelectedOrders[0];
+        if (targetNode.IsExecuting())
+        {
+            // Stop the node, wait a while so the executing order has a chance to stop and then execute again from the new order
+            targetNode.Stop();
+            engine.StartCoroutine(RunNode(engine, targetNode, order.OrderIndex, 0.2f));
+        }
+        else
+        {
+            // We can just start right away
+            engine.ExecuteNode(targetNode, order.OrderIndex);
+        }
+    }
+
+    protected void StopAllPlayOrder()
+    {
+        var targetNode = target as Node;
+        var engine = targetNode.GetEngine();
+        Order order = engine.SelectedOrders[0];
+
+        // Stop all active nodes then run this selected node
+        engine.StopAllNodes();
+        engine.StartCoroutine(RunNode(engine, targetNode, order.OrderIndex, 0.2f));
+    }
+
+    protected IEnumerator RunNode(BasicFlowEngine engine, Node targetNode, int orderIndex, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        engine.ExecuteNode(targetNode, orderIndex);
     }
 
     public static List<KeyValuePair<System.Type, OrderInfoAttribute>> GetFilteredOrderInfoAttribute(List<System.Type> menuTypes)

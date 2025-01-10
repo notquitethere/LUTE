@@ -188,6 +188,122 @@ public class OrderListAdapter
         orderLabelRect.width -= (indentSize * order.IndentLevel);// - 22);
         orderLabelRect.height += 5;
 
+        Rect clickRect = rect;
+
+        // Select Order via left-click
+        if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && clickRect.Contains(Event.current.mousePosition))
+        {
+            if (engine.SelectedOrders.Contains(order) && Event.current.button == 0)
+            {
+                // Left-clicking on already selected order
+                // Command-key or shift not pressed
+                if (!EditorGUI.actionKey && !Event.current.shift)
+                {
+                    NodeEditor.actionList.Add(delegate
+                    {
+                        engine.SelectedOrders.Remove(order);
+                        engine.ClearSelectedOrders();
+                    });
+                }
+
+                // Command-key pressed
+                if (EditorGUI.actionKey)
+                {
+                    NodeEditor.actionList.Add(delegate
+                    {
+                        engine.SelectedOrders.Remove(order);
+                    });
+                    Event.current.Use();
+                }
+            }
+            else
+            {
+                bool shift = Event.current.shift;
+
+                // Left-click and no command key
+                if (!shift && !EditorGUI.actionKey && Event.current.button == 0)
+                {
+                    NodeEditor.actionList.Add(delegate
+                    {
+                        engine.ClearSelectedOrders();
+                    });
+                    Event.current.Use();
+                    list.index = index;
+                }
+
+                NodeEditor.actionList.Add(delegate
+                {
+                    engine.AddSelectedOrder(order);
+                });
+
+                // Find first and last selected order
+                int firstSelectedIndex = -1;
+                int lastSelectedIndex = -1;
+                if (engine.SelectedOrders.Count > 0)
+                {
+                    if (engine.SelectedNode != null)
+                    {
+                        for (int i = 0; i < engine.SelectedNode.OrderList.Count; i++)
+                        {
+                            Order orderInNode = engine.SelectedNode.OrderList[i];
+                            foreach (Order selectedOrder in engine.SelectedOrders)
+                            {
+                                if (orderInNode == selectedOrder)
+                                {
+                                    lastSelectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+                        for (int i = engine.SelectedNode.OrderList.Count - 1; i >= 0; i--)
+                        {
+                            Order orderInNode = engine.SelectedNode.OrderList[i];
+                            foreach (Order selectedOrder in engine.SelectedOrders)
+                            {
+                                if (orderInNode == selectedOrder)
+                                {
+                                    firstSelectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (shift)
+                {
+                    int currentIndex = order.OrderIndex;
+                    if (firstSelectedIndex == -1 || lastSelectedIndex == -1)
+                    {
+                        // No selected order so we select whole list
+                        firstSelectedIndex = 0;
+                        lastSelectedIndex = currentIndex;
+                    }
+                    else
+                    {
+                        if (currentIndex < firstSelectedIndex)
+                        {
+                            firstSelectedIndex = currentIndex;
+                        }
+                        if (currentIndex > lastSelectedIndex)
+                        {
+                            lastSelectedIndex = currentIndex;
+                        }
+                    }
+                    for (int i = Math.Min(firstSelectedIndex, lastSelectedIndex); i < Math.Max(firstSelectedIndex, lastSelectedIndex); i++)
+                    {
+                        var selectedOrder = engine.SelectedNode.OrderList[i];
+                        NodeEditor.actionList.Add(delegate
+                        {
+                            engine.AddSelectedOrder(selectedOrder);
+                        });
+                    }
+                }
+                Event.current.Use();
+            }
+            GUIUtility.keyboardControl = 0; // Fix for textarea not refeshing (change focus)
+        }
+
         Color orderLabelColor = Color.white;
         if (engine.ColourOrders)
         {
