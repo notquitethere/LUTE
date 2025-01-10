@@ -16,4 +16,9 @@ public class LevelSelector : MonoBehaviour
     {
         SceneManager.LoadScene(newSceneName);
     }
+
+    public static void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
 }

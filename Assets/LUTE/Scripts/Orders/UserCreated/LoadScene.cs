@@ -6,31 +6,31 @@ using UnityEngine;
 [AddComponentMenu("")]
 public class LoadScene : Order
 {
-  [Tooltip("the exact name of the target level")]
-  [SerializeField] protected string levelName;
-  [Tooltip("the index of the target level")]
-  [SerializeField] protected int levelIndex;
-  public override void OnEnter()
-  {
-    if (!string.IsNullOrEmpty(levelName))
-      LevelSelector.LoadScene(levelName);
-    else if (levelIndex >= 0)
+    [Tooltip("the exact name of the target level")]
+    [SerializeField] protected string sceneName;
+    [Tooltip("the index of the target level")]
+    [SerializeField] protected int sceneIndex;
+    public override void OnEnter()
     {
-      //implement this later in level selector    
+        if (!string.IsNullOrEmpty(sceneName))
+            LevelSelector.LoadScene(sceneName);
+        else if (sceneIndex >= 0)
+        {
+            LevelSelector.LoadScene(sceneIndex);
+        }
+        else
+            Debug.LogError("No level name or index provided");
+        //Continue();
     }
-    else
-      Debug.LogError("No level name or index provided");
-    //Continue();
-  }
 
-  public override string GetSummary()
-  {
-    //you can use this to return a summary of the order which is displayed in the inspector of the order
-    string levelName = string.IsNullOrEmpty(this.levelName) ? "No level name provided" : this.levelName;
-    if (levelIndex >= 0)
+    public override string GetSummary()
     {
-      levelName += " (Index: " + levelIndex + ")";
+        //you can use this to return a summary of the order which is displayed in the inspector of the order
+        string levelName = string.IsNullOrEmpty(this.sceneName) ? "No level name provided" : this.sceneName;
+        if (sceneIndex >= 0)
+        {
+            levelName += " (Index: " + sceneIndex + ")";
+        }
+        return "Loading Scene " + levelName;
     }
-    return "Loading Scene " + levelName;
-  }
 }

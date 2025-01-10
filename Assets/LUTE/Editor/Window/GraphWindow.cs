@@ -1114,59 +1114,6 @@ public class GraphWindow : EventWindow
     private string GetGroupName(Group group)
     {
         return group._NodeName;
-
-        // Below is old code which will be removed on next patch pass
-        // Seems overly complicated to name a group 
-        // We now stick to using simple group names and getting group names
-
-        if (groupInspector != null)
-        {
-            //if the provided group is equal to group inspector group
-            if (groupInspector.groupedNodes == group.GroupedNodes)
-            {
-                //index of the group
-                int groupID = storyEngine.Groups.IndexOf(group);
-                //update the group name if it exists
-                if (groupInspector.groupName != null && groupInspector.groupName.Length >= 1 && !CheckDefaultName(groupInspector.groupName))
-                {
-                    if (storyEngine.groupnames.Count > groupID)
-                        storyEngine.groupnames[groupID] = groupInspector.groupName;
-                    //return the group name
-                    return groupInspector.groupName;
-                }
-            }
-        }
-        //get the index of the group 
-        int id = storyEngine.Groups.IndexOf(group);
-        //check if the group has a name
-        if (storyEngine.groupnames.Count > id && storyEngine.groupnames[id].Length >= 1)
-        {
-            return storyEngine.groupnames[id];
-        }
-
-        //if no name then determine what type of group it is
-        bool calligraphic = false;
-        foreach (Node node in group.GroupedNodes)
-        {
-            if (HasConnection(node, group.GroupedNodes))
-            {
-                calligraphic = true;
-            }
-            else
-            {
-                calligraphic = false;
-                break;
-            }
-        }
-
-        if (calligraphic)
-        {
-            return "Linked_Group";
-        }
-        else
-        {
-            return "Unlinked_Group"; ;
-        }
     }
 
     private bool CheckDefaultName(string name)

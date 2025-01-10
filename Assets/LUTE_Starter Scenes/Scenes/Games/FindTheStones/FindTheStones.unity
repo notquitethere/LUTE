@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1130624170}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -398,11 +394,11 @@ PrefabInstance:
       value: Satellite
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.materials.Array.data[0].Materials.Array.data[0]
+      propertyPath: '_vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.materials.Array.data[0].Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1936438535394246270, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.materials.Array.data[1].Materials.Array.data[0]
+      propertyPath: '_vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.materials.Array.data[1].Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2069400216335030655, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -918,7 +914,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: groups.Array.data[0]
+      propertyPath: 'groups.Array.data[0]'
       value: 
       objectReference: {fileID: 1773762468}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -930,43 +926,43 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[0]
+      propertyPath: 'variables.Array.data[0]'
       value: 
       objectReference: {fileID: 1773762425}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[1]
+      propertyPath: 'variables.Array.data[1]'
       value: 
       objectReference: {fileID: 1773762424}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[2]
+      propertyPath: 'variables.Array.data[2]'
       value: 
       objectReference: {fileID: 1773762423}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[3]
+      propertyPath: 'variables.Array.data[3]'
       value: 
       objectReference: {fileID: 1773762422}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[4]
+      propertyPath: 'variables.Array.data[4]'
       value: 
       objectReference: {fileID: 1773762421}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[5]
+      propertyPath: 'variables.Array.data[5]'
       value: 
       objectReference: {fileID: 1773762420}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[6]
+      propertyPath: 'variables.Array.data[6]'
       value: 
       objectReference: {fileID: 1773762419}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[7]
+      propertyPath: 'variables.Array.data[7]'
       value: 
       objectReference: {fileID: 1773762433}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: variables.Array.data[8]
+      propertyPath: 'variables.Array.data[8]'
       value: 
       objectReference: {fileID: 1773762447}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: groupnames.Array.data[0]
+      propertyPath: 'groupnames.Array.data[0]'
       value: Stones
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -978,31 +974,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[0]
+      propertyPath: 'selectedNodes.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[1]
+      propertyPath: 'selectedNodes.Array.data[1]'
       value: 
       objectReference: {fileID: 1773762392}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[2]
+      propertyPath: 'selectedNodes.Array.data[2]'
       value: 
       objectReference: {fileID: 1773762391}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[3]
+      propertyPath: 'selectedNodes.Array.data[3]'
       value: 
       objectReference: {fileID: 1773762390}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[4]
+      propertyPath: 'selectedNodes.Array.data[4]'
       value: 
       objectReference: {fileID: 1773762389}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedNodes.Array.data[5]
+      propertyPath: 'selectedNodes.Array.data[5]'
       value: 
       objectReference: {fileID: 1773762388}
     - target: {fileID: 8642065374393819403, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
-      propertyPath: selectedOrders.Array.data[0]
+      propertyPath: 'selectedOrders.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8715595856689934979, guid: ba9b3434c907a5948a27e87a2fde18d9, type: 3}
@@ -1393,7 +1389,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 27113.35
     y: 24769.408
-    width: 124.39025
+    width: 123.73
     height: 40
   nodeName: Secret Stone
   nodeDescription: Basic building block of a narrative engine
@@ -1423,6 +1419,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 1773762432}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,7 +1437,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26333.148
     y: 24576.184
-    width: 93.90244
+    width: 94.05
     height: 40
   nodeName: Stone 6
   nodeDescription: Basic building block of a narrative engine
@@ -1463,6 +1461,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,7 +1479,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26475.148
     y: 24644.047
-    width: 93.90244
+    width: 93.869995
     height: 40
   nodeName: Stone 5
   nodeDescription: Basic building block of a narrative engine
@@ -1503,6 +1503,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1521,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26484.148
     y: 24788.184
-    width: 95.121956
+    width: 94.270004
     height: 40
   nodeName: Stone 4
   nodeDescription: Basic building block of a narrative engine
@@ -1543,6 +1545,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,7 +1563,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26326.148
     y: 24828.047
-    width: 95.121956
+    width: 94.21
     height: 40
   nodeName: Stone 3
   nodeDescription: Basic building block of a narrative engine
@@ -1583,6 +1587,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,7 +1605,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26182.148
     y: 24778.184
-    width: 93.90244
+    width: 93.83
     height: 40
   nodeName: Stone 2
   nodeDescription: Basic building block of a narrative engine
@@ -1623,6 +1629,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1647,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25337.55
     y: 24642.947
-    width: 76.82927
+    width: 77.62
     height: 40
   nodeName: Start
   nodeDescription: Basic building block of a narrative engine
@@ -1661,6 +1669,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1687,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26171.148
     y: 24652.184
-    width: 92.68293
+    width: 92.14
     height: 40
   nodeName: Stone 1
   nodeDescription: Basic building block of a narrative engine
@@ -1701,6 +1711,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1733,9 @@ MonoBehaviour:
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
+  saveSettings: 0
 --- !u!114 &1773762397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,6 +1756,9 @@ MonoBehaviour:
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
+  saveSettings: 0
 --- !u!114 &1773762398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,7 +1775,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25356.553
     y: 24993.18
-    width: 71.95122
+    width: 73.32
     height: 40
   nodeName: Quit
   nodeDescription: Basic building block of a narrative engine
@@ -1775,6 +1793,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,7 +1811,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25044.46
     y: 24825.86
-    width: 113.41464
+    width: 112.34
     height: 40
   nodeName: Main Menu
   nodeDescription: Basic building block of a narrative engine
@@ -1811,6 +1831,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1853,7 @@ MonoBehaviour:
     rgba: 0
   storyText: Greetings, seeker. The stones of Avebury whisper of a hidden gem. Will
     you tread the path of shadows or bask in the light of truth?
-  typingSpeed: 0.04
+  typingSpeed: 30
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1843,6 +1865,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,11 +1895,15 @@ MonoBehaviour:
   text: I am intrigued by the light of truth.
   description: 
   targetNode: {fileID: 1773762408}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,7 +1920,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25593.379
     y: 24539.87
-    width: 126.82928
+    width: 125.09
     height: 40
   nodeName: Shadow Path
   nodeDescription: Basic building block of a narrative engine
@@ -1914,6 +1941,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,11 +1958,15 @@ MonoBehaviour:
   text: Tell me more about this path of shadows.
   description: 
   targetNode: {fileID: 1773762405}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,7 +1987,7 @@ MonoBehaviour:
     rgba: 0
   storyText: The path of shadows is for those who seek to uncover secrets cloaked
     in darkness. Will you dare to listen to the silent tales?
-  typingSpeed: 0.04
+  typingSpeed: 30
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1966,6 +1999,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,7 +2016,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25550.795
     y: 24819.916
-    width: 107.31708
+    width: 107.59
     height: 40
   nodeName: Light Path
   nodeDescription: Basic building block of a narrative engine
@@ -2003,6 +2037,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,7 +2060,7 @@ MonoBehaviour:
   storyText: Whether through shadow or light, the journey ahead is fraught with mystery.
     Each stone holds a key, a step closer to the hidden gem. Go forth, seeker, and
     let your choice guide you to what is sought.
-  typingSpeed: 0.04
+  typingSpeed: 30
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -2036,6 +2072,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,11 +2088,15 @@ MonoBehaviour:
   text: The light may be too blinding for me.
   description: 
   targetNode: {fileID: 1773762415}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,11 +2112,15 @@ MonoBehaviour:
   text: I am ready to see the unseen.
   description: 
   targetNode: {fileID: 1773762415}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,7 +2141,7 @@ MonoBehaviour:
     rgba: 0
   storyText: The light of truth shines upon the bold. Its brilliance reveals the
     unseen. Are you prepared to gaze into the light?
-  typingSpeed: 0.04
+  typingSpeed: 30
   extendPrevious: 0
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -2108,6 +2153,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,11 +2169,15 @@ MonoBehaviour:
   text: I fear what the darkness conceals.
   description: 
   targetNode: {fileID: 1773762415}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,11 +2193,15 @@ MonoBehaviour:
   text: I will listen to the silence.
   description: 
   targetNode: {fileID: 1773762415}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2218,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25795.299
     y: 24651.45
-    width: 106.097565
+    width: 105.35
     height: 40
   nodeName: Converge
   nodeDescription: Basic building block of a narrative engine
@@ -2184,6 +2238,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2230,7 +2286,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25979.352
     y: 24666.178
-    width: 75.60976
+    width: 74.76
     height: 40
   nodeName: Map
   nodeDescription: Basic building block of a narrative engine
@@ -2249,6 +2305,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 0}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,10 +2321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: SecretStone
-  value: 51.42806267650309, -1.8534997566412041
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,10 +2337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone6
-  value: 51.42774579283852, -1.8539437640169776
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2299,10 +2353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone5
-  value: 51.427591101594324, -1.853395687310497
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,10 +2369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone4
-  value: 51.42724075007208, -1.8531646294126587
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2335,10 +2385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone3
-  value: 51.42709660437976, -1.8541288385221508
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,10 +2401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone2
-  value: 51.42732337280221, -1.8549804344031915
-  locationSprite: {fileID: 0}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2371,10 +2417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stone1
-  value: 51.42756962945176, -1.8554739608592763
-  locationSprite: {fileID: 21300000, guid: 3d69bf4b1f575644db3fcca0cb5c60f8, type: 3}
-  locationColor: {r: 1, g: 1, b: 1, a: 1}
-  showLocationName: 1
+  propertyReferences: []
+  value: {fileID: 0}
 --- !u!114 &1773762427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,6 +2451,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2439,6 +2484,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,6 +2517,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,6 +2550,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,7 +2567,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26838.111
     y: 24766.242
-    width: 139.0244
+    width: 137.78
     height: 40
   nodeName: Location Found
   nodeDescription: Basic building block of a narrative engine
@@ -2538,6 +2586,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 1773762387}
   targetKeyNode: {fileID: 1773762468}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!114 &1773762433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,6 +2602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: StonesVisited
+  propertyReferences: []
   value: 0
 --- !u!114 &1773762434
 MonoBehaviour:
@@ -2573,7 +2624,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2591,11 +2642,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,6 +2724,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2660,7 +2757,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2678,11 +2775,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2715,6 +2857,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,7 +2881,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -2756,6 +2899,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -2765,7 +2938,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2783,13 +2956,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -2807,6 +3010,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,7 +3060,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2845,11 +3078,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,6 +3160,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,7 +3181,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2920,11 +3199,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,7 +3269,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -2963,11 +3287,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,7 +3357,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3006,11 +3375,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3031,7 +3445,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3049,11 +3463,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,6 +3546,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3101,6 +3561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: Stones
+  propertyReferences: []
   value: {fileID: 680687046}
 --- !u!114 &1773762448
 MonoBehaviour:
@@ -3122,7 +3583,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3140,11 +3601,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,6 +3683,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,7 +3719,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -3230,6 +3737,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -3239,7 +3776,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3257,13 +3794,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -3281,6 +3848,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,7 +3910,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3331,11 +3928,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,6 +4010,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,7 +4034,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -3409,6 +4052,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -3418,7 +4091,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3436,13 +4109,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -3460,6 +4163,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3480,7 +4213,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3498,11 +4231,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3547,6 +4325,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,7 +4349,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -3588,6 +4367,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -3597,7 +4406,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3615,13 +4424,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -3639,6 +4478,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3659,7 +4528,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3677,11 +4546,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3726,6 +4640,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3749,7 +4664,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -3767,6 +4682,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -3776,7 +4721,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3794,13 +4739,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -3818,6 +4793,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3838,7 +4843,7 @@ MonoBehaviour:
         integerVal: 1
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3856,11 +4861,56 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   setOperator: 2
   var: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
 --- !u!114 &1773762465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3905,6 +4955,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3928,7 +4979,7 @@ MonoBehaviour:
           integerVal: 5
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -3946,6 +4997,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -3955,7 +5036,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -3973,13 +5054,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -3997,6 +5108,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,7 +5154,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 26121.148
     y: 24526.184
-    width: 508.1211
+    width: 507.26953
     height: 391.86328
   nodeName: Stones
   nodeDescription: Basic building block of a narrative engine
@@ -4031,6 +5172,8 @@ MonoBehaviour:
   targetUnlockNode: {fileID: 1773762432}
   targetKeyNode: {fileID: 0}
   showDesc: 0
+  saveable: 0
+  NodeComplete: 0
   groupedNodes:
   - {fileID: 1773762395}
   - {fileID: 1773762392}
@@ -4075,6 +5218,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4106,6 +5250,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,6 +5284,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,6 +5316,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4202,6 +5349,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4234,6 +5382,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,7 +5406,7 @@ MonoBehaviour:
           integerVal: 6
         locationData:
           locationRef: {fileID: 0}
-          locationVal: 
+          locationVal: {fileID: 0}
         collectionData:
           collectionRef: {fileID: 0}
           collectionVal: {fileID: 0}
@@ -4275,6 +5424,36 @@ MonoBehaviour:
         diceData:
           diceRef: {fileID: 0}
           diceVal: 0
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        timeOfDayData:
+          timeOfDayRef: {fileID: 0}
+          timeOfDayVal: 0
+        seasonData:
+          seasonRef: {fileID: 0}
+          seasonVal: 0
+        uDateTimeData:
+          uDateTimeRef: {fileID: 0}
+          uDateTimeVal:
+            _dateTime: 01/01/0001 00:00:00
+        uDateData:
+          uDateRef: {fileID: 0}
+          uDateVal:
+            _dateString: 01/01/0001
+        uTimeData:
+          uTimeRef: {fileID: 0}
+          uTimeVal:
+            _timeString: 00:00:00
   compareOperator: 0
   anyVariable:
     variable: {fileID: 0}
@@ -4284,7 +5463,7 @@ MonoBehaviour:
         integerVal: 0
       locationData:
         locationRef: {fileID: 0}
-        locationVal: 
+        locationVal: {fileID: 0}
       collectionData:
         collectionRef: {fileID: 0}
         collectionVal: {fileID: 0}
@@ -4302,13 +5481,43 @@ MonoBehaviour:
       diceData:
         diceRef: {fileID: 0}
         diceVal: 0
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      timeOfDayData:
+        timeOfDayRef: {fileID: 0}
+        timeOfDayVal: 0
+      seasonData:
+        seasonRef: {fileID: 0}
+        seasonVal: 0
+      uDateTimeData:
+        uDateTimeRef: {fileID: 0}
+        uDateTimeVal:
+          _dateTime: 01/01/0001 00:00:00
+      uDateData:
+        uDateRef: {fileID: 0}
+        uDateVal:
+          _dateString: 01/01/0001
+      uTimeData:
+        uTimeRef: {fileID: 0}
+        uTimeVal:
+          _timeString: 00:00:00
   variable: {fileID: 0}
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
   locationData:
     locationRef: {fileID: 0}
-    locationVal: 
+    locationVal: {fileID: 0}
   collectionData:
     collectionRef: {fileID: 0}
     collectionVal: {fileID: 0}
@@ -4326,6 +5535,36 @@ MonoBehaviour:
   diceData:
     diceRef: {fileID: 0}
     diceVal: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  timeOfDayData:
+    timeOfDayRef: {fileID: 0}
+    timeOfDayVal: 0
+  seasonData:
+    seasonRef: {fileID: 0}
+    seasonVal: 0
+  uDateTimeData:
+    uDateTimeRef: {fileID: 0}
+    uDateTimeVal:
+      _dateTime: 01/01/0001 00:00:00
+  uDateData:
+    uDateRef: {fileID: 0}
+    uDateVal:
+      _dateString: 01/01/0001
+  uTimeData:
+    uTimeRef: {fileID: 0}
+    uTimeVal:
+      _timeString: 00:00:00
 --- !u!114 &1773762476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,6 +5610,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4402,6 +5642,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,6 +5676,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4467,6 +5709,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setDialogueBox: {fileID: 0}
+  showButton: 1
 --- !u!114 &1773762483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4482,11 +5725,15 @@ MonoBehaviour:
   text: AR
   description: 
   targetNode: {fileID: 0}
+  justContinue: 0
+  showNextChoice: 0
   hideIfVisited: 0
   interactable: 1
   setMenuDialogue: {fileID: 0}
   hideThisOption: 0
   closeMenuOnSelect: 1
+  buttonFeedback: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!114 &1773762484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,10 +5811,8 @@ RenderTexture:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
+  serializedVersion: 6
   m_Width: 1957
   m_Height: 384
   m_AntiAliasing: 1
@@ -4578,6 +5823,7 @@ RenderTexture:
   m_GenerateMips: 1
   m_SRGB: 1
   m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
   m_BindMS: 0
   m_EnableCompatibleFormat: 1
   m_EnableRandomWrite: 0

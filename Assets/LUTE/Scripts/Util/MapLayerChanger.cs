@@ -14,13 +14,6 @@ namespace LoGaCulture.LUTE
     {
         [SerializeField] protected ImageryLayer defaultImageryLayer;
 
-        private bool isInitialized;
-
-        protected virtual void Start()
-        {
-            LocationProviderFactory.Instance.mapManager.OnInitialized += () => isInitialized = true;
-        }
-
         public virtual void ChangeLayer(ImageryLayer imageryLayer)
         {
             if (imageryLayer != null)

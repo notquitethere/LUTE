@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LUTEBanner_0: 4273815045950595029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
