@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [OrderInfo("XR",
               "InteractWithXRObject",
@@ -7,59 +9,86 @@ using UnityEngine.Events;
 [AddComponentMenu("")]
 public class InteractWithXRObject : Order
 {
+    [SerializeField] private string _objectName;
 
-    [SerializeField] protected string objectName;
-
-    [SerializeField] protected InteractorEvent interactorEvent;
+    [SerializeField] private InteractorEvent _interactorEvent;
 
     [Tooltip("Event to call when the object is interacted with")]
-    [SerializeField] protected UnityEvent onInteraction;
+    [SerializeField] private UnityEvent _onInteraction;
 
-
-    private GameObject xrObject;
+    private GameObject _xrObject;
 
     public override void OnEnter()
     {
+        // Get the XR object from XRObjectManager
+        _xrObject = XRObjectManager.Instance.GetObject(_objectName);
 
-        xrObject = XRObjectManager.GetObject(objectName);
-
-        if (interactorEvent == null)
+        if (_xrObject == null)
         {
-
-            var interactorEv = xrObject.AddComponent<InteractorEvent>();
-
-            if(interactorEv.onInteracted == null)
-            {
-                interactorEv.onInteracted = new UnityEvent();
-            }
-
-            interactorEv.onInteracted.AddListener(OnInteract);
+            Debug.LogError($"XR Object with name '{_objectName}' not found.");
+            Continue();
+            return;
         }
-        else
+
+        InteractorEvent interactorEv = _interactorEvent ?? _xrObject.GetComponent<InteractorEvent>();
+
+        if (interactorEv == null)
         {
-            interactorEvent.onInteracted.AddListener(OnInteract);
+            interactorEv = _xrObject.AddComponent<InteractorEvent>();
         }
-      //this code gets executed as the order is called
-      //some orders may not lead to another node so you can call continue if you wish to move to the next order after this one   
-      //Continue();
+
+        if (interactorEv.onInteracted == null)
+        {
+            interactorEv.onInteracted = new UnityEvent();
+        }
+
+        //interactorEv.onInteracted.AddListener(OnInteract);
+
+
+
+        //get the xrgrabinteractable on the object
+        var grabInteractable = _xrObject.GetComponent<XRGrabInteractable>();
+        grabInteractable.selectEntered.AddListener(OnInteract);
     }
 
-    public void OnInteract()
+    public void OnInteract(SelectEnterEventArgs args)
     {
-        Debug.Log("Interacted with XR Object");
-        xrObject.GetComponent<InteractorEvent>().onInteracted.RemoveListener(OnInteract);
-        onInteraction.Invoke();
+        Debug.Log("Selected");
+        
+        if(_xrObject != null)
+        {
+            var interactorEv = _xrObject.GetComponent<InteractorEvent>();
+            
+        }
+
+        var grabInteractable = _xrObject.GetComponent<XRGrabInteractable>();
+        grabInteractable.selectEntered.RemoveListener(OnInteract);
+
+        _onInteraction.Invoke();
+
         Continue();
+
     }
 
-    private void Update()
-    {
- 
-    }
+    //public void OnInteract()
+    //{
+    //    Debug.Log("Interacted with XR Object");
+
+    //    if (_xrObject != null)
+    //    {
+    //        var interactorEv = _xrObject.GetComponent<InteractorEvent>();
+    //        if (interactorEv != null)
+    //        {
+    //            interactorEv.onInteracted.RemoveListener(OnInteract);
+    //        }
+    //    }
+
+    //    _onInteraction.Invoke();
+    //    Continue();
+    //}
 
     public override string GetSummary()
-  {
- //you can use this to return a summary of the order which is displayed in the inspector of the order
-      return "";
-  }
+    {
+        return $"Waits for interaction with XR Object '{_objectName}'.";
+    }
 }
