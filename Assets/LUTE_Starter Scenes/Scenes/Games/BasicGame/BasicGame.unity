@@ -351,8 +351,7 @@ PrefabInstance:
       propertyPath: 'orderList.Array.data[4]'
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2875335237225953159, guid: 69d44f7ad440d2e4697c6536d141ba16, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

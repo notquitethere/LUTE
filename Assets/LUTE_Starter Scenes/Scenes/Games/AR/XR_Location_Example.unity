@@ -158,6 +158,8 @@ GameObject:
   - component: {fileID: 543519221}
   - component: {fileID: 543519222}
   - component: {fileID: 543519223}
+  - component: {fileID: 543519225}
+  - component: {fileID: 543519224}
   m_Layer: 0
   m_Name: BasicFlowEngine
   m_TagString: Untagged
@@ -183,8 +185,7 @@ MonoBehaviour:
   hideComponents: 1
   localizationId: 
   selectedOrders: []
-  selectedNodes:
-  - {fileID: 543519209}
+  selectedNodes: []
   nodeViewHeight: 483
   hideOrders: []
   variables:
@@ -905,6 +906,63 @@ MonoBehaviour:
   waitUntilFinished: 1
   durationOLD: 0
   targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &543519224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543519182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff5d05b32c24db409e01e50a2be8298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 543519225}
+  location:
+    locationRef: {fileID: 543519193}
+    locationVal: {fileID: 0}
+  requiresPress: 0
+  autoTrigger: 1
+  requiresLocation: 1
+  triggerWhenAtLocation: 0
+  updateLocationMarkerOnComplete: 0
+--- !u!114 &543519225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543519182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f689a21732a34489f55c1ed82a919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1236
+    y: 161
+    width: 80.63
+    height: 40
+  nodeName: Node
+  nodeDescription: Basic building block of a narrative engine
+  groupDescription: A series of nodes that can be executed as a group
+  itemId: 0
+  orderList: []
+  eventHandler: {fileID: 543519224}
+  isGrouped: 0
+  groupIndex: -1
+  repeatable: 0
+  nodeLocation: {fileID: 543519193}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  hoverStartTime: 0
+  targetUnlockNode: {fileID: 0}
+  targetKeyNode: {fileID: 0}
+  showDesc: 0
+  saveable: 0
+  NodeComplete: 0
 --- !u!1 &958114700
 GameObject:
   m_ObjectHideFlags: 1
