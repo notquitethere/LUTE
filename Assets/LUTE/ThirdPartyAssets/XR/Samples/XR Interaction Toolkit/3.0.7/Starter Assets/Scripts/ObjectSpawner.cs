@@ -9,6 +9,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     /// </summary>
     public class ObjectSpawner : MonoBehaviour
     {
+
+
         public static bool IsCurrentlyPlacingObject = false;
 
         [SerializeField]
@@ -223,12 +225,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (m_SpawnAsChildren)
                 newObject.transform.parent = transform;
 
-
+  
 
 
             newObject.transform.position = spawnPoint;
             EnsureFacingCamera();
-
+                
             var facePosition = m_CameraToFace.transform.position;
             var forward = facePosition - spawnPoint;
             BurstMathUtility.ProjectOnPlane(forward, spawnNormal, out var projectedForward);
@@ -272,7 +274,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 //add an XRGrabInteractable component to the object
                 xRGrabInteractable = spawnedObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
-
+                
             }
             else
             {
