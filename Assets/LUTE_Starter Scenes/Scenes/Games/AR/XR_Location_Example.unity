@@ -183,7 +183,8 @@ MonoBehaviour:
   hideComponents: 1
   localizationId: 
   selectedOrders: []
-  selectedNodes: []
+  selectedNodes:
+  - {fileID: 543519209}
   nodeViewHeight: 483
   hideOrders: []
   variables:

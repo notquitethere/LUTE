@@ -54,7 +54,7 @@ MonoBehaviour:
   connection_point:
     normal: {fileID: 2800000, guid: 340513bb3b7f5a7429e0e0618766b1ac, type: 3}
   cutePlayOrder:
-    normal: {fileID: 2800000, guid: 077ef2669410be1439044d73604b595b, type: 3}
+    normal: {fileID: 2800000, guid: b151dcb4893c8774581f32584dd66c59, type: 3}
   dottedBox:
     normal: {fileID: 2800000, guid: dd4ad4fbc844a8e428e7d61750921f76, type: 3}
   event_node_off:
@@ -66,7 +66,7 @@ MonoBehaviour:
   order_background:
     normal: {fileID: 2800000, guid: 3cff51493cd05b345bc696cfdd4ff830, type: 3}
   play_big:
-    normal: {fileID: 2800000, guid: 5e14fcf697d25c147a20ada053b8b1ff, type: 3}
+    normal: {fileID: 2800000, guid: b151dcb4893c8774581f32584dd66c59, type: 3}
   process_node_off:
     normal: {fileID: 2800000, guid: cf56557b651f6484c9208b503be9ca71, type: 3}
   process_node_on:
