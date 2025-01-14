@@ -245,3 +245,111 @@ Received Import Request.
 Start importing Assets/LUTE/ThirdPartyAssets/XR/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/DemoSceneAssets/Sprites/Asset.png using Guid(2769339cb84f61145bf700c337ce4761) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10b384f46c050fbc907e8f353422e40f') in 0.1006044 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
+========================================================================
+Received Import Request.
+  Time since last request: 894.175291 seconds.
+  path: Assets/LUTE/Editor
+  artifactKey: Guid(5dd460cff7ea4294c9e022ed74a80487) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/Editor using Guid(5dd460cff7ea4294c9e022ed74a80487) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4dffa1f5917f3fc7750f9caa8aeb39c0') in 0.001431 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.012906 seconds.
+  path: Assets/LUTE/EditorResources/Textures
+  artifactKey: Guid(030bb9cf179d0154b90904b3d8bde41a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/EditorResources/Textures using Guid(030bb9cf179d0154b90904b3d8bde41a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1b798586c9878b6363416d9874a59f2') in 0.0004795 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 112.347180 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text UI Screenshot.png
+  artifactKey: Guid(c76d18757a194d618355f05f815cb0a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text UI Screenshot.png using Guid(c76d18757a194d618355f05f815cb0a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd2183cc7b74c1bf0ab1b3832aadd664b') in 0.0202962 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001219 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles33_col.png
+  artifactKey: Guid(3dc850ab82cbc9547b13c66d1f0fcc50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles33_col.png using Guid(3dc850ab82cbc9547b13c66d1f0fcc50) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '418ffb86faf5bd75fb693751b5fad242') in 0.0216873 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles31_col.png
+  artifactKey: Guid(734013d605d55424599c8451053b00cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles31_col.png using Guid(734013d605d55424599c8451053b00cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd2354c94d23bee1f13ee2c0cd50db83c') in 0.0218535 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/traffic2.png
+  artifactKey: Guid(e085a9121904c9b489f2cab3ee5c17c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/traffic2.png using Guid(e085a9121904c9b489f2cab3ee5c17c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'be0f08ac4ead659789b947b3f5dff8d4') in 0.0188308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles67_col.png
+  artifactKey: Guid(609fbda0985973b48aa7d0448b24e8ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles67_col.png using Guid(609fbda0985973b48aa7d0448b24e8ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c6c1849c986e5731f3fe0a3f4c7c7347') in 0.0197722 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles65_col.png
+  artifactKey: Guid(7118ba5396a068440bdd06e9b3cc0cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles65_col.png using Guid(7118ba5396a068440bdd06e9b3cc0cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '636e56cba837b7f27e02e15c36ed04cc') in 0.0383593 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/WoodFloor20_col.png
+  artifactKey: Guid(5e2d4bd257111184fac38551fe737f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/WoodFloor20_col.png using Guid(5e2d4bd257111184fac38551fe737f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2ca54360e275720cf2a426f4097e8acd') in 0.0234367 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Circle.psd
+  artifactKey: Guid(10c49fcd9c64421db7c0133e61e55f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Circle.psd using Guid(10c49fcd9c64421db7c0133e61e55f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '83fd616926be34a41439e8615b3d3053') in 0.0224321 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/traffic3.png
+  artifactKey: Guid(750692085947f114487a02326d8401e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/traffic3.png using Guid(750692085947f114487a02326d8401e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a8e644c8c84e9165fda7a0a151235ad') in 0.0207474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/trafficNorm3.png
+  artifactKey: Guid(ab72bd9433c198c42ab7462e5e6bfab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/trafficNorm3.png using Guid(ab72bd9433c198c42ab7462e5e6bfab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c57c944d4d63f3901723ff83c37e993') in 0.024569 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles60_col.png
+  artifactKey: Guid(5c72a4623f4c14a408e5a1fbac028750) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LUTE/ThirdPartyAssets/Feel/MMFeedbacks/Demos/SequencingDemo/Textures/Tiles60_col.png using Guid(5c72a4623f4c14a408e5a1fbac028750) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '37b682c07aa98cf19a162e051730338b') in 0.0222048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

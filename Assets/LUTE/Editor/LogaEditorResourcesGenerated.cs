@@ -8,6 +8,8 @@ using UnityEngine;
         [SerializeField] private EditorTexture add;
         [SerializeField] private EditorTexture add20;
         [SerializeField] private EditorTexture cross;
+        [SerializeField] private EditorTexture customLUTEUI;
+        [SerializeField] private EditorTexture customLUTEUIText;
         [SerializeField] private EditorTexture default100;
         [SerializeField] private EditorTexture diamond;
         [SerializeField] private EditorTexture duplicate;
@@ -17,8 +19,10 @@ using UnityEngine;
         [SerializeField] private EditorTexture maximise;
         [SerializeField] private EditorTexture minimise;
         [SerializeField] private EditorTexture progress100;
+        [SerializeField] private EditorTexture progress100_new;
         [SerializeField] private EditorTexture remove;
         [SerializeField] private EditorTexture undiscovered100;
+        [SerializeField] private EditorTexture undiscovered100_new;
         [SerializeField] private EditorTexture logaFavicon;
         [SerializeField] private EditorTexture logaLogo;
         [SerializeField] private EditorTexture logaLogoSquare;
@@ -39,6 +43,8 @@ using UnityEngine;
         public static Texture2D Add { get { return Instance.add.Texture2D; } }
         public static Texture2D Add20 { get { return Instance.add20.Texture2D; } }
         public static Texture2D Cross { get { return Instance.cross.Texture2D; } }
+        public static Texture2D CustomLUTEUI { get { return Instance.customLUTEUI.Texture2D; } }
+        public static Texture2D CustomLUTEUIText { get { return Instance.customLUTEUIText.Texture2D; } }
         public static Texture2D Default100 { get { return Instance.default100.Texture2D; } }
         public static Texture2D Diamond { get { return Instance.diamond.Texture2D; } }
         public static Texture2D Duplicate { get { return Instance.duplicate.Texture2D; } }
@@ -48,8 +54,10 @@ using UnityEngine;
         public static Texture2D Maximise { get { return Instance.maximise.Texture2D; } }
         public static Texture2D Minimise { get { return Instance.minimise.Texture2D; } }
         public static Texture2D Progress100 { get { return Instance.progress100.Texture2D; } }
+        public static Texture2D Progress100New { get { return Instance.progress100_new.Texture2D; } }
         public static Texture2D Remove { get { return Instance.remove.Texture2D; } }
         public static Texture2D Undiscovered100 { get { return Instance.undiscovered100.Texture2D; } }
+        public static Texture2D Undiscovered100New { get { return Instance.undiscovered100_new.Texture2D; } }
         public static Texture2D LogaFavicon { get { return Instance.logaFavicon.Texture2D; } }
         public static Texture2D LogaLogo { get { return Instance.logaLogo.Texture2D; } }
         public static Texture2D LogaLogoSquare { get { return Instance.logaLogoSquare.Texture2D; } }
