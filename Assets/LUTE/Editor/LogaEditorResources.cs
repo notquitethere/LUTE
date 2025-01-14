@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Callbacks;
 using UnityEngine;
 #if UNITY_5_0 || UNITY_5_1
 using System.Reflection;
 #endif
-//
+
 [CustomEditor(typeof(LogaEditorResources))]
 public class LogaEditorResourcesInspector : Editor
 {
@@ -30,27 +29,27 @@ public class LogaEditorResourcesInspector : Editor
     }
 }
 
-//Reimport all assets
+////Reimport all assets
 
-public class LogaEditorResourcesPostprocessor : AssetPostprocessor
-{
-    private static void OnPostprocessAllAssets(string[] importedAssets, string[] _, string[] __, string[] ___)
-    {
-        foreach (var path in importedAssets)
-        {
-            if (path.EndsWith("LogaEditorResources.asset"))
-            {
-                var asset = AssetDatabase.LoadAssetAtPath(path, typeof(LogaEditorResources)) as LogaEditorResources;
-                if (asset != null)
-                {
-                    LogaEditorResources.UpdateTextureReferences(asset);
-                    AssetDatabase.SaveAssets();
-                    return;
-                }
-            }
-        }
-    }
-}
+//public class LogaEditorResourcesPostprocessor : AssetPostprocessor
+//{
+//    private static void OnPostprocessAllAssets(string[] importedAssets, string[] _, string[] __, string[] ___)
+//    {
+//        foreach (var path in importedAssets)
+//        {
+//            if (path.EndsWith("LogaEditorResources.asset"))
+//            {
+//                var asset = AssetDatabase.LoadAssetAtPath(path, typeof(LogaEditorResources)) as LogaEditorResources;
+//                if (asset != null)
+//                {
+//                    LogaEditorResources.UpdateTextureReferences(asset);
+//                    AssetDatabase.SaveAssets();
+//                    return;
+//                }
+//            }
+//        }
+//    }
+//}
 
 public partial class LogaEditorResources : ScriptableObject
 {
@@ -115,6 +114,7 @@ public partial class LogaEditorResources : ScriptableObject
                 return path;
         }
 
+        Debug.LogError("EditorResources folder not found!");
         return string.Empty;
     }
 
@@ -127,8 +127,7 @@ public partial class LogaEditorResources : ScriptableObject
 
         foreach (var path in paths)
         {
-            var filename = Path.GetFileNameWithoutExtension(path);
-            textureNames.Add(filename);
+            textureNames.Add(Path.GetFileNameWithoutExtension(path));
         }
 
         //generate script
@@ -140,7 +139,6 @@ public partial class LogaEditorResources : ScriptableObject
         {
             writer.WriteLine("#pragma warning disable 0649");
             writer.WriteLine("");
-            writer.WriteLine("using static LogaEditorResources;");
             writer.WriteLine("using UnityEngine;");
 
             writer.WriteLine("");
@@ -169,14 +167,14 @@ public partial class LogaEditorResources : ScriptableObject
         AssetDatabase.ImportAsset(relativePath);
     }
 
-    [DidReloadScripts]
-    private static void OnDidReloadScripts()
-    {
-        if (Instance.updateOnReloadScripts)
-        {
-            UpdateTextureReferences(Instance);
-        }
-    }
+    //[DidReloadScripts]
+    //private static void OnDidReloadScripts()
+    //{
+    //    if (Instance.updateOnReloadScripts)
+    //    {
+    //        UpdateTextureReferences(Instance);
+    //    }
+    //}
 
     public static void UpdateTextureReferences(LogaEditorResources instance)
     {

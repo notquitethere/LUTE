@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ARBanner_0: 2941618678501745865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
