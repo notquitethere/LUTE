@@ -34,5 +34,5 @@ MonoBehaviour:
   infoImage: {fileID: 0}
   displayName: 
   description: 
-  nodeComplete: 
+  nodeComplete: Location Example
   executeNode: 
